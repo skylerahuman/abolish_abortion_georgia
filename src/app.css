@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+@theme {
+  /* Neutral/Gray palette for dark theme */
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+  --color-neutral-950: #0a0a0a;
+  
+  /* Stone palette (from HTML) */
+  --color-stone-50: #fafaf9;
+  --color-stone-100: #f5f5f4;
+  --color-stone-200: #e7e5e4;
+  --color-stone-300: #d6d3d1;
+  --color-stone-400: #a8a29e;
+  --color-stone-500: #78716c;
+  --color-stone-600: #57534e;
+  --color-stone-700: #44403c;
+  --color-stone-800: #292524;
+  --color-stone-900: #1c1917;
+  --color-stone-950: #0c0a09;
+  
+  /* Red/Crimson palette */
+  --color-red-50: #fef2f2;
+  --color-red-100: #fee2e2;
+  --color-red-200: #fecaca;
+  --color-red-300: #fca5a5;
+  --color-red-400: #f87171;
+  --color-red-500: #ef4444;
+  --color-red-600: #dc2626;
+  --color-red-700: #b91c1c;
+  --color-red-800: #991b1b;
+  --color-red-900: #7f1d1d;
+  --color-red-950: #450a0a;
+  
+  /* Green for success states */
+  --color-green-500: #22c55e;
+  --color-green-600: #16a34a;
+  
+  /* Black */
+  --color-black: #000000;
+}
+
+@layer base {
+  body {
+    @apply bg-black text-gray-200 antialiased font-sans;
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #171717;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #404040;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #525252;
+  }
+  
+  /* Selection */
+  ::selection {
+    @apply bg-red-900 text-white;
+  }
+}
+
+@layer components {
+  /* Timeline Layout */
+  .timeline {
+    position: relative;
+    margin: 2rem auto;
+    padding: 2rem 0;
+    max-width: 900px;
+  }
+  
+  /* Vertical line */
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 120px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #000;
+  }
+  
+  /* Each timeline row */
+  .timeline-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  
+  /* Left column: year/marker */
+  .timeline-marker {
+    width: 120px;
+    text-align: right;
+    padding-right: 1rem;
+    box-sizing: border-box;
+    position: relative;
+    flex-shrink: 0;
+  }
+  
+  /* Circular bullet over the line */
+  .timeline-marker::after {
+    content: "";
+    position: absolute;
+    top: 0.35rem;
+    right: -0.65rem;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid currentColor;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Year label */
+  .timeline-year {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #78716c;
+  }
+  
+  /* Right column: content */
+  .timeline-content {
+    flex: 1;
+    padding-left: 2rem;
+    box-sizing: border-box;
+  }
+  
+  .timeline-content h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  
+  .timeline-date {
+    margin: 0.25rem 0 0.75rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #78716c;
+    letter-spacing: 0.05em;
+  }
+  
+  .timeline-content p {
+    margin: 0;
+    line-height: 1.6;
+    color: #57534e;
+  }
+  
+  /* Gospel Hope tag */
+  .timeline-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-top: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #881337;
+    background: #fef2f2;
+    border-radius: 4px;
+  }
+  
+  /* Mobile adjustment */
+  @media (max-width: 640px) {
+    .timeline::before {
+      left: 60px;
+    }
+    
+    .timeline-marker {
+      width: 60px;
+      padding-right: 0.5rem;
+    }
+    
+    .timeline-marker::after {
+      right: -0.5rem;
+      width: 12px;
+      height: 12px;
+    }
+    
+    .timeline-year {
+      font-size: 0.75rem;
+    }
+    
+    .timeline-content {
+      padding-left: 1.25rem;
+    }
+    
+    .timeline-content h3 {
+      font-size: 1.1rem;
+    }
+  }
+}

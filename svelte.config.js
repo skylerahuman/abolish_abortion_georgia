@@ -10,12 +10,15 @@ const config = {
 	kit: {
 		// adapter-static for GitHub Pages
 		adapter: adapter({
-            pages: 'build',
-            assets: 'build',
+            pages: 'docs',
+            assets: 'docs',
             fallback: '404.html',
             precompress: false,
             strict: true
-        })
+        }),
+        paths: {
+            base: process.argv.includes('dev') ? '' : '/abolish_abortion_georgia'
+        }
 	}
 };
 

@@ -49,7 +49,6 @@
 	let gaBoundaryGeoJSON: any = null;
 
 	let currentMarkers: Marker[] = [];
-	let currentLayers: Layer[] = [];
 
 	// Fallback ZIP code coordinates for common Georgia ZIPs
 	const zipCodeFallback: Record<string, { lat: number; lng: number; city: string }> = {
@@ -227,11 +226,9 @@
 	function updateMap(lat: number, lng: number, usDistrict: string, senateDistrict: string | null, houseDistrict: string | null, poc: PointOfContact | null) {
 		if (!map || !L) return;
 
-		// Clear previous markers and layers
+		// Clear previous markers
 		currentMarkers.forEach(marker => marker.remove());
-		currentLayers.forEach(layer => layer.remove());
 		currentMarkers = [];
-		currentLayers = [];
 
 		// Add user location marker
 		const userIcon = L.divIcon({
@@ -259,30 +256,8 @@
 			currentMarkers.push(pocMarker);
 		}
 
-		// Highlight congressional district
-		const congressFeature = gaCongressGeoJSON.features.find((f: any) => f.properties.district === usDistrict);
-		if (congressFeature) {
-			const layer = L.geoJSON(congressFeature, {
-				style: {
-					color: '#8B2635',
-					weight: 2,
-					fillColor: '#8B2635',
-					fillOpacity: 0.2
-				}
-			}).addTo(map);
-			currentLayers.push(layer);
-		}
-
-		// Fit bounds to show user location and district
-		const bounds: LatLngBounds = L.latLngBounds([[lat, lng]]);
-		if (poc) {
-			bounds.extend([poc.lat, poc.lng]);
-		}
-		if (congressFeature) {
-			const featureBounds = L.geoJSON(congressFeature).getBounds();
-			bounds.extend(featureBounds);
-		}
-		map.fitBounds(bounds, { padding: [50, 50] });
+		// Simply zoom to the user's location
+		map.flyTo([lat, lng], 13);
 	}
 
 	function handleKeyPress(event: KeyboardEvent) {

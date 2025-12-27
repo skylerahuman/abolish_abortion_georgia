@@ -1,16 +1,17 @@
 <script lang="ts">
 	import '../app.css';
 	import { page } from '$app/stores';
+	import { base } from '$app/paths';
 	import favicon from '$lib/assets/favicon.svg';
 	
 	let { children } = $props();
 	let mobileMenuOpen = $state(false);
 	
 	const navItems = [
-		{ href: '/', label: 'Home' },
-		{ href: '/who-do-i-call', label: 'Who Do I Call' },
-		{ href: '/timeline', label: 'Timeline' },
-		{ href: '/faqs', label: 'FAQs' }
+		{ href: `${base}/`, label: 'Home' },
+		{ href: `${base}/who-do-i-call`, label: 'Who Do I Call' },
+		{ href: `${base}/timeline`, label: 'Timeline' },
+		{ href: `${base}/faqs`, label: 'FAQs' }
 	];
 </script>
 
@@ -31,7 +32,7 @@
 						</svg>
 					</div>
 					<div>
-						<a href="/" class="text-xl md:text-2xl font-black tracking-tighter uppercase leading-none">
+						<a href="{base}/" class="text-xl md:text-2xl font-black tracking-tighter uppercase leading-none">
 							Equal Protection
 						</a>
 						<p class="text-[10px] text-neutral-500 tracking-widest uppercase font-bold">The Road to Abolition</p>

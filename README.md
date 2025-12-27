@@ -22,6 +22,7 @@ Interactive map-based tool that helps Georgia residents:
 - Find their U.S. House, State Senate, and State House representatives by ZIP code.
 - View contact information for their elected officials to demand the abolition of abortion.
 - Locate nearby abolitionist societies and advocacy centers.
+- Visualize their location on an interactive map with Leaflet.
 
 ### Timeline
 A chronological overview of the fight for equal protection and the history of abortion legislation in Georgia.

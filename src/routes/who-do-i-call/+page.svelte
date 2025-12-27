@@ -1,0 +1,392 @@
+<script lang="ts">
+	import { onMount } from 'svelte';
+	import * as turf from '@turf/turf';
+	import type { Map, Marker, Layer, LatLngBounds } from 'leaflet';
+
+	interface Representative {
+		name: string;
+		party: string;
+		phone: string;
+		email: string;
+		office_address: string;
+	}
+
+	interface PointOfContact {
+		name: string;
+		lat: number;
+		lng: number;
+		type: string;
+		address: string;
+	}
+
+	interface SearchResult {
+		zipCode: string;
+		city: string;
+		lat: number;
+		lng: number;
+		usHouseDistrict: string;
+		stateSenateDistrict: string;
+		stateHouseDistrict: string;
+		usHouseRep: Representative;
+		stateSenator: Representative;
+		stateHouseRep: Representative;
+		pointOfContact: PointOfContact;
+	}
+
+	let zipCode = $state('');
+	let mapContainer = $state<HTMLDivElement>();
+	let map: Map | null = null;
+	let L: any = null;
+	let searchResult = $state<SearchResult | null>(null);
+	let errorMessage = $state('');
+	let loading = $state(false);
+
+	let representatives: any = null;
+	let pointsOfContact: any = null;
+	let gaCongressGeoJSON: any = null;
+	let gaStateSenateGeoJSON: any = null;
+	let gaStateHouseGeoJSON: any = null;
+	let gaBoundaryGeoJSON: any = null;
+
+	let currentMarkers: Marker[] = [];
+	let currentLayers: Layer[] = [];
+
+	// Fallback ZIP code coordinates for common Georgia ZIPs
+	const zipCodeFallback: Record<string, { lat: number; lng: number; city: string }> = {
+		'30309': { lat: 33.7847, lng: -84.3747, city: 'Atlanta' },
+		'31419': { lat: 32.0298, lng: -81.1165, city: 'Savannah' },
+		'31210': { lat: 32.8819, lng: -83.7102, city: 'Macon' },
+		'30909': { lat: 33.4404, lng: -82.0702, city: 'Augusta' },
+		'31907': { lat: 32.4754, lng: -84.9324, city: 'Columbus' },
+		'30303': { lat: 33.7545, lng: -84.3903, city: 'Atlanta' },
+		'30318': { lat: 33.7985, lng: -84.4255, city: 'Atlanta' },
+		'30312': { lat: 33.7384, lng: -84.3716, city: 'Atlanta' },
+		'31401': { lat: 32.0809, lng: -81.0912, city: 'Savannah' },
+		'31405': { lat: 32.0176, lng: -81.1287, city: 'Savannah' }
+	};
+
+	onMount(async () => {
+		// Load Leaflet
+		L = (await import('leaflet')).default;
+
+		// Load data files
+		try {
+			const [repsRes, pocRes, congressRes, senateRes, houseRes, boundaryRes] = await Promise.all([
+				fetch('/data/representatives.json'),
+				fetch('/data/points-of-contact.json'),
+				fetch('/data/ga-congress.json'),
+				fetch('/data/ga-state-senate.json'),
+				fetch('/data/ga-state-house.json'),
+				fetch('/data/ga-boundary.json')
+			]);
+
+			representatives = await repsRes.json();
+			pointsOfContact = await pocRes.json();
+			gaCongressGeoJSON = await congressRes.json();
+			gaStateSenateGeoJSON = await senateRes.json();
+			gaStateHouseGeoJSON = await houseRes.json();
+			gaBoundaryGeoJSON = await boundaryRes.json();
+		} catch (error) {
+			console.error('Error loading data:', error);
+		}
+
+		// Initialize map
+		if (mapContainer) {
+			map = L.map(mapContainer).setView([32.6781, -83.2238], 7);
+
+			L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+			}).addTo(map);
+
+			// Georgia boundary will be added when a search is performed
+		}
+	});
+
+	async function handleSearch() {
+		if (!zipCode || zipCode.length !== 5) {
+			errorMessage = 'Please enter a valid 5-digit ZIP code.';
+			return;
+		}
+
+		loading = true;
+		errorMessage = '';
+		searchResult = null;
+
+		try {
+			let geocodeData: any[] = [];
+			let lat: number;
+			let lng: number;
+			let city: string = '';
+
+			// Try primary geocoding approach
+			try {
+				const geocodeUrl = `https://nominatim.openstreetmap.org/search?postalcode=${zipCode}&country=US&state=Georgia&format=json&limit=1`;
+				const geocodeRes = await fetch(geocodeUrl, {
+					headers: {
+						'User-Agent': 'AbolitionGeorgia/1.0'
+					}
+				});
+				geocodeData = await geocodeRes.json();
+			} catch (e) {
+				console.warn('Primary geocoding failed:', e);
+			}
+
+			// Fallback: Try broader search with just ZIP code
+			if (!geocodeData || geocodeData.length === 0) {
+				try {
+					const fallbackUrl = `https://nominatim.openstreetmap.org/search?q=${zipCode}+Georgia+USA&format=json&limit=1`;
+					const fallbackRes = await fetch(fallbackUrl, {
+						headers: {
+							'User-Agent': 'AbolitionGeorgia/1.0'
+						}
+					});
+					geocodeData = await fallbackRes.json();
+				} catch (e) {
+					console.warn('Fallback geocoding failed:', e);
+				}
+			}
+
+			// Final fallback: Use hardcoded ZIP coordinates
+			if (!geocodeData || geocodeData.length === 0) {
+				if (zipCodeFallback[zipCode]) {
+					const fallback = zipCodeFallback[zipCode];
+					lat = fallback.lat;
+					lng = fallback.lng;
+					city = fallback.city;
+				} else {
+					errorMessage = 'Could not find this ZIP code in Georgia. Please try again.';
+					loading = false;
+					return;
+				}
+			} else {
+				lat = parseFloat(geocodeData[0].lat);
+				lng = parseFloat(geocodeData[0].lon);
+				city = geocodeData[0].display_name.split(',')[0];
+			}
+
+			// Find districts using point-in-polygon
+			const point = turf.point([lng, lat]);
+			console.log('Looking up districts for point:', { lat, lng, point });
+
+			const usHouseDistrict = findContainingDistrict(point, gaCongressGeoJSON);
+			const stateSenateDistrict = findContainingDistrict(point, gaStateSenateGeoJSON);
+			const stateHouseDistrict = findContainingDistrict(point, gaStateHouseGeoJSON);
+			
+			console.log('Found districts:', { usHouseDistrict, stateSenateDistrict, stateHouseDistrict });
+
+			if (!usHouseDistrict) {
+				errorMessage = 'Could not determine congressional district for this ZIP code.';
+				loading = false;
+				return;
+			}
+
+			// Look up representatives
+			const usHouseRep = representatives.us_congress[usHouseDistrict];
+			const stateSenator = stateSenateDistrict ? representatives.state_senate[stateSenateDistrict] : null;
+			const stateHouseRep = stateHouseDistrict ? representatives.state_house[stateHouseDistrict] : null;
+
+			// Find nearest point of contact
+			const poc = pointsOfContact[usHouseDistrict]?.[0];
+
+			searchResult = {
+				zipCode,
+				city,
+				lat,
+				lng,
+				usHouseDistrict,
+				stateSenateDistrict: stateSenateDistrict || 'N/A',
+				stateHouseDistrict: stateHouseDistrict || 'N/A',
+				usHouseRep,
+				stateSenator,
+				stateHouseRep,
+				pointOfContact: poc
+			};
+
+			// Update map
+			updateMap(lat, lng, usHouseDistrict, stateSenateDistrict, stateHouseDistrict, poc);
+		} catch (error) {
+			console.error('Search error:', error);
+			errorMessage = 'An error occurred while searching. Please try again.';
+		} finally {
+			loading = false;
+		}
+	}
+
+	function findContainingDistrict(point: any, geoJSON: any): string | null {
+		if (!geoJSON || !geoJSON.features) return null;
+
+		for (const feature of geoJSON.features) {
+			const polygon = turf.polygon(feature.geometry.coordinates);
+			if (turf.booleanPointInPolygon(point, polygon)) {
+				return feature.properties.district;
+			}
+		}
+		return null;
+	}
+
+	function updateMap(lat: number, lng: number, usDistrict: string, senateDistrict: string | null, houseDistrict: string | null, poc: PointOfContact | null) {
+		if (!map || !L) return;
+
+		// Clear previous markers and layers
+		currentMarkers.forEach(marker => marker.remove());
+		currentLayers.forEach(layer => layer.remove());
+		currentMarkers = [];
+		currentLayers = [];
+
+		// Add user location marker
+		const userIcon = L.divIcon({
+			html: '<div style="background-color: #DC2626; width: 12px; height: 12px; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>',
+			className: '',
+			iconSize: [16, 16],
+			iconAnchor: [8, 8]
+		});
+		const userMarker = L.marker([lat, lng], { icon: userIcon })
+			.bindPopup('<strong>Your Location</strong>')
+			.addTo(map);
+		currentMarkers.push(userMarker);
+
+		// Add point of contact marker
+		if (poc) {
+			const pocIcon = L.divIcon({
+				html: '<div style="background-color: #8B2635; width: 10px; height: 10px; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>',
+				className: '',
+				iconSize: [14, 14],
+				iconAnchor: [7, 7]
+			});
+			const pocMarker = L.marker([poc.lat, poc.lng], { icon: pocIcon })
+				.bindPopup(`<strong>${poc.name}</strong><br/>${poc.type}`)
+				.addTo(map);
+			currentMarkers.push(pocMarker);
+		}
+
+		// Highlight congressional district
+		const congressFeature = gaCongressGeoJSON.features.find((f: any) => f.properties.district === usDistrict);
+		if (congressFeature) {
+			const layer = L.geoJSON(congressFeature, {
+				style: {
+					color: '#8B2635',
+					weight: 2,
+					fillColor: '#8B2635',
+					fillOpacity: 0.2
+				}
+			}).addTo(map);
+			currentLayers.push(layer);
+		}
+
+		// Fit bounds to show user location and district
+		const bounds: LatLngBounds = L.latLngBounds([[lat, lng]]);
+		if (poc) {
+			bounds.extend([poc.lat, poc.lng]);
+		}
+		if (congressFeature) {
+			const featureBounds = L.geoJSON(congressFeature).getBounds();
+			bounds.extend(featureBounds);
+		}
+		map.fitBounds(bounds, { padding: [50, 50] });
+	}
+
+	function handleKeyPress(event: KeyboardEvent) {
+		if (event.key === 'Enter') {
+			handleSearch();
+		}
+	}
+</script>
+
+<div class="flex flex-col lg:flex-row gap-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+	<!-- Left Panel: Input and Results -->
+	<div class="lg:w-1/3 space-y-6">
+		<div>
+			<h1 class="text-4xl font-bold text-charcoal-900 dark:text-cream-100 mb-4">Who Do I Call</h1>
+			<p class="text-charcoal-700 dark:text-cream-200">
+				Enter your Georgia ZIP code to find your representatives and the nearest advocacy contact.
+			</p>
+		</div>
+
+		<!-- Search Input -->
+		<div class="bg-cream-50 dark:bg-charcoal-800 rounded-lg shadow-lg p-6">
+			<label for="zipcode" class="block text-sm font-medium text-charcoal-700 dark:text-cream-200 mb-2">
+				Enter your Georgia ZIP code
+			</label>
+			<div class="flex gap-2">
+				<input
+					type="text"
+					id="zipcode"
+					bind:value={zipCode}
+					onkeypress={handleKeyPress}
+					placeholder="e.g., 30309"
+					maxlength="5"
+					class="flex-1 px-4 py-2 rounded-lg border border-charcoal-300 dark:border-charcoal-600 bg-white dark:bg-charcoal-900 text-charcoal-900 dark:text-cream-100 focus:outline-none focus:ring-2 focus:ring-crimson-600"
+				/>
+				<button
+					onclick={handleSearch}
+					disabled={loading}
+					class="px-6 py-2 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
+				>
+					{loading ? 'Searching...' : 'Find'}
+				</button>
+			</div>
+			{#if errorMessage}
+				<p class="mt-2 text-sm text-red-600 dark:text-red-400">{errorMessage}</p>
+			{/if}
+		</div>
+
+		<!-- Results -->
+		{#if searchResult}
+			<div class="bg-cream-50 dark:bg-charcoal-800 rounded-lg shadow-lg p-6 space-y-4">
+				<div>
+					<h2 class="text-xl font-semibold text-crimson-700 dark:text-crimson-500 mb-2">Your Location</h2>
+					<p class="text-charcoal-700 dark:text-cream-200">{searchResult.city}, GA {searchResult.zipCode}</p>
+				</div>
+
+				<div class="border-t border-charcoal-200 dark:border-charcoal-700 pt-4">
+					<h3 class="text-lg font-semibold text-crimson-700 dark:text-crimson-500 mb-2">U.S. House of Representatives</h3>
+					<p class="text-sm text-charcoal-600 dark:text-cream-300 mb-1">District: {searchResult.usHouseDistrict}</p>
+					{#if searchResult.usHouseRep}
+						<p class="font-medium text-charcoal-900 dark:text-cream-100">{searchResult.usHouseRep.name} ({searchResult.usHouseRep.party})</p>
+						<p class="text-sm text-charcoal-700 dark:text-cream-200">{searchResult.usHouseRep.phone}</p>
+						<p class="text-sm text-charcoal-700 dark:text-cream-200">{searchResult.usHouseRep.email}</p>
+						<p class="text-xs text-charcoal-600 dark:text-cream-300 mt-1">{searchResult.usHouseRep.office_address}</p>
+					{/if}
+				</div>
+
+				{#if searchResult.stateSenator}
+					<div class="border-t border-charcoal-200 dark:border-charcoal-700 pt-4">
+						<h3 class="text-lg font-semibold text-crimson-700 dark:text-crimson-500 mb-2">Georgia State Senate</h3>
+						<p class="text-sm text-charcoal-600 dark:text-cream-300 mb-1">District: {searchResult.stateSenateDistrict}</p>
+						<p class="font-medium text-charcoal-900 dark:text-cream-100">{searchResult.stateSenator.name} ({searchResult.stateSenator.party})</p>
+						<p class="text-sm text-charcoal-700 dark:text-cream-200">{searchResult.stateSenator.phone}</p>
+						<p class="text-sm text-charcoal-700 dark:text-cream-200">{searchResult.stateSenator.email}</p>
+						<p class="text-xs text-charcoal-600 dark:text-cream-300 mt-1">{searchResult.stateSenator.office_address}</p>
+					</div>
+				{/if}
+
+				{#if searchResult.stateHouseRep}
+					<div class="border-t border-charcoal-200 dark:border-charcoal-700 pt-4">
+						<h3 class="text-lg font-semibold text-crimson-700 dark:text-crimson-500 mb-2">Georgia State House</h3>
+						<p class="text-sm text-charcoal-600 dark:text-cream-300 mb-1">District: {searchResult.stateHouseDistrict}</p>
+						<p class="font-medium text-charcoal-900 dark:text-cream-100">{searchResult.stateHouseRep.name} ({searchResult.stateHouseRep.party})</p>
+						<p class="text-sm text-charcoal-700 dark:text-cream-200">{searchResult.stateHouseRep.phone}</p>
+						<p class="text-sm text-charcoal-700 dark:text-cream-200">{searchResult.stateHouseRep.email}</p>
+						<p class="text-xs text-charcoal-600 dark:text-cream-300 mt-1">{searchResult.stateHouseRep.office_address}</p>
+					</div>
+				{/if}
+
+				{#if searchResult.pointOfContact}
+					<div class="border-t border-charcoal-200 dark:border-charcoal-700 pt-4">
+						<h3 class="text-lg font-semibold text-crimson-700 dark:text-crimson-500 mb-2">Nearby Point of Contact</h3>
+						<p class="font-medium text-charcoal-900 dark:text-cream-100">{searchResult.pointOfContact.name}</p>
+						<p class="text-sm text-charcoal-700 dark:text-cream-200">{searchResult.pointOfContact.type}</p>
+						<p class="text-sm text-charcoal-700 dark:text-cream-200">{searchResult.pointOfContact.address}</p>
+					</div>
+				{/if}
+			</div>
+		{/if}
+	</div>
+
+	<!-- Right Panel: Map -->
+	<div class="lg:w-2/3">
+		<div class="bg-cream-50 dark:bg-charcoal-800 rounded-lg shadow-lg p-4">
+			<div bind:this={mapContainer} class="w-full h-[600px] rounded-lg"></div>
+		</div>
+	</div>
+</div>

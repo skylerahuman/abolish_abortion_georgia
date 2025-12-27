@@ -9,7 +9,7 @@ Interactive map-based tool that helps Georgia residents:
 - Find their U.S. House, State Senate, and State House representatives by ZIP code
 - View contact information for their elected officials
 - Locate nearby advocacy and outreach centers
-- Visualize their districts on an interactive map with Leaflet
+- Visualize their location on an interactive map with Leaflet
 
 ### Timeline
 Chronological overview of criminal justice reform milestones.

@@ -9,7 +9,8 @@
 	
 	const navItems = [
 		{ href: `${base}/`, label: 'Home' },
-		{ href: `${base}/who-do-i-call`, label: 'Who Do I Call' },
+		{ href: `${base}/about/hb441`, label: 'About HB 441' },
+		{ href: `${base}/who-do-i-call`, label: 'Action Center' },
 		{ href: `${base}/timeline`, label: 'Timeline' },
 		{ href: `${base}/faqs`, label: 'FAQs' }
 	];

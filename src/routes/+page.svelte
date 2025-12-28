@@ -1,3 +1,7 @@
+<script lang="ts">
+	import { base } from '$app/paths';
+</script>
+
 <!-- Hero Section -->
 <section class="relative py-20 px-4 bg-black border-b border-red-900/20">
 	<div class="max-w-4xl mx-auto text-center">
@@ -47,7 +51,7 @@
 						<svg class="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
 							<path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
 						</svg>
-						<span><strong class="text-neutral-300">Arbitrary Lines:</strong> Protects life only after a heartbeat, 15 weeks, or viability.</span>
+						<span><strong class="text-neutral-300">Arbitrary Lines:</strong> Protects life only after a detectable heartbeat, 15 weeks, or viability.</span>
 					</li>
 					<li class="flex gap-2">
 						<svg class="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -97,7 +101,7 @@
 		</div>
 		
 		<div class="mt-12 text-center">
-			<a href="/timeline" class="bg-red-900 text-white px-8 py-3 hover:bg-red-800 transition-colors font-bold uppercase tracking-widest text-xs shadow-lg inline-block border border-red-800">
+			<a href="{base}/timeline" class="bg-red-900 text-white px-8 py-3 hover:bg-red-800 transition-colors font-bold uppercase tracking-widest text-xs shadow-lg inline-block border border-red-800">
 				View Timeline
 			</a>
 		</div>

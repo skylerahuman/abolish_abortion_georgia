@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import * as turf from '@turf/turf';
-	import type { Map, Marker, Layer, LatLngBounds } from 'leaflet';
+	import type { Map, Marker } from 'leaflet';
+    import { findLegislatorByName, leadership } from '$lib/data/legislator_data';
+    import type { Legislator, Stance } from '$lib/types';
 
 	interface ElectedOfficial {
 		name: string;
@@ -19,6 +21,10 @@
 		address: string;
 	}
 
+    interface EnhancedLegislator extends Legislator {
+        contactInfo?: ElectedOfficial; // Merged from the JSON data
+    }
+
 	interface DistrictLookupResult {
 		zipCode: string;
 		city: string;
@@ -27,9 +33,9 @@
 		usHouseDistrictId: string;
 		stateSenateDistrictId: string;
 		stateHouseDistrictId: string;
-		usHouseRep: ElectedOfficial;
-		stateSenator: ElectedOfficial;
-		stateHouseRep: ElectedOfficial;
+        
+        // The core advocacy targets
+        targets: EnhancedLegislator[];
 		advocacyContact: AdvocacyContact;
 	}
 
@@ -71,7 +77,7 @@
 		// Load data files
 		try {
 			const [repsRes, pocRes, congressRes, senateRes, houseRes, boundaryRes] = await Promise.all([
-				fetch('/data/representatives.json'),
+				fetch('/data/representatives.json'), // Keep using this for contact info for now
 				fetch('/data/points-of-contact.json'),
 				fetch('/data/ga-congress.json'),
 				fetch('/data/ga-state-senate.json'),
@@ -96,10 +102,46 @@
 			L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 			}).addTo(map);
-
-			// Georgia boundary will be added when a search is performed
 		}
 	});
+
+    function getLegislatorStanceColor(stance: Stance): string {
+        switch (stance) {
+            case 'sponsor': return 'bg-green-100 text-green-800 border-green-600';
+            case 'supporter': return 'bg-blue-100 text-blue-800 border-blue-600';
+            case 'target': return 'bg-red-100 text-red-800 border-red-600';
+            case 'opposed': return 'bg-gray-100 text-gray-800 border-gray-600';
+            default: return 'bg-gray-50 text-gray-600 border-gray-300';
+        }
+    }
+
+    function enrichLegislator(basicInfo: ElectedOfficial, chamber: 'house' | 'senate', district: string): EnhancedLegislator {
+        // Try to find in our enhanced static data
+        const enhanced = findLegislatorByName(basicInfo.name);
+        
+        if (enhanced) {
+            return {
+                ...enhanced,
+                contactInfo: basicInfo,
+                // Ensure chamber/district match if coming from fuzzy lookup, or trust the static data
+                chamber: enhanced.chamber, 
+                district: enhanced.district
+            };
+        }
+
+        // Fallback if not in our static "key players" list
+        return {
+            id: basicInfo.name.toLowerCase().replace(/ /g, '-'),
+            name: basicInfo.name,
+            chamber,
+            district,
+            party: basicInfo.party as 'R' | 'D' | 'I',
+            stance: 'undecided',
+            roles: [],
+            committees: [],
+            contactInfo: basicInfo
+        };
+    }
 
 	async function performDistrictLookup() {
 		if (!searchZipCode || searchZipCode.length !== 5) {
@@ -165,27 +207,47 @@
 
 			// Find districts using point-in-polygon
 			const point = turf.point([lng, lat]);
-			console.log('Looking up districts for point:', { lat, lng, point });
-
+			
 			const usHouseDistrictId = getDistrictIdFromCoordinate(point, usHouseGeoJSON);
 			const stateSenateDistrictId = getDistrictIdFromCoordinate(point, stateSenateGeoJSON);
 			const stateHouseDistrictId = getDistrictIdFromCoordinate(point, stateHouseGeoJSON);
 			
-			console.log('Found districts:', { usHouseDistrictId, stateSenateDistrictId, stateHouseDistrictId });
-
 			if (!usHouseDistrictId) {
 				errorMessage = 'Could not determine congressional district for this ZIP code.';
 				loading = false;
 				return;
 			}
 
-			// Look up representatives
-			const usHouseRep = electedOfficialsData.us_congress[usHouseDistrictId];
-			const stateSenator = stateSenateDistrictId ? electedOfficialsData.state_senate[stateSenateDistrictId] : null;
-			const stateHouseRep = stateHouseDistrictId ? electedOfficialsData.state_house[stateHouseDistrictId] : null;
+			// Look up representatives from JSON data
+			const usHouseRepInfo = electedOfficialsData.us_congress[usHouseDistrictId];
+			const stateSenatorInfo = stateSenateDistrictId ? electedOfficialsData.state_senate[stateSenateDistrictId] : null;
+			const stateHouseRepInfo = stateHouseDistrictId ? electedOfficialsData.state_house[stateHouseDistrictId] : null;
 
 			// Find nearest point of contact
 			const advocacyContact = advocacyContactsData[usHouseDistrictId]?.[0];
+
+            // Build the Targets List
+            const targets: EnhancedLegislator[] = [];
+
+            // 1. Leadership (Always added)
+            // We'll just add them as is, but maybe we want to fetch their contact info if available in the global list?
+            // For now, use the static leadership data.
+            leadership.forEach(leader => targets.push({ ...leader }));
+
+            // 2. Local State House Rep
+            if (stateHouseRepInfo) {
+                const enrichedRep = enrichLegislator(stateHouseRepInfo, 'house', stateHouseDistrictId || 'N/A');
+                // Label them as "Your Representative"
+                enrichedRep.roles.unshift({ title: 'Your Representative', priority: 0 });
+                targets.push(enrichedRep);
+            }
+
+            // 3. Local State Senator
+            if (stateSenatorInfo) {
+                const enrichedSen = enrichLegislator(stateSenatorInfo, 'senate', stateSenateDistrictId || 'N/A');
+                enrichedSen.roles.unshift({ title: 'Your Senator', priority: 0 });
+                targets.push(enrichedSen);
+            }
 
 			lookupResult = {
 				zipCode: searchZipCode,
@@ -195,14 +257,12 @@
 				usHouseDistrictId,
 				stateSenateDistrictId: stateSenateDistrictId || 'N/A',
 				stateHouseDistrictId: stateHouseDistrictId || 'N/A',
-				usHouseRep,
-				stateSenator,
-				stateHouseRep,
+                targets,
 				advocacyContact
 			};
 
 			// Update map
-			renderMapMarkers(lat, lng, usHouseDistrictId, stateSenateDistrictId, stateHouseDistrictId, advocacyContact);
+			renderMapMarkers(lat, lng, advocacyContact);
 		} catch (error) {
 			console.error('Search error:', error);
 			errorMessage = 'An error occurred while searching. Please try again.';
@@ -223,7 +283,7 @@
 		return null;
 	}
 
-	function renderMapMarkers(lat: number, lng: number, usDistrictId: string, senateDistrictId: string | null, houseDistrictId: string | null, advocacyContact: AdvocacyContact | null) {
+	function renderMapMarkers(lat: number, lng: number, advocacyContact: AdvocacyContact | null) {
 		if (!map || !L) return;
 
 		// Clear previous markers
@@ -256,7 +316,6 @@
 			activeMapMarkers.push(pocMarker);
 		}
 
-		// Simply zoom to the user's location
 		map.flyTo([lat, lng], 13);
 	}
 
@@ -271,9 +330,9 @@
 	<!-- Left Panel: Input and Results -->
 	<div class="lg:w-1/3 space-y-6">
 		<div>
-			<h1 class="text-4xl font-bold text-charcoal-900 dark:text-cream-100 mb-4">Who Do I Call</h1>
+			<h1 class="text-4xl font-bold text-charcoal-900 dark:text-cream-100 mb-4">Action Center</h1>
 			<p class="text-charcoal-700 dark:text-cream-200">
-				Enter your Georgia ZIP code to find your representatives and the nearest advocacy contact.
+				Enter your Georgia ZIP code to identify your legislators and see if they are standing for Equal Protection.
 			</p>
 		</div>
 
@@ -297,7 +356,7 @@
 					disabled={loading}
 					class="px-6 py-2 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
 				>
-					{loading ? 'Searching...' : 'Find'}
+					{loading ? 'Searching...' : 'Search'}
 				</button>
 			</div>
 			{#if errorMessage}
@@ -307,48 +366,60 @@
 
 		<!-- Results -->
 		{#if lookupResult}
-			<div class="bg-cream-50 dark:bg-charcoal-800 rounded-lg shadow-lg p-6 space-y-4">
-				<div>
-					<h2 class="text-xl font-semibold text-crimson-700 dark:text-crimson-500 mb-2">Your Location</h2>
-					<p class="text-charcoal-700 dark:text-cream-200">{lookupResult.city}, GA {lookupResult.zipCode}</p>
-				</div>
+			<div class="space-y-6">
+                <!-- Location Header -->
+                <div class="bg-neutral-900 text-white p-4 rounded-lg shadow-sm flex justify-between items-center">
+                    <div>
+                        <h2 class="text-sm uppercase tracking-widest text-neutral-400">Jurisdiction</h2>
+                        <p class="font-bold text-lg">{lookupResult.city}, GA {lookupResult.zipCode}</p>
+                    </div>
+                </div>
 
-				<div class="border-t border-charcoal-200 dark:border-charcoal-700 pt-4">
-					<h3 class="text-lg font-semibold text-crimson-700 dark:text-crimson-500 mb-2">U.S. House of Representatives</h3>
-					<p class="text-sm text-charcoal-600 dark:text-cream-300 mb-1">District: {lookupResult.usHouseDistrictId}</p>
-					{#if lookupResult.usHouseRep}
-						<p class="font-medium text-charcoal-900 dark:text-cream-100">{lookupResult.usHouseRep.name} ({lookupResult.usHouseRep.party})</p>
-						<p class="text-sm text-charcoal-700 dark:text-cream-200">{lookupResult.usHouseRep.phone}</p>
-						<p class="text-sm text-charcoal-700 dark:text-cream-200">{lookupResult.usHouseRep.email}</p>
-						<p class="text-xs text-charcoal-600 dark:text-cream-300 mt-1">{lookupResult.usHouseRep.office_address}</p>
-					{/if}
-				</div>
+                <!-- Advocacy Targets List -->
+                <div class="space-y-4">
+                    <h3 class="text-xl font-bold text-neutral-900 dark:text-white border-b pb-2">Your Priority Targets</h3>
+                    
+                    {#each lookupResult.targets as target}
+                        <div class="bg-white dark:bg-charcoal-800 rounded-lg shadow-md border-l-4 {target.stance === 'sponsor' ? 'border-green-600' : target.stance === 'target' ? 'border-red-600' : 'border-gray-400'} overflow-hidden">
+                            <div class="p-5">
+                                <div class="flex justify-between items-start mb-2">
+                                    <div>
+                                        {#each target.roles as role}
+                                            <span class="inline-block bg-neutral-100 text-neutral-600 text-[10px] uppercase font-bold px-2 py-0.5 rounded mb-1 mr-1">
+                                                {role.title}
+                                            </span>
+                                        {/each}
+                                        <h4 class="text-xl font-bold text-neutral-900 dark:text-white">{target.name}</h4>
+                                        <p class="text-sm text-neutral-500">{target.chamber === 'house' ? 'State Representative' : 'State Senator'} • {target.party}</p>
+                                    </div>
+                                    <span class="px-3 py-1 rounded-full text-xs font-bold border {getLegislatorStanceColor(target.stance)} uppercase tracking-wider">
+                                        {target.stance}
+                                    </span>
+                                </div>
+                                
+                                {#if target.contactInfo}
+                                    <div class="mt-4 space-y-1 text-sm text-neutral-600 dark:text-neutral-300">
+                                        <p>📞 {target.contactInfo.phone}</p>
+                                        <p>✉️ {target.contactInfo.email}</p>
+                                    </div>
+                                {/if}
 
-				{#if lookupResult.stateSenator}
-					<div class="border-t border-charcoal-200 dark:border-charcoal-700 pt-4">
-						<h3 class="text-lg font-semibold text-crimson-700 dark:text-crimson-500 mb-2">Georgia State Senate</h3>
-						<p class="text-sm text-charcoal-600 dark:text-cream-300 mb-1">District: {lookupResult.stateSenateDistrictId}</p>
-						<p class="font-medium text-charcoal-900 dark:text-cream-100">{lookupResult.stateSenator.name} ({lookupResult.stateSenator.party})</p>
-						<p class="text-sm text-charcoal-700 dark:text-cream-200">{lookupResult.stateSenator.phone}</p>
-						<p class="text-sm text-charcoal-700 dark:text-cream-200">{lookupResult.stateSenator.email}</p>
-						<p class="text-xs text-charcoal-600 dark:text-cream-300 mt-1">{lookupResult.stateSenator.office_address}</p>
-					</div>
-				{/if}
-
-				{#if lookupResult.stateHouseRep}
-					<div class="border-t border-charcoal-200 dark:border-charcoal-700 pt-4">
-						<h3 class="text-lg font-semibold text-crimson-700 dark:text-crimson-500 mb-2">Georgia State House</h3>
-						<p class="text-sm text-charcoal-600 dark:text-cream-300 mb-1">District: {lookupResult.stateHouseDistrictId}</p>
-						<p class="font-medium text-charcoal-900 dark:text-cream-100">{lookupResult.stateHouseRep.name} ({lookupResult.stateHouseRep.party})</p>
-						<p class="text-sm text-charcoal-700 dark:text-cream-200">{lookupResult.stateHouseRep.phone}</p>
-						<p class="text-sm text-charcoal-700 dark:text-cream-200">{lookupResult.stateHouseRep.email}</p>
-						<p class="text-xs text-charcoal-600 dark:text-cream-300 mt-1">{lookupResult.stateHouseRep.office_address}</p>
-					</div>
-				{/if}
+                                <div class="mt-4 pt-4 border-t border-neutral-100 dark:border-neutral-700 flex gap-2">
+                                    <button class="flex-1 bg-neutral-900 hover:bg-neutral-800 text-white py-2 rounded text-xs font-bold uppercase tracking-widest transition-colors">
+                                        Call Script
+                                    </button>
+                                    <button class="flex-1 border border-neutral-300 hover:bg-neutral-50 text-neutral-900 py-2 rounded text-xs font-bold uppercase tracking-widest transition-colors">
+                                        Email
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    {/each}
+                </div>
 
 				{#if lookupResult.advocacyContact}
-					<div class="border-t border-charcoal-200 dark:border-charcoal-700 pt-4">
-						<h3 class="text-lg font-semibold text-crimson-700 dark:text-crimson-500 mb-2">Nearby Point of Contact</h3>
+					<div class="bg-cream-50 dark:bg-charcoal-800 rounded-lg shadow-lg p-6 border-t border-charcoal-200 dark:border-charcoal-700">
+						<h3 class="text-lg font-semibold text-crimson-700 dark:text-crimson-500 mb-2">Local Advocacy Ally</h3>
 						<p class="font-medium text-charcoal-900 dark:text-cream-100">{lookupResult.advocacyContact.name}</p>
 						<p class="text-sm text-charcoal-700 dark:text-cream-200">{lookupResult.advocacyContact.type}</p>
 						<p class="text-sm text-charcoal-700 dark:text-cream-200">{lookupResult.advocacyContact.address}</p>
@@ -360,7 +431,7 @@
 
 	<!-- Right Panel: Map -->
 	<div class="lg:w-2/3">
-		<div class="bg-cream-50 dark:bg-charcoal-800 rounded-lg shadow-lg p-4">
+		<div class="bg-cream-50 dark:bg-charcoal-800 rounded-lg shadow-lg p-4 sticky top-24">
 			<div bind:this={mapElement} class="w-full h-[600px] rounded-lg"></div>
 		</div>
 	</div>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	let selectedFilter = $state('all');
+	let selectedFilter = $state('campaign2026');
 
 	const timelineEvents = [
 		{
@@ -75,12 +75,57 @@
 			impact: 'positive'
 		},
 		{
-			year: 2024,
-			month: 'Current',
-			title: 'HB 441 on the Floor',
-			category: 'hope',
-			icon: 'scale-balanced',
-			description: 'The current fight. HB 441 aims to remove the exceptions in Georgia code, treating the pre-born with the exact same legal status as the born. It is the plea for consistency and justice.',
+			year: 2025,
+			month: 'Q4',
+			title: 'Pre-Session Campaign',
+			category: 'campaign2026',
+			icon: 'bullhorn',
+			description: 'Mobilization phase. Securing additional sponsors, rolling out church education kits, and capturing early sign-on pledges from legislators.',
+			impact: 'positive'
+		},
+		{
+			year: 2026,
+			month: 'Jan',
+			title: 'Session Start: The Demand',
+			category: 'campaign2026',
+			icon: 'flag',
+			description: 'Introduction/Refiling of the Equal Protection Act. The primary objective is to force a hearing in the House Judiciary Non-Civil Committee within the first 30-60 days.',
+			impact: 'positive'
+		},
+		{
+			year: 2026,
+			month: 'Feb',
+			title: 'Committee Phase',
+			category: 'campaign2026',
+			icon: 'users',
+			description: 'Targeted pressure on the Judiciary Non-Civil Committee to hold hearings and vote. We track every member\'s stance in real-time.',
+			impact: 'positive'
+		},
+		{
+			year: 2026,
+			month: 'Mar',
+			title: 'Crossover Deadline',
+			category: 'campaign2026',
+			icon: 'hourglass-half',
+			description: 'The critical deadline for the bill to pass the House and move to the Senate. This is the peak of the legislative battle.',
+			impact: 'positive'
+		},
+		{
+			year: 2026,
+			month: 'Mar',
+			title: 'Senate Judiciary Phase',
+			category: 'campaign2026',
+			icon: 'landmark',
+			description: 'The battle moves to the Senate Judiciary Committee. Pressure focuses on ensuring the bill is not buried or gutted.',
+			impact: 'positive'
+		},
+		{
+			year: 2026,
+			month: 'Apr',
+			title: 'Final Push',
+			category: 'campaign2026',
+			icon: 'check-double',
+			description: 'Floor votes in both chambers. Every legislator is on record. We demand Equal Protection without exception.',
 			impact: 'positive'
 		}
 	];
@@ -103,6 +148,13 @@
 			
 			<!-- Filters -->
 			<div class="flex flex-wrap justify-center gap-2 mt-8">
+				<button 
+					onclick={() => selectedFilter = 'campaign2026'}
+					class="px-6 py-2 rounded-full border-2 font-bold text-sm transition-all
+						{selectedFilter === 'campaign2026' ? 'border-red-600 bg-red-600 text-white' : 'border-red-600 text-red-600 hover:bg-red-50'}"
+				>
+					2026 Campaign
+				</button>
 				<button 
 					onclick={() => selectedFilter = 'all'}
 					class="px-6 py-2 rounded-full border-2 font-bold text-sm transition-all
@@ -129,7 +181,7 @@
 					class="px-6 py-2 rounded-full border-2 font-bold text-sm transition-all
 						{selectedFilter === 'hope' ? 'border-black bg-black text-white' : 'border-black text-black hover:bg-red-900 hover:text-white hover:border-red-900'}"
 				>
-					Abolition Milestones
+					Milestones
 				</button>
 			</div>
 		</div>
@@ -137,16 +189,17 @@
 		<!-- Timeline Container -->
 		<section class="timeline">
 			{#each filteredEvents as event}
-				{@const markerColor = event.impact === 'negative' ? 'text-black' : event.impact === 'positive' ? 'text-red-800' : 'text-stone-500'}
-				{@const titleColor = event.impact === 'positive' ? 'text-red-900' : 'text-black'}
+				{@const markerColor = event.category === 'campaign2026' ? 'text-red-600 border-red-600' : event.impact === 'negative' ? 'text-black' : event.impact === 'positive' ? 'text-red-800' : 'text-stone-500'}
+				{@const titleColor = event.category === 'campaign2026' ? 'text-red-600' : event.impact === 'positive' ? 'text-red-900' : 'text-black'}
+				{@const isFuture = event.category === 'campaign2026'}
 				
 				<div class="timeline-item">
-					<div class="timeline-marker {markerColor}">
+					<div class="timeline-marker {markerColor} {isFuture ? 'animate-pulse' : ''}">
 						<span class="timeline-year">{event.year}</span>
 					</div>
-					<div class="timeline-content">
-						<h3 class="{titleColor}">{event.title}</h3>
-						<p class="timeline-date">{event.month} {event.year}</p>
+					<div class="timeline-content {isFuture ? 'border-l-4 border-red-600 bg-white shadow-lg p-4 rounded' : ''}">
+						<h3 class="{titleColor} {isFuture ? 'text-xl uppercase' : ''}">{event.title}</h3>
+						<p class="timeline-date font-bold text-stone-500">{event.month} {event.year}</p>
 						<p>{event.description}</p>
 						{#if event.category === 'hope'}
 							<div class="timeline-tag">

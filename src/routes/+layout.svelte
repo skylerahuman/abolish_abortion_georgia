@@ -8,11 +8,12 @@
 	let mobileMenuOpen = $state(false);
 	
 	const navItems = [
-		{ href: `${base}/`, label: 'Home' },
-		{ href: `${base}/about/hb441`, label: 'About HB 441' },
-		{ href: `${base}/who-do-i-call`, label: 'Action Center' },
-		{ href: `${base}/timeline`, label: 'Timeline' },
-		{ href: `${base}/faqs`, label: 'FAQs' }
+		{ href: `${base}/`, label: 'The Charge' },
+		{ href: `${base}/the-standard`, label: 'The Standard' },
+		{ href: `${base}/the-confession`, label: 'The Confession' },
+		{ href: `${base}/the-plea`, label: 'The Plea' },
+		{ href: `${base}/the-gathering`, label: 'The Gathering' },
+        { href: `${base}/timeline`, label: 'Timeline' }
 	];
 </script>
 
@@ -20,9 +21,9 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<div class="min-h-screen flex flex-col">
+<div class="min-h-screen flex flex-col bg-black text-white">
 	<!-- Navigation -->
-	<nav class="bg-black text-white shadow-lg sticky top-0 z-50 border-b border-neutral-800">
+	<nav class="bg-black text-white shadow-lg sticky top-0 z-50 border-b border-neutral-900">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="flex justify-between items-center h-16">
 				<!-- Logo/Brand -->
@@ -45,7 +46,7 @@
 					{#each navItems as item}
 						<a 
 							href={item.href}
-							class="hover:text-neutral-300 hover:bg-neutral-900 transition-all duration-200 px-4 py-3 text-[10px] font-bold tracking-wider uppercase rounded-sm
+							class="hover:text-neutral-300 hover:bg-neutral-900 transition-all duration-200 px-3 py-3 text-[10px] font-bold tracking-wider uppercase rounded-sm
 								{$page.url.pathname === item.href ? 'text-red-500 bg-neutral-900 border-l-2 border-red-600' : 'text-neutral-500 border-l-2 border-transparent'}"
 						>
 							{item.label}

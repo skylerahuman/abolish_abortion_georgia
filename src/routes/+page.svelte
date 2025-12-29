@@ -2,108 +2,139 @@
 	import { base } from '$app/paths';
 </script>
 
-<!-- Hero Section -->
-<section class="relative py-20 px-4 bg-black border-b border-red-900/20">
-	<div class="max-w-4xl mx-auto text-center">
-		<h2 class="text-4xl md:text-6xl font-black text-white uppercase tracking-tight mb-6">
-			<span class="text-red-600">ABOLITION</span> NOT REGULATION
-		</h2>
-		<p class="text-sm md:text-base text-neutral-400 leading-relaxed mb-8">
-			For five decades, the response to the greatest moral atrocity of our age has been incremental regulation. 
-			We tracked the pulse, we measured the weeks, but we failed to establish <strong class="text-white">Justice</strong>.
-			This timeline chronicles the journey from the darkness of <em>Roe</em> to the rising light of the <strong class="text-white">Equal Protection</strong> movement.
-		</p>
-		<div class="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto">
-			<div class="p-5 border border-neutral-800 bg-neutral-900/40 text-left hover:border-red-900/50 transition-colors">
-				<h3 class="font-bold text-red-500 uppercase text-[10px] tracking-widest mb-2">The Goal</h3>
-				<p class="text-xs text-gray-300 leading-relaxed">To criminalize abortion as homicide, providing equal protection under the 14th Amendment to the pre-born.</p>
-			</div>
-			<div class="p-5 border border-neutral-800 bg-neutral-900/40 text-left hover:border-neutral-600 transition-colors">
-				<h3 class="font-bold text-white uppercase text-[10px] tracking-widest mb-2">The Hope</h3>
-				<p class="text-xs text-gray-300 leading-relaxed">The Gospel of Jesus Christ, which commands us to rescue those being led away to death (Proverbs 24:11).</p>
-			</div>
-		</div>
-	</div>
-</section>
+<svelte:head>
+	<title>The Charge | Abolition Georgia</title>
+</svelte:head>
 
-<!-- The Current Fight Section -->
-<section class="py-20 bg-black">
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="text-center max-w-3xl mx-auto mb-16 border-b border-red-900/20 pb-8">
-			<span class="text-red-500 font-bold tracking-widest uppercase text-xs">The Current Battleground</span>
-			<h2 class="text-3xl md:text-4xl font-black text-white uppercase tracking-tight mt-2 mb-6">Georgia HB 441: Equal Protection</h2>
-			<p class="text-sm text-neutral-400 leading-relaxed">
-				We have moved beyond the "Heartbeat Bills" that merely set a timing threshold for death. The Georgia Equal Protection Act (HB 441) represents the standard of justice required by God and the Constitution.
-			</p>
-		</div>
-
-		<div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-			<!-- Regulation Card -->
-			<div class="bg-neutral-900/20 p-8 border border-neutral-800 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
-				<div class="flex items-center justify-between mb-6">
-					<h3 class="text-sm font-bold text-neutral-500 uppercase tracking-widest">The Old Way: Regulation</h3>
-					<svg class="w-6 h-6 text-neutral-600" fill="currentColor" viewBox="0 0 20 20">
-						<path fill-rule="evenodd" d="M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z" clip-rule="evenodd" />
-					</svg>
-				</div>
-				<ul class="space-y-4 text-xs text-neutral-400">
-					<li class="flex gap-2">
-						<svg class="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-							<path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
-						</svg>
-						<span><strong class="text-neutral-300">Arbitrary Lines:</strong> Protects life only after a detectable heartbeat, 15 weeks, or viability.</span>
-					</li>
-					<li class="flex gap-2">
-						<svg class="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-							<path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
-						</svg>
-						<span><strong class="text-neutral-300">Immunity:</strong> Often gives immunity to the mother or providers in certain cases.</span>
-					</li>
-					<li class="flex gap-2">
-						<svg class="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-							<path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
-						</svg>
-						<span><strong class="text-neutral-300">Subservient:</strong> Often bows to federal court opinions (Roe) rather than challenging them.</span>
-					</li>
-				</ul>
-			</div>
-
-			<!-- Abolition Card -->
-			<div class="bg-neutral-900/80 p-8 border border-red-900/50 shadow-xl relative overflow-hidden hover:border-red-800 transition-colors">
-				<div class="absolute top-0 right-0 bg-red-900 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1">The Standard</div>
-				<div class="flex items-center justify-between mb-6 mt-6">
-					<h3 class="text-sm font-bold text-red-500 uppercase tracking-widest">The New Way: HB 441</h3>
-					<svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
-						<path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z"/>
-					</svg>
-				</div>
-				<ul class="space-y-4 text-xs text-gray-300">
-					<li class="flex gap-2">
-						<svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-							<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-						</svg>
-						<span><strong class="text-white">Total Abolition:</strong> Defines life from fertilization. No arbitrary time limits.</span>
-					</li>
-					<li class="flex gap-2">
-						<svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-							<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-						</svg>
-						<span><strong class="text-white">Equal Protection:</strong> Applies the exact same laws protecting born people to pre-born people.</span>
-					</li>
-					<li class="flex gap-2">
-						<svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-							<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-						</svg>
-						<span><strong class="text-white">Interposition:</strong> Asserts state sovereignty to protect life regardless of federal overreach.</span>
-					</li>
-				</ul>
-			</div>
-		</div>
+<div class="bg-black text-white min-h-screen font-sans selection:bg-red-900 selection:text-white">
+	
+	<!-- Hero Section: The Charge -->
+	<section class="relative min-h-screen flex flex-col justify-center items-center px-4 overflow-hidden">
 		
-		<div class="mt-12 text-center">
-			<a href="{base}/timeline" class="bg-red-900 text-white px-8 py-3 hover:bg-red-800 transition-colors font-bold uppercase tracking-widest text-xs shadow-lg inline-block border border-red-800">
-				View Timeline
-			</a>
+		<!-- Background Image: Inverted Skyline -->
+		<div class="absolute inset-0 z-0 opacity-20 pointer-events-none select-none">
+			<img 
+				src="{base}/images/atlanta_skyline.png" 
+				alt="Atlanta Skyline" 
+				class="w-full h-full object-cover grayscale invert"
+			/>
+			<div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
 		</div>
-	</div>
-</section>
+
+		<div class="relative z-10 max-w-4xl mx-auto text-center space-y-12 py-20">
+			
+			<!-- Scripture Block -->
+			<div class="space-y-6">
+				<div class="text-neutral-600 font-serif italic text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
+					<p>"The words of King Lemuel, the prophecy that his mother taught him.</p>
+					<p>What, my son? and what, the son of my womb? and what, the son of my vows?</p>
+					<p>Give not thy strength unto women, nor thy ways to that which destroyeth kings.</p>
+					<p>It is not for kings, O Lemuel, it is not for kings to drink wine; nor for princes strong drink:</p>
+					<p>Lest they drink, and forget the law, and pervert the judgment of any of the afflicted.</p>
+					<p>Give strong drink unto him that is ready to perish, and wine unto those that be of heavy hearts.</p>
+					<p>Let him drink, and forget his poverty, and remember his misery no more."</p>
+				</div>
+				
+				<div class="text-red-600 font-serif font-bold text-2xl md:text-3xl leading-relaxed max-w-3xl mx-auto border-l-4 border-red-900 pl-6 py-2">
+					<p>"Open thy mouth for the dumb in the cause of all such as are appointed to destruction.</p>
+					<p class="mt-4">Open thy mouth, judge righteously, and plead the cause of the poor and needy."</p>
+				</div>
+			</div>
+
+			<!-- The Prose: Entrance -->
+			<div class="prose prose-invert prose-lg mx-auto text-neutral-300 leading-relaxed">
+				<p>
+					This was the warning given to a King by his mother. She did not tell him to negotiate the terms of destruction or to regulate the timing of oppression. She told him to <strong class="text-white">open his mouth</strong>.
+				</p>
+				<p>
+					For fifty years, the pulpits of Georgia have been filled with a different kind of wisdom—a wisdom that suggests we must compromise with child sacrifice to achieve 'incremental' gains. We have ignored the Mother’s charge, and in doing so, we have ignored the King.
+				</p>
+			</div>
+
+			<div class="w-16 h-px bg-red-900 mx-auto"></div>
+		</div>
+	</section>
+
+	<!-- Section 2: The Identity -->
+	<section class="py-24 px-4 bg-neutral-950 border-t border-neutral-900">
+		<div class="max-w-3xl mx-auto text-center space-y-8">
+			<h2 class="text-xs font-bold text-red-600 uppercase tracking-[0.3em] mb-2">The Identity</h2>
+			<h3 class="text-3xl md:text-4xl font-black text-white uppercase tracking-tight">The Bride and the City</h3>
+			
+			<div class="prose prose-invert prose-lg mx-auto text-neutral-400">
+				<p>
+					The Proverbs 31 woman is more than a domestic ideal; she is the portrait of the Church as she ought to be—the Bride of Christ. She is clothed in strength and honor. She does not fear the future. Most importantly, she reaches out her hands to the needy and speaks for those who have no voice.
+				</p>
+				<p>
+					In Georgia, we have a distorted reflection. Our skyline towers over the blood of the preborn, while our churches remain tethered to political strategies that treat our neighbors as 'biological material' until they reach a certain age or a certain heartbeat. We have allowed the world to define who is human, rather than the God who knits us together in the dark.
+				</p>
+				<p class="text-white font-medium">
+					To be the Virtuous Bride is to reject this partiality and demand that the law of the land reflect the Law of our Lord.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Section 3: The Objective -->
+	<section class="py-24 px-4 bg-black border-t border-neutral-900">
+		<div class="max-w-3xl mx-auto text-center space-y-8">
+			<h2 class="text-xs font-bold text-red-600 uppercase tracking-[0.3em] mb-2">The Objective</h2>
+			<h3 class="text-3xl md:text-4xl font-black text-white uppercase tracking-tight">The Standard of 2026</h3>
+			
+			<div class="prose prose-invert prose-lg mx-auto text-neutral-400">
+				<p>
+					This is why we stand for Equal Protection. We are not interested in the next 'pro-life' regulation that merely shifts the location of the slaughter. We are seeking a righteous standard for the 2026 Georgia Legislative session: the <strong class="text-white">total abolition of abortion</strong>.
+				</p>
+				<p>
+					This means a law that recognizes the preborn as full image-bearers of God from the moment of fertilization, deserving of the same protection as any other Georgian. This is the standard of HB 441. It is the standard of justice. It is the only plea that does not require us to sin against our consciences or our God.
+				</p>
+			</div>
+
+			<div class="pt-8">
+				<a href="{base}/the-standard" class="text-red-500 font-bold uppercase tracking-widest text-sm border-b border-red-900 hover:text-red-400 hover:border-red-500 transition-all pb-1">
+					Understand the Standard
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Section 4: The Response -->
+	<section class="py-24 px-4 bg-neutral-950 border-t border-neutral-900">
+		<div class="max-w-3xl mx-auto text-center space-y-12">
+			<div>
+				<h2 class="text-xs font-bold text-red-600 uppercase tracking-[0.3em] mb-2">The Response</h2>
+				<h3 class="text-3xl md:text-4xl font-black text-white uppercase tracking-tight mb-8">A Call to Repentance</h3>
+				
+				<div class="prose prose-invert prose-lg mx-auto text-neutral-400 mb-8">
+					<p>
+						Understanding this requires a change of mind—a repentance from the apathy of the past few decades. If you are a member of Christ’s Church in Georgia, the blood in our streets is a matter for your closet and your pulpit.
+					</p>
+				</div>
+			</div>
+
+			<div class="grid gap-8 md:grid-cols-3 text-left max-w-4xl mx-auto border-t border-neutral-800 pt-12">
+				<div class="space-y-4">
+					<span class="text-red-600 font-bold text-xl">01</span>
+					<h4 class="text-white font-bold uppercase tracking-wide">The Confession</h4>
+					<p class="text-sm text-neutral-500">Understand why anything less than equal protection is an abomination to the Lord.</p>
+					<a href="{base}/the-confession" class="text-white text-xs uppercase font-bold tracking-widest hover:text-red-500 transition-colors">Read The Confession &rarr;</a>
+				</div>
+
+				<div class="space-y-4">
+					<span class="text-red-600 font-bold text-xl">02</span>
+					<h4 class="text-white font-bold uppercase tracking-wide">The Gathering</h4>
+					<p class="text-sm text-neutral-500">Join the faithful churches who have vowed to no longer remain silent.</p>
+					<a href="{base}/the-gathering" class="text-white text-xs uppercase font-bold tracking-widest hover:text-red-500 transition-colors">Find The Gathering &rarr;</a>
+				</div>
+
+				<div class="space-y-4">
+					<span class="text-red-600 font-bold text-xl">03</span>
+					<h4 class="text-white font-bold uppercase tracking-wide">The Plea</h4>
+					<p class="text-sm text-neutral-500">Take the Mother’s charge to the doors of the Capitol in 2026.</p>
+					<a href="{base}/the-plea" class="text-white text-xs uppercase font-bold tracking-widest hover:text-red-500 transition-colors">Make The Plea &rarr;</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</div>

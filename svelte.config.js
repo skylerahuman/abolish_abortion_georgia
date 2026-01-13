@@ -10,8 +10,8 @@ const config = {
 	kit: {
 		// adapter-static for GitHub Pages
 		adapter: adapter({
-            pages: 'docs',
-            assets: 'docs',
+            pages: 'build',
+            assets: 'build',
             fallback: '404.html',
             precompress: false,
             strict: true

@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import { lookupDistrict, type DistrictLookupResult } from '$lib/district';
 
 	let name = $state('');
 	let email = $state('');
@@ -12,6 +11,27 @@
 	let lookupLoading = $state(false);
 	let lookupError = $state('');
 
+	let zipToDistrictMap: Record<string, string> | null = null;
+
+	async function loadZipData() {
+		if (zipToDistrictMap) return;
+		try {
+			const response = await fetch('/data/zip_to_district.csv');
+			const csvText = await response.text();
+			const lines = csvText.split('\n');
+			const map: Record<string, string> = {};
+			for (let i = 1; i < lines.length; i++) {
+				const [zip, dist] = lines[i].split(',');
+				if (zip && dist) {
+					map[zip.trim()] = dist.trim();
+				}
+			}
+			zipToDistrictMap = map;
+		} catch (error) {
+			lookupError = 'Could not load district data.';
+		}
+	}
+
 	async function handleDistrictLookup() {
 		if (isOutOfState) return;
 		if (!zipCode || zipCode.length !== 5) {
@@ -20,17 +40,23 @@
 		}
 		lookupLoading = true;
 		lookupError = '';
-		try {
-			const result = await lookupDistrict(zipCode);
-			district = result.stateHouseDistrictId || 'Unknown';
-			if (result.stateHouseDistrictId === 'N/A') {
-				lookupError = 'District not found. Are you in Georgia?';
-			}
-		} catch (e: any) {
-			lookupError = e.message || 'Lookup failed';
-		} finally {
+		
+		await loadZipData();
+		
+		if (!zipToDistrictMap) {
+			lookupError = 'District data not loaded.';
 			lookupLoading = false;
+			return;
 		}
+		
+		const foundDistrict = zipToDistrictMap[zipCode];
+		if (foundDistrict) {
+			district = foundDistrict;
+		} else {
+			lookupError = 'District not found. Are you in Georgia?';
+		}
+		
+		lookupLoading = false;
 	}
 
 	function handleSubmit() {
@@ -238,7 +264,7 @@ I want to be involved with Operation Gospel.`;
 		<!-- Back Navigation -->
 		<div class="flex flex-col md:flex-row gap-4 items-center justify-center">
 			<a 
-				href="{base}/who-do-i-call"
+				href="{base}/form"
 				class="w-full md:w-auto bg-transparent border border-neutral-700 hover:border-neutral-500 text-neutral-300 hover:text-neutral-100 font-semibold px-10 py-4 rounded-sm uppercase tracking-wide transition-all duration-300 text-center"
 			>
 				Find People Near Me

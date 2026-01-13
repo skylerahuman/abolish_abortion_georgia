@@ -83,7 +83,7 @@ See `TEST_ADDRESSES.md` for test ZIP codes and addresses to verify the "Who Do I
 abolition_georgia/
 ├── src/
 │   ├── routes/
-│   │   ├── who-do-i-call/     # Interactive representative finder
+│   │   ├── form/              # Interactive representative finder
 │   │   ├── timeline/           # Abolitionist timeline
 │   │   ├── faqs/              # FAQs on Abolitionism
 │   │   └── +layout.svelte     # Main layout with navigation

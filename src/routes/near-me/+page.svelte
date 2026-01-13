@@ -8,24 +8,59 @@
 	let mapElement: HTMLDivElement;
 	let map: Map;
 
-	let selectedDistrict = $state('');
-	let churches = $state<any[]>([]);
-	let individuals = $state<any[]>([]);
+	// District State
+	let districtDigit1 = $state('0');
+	let districtDigit2 = $state('0');
+	let districtDigit3 = $state('1'); // Default to 001
+
+    // Derived selectedDistrict from digits
+    let selectedDistrict = $derived(`${districtDigit1}${districtDigit2}${districtDigit3}`);
+
+	// District Lookup Modal State
+	let showLookupModal = $state(false);
+	let lookupZip = $state('');
+	let lookupError = $state('');
+	let lookupLoading = $state(false);
+	let zipToDistrictMap: Record<string, string> | null = null;
+
+	// Form State
 	let showForm = $state(false);
-	
-	// Form fields
+	let formSubmitted = $state(false);
 	let firstName = $state('');
 	let lastName = $state('');
 	let email = $state('');
 	let phone = $state('');
 	let homeChurch = $state('');
 	let interests = $state<string[]>([]);
-	let formSubmitted = $state(false);
-	
-	let allChurches: any = {};
-	let allIndividuals: any = {};
-	
+
+	// Random Churches Data
+	const churchNamesFirst = ["Grace", "Faith", "Truth", "Sovereign", "Reformed", "Community", "Hope", "Victory", "Peace", "Redeemer", "Providence", "Trinity", "Cornerstone", "Living", "Heritage", "Calvary", "Emmanuel"];
+	const churchNamesSecond = ["Baptist", "Bible", "Community", "Fellowship", "Chapel", "Tabernacle", "Church"];
+
+    function generateRandomChurches(count: number) {
+        const churches = [];
+        // Approximate GA bounds
+        const latMin = 30.5, latMax = 35.0;
+        const lonMin = -85.5, lonMax = -81.0;
+
+        for (let i = 0; i < count; i++) {
+            const name = `${churchNamesFirst[Math.floor(Math.random() * churchNamesFirst.length)]} ${churchNamesSecond[Math.floor(Math.random() * churchNamesSecond.length)]} Church`;
+            const lat = latMin + Math.random() * (latMax - latMin);
+            const lng = lonMin + Math.random() * (lonMax - lonMin);
+            churches.push({ name, lat, lng });
+        }
+        return churches;
+    }
+
 	onMount(async () => {
+        // Load District from LocalStorage
+        const savedDistrict = localStorage.getItem('userDistrict');
+        if (savedDistrict && savedDistrict.length === 3) {
+            districtDigit1 = savedDistrict[0];
+            districtDigit2 = savedDistrict[1];
+            districtDigit3 = savedDistrict[2];
+        }
+
 		L = await import('leaflet');
 
 		map = L.map(mapElement).setView([32.986, -83.648], 7);
@@ -34,19 +69,63 @@
 			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 		}).addTo(map);
 
-		// Load churches and individuals data
-		const [churchesRes, individualsRes] = await Promise.all([
-			fetch(`${base}/data/churches.json`),
-			fetch(`${base}/data/individuals.json`)
-		]);
-		
-		allChurches = await churchesRes.json();
-		allIndividuals = await individualsRes.json();
+        // Add random pins
+        const churches = generateRandomChurches(75);
+        churches.forEach(church => {
+             const marker = L.marker([church.lat, church.lng]).addTo(map);
+             marker.bindPopup(`<b>${church.name}</b><br>Equipping the saints.`);
+        });
 	});
-	
-	function handleDistrictChange() {
-		churches = allChurches[selectedDistrict] || [];
-		individuals = allIndividuals[selectedDistrict] || [];
+
+	async function loadZipData() {
+		if (zipToDistrictMap) return;
+		lookupLoading = true;
+		try {
+			const response = await fetch(`${base}/data/zip_to_district.csv`);
+			const csvText = await response.text();
+			const lines = csvText.split('\n');
+			const mapData: Record<string, string> = {};
+			for (let i = 1; i < lines.length; i++) {
+				const [zip, dist] = lines[i].split(',');
+				if (zip && dist) {
+					mapData[zip.trim()] = dist.trim();
+				}
+			}
+			zipToDistrictMap = mapData;
+		} catch (error) {
+			lookupError = 'Could not load district data.';
+		} finally {
+			lookupLoading = false;
+		}
+	}
+
+	async function handleZipLookup() {
+        if (lookupZip.length < 5) {
+            lookupError = "Please enter a valid 5-digit ZIP.";
+            return;
+        }
+		await loadZipData();
+
+		if (!zipToDistrictMap) {
+			lookupError = 'District data is not loaded.';
+			return;
+		}
+
+        lookupError = '';
+		const foundDistrict = zipToDistrictMap[lookupZip];
+
+		if (foundDistrict) {
+            // Format to 3 digits (e.g. "1" -> "001")
+            const padded = foundDistrict.padStart(3, '0');
+            districtDigit1 = padded[0];
+            districtDigit2 = padded[1];
+            districtDigit3 = padded[2];
+
+            localStorage.setItem('userDistrict', padded);
+            showLookupModal = false;
+		} else {
+			lookupError = 'District not found for this ZIP code.';
+		}
 	}
 	
 	function toggleInterest(interest: string) {
@@ -59,128 +138,124 @@
 	
 	function handleSubmit(e: Event) {
 		e.preventDefault();
-		// Here you would integrate with Formspree/Netlify Forms
-		console.log({firstName, lastName, email, phone, selectedDistrict, homeChurch, interests});
+        // Log to null/void
+		console.log("Form Submitted (Void)", {firstName, lastName, email, phone, selectedDistrict, homeChurch, interests});
 		formSubmitted = true;
 	}
+
+    // Cycle digit logic
+    function cycleDigit(current: string, direction: 'up' | 'down') {
+        let val = parseInt(current);
+        if (isNaN(val)) val = 0;
+        if (direction === 'up') val = (val + 1) % 10;
+        else val = (val - 1 + 10) % 10;
+        return val.toString();
+    }
 </script>
 
 <svelte:head>
-	<title>Operation Gospel - Who's Near Me?</title>
+	<title>Operation Gospel - Local Churches</title>
 </svelte:head>
+
+<!-- Modal -->
+{#if showLookupModal}
+<div class="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+    <div class="bg-neutral-900 border border-neutral-700 p-8 rounded-sm max-w-md w-full shadow-2xl">
+        <h2 class="text-2xl font-bold text-white mb-4 uppercase">Find Your District</h2>
+        <p class="text-neutral-400 mb-6">Enter your ZIP code to find your Georgia House District.</p>
+
+        <div class="flex gap-2 mb-4">
+            <input
+                type="text"
+                bind:value={lookupZip}
+                placeholder="ZIP Code"
+                class="flex-1 bg-neutral-800 border border-neutral-600 text-white px-4 py-2 rounded-sm focus:border-red-600 outline-none"
+                maxlength="5"
+            />
+            <button
+                onclick={handleZipLookup}
+                disabled={lookupLoading}
+                class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-sm font-bold uppercase disabled:opacity-50"
+            >
+                {lookupLoading ? '...' : 'Find'}
+            </button>
+        </div>
+        {#if lookupError}
+            <p class="text-red-500 text-sm mb-4">{lookupError}</p>
+        {/if}
+
+        <button onclick={() => showLookupModal = false} class="text-neutral-500 hover:text-white text-sm underline">Close</button>
+    </div>
+</div>
+{/if}
 
 <div class="min-h-screen bg-gradient-to-b from-black via-neutral-950 to-neutral-900 text-neutral-100 px-6 py-16">
 	<div class="max-w-5xl mx-auto">
 		<!-- Header -->
 		<div class="text-center mb-12">
 			<h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 uppercase">
-				Who's in the Fight Near Me?
+				Local Church Network
 			</h1>
 			<p class="text-lg text-neutral-400 max-w-3xl mx-auto">
-				You are not alone. Abolitionist churches and committed individuals are already working in Georgia House districts across the state.
-			</p>
-			<p class="text-base text-neutral-500 mt-2">
-				These are people already involved in the fight near you.
+				We work with local churches to equip them in outreach programs to fulfill the Great Commission.
 			</p>
 		</div>
 
-		<div bind:this={mapElement} class="h-96 rounded-lg mb-8"></div>
+		<div bind:this={mapElement} class="h-96 rounded-lg mb-12 border border-neutral-800 z-0"></div>
 		
-		<!-- District Selector -->
-		<div class="bg-neutral-900 border border-neutral-800 p-8 rounded-sm mb-8">
-			<label for="district" class="block text-lg font-semibold mb-3">
-				Which Georgia House district are you in?
-			</label>
-			<select 
-				id="district"
-				bind:value={selectedDistrict}
-				onchange={handleDistrictChange}
-				class="w-full bg-neutral-800 border border-neutral-700 text-neutral-100 px-4 py-3 rounded-sm focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600"
-			>
-				<option value="">Select your district...</option>
-				{#each Array.from({length: 180}, (_, i) => i + 1) as district}
-					<option value={district.toString()}>District {district}</option>
-				{/each}
-			</select>
-			<p class="text-sm text-neutral-500 mt-2">
-				Don't know your district? <a href="https://www.house.ga.gov/Representatives/en-US/FindYourRep.aspx" target="_blank" rel="noopener noreferrer" class="text-red-500 hover:text-red-400 underline">Find it here</a>
-			</p>
-		</div>
-		
-		<!-- Results -->
-		{#if selectedDistrict}
-			<div class="space-y-8 mb-12">
-				<!-- Churches -->
-				{#if churches.length > 0}
-					<div>
-						<h2 class="text-2xl font-bold mb-4 text-red-600 uppercase tracking-wide">
-							Abolitionist Churches
-						</h2>
-						<div class="space-y-4">
-							{#each churches as church}
-								<div class="bg-neutral-900 border border-neutral-800 p-6 rounded-sm">
-									<h3 class="text-xl font-bold text-neutral-100 mb-2">{church.name}</h3>
-									<p class="text-sm text-neutral-500 mb-2">📍 {church.city}, GA – District {church.district}</p>
-									<p class="text-sm text-neutral-400 mb-2"><strong>Pastor:</strong> {church.pastor}</p>
-									<p class="text-sm text-neutral-400 mb-3">{church.description}</p>
-									<a href="mailto:{church.contact}" class="text-red-500 hover:text-red-400 text-sm font-semibold">Contact</a>
-								</div>
-							{/each}
-						</div>
-					</div>
-				{/if}
-				
-				<!-- Individuals -->
-				{#if individuals.length > 0}
-					<div>
-						<h2 class="text-2xl font-bold mb-4 text-red-600 uppercase tracking-wide">
-							Abolitionist Contacts
-						</h2>
-						<div class="space-y-4">
-							{#each individuals as individual}
-								<div class="bg-neutral-900 border border-neutral-800 p-6 rounded-sm">
-									<h3 class="text-xl font-bold text-neutral-100 mb-2">{individual.name}</h3>
-									<p class="text-sm text-neutral-500 mb-2">📍 {individual.city}, GA – District {individual.district}</p>
-									<p class="text-sm text-neutral-400 mb-2"><strong>{individual.title}</strong></p>
-									<p class="text-sm text-neutral-400 mb-3">{individual.description}</p>
-									<a href="mailto:{individual.contact}" class="text-red-500 hover:text-red-400 text-sm font-semibold">Contact</a>
-								</div>
-							{/each}
-						</div>
-					</div>
-				{/if}
-				
-				{#if churches.length === 0 && individuals.length === 0}
-					<div class="bg-neutral-900 border border-neutral-800 p-8 rounded-sm text-center">
-						<p class="text-neutral-400 mb-4">No contacts found for District {selectedDistrict} yet.</p>
-						<p class="text-neutral-500 text-sm">Be the first to join the fight in your district!</p>
-					</div>
-				{/if}
-				
-				<!-- Collaborations Note -->
-				<div class="bg-neutral-950 border border-neutral-800 p-6 rounded-sm text-sm text-neutral-400">
-					<p class="mb-2">We collaborate with Georgia Life Alliance (GLA) and the Georgia Baptist Association.</p>
-					<p><strong>Note:</strong> We are not affiliated with Georgia Right to Life.</p>
-				</div>
-			</div>
-			
-			<!-- Join the Fight Button -->
-			{#if !showForm && !formSubmitted}
-				<div class="text-center mb-8">
-					<button 
-						onclick={() => showForm = true}
-						class="bg-red-600 hover:bg-red-700 text-white font-bold text-lg px-10 py-4 rounded-sm uppercase tracking-wide transition-all duration-300 transform hover:scale-105 shadow-lg"
-					>
-						Join the Fight in Your District
-					</button>
-				</div>
-			{/if}
-			
+        <!-- Pastor CTA -->
+        <div class="bg-neutral-900 border-l-4 border-red-600 p-8 mb-12 shadow-lg">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div>
+                    <h2 class="text-2xl font-bold text-white uppercase tracking-wide mb-2">Are you a Pastor?</h2>
+                    <p class="text-neutral-400">Join our network of abolitionist churches. We provide resources, training, and support for your congregation.</p>
+                </div>
+                <button
+                    onclick={() => { showForm = true; interests = ['pastor-elder']; document.getElementById('join-form')?.scrollIntoView({behavior: 'smooth'}); }}
+                    class="bg-white text-black hover:bg-neutral-200 font-bold px-8 py-3 rounded-sm uppercase tracking-wider whitespace-nowrap"
+                >
+                    Add Your Church
+                </button>
+            </div>
+        </div>
+
+		<!-- District Selector & Form Section -->
+		<div class="bg-neutral-900 border border-neutral-800 p-8 rounded-sm mb-8" id="join-form">
+			<div class="mb-8 text-center">
+                 <h2 class="text-2xl font-bold uppercase tracking-wide mb-6">Join the Fight</h2>
+                 <p class="text-neutral-400 mb-4">Enter your district to connect with abolitionists in your area.</p>
+
+                 <!-- Custom District Input -->
+                 <div class="flex flex-col items-center">
+                     <div class="flex items-center gap-2 mb-2">
+                        <!-- Digit 1 -->
+                        <div class="flex flex-col items-center">
+                            <button onclick={() => districtDigit1 = cycleDigit(districtDigit1, 'up')} class="text-neutral-500 hover:text-white mb-1">▲</button>
+                            <input type="text" readonly value={districtDigit1} class="w-12 h-16 bg-black border border-neutral-700 text-3xl text-center font-mono rounded-sm text-red-500 focus:outline-none" />
+                            <button onclick={() => districtDigit1 = cycleDigit(districtDigit1, 'down')} class="text-neutral-500 hover:text-white mt-1">▼</button>
+                        </div>
+                         <!-- Digit 2 -->
+                        <div class="flex flex-col items-center">
+                            <button onclick={() => districtDigit2 = cycleDigit(districtDigit2, 'up')} class="text-neutral-500 hover:text-white mb-1">▲</button>
+                            <input type="text" readonly value={districtDigit2} class="w-12 h-16 bg-black border border-neutral-700 text-3xl text-center font-mono rounded-sm text-red-500 focus:outline-none" />
+                            <button onclick={() => districtDigit2 = cycleDigit(districtDigit2, 'down')} class="text-neutral-500 hover:text-white mt-1">▼</button>
+                        </div>
+                         <!-- Digit 3 -->
+                        <div class="flex flex-col items-center">
+                            <button onclick={() => districtDigit3 = cycleDigit(districtDigit3, 'up')} class="text-neutral-500 hover:text-white mb-1">▲</button>
+                            <input type="text" readonly value={districtDigit3} class="w-12 h-16 bg-black border border-neutral-700 text-3xl text-center font-mono rounded-sm text-red-500 focus:outline-none" />
+                            <button onclick={() => districtDigit3 = cycleDigit(districtDigit3, 'down')} class="text-neutral-500 hover:text-white mt-1">▼</button>
+                        </div>
+                     </div>
+                     <button onclick={() => showLookupModal = true} class="text-sm text-red-500 hover:text-red-400 underline uppercase tracking-wider font-bold">
+                        Not sure your district? Find it &rarr;
+                     </button>
+                 </div>
+            </div>
+
 			<!-- Contact Form -->
-			{#if showForm && !formSubmitted}
-				<div class="bg-neutral-900 border border-red-600 p-8 rounded-sm">
-					<h2 class="text-2xl font-bold uppercase tracking-wide mb-6">Join the Fight in Your District</h2>
-					<form onsubmit={handleSubmit} class="space-y-4">
+			{#if !formSubmitted}
+					<form onsubmit={handleSubmit} class="space-y-4 max-w-2xl mx-auto">
 						<div class="grid md:grid-cols-2 gap-4">
 							<div>
 								<label for="firstName" class="block text-sm font-semibold mb-2">First Name *</label>
@@ -287,10 +362,9 @@
 							type="submit"
 							class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-sm uppercase tracking-wide transition-colors"
 						>
-							Join the Fight
+							Submit
 						</button>
 					</form>
-				</div>
 			{/if}
 			
 			<!-- Form Submitted -->
@@ -300,22 +374,7 @@
 					<p class="text-neutral-400">Someone already engaged in your area will contact you soon.</p>
 				</div>
 			{/if}
-		{/if}
-		
-		<!-- CTAs -->
-		<div class="flex flex-col md:flex-row gap-4 items-center justify-center mt-12">
-			<a 
-				href="{base}/respond"
-				class="w-full md:w-auto bg-red-600 hover:bg-red-700 text-white font-bold text-lg px-10 py-4 rounded-sm uppercase tracking-wide transition-all duration-300 transform hover:scale-105 shadow-lg text-center"
-			>
-				Pray. Fight. Give.
-			</a>
-			<a 
-				href="{base}/georgia-battle"
-				class="w-full md:w-auto bg-transparent border border-neutral-700 hover:border-neutral-500 text-neutral-300 hover:text-neutral-100 font-semibold px-10 py-4 rounded-sm uppercase tracking-wide transition-all duration-300 text-center"
-			>
-				Learn About HB 441
-			</a>
 		</div>
+
 	</div>
 </div>

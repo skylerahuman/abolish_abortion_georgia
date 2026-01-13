@@ -264,7 +264,7 @@ I want to be involved with Operation Gospel.`;
 		<!-- Back Navigation -->
 		<div class="flex flex-col md:flex-row gap-4 items-center justify-center">
 			<a 
-				href="{base}/form"
+				href="{base}/near-me"
 				class="w-full md:w-auto bg-transparent border border-neutral-700 hover:border-neutral-500 text-neutral-300 hover:text-neutral-100 font-semibold px-10 py-4 rounded-sm uppercase tracking-wide transition-all duration-300 text-center"
 			>
 				Find People Near Me

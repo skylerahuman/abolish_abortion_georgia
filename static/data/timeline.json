@@ -1,0 +1,53 @@
+[
+  {
+    "id": "roe-v-wade",
+    "date": "JAN 1973",
+    "title": "Roe v. Wade",
+    "description": "The Supreme Court invents a 'right to privacy' that encompasses the right to kill a child. This unconstitutional decree stripped personhood from the unborn, leading to decades of bloodshed.",
+    "type": "tragedy"
+  },
+  {
+    "id": "doe-v-bolton",
+    "date": "JAN 1973",
+    "title": "Doe v. Bolton",
+    "description": "Released alongside Roe, this Georgia case defined 'health of the mother' so broadly (familial, financial, psychological) that it effectively allowed abortion on demand through all nine months.",
+    "type": "tragedy"
+  },
+  {
+    "id": "abolition-movement",
+    "date": "VARIOUS 2011",
+    "title": "Rise of the Abolition Movement",
+    "description": "Small groups of Christians began rejecting the 'Pro-Life Industry' strategy of incremental regulation. They began demanding immediate abolition and equal protection, planting the seeds for bills like HB 441.",
+    "type": "hope"
+  },
+  {
+    "id": "heartbeat-bill",
+    "date": "MAY 2019",
+    "title": "Georgia's 'Heartbeat' Bill (HB 481)",
+    "description": "Georgia bans abortion after a detectable heartbeat. While a step forward in saving some lives, it inherently denies personhood to those younger than ~6 weeks, leaving them without protection.",
+    "type": "mixed"
+  },
+  {
+    "id": "dobbs",
+    "date": "JUN 2022",
+    "title": "Dobbs v. Jackson",
+    "description": "Roe v. Wade is overturned. The Constitution is correctly interpreted as not conferring a right to abortion. However, the Court failed to declare the unborn as persons, merely returning the issue to the states.",
+    "type": "mixed"
+  },
+  {
+    "id": "hb-496",
+    "date": "FEB 2023",
+    "title": "The Georgia Equal Protection Act (HB 496)",
+    "description": "A precursor to HB 441, this bill sought to defy judicial tyranny and establish justice. It faced stiff opposition not just from Democrats, but from establishment Republican leadership.",
+    "type": "hope"
+  },
+  {
+    "id": "hb-441",
+    "date": "CURRENT 2024",
+    "title": "HB 441 on the Floor",
+    "description": "The current fight. HB 441 aims to remove the exceptions in Georgia code, treating the pre-born with the exact same legal status as the born. It is the plea for consistency and justice.",
+    "type": "hope",
+    "link": "https://www.legis.ga.gov/legislation/64602",
+    "linkText": "View Official Bill"
+  }
+]

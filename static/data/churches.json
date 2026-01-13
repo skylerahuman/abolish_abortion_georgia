@@ -1,0 +1,38 @@
+{
+  "34": [
+    {
+      "name": "Reformation Church of Marietta",
+      "city": "Marietta",
+      "district": "34",
+      "pastor": "Pastor John Smith",
+      "description": "Explicitly abolitionist and supporting HB 441.",
+      "lat": 33.9526,
+      "lng": -84.5499,
+      "contact": "contact@reformationchurch.org"
+    }
+  ],
+  "57": [
+    {
+      "name": "Gospel Truth Fellowship",
+      "city": "Atlanta",
+      "district": "57",
+      "pastor": "Pastor James Wilson",
+      "description": "Committed to equal protection and abolition ministry.",
+      "lat": 33.7490,
+      "lng": -84.3880,
+      "contact": "info@gospeltruth.org"
+    }
+  ],
+  "89": [
+    {
+      "name": "Covenant Life Church",
+      "city": "Athens",
+      "district": "89",
+      "pastor": "Pastor Michael Brown",
+      "description": "Teaching biblical justice and supporting abolitionist legislation.",
+      "lat": 33.9519,
+      "lng": -83.3576,
+      "contact": "hello@covenantlife.org"
+    }
+  ]
+}

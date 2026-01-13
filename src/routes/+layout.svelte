@@ -10,7 +10,6 @@ import '../app.css';
 	
 	const navItems = [
 		{ href: `${base}/`, label: 'Home' },
-		{ href: `${base}/form`, label: 'Who Do I Call' },
 		{ href: `${base}/timeline`, label: 'Timeline' },
 		{ href: `${base}/faqs`, label: 'FAQs' }
 	];
@@ -128,13 +127,15 @@ import '../app.css';
 				</a>
 			</div>
 
+            <p class="text-sm font-bold uppercase tracking-widest text-red-700 mb-2">Scriptural authority. No compromise.</p>
+            <div class="text-2xl text-neutral-600 mb-6 font-serif">α &nbsp; ω</div>
+
 			<p class="mb-4 font-serif italic text-lg text-white">
 				"Open your mouth for the mute, for the rights of all who are destitute."
 			</p>
 			<p class="text-sm mb-8 text-neutral-500">Proverbs 31:8</p>
 			<div class="text-[8px] text-neutral-600 uppercase font-mono tracking-wide">
-				<p>This timeline is an educational resource advocating for the equal protection of all human beings.</p>
-				<p class="mt-2">© {new Date().getFullYear()} Abolition Georgia. All rights reserved.</p>
+				<p class="mt-2">© 2026 Operation Gospel. All rights reserved.</p>
 			</div>
 		</div>
 	</footer>

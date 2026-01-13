@@ -2,7 +2,9 @@
 <section class="relative py-20 px-4 bg-black border-b border-red-900/20">
 	<div class="max-w-4xl mx-auto text-center">
 		<h2 class="text-4xl md:text-6xl font-black text-white uppercase tracking-tight mb-6">
-			<span class="text-red-600">ABOLITION</span> NOT REGULATION
+			<span class="text-red-600">Explicitly Christian</span>
+			<span class="block mt-2">Extremely Prophetic</span>
+			<span class="block mt-2">Ending Child Sacrifice</span>
 		</h2>
 		<p class="text-sm md:text-base text-neutral-400 leading-relaxed mb-8">
 			For five decades, the response to the greatest moral atrocity of our age has been incremental regulation. 

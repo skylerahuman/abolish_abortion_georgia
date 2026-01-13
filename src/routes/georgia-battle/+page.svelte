@@ -16,30 +16,38 @@
 	let timeline = $state<TimelineEvent[]>([]);
 	let visibleCards = $state<Set<string>>(new Set());
 	
-	onMount(async () => {
-		const response = await fetch(`${base}/data/timeline.json`);
-		timeline = await response.json();
-		
-		// Setup intersection observer for staggered animations
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach(entry => {
-					if (entry.isIntersecting) {
-						const id = entry.target.getAttribute('data-id');
-						if (id) {
-							visibleCards = new Set([...visibleCards, id]);
+	onMount(() => {
+		let observer: IntersectionObserver;
+
+		const init = async () => {
+			const response = await fetch(`${base}/data/timeline.json`);
+			timeline = await response.json();
+
+			// Setup intersection observer for staggered animations
+			observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting) {
+							const id = entry.target.getAttribute('data-id');
+							if (id) {
+								visibleCards = new Set([...visibleCards, id]);
+							}
 						}
-					}
-				});
-			},
-			{ threshold: 0.2 }
-		);
+					});
+				},
+				{ threshold: 0.2 }
+			);
+
+			document.querySelectorAll('.timeline-card').forEach(card => {
+				observer.observe(card);
+			});
+		};
 		
-		document.querySelectorAll('.timeline-card').forEach(card => {
-			observer.observe(card);
-		});
+		init();
 		
-		return () => observer.disconnect();
+		return () => {
+			if (observer) observer.disconnect();
+		};
 	});
 	
 	function getTypeColor(type: string) {

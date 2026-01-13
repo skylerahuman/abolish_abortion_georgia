@@ -1,3 +1,7 @@
+<script lang="ts">
+	import { base } from '$app/paths';
+</script>
+
 <!-- Hero Section -->
 <section class="relative py-20 px-4 bg-black border-b border-red-900/20">
 	<div class="max-w-4xl mx-auto text-center">
@@ -99,7 +103,7 @@
 		</div>
 		
 		<div class="mt-12 text-center">
-			<a href="/timeline" class="bg-red-900 text-white px-8 py-3 hover:bg-red-800 transition-colors font-bold uppercase tracking-widest text-xs shadow-lg inline-block border border-red-800">
+			<a href="{base}/timeline" class="bg-red-900 text-white px-8 py-3 hover:bg-red-800 transition-colors font-bold uppercase tracking-widest text-xs shadow-lg inline-block border border-red-800">
 				View Timeline
 			</a>
 		</div>

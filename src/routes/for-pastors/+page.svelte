@@ -65,27 +65,18 @@
 				<p class="text-lg text-neutral-300 mb-4">
 					This documentary exposes the strategic failures of the traditional pro-life movement and lays out the biblical case for abolition. Essential viewing for church leaders.
 				</p>
-				<div class="aspect-w-16 aspect-h-9">
-					<iframe
-						src="https://www.youtube.com/embed/k33epqzJIlM"
-						frameborder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-						allowfullscreen
-						class="w-full h-full rounded-sm"
-					></iframe>
+			<div class="aspect-w-16 aspect-h-9">
+				<iframe
+					title="The Fatal Flaw Documentary"
+					src="https://www.youtube.com/embed/k33epqzJIlM"
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen
+					class="w-full h-full rounded-sm"
+				></iframe>
 				</div>
 			</div>
 
-			<!-- Abolitionist Church Toolkit -->
-			<div class="text-center">
-				<h2 class="text-2xl font-bold mb-4 text-red-600">Abolitionist Church Toolkit</h2>
-				<p class="text-lg text-neutral-300 mb-6">
-					Download our comprehensive toolkit designed to equip your church for effective abolition work.
-				</p>
-				<a href="{base}/downloads/abolitionist-toolkit.pdf" download class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold text-lg px-10 py-4 rounded-sm uppercase tracking-wider transition-all duration-300 shadow-lg transform hover:scale-105">
-					Download Toolkit (PDF)
-				</a>
-			</div>
 		</div>
 	</div>
 </div>

@@ -10,7 +10,7 @@ import '../app.css';
 	
 	const navItems = [
 		{ href: `${base}/`, label: 'Home' },
-		{ href: `${base}/who-do-i-call`, label: 'Who Do I Call' },
+		{ href: `${base}/form`, label: 'Who Do I Call' },
 		{ href: `${base}/timeline`, label: 'Timeline' },
 		{ href: `${base}/faqs`, label: 'FAQs' }
 	];

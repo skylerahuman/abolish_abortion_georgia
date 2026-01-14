@@ -1,8 +1,15 @@
 <script lang="ts">
 	import { base } from '$app/paths';
+	import { generateRandomChurches } from '$lib/utils';
 	import { onMount } from 'svelte';
 	import 'leaflet/dist/leaflet.css';
 	import type { Map } from 'leaflet';
+    // @ts-ignore
+    import markerIcon from 'leaflet/dist/images/marker-icon.png';
+    // @ts-ignore
+    import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
+    // @ts-ignore
+    import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 
 	let L: any;
 	let mapElement: HTMLDivElement;
@@ -33,25 +40,6 @@
 	let homeChurch = $state('');
 	let interests = $state<string[]>([]);
 
-	// Random Churches Data
-	const churchNamesFirst = ["Grace", "Faith", "Truth", "Sovereign", "Reformed", "Community", "Hope", "Victory", "Peace", "Redeemer", "Providence", "Trinity", "Cornerstone", "Living", "Heritage", "Calvary", "Emmanuel"];
-	const churchNamesSecond = ["Baptist", "Bible", "Community", "Fellowship", "Chapel", "Tabernacle", "Church"];
-
-    function generateRandomChurches(count: number) {
-        const churches = [];
-        // Approximate GA bounds
-        const latMin = 30.5, latMax = 35.0;
-        const lonMin = -85.5, lonMax = -81.0;
-
-        for (let i = 0; i < count; i++) {
-            const name = `${churchNamesFirst[Math.floor(Math.random() * churchNamesFirst.length)]} ${churchNamesSecond[Math.floor(Math.random() * churchNamesSecond.length)]} Church`;
-            const lat = latMin + Math.random() * (latMax - latMin);
-            const lng = lonMin + Math.random() * (lonMax - lonMin);
-            churches.push({ name, lat, lng });
-        }
-        return churches;
-    }
-
 	onMount(async () => {
         // Load District from LocalStorage
         const savedDistrict = localStorage.getItem('userDistrict');
@@ -62,6 +50,14 @@
         }
 
 		L = await import('leaflet');
+
+        // Fix Leaflet's default icon path issues with Vite
+        delete L.Icon.Default.prototype._getIconUrl;
+        L.Icon.Default.mergeOptions({
+            iconRetinaUrl: markerIcon2x,
+            iconUrl: markerIcon,
+            shadowUrl: markerShadow
+        });
 
 		map = L.map(mapElement).setView([32.986, -83.648], 7);
 

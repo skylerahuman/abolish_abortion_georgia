@@ -15,7 +15,7 @@ import '../app.css';
 	
 	const navItems = [
 		{ href: `${base}/`, label: 'Home' },
-		{ href: `${base}/timeline`, label: 'Timeline' },
+		{ href: `${base}/georgia-battle`, label: 'Timeline' },
 		{ href: `${base}/faqs`, label: 'FAQs' }
 	];
 	
@@ -95,9 +95,6 @@ import '../app.css';
 </svelte:head>
 
 <style>
-	.logo-button img {
-		transition: filter 0.2s ease;
-	}
 	.logo-button:hover img {
 		filter: brightness(0) saturate(100%) invert(28%) sepia(93%) saturate(3166%) hue-rotate(348deg) brightness(93%) contrast(95%);
 	}

@@ -4,6 +4,15 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Libre Baskerville", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 
+  /* Core Palette */
+  --color-charcoal: #080A0F;
+  --color-panel: #151820;
+  --color-crimson: #B20E26;
+  --color-ember: #E5484D;
+  --color-bone: #F4F0E6;
+  --color-gold: #CDA763;
+  --color-teal: #2E6A73;
+
   /* Slate palette (Cooler, more alive neutrals) */
   --color-neutral-50: #f8fafc;
   --color-neutral-100: #f1f5f9;
@@ -47,13 +56,13 @@
   --color-green-500: #22c55e;
   --color-green-600: #16a34a;
   
-  /* Deep Rich Black (Slate 950) */
-  --color-black: #020617;
+  /* Deep Rich Black (mapped to Charcoal) */
+  --color-black: #080A0F;
 }
 
 @layer base {
   body {
-    @apply bg-black text-gray-200 antialiased font-sans;
+    @apply bg-charcoal text-bone antialiased font-sans;
   }
   
   /* Custom Scrollbar */
@@ -61,19 +70,19 @@
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--color-neutral-950);
+    background: var(--color-charcoal);
   }
   ::-webkit-scrollbar-thumb {
-    background: var(--color-neutral-700);
+    background: var(--color-panel);
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-neutral-600);
+    background: var(--color-ember);
   }
   
   /* Selection */
   ::selection {
-    @apply bg-red-900 text-white;
+    @apply bg-crimson text-white;
   }
 }
 
@@ -94,7 +103,7 @@
     top: 0;
     bottom: 0;
     width: 3px;
-    background: var(--color-black);
+    background: var(--color-charcoal);
   }
   
   /* Each timeline row */
@@ -124,7 +133,7 @@
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background: #fff;
+    background: var(--color-bone);
     border: 3px solid currentColor;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   }
@@ -133,7 +142,7 @@
   .timeline-year {
     font-weight: 700;
     font-size: 0.9rem;
-    color: #78716c;
+    color: var(--color-gold);
   }
   
   /* Right column: content */
@@ -154,14 +163,14 @@
     font-size: 0.75rem;
     text-transform: uppercase;
     font-weight: 600;
-    color: #78716c;
+    color: var(--color-gold);
     letter-spacing: 0.05em;
   }
   
   .timeline-content p {
     margin: 0;
     line-height: 1.6;
-    color: #57534e;
+    color: var(--color-bone);
   }
   
   /* Gospel Hope tag */
@@ -175,8 +184,8 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #881337;
-    background: #fef2f2;
+    color: var(--color-crimson);
+    background: var(--color-red-50);
     border-radius: 4px;
   }
   

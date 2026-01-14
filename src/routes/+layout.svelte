@@ -36,7 +36,6 @@ import '../app.css';
 	// Close menu on click outside and on scroll
 	onMount(() => {
 		let scrollTimeout: number;
-		let openTimeout: number;
 		
 		const handleClickOutside = (event: MouseEvent) => {
 			const target = event.target as HTMLElement;
@@ -84,7 +83,6 @@ import '../app.css';
 		
 		return () => {
 			clearTimeout(scrollTimeout);
-			clearTimeout(openTimeout);
 			document.removeEventListener('mousedown', handleClickOutside);
 			window.removeEventListener('scroll', handleScroll);
 		};
@@ -139,13 +137,13 @@ import '../app.css';
 		
 		<!-- Hamburger Menu -->
 		{#if mobileMenuOpen}
-			<div bind:this={menuRef} class="bg-neutral-950 backdrop-blur-md border-t border-neutral-800 p-6 relative z-50">
+			<div bind:this={menuRef} class="bg-panel backdrop-blur-md border-t border-white/10 p-6 relative z-50">
 				{#each navItems as item}
 					<a
 						href={item.href}
 						onclick={() => mobileMenuOpen = false}
-						class="block w-full text-left py-4 px-6 hover:text-white hover:bg-neutral-900 transition-all duration-200 rounded-sm text-base font-bold tracking-wide uppercase
-							{$page.url.pathname === item.href ? 'text-red-500 bg-neutral-900 border-l-4 border-red-600' : 'text-neutral-300 border-l-4 border-transparent'}"
+						class="block w-full text-left py-4 px-6 hover:text-bone hover:bg-charcoal transition-all duration-200 rounded-sm text-base font-bold tracking-wide uppercase
+							{$page.url.pathname === item.href ? 'text-crimson bg-charcoal border-l-4 border-crimson' : 'text-bone/70 border-l-4 border-transparent'}"
 					>
 						{item.label}
 					</a>
@@ -153,7 +151,7 @@ import '../app.css';
 				<a
 					href="{base}/respond"
 					onclick={() => mobileMenuOpen = false}
-					class="block w-full text-left py-4 px-6 bg-red-900/20 text-red-500 hover:bg-red-900/40 hover:text-red-400 transition-all duration-200 rounded-sm text-base font-bold tracking-wide uppercase border-l-4 border-red-600 mt-3"
+					class="block w-full text-left py-4 px-6 bg-crimson/10 text-crimson hover:bg-crimson/20 hover:text-ember transition-all duration-200 rounded-sm text-base font-bold tracking-wide uppercase border-l-4 border-crimson mt-3"
 				>
 					Pray. Fight. Give.
 				</a>
@@ -167,20 +165,20 @@ import '../app.css';
 	</main>
 
 	<!-- Footer -->
-	<footer class="bg-neutral-950 text-neutral-400 py-12 border-t border-neutral-900">
+	<footer class="bg-panel text-bone/60 py-12 border-t border-white/5">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 			<svg class="w-8 h-8 mx-auto mb-4 text-neutral-600" fill="currentColor" viewBox="0 0 20 20">
 				<path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z"/>
 			</svg>
 
 			<div class="flex justify-center space-x-6 mb-6">
-				<a href="https://www.facebook.com/OperationGospel" target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-white transition-colors">
+				<a href="https://www.facebook.com/OperationGospel" target="_blank" rel="noopener noreferrer" class="text-teal hover:text-ember transition-colors">
 					<span class="sr-only">Facebook</span>
 					<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
 						<path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
 					</svg>
 				</a>
-				<a href="https://www.youtube.com/@OperationGospel" target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-white transition-colors">
+				<a href="https://www.youtube.com/@OperationGospel" target="_blank" rel="noopener noreferrer" class="text-teal hover:text-ember transition-colors">
 					<span class="sr-only">YouTube</span>
 					<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
 						<path fill-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.254.418-4.814a2.503 2.503 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z" clip-rule="evenodd" />
@@ -188,14 +186,14 @@ import '../app.css';
 				</a>
 			</div>
 
-            <p class="text-base font-serif font-bold uppercase tracking-widest text-red-600 mb-2">Scriptural authority. No compromise.</p>
-            <div class="text-2xl text-neutral-600 mb-6 font-serif">α &nbsp; ω</div>
+            <p class="text-base font-serif font-bold uppercase tracking-widest text-crimson mb-2">Scriptural authority. No compromise.</p>
+            <div class="text-2xl text-gold mb-6 font-serif">α &nbsp; ω</div>
 
-			<p class="mb-4 font-serif italic text-xl text-neutral-200">
+			<p class="mb-4 font-serif italic text-xl text-bone">
 				"Open your mouth for the mute, for the rights of all who are destitute."
 			</p>
-			<p class="text-sm mb-8 text-neutral-500">Proverbs 31:8</p>
-			<div class="text-[8px] text-neutral-600 uppercase font-mono tracking-wide">
+			<p class="text-sm mb-8 text-bone/60">Proverbs 31:8</p>
+			<div class="text-[8px] text-bone/40 uppercase font-mono tracking-wide">
 				<p class="mt-2">© 2026 Operation Gospel. All rights reserved.</p>
 			</div>
 		</div>

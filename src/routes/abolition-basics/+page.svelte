@@ -63,14 +63,14 @@
 	<title>Operation Gospel - Abolition Basics</title>
 </svelte:head>
 
-<div class="min-h-screen bg-gradient-to-b from-black via-neutral-950 to-neutral-900 text-neutral-100 px-6 py-16">
+<div class="min-h-screen bg-charcoal text-bone px-6 py-16">
 	<div class="max-w-4xl mx-auto">
 		<div class="text-center mb-12 relative">
-			<h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 uppercase">Abolition not Regulation</h1>
-			<p class="text-lg text-neutral-400">For five decades, the response to the greatest moral atrocity of our age has been incremental regulation. We tracked the pulse, we measured the weeks, but we failed to establish Justice. Here's why abolition is different.</p>
+			<h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 uppercase text-crimson">Abolition not Regulation</h1>
+			<p class="text-lg text-bone/70">For five decades, the response to the greatest moral atrocity of our age has been incremental regulation. We tracked the pulse, we measured the weeks, but we failed to establish Justice. Here's why abolition is different.</p>
 			<button
 				onclick={ () => {navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');}}
-				class="absolute top-0 right-0 text-neutral-500 hover:text-white transition-colors text-sm"
+				class="absolute top-0 right-0 text-bone/50 hover:text-bone transition-colors text-sm"
 				aria-label="Share this page"
 			>
 				Share →
@@ -83,21 +83,21 @@
 					<button
 						onclick={() => currentStep = step.id}
 						class="text-left p-4 rounded-lg transition-colors duration-200"
-						class:bg-red-900={currentStep === step.id}
-						class:hover:bg-neutral-800={currentStep !== step.id}
+						class:bg-crimson={currentStep === step.id}
+						class:hover:bg-panel={currentStep !== step.id}
 					>
-						<h3 class="font-bold">{step.title}</h3>
+						<h3 class="font-bold {currentStep === step.id ? 'text-white' : 'text-bone'}">{step.title}</h3>
 					</button>
 				{/each}
 			</div>
 
-			<div class="flex-1 bg-neutral-900 p-8 rounded-lg">
+			<div class="flex-1 bg-panel p-8 rounded-lg text-bone/80">
 				{@html steps.find(step => step.id === currentStep)?.content}
 			</div>
 		</div>
 
 		<div class="text-center mt-12">
-			<a href="{base}/georgia-battle" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition-colors">
+			<a href="{base}/georgia-battle" class="bg-crimson hover:bg-ember text-white font-bold py-3 px-6 rounded-lg transition-colors shadow-lg shadow-crimson/20">
 				Show me the battle in Georgia
 			</a>
 		</div>

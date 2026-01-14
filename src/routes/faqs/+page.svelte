@@ -54,23 +54,23 @@
 </script>
 
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-	<h1 class="text-4xl font-bold text-charcoal-900 dark:text-cream-100 mb-4">Frequently Asked Questions</h1>
-	<p class="text-charcoal-700 dark:text-cream-200 mb-12 text-lg">
+	<h1 class="text-4xl font-bold text-bone mb-4">Frequently Asked Questions</h1>
+	<p class="text-bone/70 mb-12 text-lg">
 		Find answers to common questions about equal protection and HB 441.
 	</p>
 	
 	<div class="space-y-4">
 		{#each faqs as faq, i}
-			<div class="bg-cream-50 dark:bg-charcoal-800 rounded-lg shadow-md overflow-hidden">
+			<div class="bg-panel rounded-lg shadow-md overflow-hidden border border-white/10">
 				<button
 					onclick={() => toggleFaq(i)}
-					class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-cream-100 dark:hover:bg-charcoal-750 transition-colors duration-200"
+					class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-white/5 transition-colors duration-200"
 				>
-					<span class="text-lg font-semibold text-charcoal-900 dark:text-cream-100 pr-4">
+					<span class="text-lg font-semibold text-bone pr-4">
 						{faq.question}
 					</span>
 					<svg
-						class="w-6 h-6 text-crimson-700 dark:text-crimson-500 flex-shrink-0 transform transition-transform duration-200 {openFaq === i ? 'rotate-180' : ''}"
+						class="w-6 h-6 text-crimson flex-shrink-0 transform transition-transform duration-200 {openFaq === i ? 'rotate-180' : ''}"
 						fill="none"
 						stroke="currentColor"
 						viewBox="0 0 24 24"
@@ -80,7 +80,7 @@
 				</button>
 				
 				{#if openFaq === i}
-					<div class="px-6 pb-4 text-charcoal-700 dark:text-cream-200 whitespace-pre-line">
+					<div class="px-6 pb-4 text-bone/70 whitespace-pre-line">
 						{faq.answer}
 					</div>
 				{/if}

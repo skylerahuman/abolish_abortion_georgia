@@ -27,25 +27,25 @@
   --color-stone-900: #1c1917;
   --color-stone-950: #0c0a09;
   
-  /* Red/Crimson palette */
-  --color-red-50: #fef2f2;
-  --color-red-100: #fee2e2;
-  --color-red-200: #fecaca;
-  --color-red-300: #fca5a5;
-  --color-red-400: #f87171;
-  --color-red-500: #ef4444;
-  --color-red-600: #dc2626;
-  --color-red-700: #b91c1c;
-  --color-red-800: #991b1b;
-  --color-red-900: #7f1d1d;
-  --color-red-950: #450a0a;
+  /* Softer Red/Crimson palette - Desaturated */
+  --color-red-50: #fbf5f5;
+  --color-red-100: #f6e8e8;
+  --color-red-200: #ebd1d1;
+  --color-red-300: #ddaaaa;
+  --color-red-400: #cf7d7d;
+  --color-red-500: #c25555;
+  --color-red-600: #a83d3d;
+  --color-red-700: #8a3333;
+  --color-red-800: #6b2626;
+  --color-red-900: #4f1d1d;
+  --color-red-950: #2e1111;
   
-  /* Green for success states */
-  --color-green-500: #22c55e;
-  --color-green-600: #16a34a;
+  /* Muted Green for success states */
+  --color-green-500: #5dae70;
+  --color-green-600: #4a8c5a;
   
-  /* Black */
-  --color-black: #000000;
+  /* Muted Black (Dark Gray) */
+  --color-black: #1c1c1e;
 }
 
 @layer base {
@@ -91,7 +91,7 @@
     top: 0;
     bottom: 0;
     width: 3px;
-    background: #000;
+    background: var(--color-black);
   }
   
   /* Each timeline row */

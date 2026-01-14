@@ -4,15 +4,91 @@ import '../app.css';
 	import { base } from '$app/paths';
 	import favicon from '$lib/assets/favicon.svg';
 	import logo from '$lib/assets/logo_basic.png';
+	import { onMount } from 'svelte';
 	
 	let { children } = $props();
 	let mobileMenuOpen = $state(false);
+	let menuRef: HTMLElement;
+	let justOpened = false;
+	let navbarVisible = $state(true);
+	let lastScrollY = 0;
 	
 	const navItems = [
 		{ href: `${base}/`, label: 'Home' },
 		{ href: `${base}/timeline`, label: 'Timeline' },
 		{ href: `${base}/faqs`, label: 'FAQs' }
 	];
+	
+	function toggleMenu() {
+		mobileMenuOpen = !mobileMenuOpen;
+		if (mobileMenuOpen) {
+			// Show navbar when opening menu
+			navbarVisible = true;
+			// Set flag to prevent immediate close from scroll
+			justOpened = true;
+			// Clear flag after 300ms
+			setTimeout(() => {
+				justOpened = false;
+			}, 300);
+		}
+	}
+	
+	// Close menu on click outside and on scroll
+	onMount(() => {
+		let scrollTimeout: number;
+		let openTimeout: number;
+		
+		const handleClickOutside = (event: MouseEvent) => {
+			const target = event.target as HTMLElement;
+			// Don't close if clicking the menu button or inside menu
+			if (target.closest('button[aria-label="Toggle menu"]')) {
+				return;
+			}
+			if (mobileMenuOpen && menuRef && !menuRef.contains(target)) {
+				mobileMenuOpen = false;
+				justOpened = false;
+			}
+		};
+		
+		// Handle scroll: close menu and hide/show navbar
+		const handleScroll = () => {
+			const currentScrollY = window.scrollY;
+			
+			// Show navbar at top of page
+			if (currentScrollY <= 10) {
+				navbarVisible = true;
+			} else if (!mobileMenuOpen) {
+				// Hide navbar when scrolling down (unless menu is open)
+				navbarVisible = false;
+			}
+			
+			lastScrollY = currentScrollY;
+			
+			// Don't close menu if it was just opened
+			if (justOpened) {
+				return;
+			}
+			
+			// Close menu when scrolling
+			clearTimeout(scrollTimeout);
+			scrollTimeout = window.setTimeout(() => {
+				if (mobileMenuOpen) {
+					mobileMenuOpen = false;
+				}
+			}, 50);
+		};
+		
+		// Use mousedown instead of click for better behavior
+		document.addEventListener('mousedown', handleClickOutside);
+		window.addEventListener('scroll', handleScroll, { passive: true });
+		
+		return () => {
+			clearTimeout(scrollTimeout);
+			clearTimeout(openTimeout);
+			document.removeEventListener('mousedown', handleClickOutside);
+			window.removeEventListener('scroll', handleScroll);
+		};
+	});
 </script>
 
 <svelte:head>
@@ -20,71 +96,56 @@ import '../app.css';
 	<link rel="icon" href={logo} />
 </svelte:head>
 
+<style>
+	.logo-button img {
+		transition: filter 0.2s ease;
+	}
+	.logo-button:hover img {
+		filter: brightness(0) saturate(100%) invert(28%) sepia(93%) saturate(3166%) hue-rotate(348deg) brightness(93%) contrast(95%);
+	}
+</style>
+
 <div class="min-h-screen flex flex-col">
 	<!-- Navigation -->
-	<nav class="bg-black/90 backdrop-blur-md text-white shadow-lg sticky top-0 z-50 border-b border-neutral-800">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<div class="flex justify-between items-center h-16">
-				<!-- Logo/Brand -->
-				<div class="flex items-center space-x-3">
-					<div>
-						<img src={logo} alt="Operation Gospel Logo" class="h-12 w-auto">
-					</div>
-					<div>
-						<a href="{base}/" class="text-xl md:text-2xl font-serif font-bold tracking-tight uppercase leading-none">
-							Operation Gospel
-						</a>
-						<p class="text-[10px] text-neutral-400 tracking-[0.2em] uppercase font-sans font-bold">The Road to Abolition</p>
-					</div>
+	<nav class="bg-transparent text-white sticky top-0 z-50 transition-all duration-300 {navbarVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}">
+		<div class="w-full px-4 sm:px-6 lg:px-8">
+			<div class="flex items-center justify-between h-16">
+				<!-- Menu Button (Left) - Logo Icon -->
+				<div class="flex items-center relative z-50">
+					<button
+						onclick={toggleMenu}
+						class="logo-button focus:outline-none cursor-pointer relative z-50"
+						aria-label="Toggle menu"
+					>
+						<img src={logo} alt="Menu" class="h-10 w-auto" />
+					</button>
 				</div>
 				
-				<!-- Desktop Navigation -->
-				<div class="hidden md:flex md:items-center md:space-x-1">
-					{#each navItems as item}
-						<a 
-							href={item.href}
-							class="hover:text-neutral-300 hover:bg-neutral-900 transition-all duration-200 px-4 py-3 text-[10px] font-bold tracking-wider uppercase rounded-sm
-								{$page.url.pathname === item.href ? 'text-red-500 bg-neutral-900 border-l-2 border-red-600' : 'text-neutral-500 border-l-2 border-transparent'}"
-						>
-							{item.label}
-						</a>
-					{/each}
-					<a
-						href="{base}/respond"
-						class="ml-4 bg-red-700 hover:bg-red-800 text-white px-4 py-2 rounded-sm text-[10px] font-bold uppercase tracking-widest transition-colors shadow-lg border border-red-600"
-					>
-						Pray. Fight. Give.
+				<!-- Operation Gospel Text (Right) - Hidden on mobile -->
+				<div class="hidden md:flex items-center">
+					<a href="{base}/" class="text-xl md:text-2xl font-serif font-bold tracking-tight uppercase leading-none whitespace-nowrap">
+						Operation Gospel
 					</a>
 				</div>
 				
-				<!-- Mobile Menu Button -->
-				<div class="flex items-center">
-					<button
-						onclick={() => mobileMenuOpen = !mobileMenuOpen}
-						class="md:hidden text-red-500 focus:outline-none"
-						aria-label="Toggle menu"
-					>
-						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							{#if mobileMenuOpen}
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-							{:else}
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-							{/if}
-						</svg>
-					</button>
+				<!-- Logo Icon (Right) - Mobile only -->
+				<div class="md:hidden flex items-center">
+					<a href="{base}/">
+						<img src={logo} alt="Operation Gospel" class="h-10 w-auto" />
+					</a>
 				</div>
 			</div>
 		</div>
 		
-		<!-- Mobile Navigation -->
+		<!-- Hamburger Menu -->
 		{#if mobileMenuOpen}
-			<div class="md:hidden bg-neutral-950 backdrop-blur-md border-t border-neutral-800 p-4">
+			<div bind:this={menuRef} class="bg-neutral-950 backdrop-blur-md border-t border-neutral-800 p-6 relative z-50">
 				{#each navItems as item}
 					<a
 						href={item.href}
 						onclick={() => mobileMenuOpen = false}
-						class="block w-full text-left py-3 px-4 hover:text-neutral-300 hover:bg-neutral-900 transition-all duration-200 rounded-sm text-[10px] font-bold tracking-wider uppercase
-							{$page.url.pathname === item.href ? 'text-red-500 bg-neutral-900 border-l-2 border-red-600' : 'text-neutral-500 border-l-2 border-transparent'}"
+						class="block w-full text-left py-4 px-6 hover:text-white hover:bg-neutral-900 transition-all duration-200 rounded-sm text-base font-bold tracking-wide uppercase
+							{$page.url.pathname === item.href ? 'text-red-500 bg-neutral-900 border-l-4 border-red-600' : 'text-neutral-300 border-l-4 border-transparent'}"
 					>
 						{item.label}
 					</a>
@@ -92,7 +153,7 @@ import '../app.css';
 				<a
 					href="{base}/respond"
 					onclick={() => mobileMenuOpen = false}
-					class="block w-full text-left py-3 px-4 bg-red-900/20 text-red-500 hover:bg-red-900/40 transition-all duration-200 rounded-sm text-[10px] font-bold tracking-wider uppercase border-l-2 border-red-600 mt-2"
+					class="block w-full text-left py-4 px-6 bg-red-900/20 text-red-500 hover:bg-red-900/40 hover:text-red-400 transition-all duration-200 rounded-sm text-base font-bold tracking-wide uppercase border-l-4 border-red-600 mt-3"
 				>
 					Pray. Fight. Give.
 				</a>

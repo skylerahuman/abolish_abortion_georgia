@@ -8,7 +8,7 @@ import '../app.css';
 	
 	let { children } = $props();
 	let mobileMenuOpen = $state(false);
-	let menuRef: HTMLElement;
+	let menuRef: HTMLElement = $state();
 	let justOpened = false;
 	let navbarVisible = $state(true);
 	let lastScrollY = 0;

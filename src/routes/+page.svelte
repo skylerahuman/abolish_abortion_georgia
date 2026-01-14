@@ -85,7 +85,7 @@
 			<div class="grid md:grid-cols-3 gap-8">
 				<!-- Legislation Engagement -->
 				<a
-					href="{base}/timeline"
+					href="{base}/georgia-battle"
 					class="block bg-panel/80 backdrop-blur-sm border border-white/10 p-8 rounded-xl hover:bg-panel hover:border-crimson/50 transition-all duration-300 group shadow-lg hover:shadow-crimson/10 hover:-translate-y-1"
 				>
 					<div

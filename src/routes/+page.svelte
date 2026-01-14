@@ -31,28 +31,28 @@
 	<!-- Hero Section -->
 	<section
 		bind:this={heroSection}
-		class="relative min-h-[90vh] md:min-h-[85vh] py-12 md:py-16 px-4 flex flex-col justify-center border-b border-red-900/20 overflow-hidden"
+		class="relative min-h-[90vh] md:min-h-[85vh] py-12 md:py-16 px-4 flex flex-col justify-center border-b border-crimson/20 overflow-hidden"
 	>
 		<div class="relative z-10 w-full mx-auto px-6 md:px-16 mt-auto">
 			<div class="w-full max-w-3xl mr-auto">
 				<h2
-					class="text-left text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-serif font-light text-white tracking-normal mb-8 drop-shadow-lg space-y-1 md:space-y-2 leading-tight"
+					class="text-left text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-serif font-light text-bone tracking-normal mb-8 drop-shadow-lg space-y-1 md:space-y-2 leading-tight"
 				>
 					<div class="text-left whitespace-nowrap">
-						<span>Called by <span class="text-red-500">Christ</span></span>
+						<span>Called by <span class="text-crimson">Christ</span></span>
 					</div>
 					<div class="text-left whitespace-nowrap">
-						<span class="text-base sm:text-lg md:text-xl lg:text-2xl font-light text-neutral-400"
+						<span class="text-base sm:text-lg md:text-xl lg:text-2xl font-light text-bone/70"
 							>to</span
 						> condemn sin
 					</div>
 					<div class="text-left whitespace-nowrap">
-						<span class="text-base sm:text-lg md:text-xl lg:text-2xl font-light text-neutral-400"
+						<span class="text-base sm:text-lg md:text-xl lg:text-2xl font-light text-bone/70"
 							>and</span
 						> care for sinners
 					</div>
 					<div class="text-left whitespace-nowrap">
-						<span class="text-base sm:text-lg md:text-xl lg:text-2xl font-light text-neutral-400"
+						<span class="text-base sm:text-lg md:text-xl lg:text-2xl font-light text-bone/70"
 							>so that we might</span
 						> crush child sacrifice.
 					</div>
@@ -62,7 +62,7 @@
 
 		<!-- Scroll Down Indicator -->
 		<div
-			class="relative z-10 mt-auto mx-auto text-center text-white/50 animate-bounce cursor-pointer"
+			class="relative z-10 mt-auto mx-auto text-center text-bone/50 animate-bounce cursor-pointer"
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -79,17 +79,17 @@
 	<!-- Our Focus Section -->
 	<section class="relative z-10 bg-transparent py-32 sm:py-40">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<h2 class="text-4xl font-serif font-bold text-white tracking-tight mb-20 text-center">
+			<h2 class="text-4xl font-serif font-bold text-bone tracking-tight mb-20 text-center">
 				Our Focus
 			</h2>
 			<div class="grid md:grid-cols-3 gap-8">
 				<!-- Legislation Engagement -->
 				<a
 					href="{base}/timeline"
-					class="block bg-neutral-900/50 backdrop-blur-sm border border-neutral-800 p-8 rounded-xl hover:bg-neutral-900 hover:border-red-800/50 transition-all duration-300 group shadow-lg hover:shadow-red-900/10 hover:-translate-y-1"
+					class="block bg-panel/80 backdrop-blur-sm border border-white/10 p-8 rounded-xl hover:bg-panel hover:border-crimson/50 transition-all duration-300 group shadow-lg hover:shadow-crimson/10 hover:-translate-y-1"
 				>
 					<div
-						class="mb-6 inline-block p-3 rounded-lg bg-red-900/20 text-red-500 group-hover:bg-red-900/30 group-hover:text-red-400 transition-colors"
+						class="mb-6 inline-block p-3 rounded-lg bg-crimson/20 text-crimson group-hover:bg-crimson/30 group-hover:text-ember transition-colors"
 					>
 						<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path
@@ -101,16 +101,16 @@
 						</svg>
 					</div>
 					<h3
-						class="text-2xl font-serif font-bold text-white mb-4 group-hover:text-red-400 transition-colors"
+						class="text-2xl font-serif font-bold text-bone mb-4 group-hover:text-ember transition-colors"
 					>
 						Legislation Engagement
 					</h3>
-					<div class="space-y-4 text-neutral-400 text-base leading-relaxed font-sans">
-						<p class="font-medium text-neutral-200">Roe is over. Equal Protection Laws Matter.</p>
+					<div class="space-y-4 text-bone/70 text-base leading-relaxed font-sans">
+						<p class="font-medium text-bone">Roe is over. Equal Protection Laws Matter.</p>
 						<p>The Christian Church must pursue biblical justice to put an end to child sacrifice.</p>
 					</div>
 					<div
-						class="mt-8 flex items-center text-red-500 text-xs font-bold uppercase tracking-widest"
+						class="mt-8 flex items-center text-teal text-xs font-bold uppercase tracking-widest"
 					>
 						<span class="group-hover:mr-2 transition-all">Learn More</span>
 						<svg
@@ -131,10 +131,10 @@
 				<!-- Abolition with Evangelism -->
 				<a
 					href="{base}/abolition-basics"
-					class="block bg-neutral-900/50 backdrop-blur-sm border border-neutral-800 p-8 rounded-xl hover:bg-neutral-900 hover:border-red-800/50 transition-all duration-300 group shadow-lg hover:shadow-red-900/10 hover:-translate-y-1"
+					class="block bg-panel/80 backdrop-blur-sm border border-white/10 p-8 rounded-xl hover:bg-panel hover:border-crimson/50 transition-all duration-300 group shadow-lg hover:shadow-crimson/10 hover:-translate-y-1"
 				>
 					<div
-						class="mb-6 inline-block p-3 rounded-lg bg-red-900/20 text-red-500 group-hover:bg-red-900/30 group-hover:text-red-400 transition-colors"
+						class="mb-6 inline-block p-3 rounded-lg bg-crimson/20 text-crimson group-hover:bg-crimson/30 group-hover:text-ember transition-colors"
 					>
 						<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path
@@ -146,11 +146,11 @@
 						</svg>
 					</div>
 					<h3
-						class="text-2xl font-serif font-bold text-white mb-4 group-hover:text-red-400 transition-colors"
+						class="text-2xl font-serif font-bold text-bone mb-4 group-hover:text-ember transition-colors"
 					>
 						Abolition with Evangelism
 					</h3>
-					<div class="space-y-4 text-neutral-400 text-base leading-relaxed font-sans">
+					<div class="space-y-4 text-bone/70 text-base leading-relaxed font-sans">
 						<p>
 							Through partnerships with two full-time evangelists, we are taking the Gospel to child
 							sacrifice centers across GA.
@@ -162,7 +162,7 @@
 						</p>
 					</div>
 					<div
-						class="mt-8 flex items-center text-red-500 text-xs font-bold uppercase tracking-widest"
+						class="mt-8 flex items-center text-teal text-xs font-bold uppercase tracking-widest"
 					>
 						<span class="group-hover:mr-2 transition-all">Learn More</span>
 						<svg
@@ -183,10 +183,10 @@
 				<!-- Local Churches -->
 				<a
 					href="{base}/near-me"
-					class="block bg-neutral-900/50 backdrop-blur-sm border border-neutral-800 p-8 rounded-xl hover:bg-neutral-900 hover:border-red-800/50 transition-all duration-300 group shadow-lg hover:shadow-red-900/10 hover:-translate-y-1"
+					class="block bg-panel/80 backdrop-blur-sm border border-white/10 p-8 rounded-xl hover:bg-panel hover:border-crimson/50 transition-all duration-300 group shadow-lg hover:shadow-crimson/10 hover:-translate-y-1"
 				>
 					<div
-						class="mb-6 inline-block p-3 rounded-lg bg-red-900/20 text-red-500 group-hover:bg-red-900/30 group-hover:text-red-400 transition-colors"
+						class="mb-6 inline-block p-3 rounded-lg bg-crimson/20 text-crimson group-hover:bg-crimson/30 group-hover:text-ember transition-colors"
 					>
 						<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path
@@ -198,18 +198,18 @@
 						</svg>
 					</div>
 					<h3
-						class="text-2xl font-serif font-bold text-white mb-4 group-hover:text-red-400 transition-colors"
+						class="text-2xl font-serif font-bold text-bone mb-4 group-hover:text-ember transition-colors"
 					>
 						Local Churches
 					</h3>
-					<div class="space-y-4 text-neutral-400 text-base leading-relaxed font-sans">
+					<div class="space-y-4 text-bone/70 text-base leading-relaxed font-sans">
 						<p>
 							We work with local churches to equip them in similar outreach programs to fulfill the
 							Great Commission.
 						</p>
 					</div>
 					<div
-						class="mt-8 flex items-center text-red-500 text-xs font-bold uppercase tracking-widest"
+						class="mt-8 flex items-center text-teal text-xs font-bold uppercase tracking-widest"
 					>
 						<span class="group-hover:mr-2 transition-all">Join the Network</span>
 						<svg

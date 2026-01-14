@@ -257,10 +257,10 @@ I want to be involved with Operation Gospel.`;
 				Find People Near Me
 			</a>
 			<a 
-				href="{base}/start"
+				href="{base}/"
 				class="w-full md:w-auto bg-transparent border border-neutral-700 hover:border-neutral-500 text-neutral-300 hover:text-neutral-100 font-semibold px-10 py-4 rounded-sm uppercase tracking-wide transition-all duration-300 text-center"
 			>
-				Back to Start
+				Back to Home
 			</a>
 		</div>
 	</div>

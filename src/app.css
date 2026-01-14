@@ -1,20 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  /* Neutral/Gray palette for dark theme */
-  --color-neutral-50: #fafafa;
-  --color-neutral-100: #f5f5f5;
-  --color-neutral-200: #e5e5e5;
-  --color-neutral-300: #d4d4d4;
-  --color-neutral-400: #a3a3a3;
-  --color-neutral-500: #737373;
-  --color-neutral-600: #525252;
-  --color-neutral-700: #404040;
-  --color-neutral-800: #262626;
-  --color-neutral-900: #171717;
-  --color-neutral-950: #0a0a0a;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Libre Baskerville", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+  /* Slate palette (Cooler, more alive neutrals) */
+  --color-neutral-50: #f8fafc;
+  --color-neutral-100: #f1f5f9;
+  --color-neutral-200: #e2e8f0;
+  --color-neutral-300: #cbd5e1;
+  --color-neutral-400: #94a3b8;
+  --color-neutral-500: #64748b;
+  --color-neutral-600: #475569;
+  --color-neutral-700: #334155;
+  --color-neutral-800: #1e293b;
+  --color-neutral-900: #0f172a;
+  --color-neutral-950: #020617;
   
-  /* Stone palette (from HTML) */
+  /* Stone palette (retained but slightly tuned if needed, keeping standard for now) */
   --color-stone-50: #fafaf9;
   --color-stone-100: #f5f5f4;
   --color-stone-200: #e7e5e4;
@@ -27,25 +30,25 @@
   --color-stone-900: #1c1917;
   --color-stone-950: #0c0a09;
   
-  /* Softer Red/Crimson palette - Desaturated */
-  --color-red-50: #fbf5f5;
-  --color-red-100: #f6e8e8;
-  --color-red-200: #ebd1d1;
-  --color-red-300: #ddaaaa;
-  --color-red-400: #cf7d7d;
-  --color-red-500: #c25555;
-  --color-red-600: #a83d3d;
-  --color-red-700: #8a3333;
-  --color-red-800: #6b2626;
-  --color-red-900: #4f1d1d;
-  --color-red-950: #2e1111;
+  /* Vibrant Red/Crimson palette - More life */
+  --color-red-50: #fef2f2;
+  --color-red-100: #fee2e2;
+  --color-red-200: #fecaca;
+  --color-red-300: #fca5a5;
+  --color-red-400: #f87171;
+  --color-red-500: #ef4444;
+  --color-red-600: #dc2626;
+  --color-red-700: #b91c1c;
+  --color-red-800: #991b1b;
+  --color-red-900: #7f1d1d;
+  --color-red-950: #450a0a;
   
   /* Muted Green for success states */
-  --color-green-500: #5dae70;
-  --color-green-600: #4a8c5a;
+  --color-green-500: #22c55e;
+  --color-green-600: #16a34a;
   
-  /* Muted Black (Dark Gray) */
-  --color-black: #1c1c1e;
+  /* Deep Rich Black (Slate 950) */
+  --color-black: #020617;
 }
 
 @layer base {
@@ -58,14 +61,14 @@
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #171717;
+    background: var(--color-neutral-950);
   }
   ::-webkit-scrollbar-thumb {
-    background: #404040;
+    background: var(--color-neutral-700);
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #525252;
+    background: var(--color-neutral-600);
   }
   
   /* Selection */

@@ -19,32 +19,32 @@
 	<img 
 		src="{base}/images/atlanta_skyline.png" 
 		alt="Atlanta Skyline" 
-		class="w-full h-full object-cover grayscale"
+		class="w-full h-full object-cover"
 	/>
-	<div class="absolute inset-0 bg-black/70"></div>
 </div>
 
-<div class="relative z-10 min-h-screen bg-charcoal-950 text-white px-6 py-20 flex flex-col justify-center">
+<div class="relative z-10 min-h-screen text-white px-6 py-20 flex flex-col justify-center">
 	<div class="absolute top-4 right-4 text-right">
 		<a href="{base}/near-me" class="text-sm text-neutral-400 hover:text-white transition-colors">Already support abolition? →</a>
 		<br>
 		<a href="{base}/respond" class="text-sm text-neutral-400 hover:text-white transition-colors">Just want to help? →</a>
 	</div>
-	<div class="text-center">
-		<h1 in:fade={{delay: 0}} class="text-5xl md:text-8xl font-black uppercase tracking-tight">Explicitly Christian.</h1>
-		<h1 in:fade={{delay: 300}} class="text-5xl md:text-8xl font-black uppercase tracking-tight">Extremely Prophetic.</h1>
-		<h1 in:fade={{delay: 600, duration: 600}} class="text-5xl md:text-8xl font-black uppercase tracking-tight text-red-600">
-			Ending Child Sacrifice.
-		</h1>
+	<div class="flex justify-end mb-16">
+		<div class="text-right max-w-4xl">
+			<h1 in:fade={{delay: 0}} class="text-5xl md:text-8xl font-black uppercase tracking-tight">Explicitly Christian.</h1>
+			<h1 in:fade={{delay: 300}} class="text-5xl md:text-8xl font-black uppercase tracking-tight">Extremely Prophetic.</h1>
+			<h1 in:fade={{delay: 600, duration: 600}} class="text-5xl md:text-8xl font-black uppercase tracking-tight text-red-600">
+				Ending Child Sacrifice.
+			</h1>
+		</div>
 	</div>
 
 	{#if show}
 		<div in:fade={{ delay: 3000, duration: 1000 }} class="absolute bottom-10 left-1/2 -translate-x-1/2 text-neutral-500 text-lg">
 			Press Space to continue
 		</div>
-	{/if}
-	<div class="absolute inset-0 bg-gradient-to-b from-charcoal-950 via-transparent to-charcoal-950"></div>
-	<div class="max-w-6xl mx-auto w-full">
+		{/if}
+		<div class="max-w-6xl mx-auto w-full">
 		<!-- Scripture & Mission -->
 		{#if show}
 			<div class="mb-20">

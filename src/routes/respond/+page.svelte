@@ -82,7 +82,7 @@ I want to be involved with Operation Gospel.`;
 		<!-- Header -->
 		<div class="text-center mb-12 relative">
 			<h1 class="text-4xl md:text-6xl font-extrabold tracking-tight uppercase mb-4">
-				<span class="text-red-600">Pray.</span> <span class="text-neutral-100">Fight.</span> <span class="text-amber-500">Give.</span>
+				<span class="text-red-600">Pray.</span> <span class="text-red-600">Fight.</span> <span class="text-red-600">Give.</span>
 			</h1>
 			<h2 class="text-xl md:text-2xl font-bold text-neutral-400 mb-6">
 				50 Fights in 50 States – Georgia is Ours
@@ -182,25 +182,18 @@ I want to be involved with Operation Gospel.`;
 			</div>
 			
 			<!-- FIGHT -->
-			<div class="bg-neutral-900 border border-neutral-800 hover:border-amber-600 p-8 rounded-sm transition-all duration-300">
-				<h3 class="text-2xl font-black uppercase tracking-wide text-amber-600 mb-4 text-center border-b-2 border-amber-900 pb-4">Fight</h3>
+			<div class="bg-neutral-900 border border-neutral-800 hover:border-red-600 p-8 rounded-sm transition-all duration-300">
+				<h3 class="text-2xl font-black uppercase tracking-wide text-red-600 mb-4 text-center border-b-2 border-red-900 pb-4">Fight</h3>
 				<p class="text-sm text-neutral-400 leading-relaxed mb-6">
 					<strong class="text-neutral-300 block mb-2">Fight for Equal Protection</strong>
 					Take action today:
 				</p>
-				<ul class="text-sm text-neutral-400 space-y-2 mb-6 list-disc list-inside">
-					<li>Call your State House Representative about HB 441</li>
-					<li>Share Operation Gospel's resources with your church</li>
-					<li>Watch "The Fatal Flaw" documentary</li>
-					<li>Join or start an abolitionist society in your district</li>
-					<li>Attend hearings and public comment sessions</li>
-				</ul>
 				<div class="space-y-2">
 					<a
 						href="https://www.youtube.com/watch?v=k33epqzJIlM"
 						target="_blank"
 						rel="noopener noreferrer"
-						class="block w-full text-center bg-amber-700 hover:bg-amber-800 text-white font-semibold py-2 px-4 rounded-sm text-sm transition-colors"
+						class="block w-full text-center bg-red-700 hover:bg-red-800 text-white font-semibold py-2 px-4 rounded-sm text-sm transition-colors"
 					>
 						Watch The Fatal Flaw
 					</a>
@@ -218,32 +211,26 @@ I want to be involved with Operation Gospel.`;
 			</div>
 			
 			<!-- GIVE -->
-			<div class="bg-neutral-900 border border-neutral-800 hover:border-green-600 p-8 rounded-sm transition-all duration-300">
-				<h3 class="text-2xl font-black uppercase tracking-wide text-green-600 mb-4 text-center border-b-2 border-green-900 pb-4">Give</h3>
+			<div class="bg-neutral-900 border border-neutral-800 hover:border-red-600 p-8 rounded-sm transition-all duration-300">
+				<h3 class="text-2xl font-black uppercase tracking-wide text-red-600 mb-4 text-center border-b-2 border-red-900 pb-4">Give</h3>
 				<p class="text-sm text-neutral-400 leading-relaxed mb-6">
 					<strong class="text-neutral-300 block mb-2">What Your Gift Supports</strong>
 					Every dollar you give to Operation Gospel funds:
 				</p>
-				<ul class="text-sm text-neutral-400 space-y-2 mb-6 list-disc list-inside">
-					<li>Full-time evangelists at Georgia abortion clinics</li>
-					<li>Legislative engagement and HB 441 advocacy</li>
-					<li>Church training and equipping events</li>
-					<li>Educational materials and outreach resources</li>
-				</ul>
 
 				<div>
 					<h4 class="text-lg font-bold text-center mb-4">Suggested Giving Levels</h4>
 					<div class="space-y-2">
-						<a href="https://donorbox.org/regular-donations-15" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-4 rounded-sm text-sm transition-colors">
+						<a href="https://donorbox.org/regular-donations-15" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-red-700 hover:bg-red-800 text-white font-bold py-3 px-4 rounded-sm text-sm transition-colors">
 							$25/month – Supplies materials for church training
 						</a>
-						<a href="https://donorbox.org/regular-donations-15" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-4 rounded-sm text-sm transition-colors">
+						<a href="https://donorbox.org/regular-donations-15" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-red-700 hover:bg-red-800 text-white font-bold py-3 px-4 rounded-sm text-sm transition-colors">
 							$100/month – Funds one day of clinic evangelism
 						</a>
-						<a href="https://donorbox.org/regular-donations-15" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-4 rounded-sm text-sm transition-colors">
+						<a href="https://donorbox.org/regular-donations-15" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-red-700 hover:bg-red-800 text-white font-bold py-3 px-4 rounded-sm text-sm transition-colors">
 							$500/month – Supports full-time evangelist salary
 						</a>
-						<a href="https://donorbox.org/regular-donations-15" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-transparent border border-green-700 hover:bg-green-900/20 text-green-600 font-semibold py-2 px-4 rounded-sm text-sm transition-colors">
+						<a href="https://donorbox.org/regular-donations-15" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-transparent border border-red-700 hover:bg-red-900/20 text-red-600 font-semibold py-2 px-4 rounded-sm text-sm transition-colors">
 							Custom Amount
 						</a>
 					</div>

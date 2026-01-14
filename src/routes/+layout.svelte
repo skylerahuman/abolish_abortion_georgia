@@ -22,7 +22,7 @@ import '../app.css';
 
 <div class="min-h-screen flex flex-col">
 	<!-- Navigation -->
-	<nav class="bg-black text-white shadow-lg sticky top-0 z-50 border-b border-neutral-800">
+	<nav class="bg-black/90 backdrop-blur-md text-white shadow-lg sticky top-0 z-50 border-b border-neutral-800">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="flex justify-between items-center h-16">
 				<!-- Logo/Brand -->
@@ -31,10 +31,10 @@ import '../app.css';
 						<img src={logo} alt="Operation Gospel Logo" class="h-12 w-auto">
 					</div>
 					<div>
-						<a href="{base}/" class="text-xl md:text-2xl font-black tracking-tighter uppercase leading-none">
+						<a href="{base}/" class="text-xl md:text-2xl font-serif font-bold tracking-tight uppercase leading-none">
 							Operation Gospel
 						</a>
-						<p class="text-[10px] text-neutral-500 tracking-widest uppercase font-bold">The Road to Abolition</p>
+						<p class="text-[10px] text-neutral-400 tracking-[0.2em] uppercase font-sans font-bold">The Road to Abolition</p>
 					</div>
 				</div>
 				
@@ -127,10 +127,10 @@ import '../app.css';
 				</a>
 			</div>
 
-            <p class="text-sm font-bold uppercase tracking-widest text-red-700 mb-2">Scriptural authority. No compromise.</p>
+            <p class="text-base font-serif font-bold uppercase tracking-widest text-red-600 mb-2">Scriptural authority. No compromise.</p>
             <div class="text-2xl text-neutral-600 mb-6 font-serif">α &nbsp; ω</div>
 
-			<p class="mb-4 font-serif italic text-lg text-white">
+			<p class="mb-4 font-serif italic text-xl text-neutral-200">
 				"Open your mouth for the mute, for the rights of all who are destitute."
 			</p>
 			<p class="text-sm mb-8 text-neutral-500">Proverbs 31:8</p>

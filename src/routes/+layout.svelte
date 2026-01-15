@@ -105,8 +105,8 @@ import '../app.css';
 	<nav class="bg-transparent text-white sticky top-0 z-50 transition-all duration-300 {navbarVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}">
 		<div class="w-full px-4 sm:px-6 lg:px-8">
 			<div class="flex items-center justify-between h-16">
-				<!-- Menu Button (Left) - Logo Icon -->
-				<div class="flex items-center relative z-50">
+				<!-- Menu Button (Left) - Logo Icon - Desktop only -->
+				<div class="hidden md:flex items-center relative z-50">
 					<button
 						onclick={toggleMenu}
 						class="logo-button focus:outline-none cursor-pointer relative z-50"
@@ -116,17 +116,21 @@ import '../app.css';
 					</button>
 				</div>
 				
-				<!-- Operation Gospel Text (Right) - Hidden on mobile -->
+				<!-- Centered Logo - Mobile only -->
+				<div class="md:hidden flex items-center justify-center w-full relative z-50">
+					<button
+						onclick={toggleMenu}
+						class="logo-button focus:outline-none cursor-pointer"
+						aria-label="Toggle menu"
+					>
+						<img src={logo} alt="Operation Gospel" class="h-10 w-auto" />
+					</button>
+				</div>
+				
+				<!-- Operation Gospel Text (Right) - Desktop only -->
 				<div class="hidden md:flex items-center">
 					<a href="{base}/" class="text-xl md:text-2xl font-serif font-bold tracking-tight uppercase leading-none whitespace-nowrap">
 						Operation Gospel
-					</a>
-				</div>
-				
-				<!-- Logo Icon (Right) - Mobile only -->
-				<div class="md:hidden flex items-center">
-					<a href="{base}/">
-						<img src={logo} alt="Operation Gospel" class="h-10 w-auto" />
 					</a>
 				</div>
 			</div>
@@ -165,7 +169,10 @@ import '../app.css';
 	<footer class="bg-panel text-bone/60 py-12 border-t border-white/5">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
-            <p class="text-base font-serif font-bold uppercase tracking-widest text-bone mb-2">Scriptural authority. No compromise.</p>
+            <p class="text-base font-serif font-bold uppercase tracking-widest text-bone mb-2">
+				<span class="block sm:inline">Scriptural Authority.</span>
+				<span class="block sm:inline sm:ml-1">No Compromise.</span>
+			</p>
 				<div class="flex justify-center space-x-6 mb-6">
 				<a href="https://www.facebook.com/OperationGospel" target="_blank" rel="noopener noreferrer" class="text-bone hover:text-ember transition-colors">
 					<span class="sr-only">Facebook</span>

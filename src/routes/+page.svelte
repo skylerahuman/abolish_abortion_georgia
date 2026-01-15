@@ -57,6 +57,24 @@
 						> crush child sacrifice.
 					</div>
 				</h2>
+
+				<p class="text-left text-lg font-sans text-bone mb-8 drop-shadow-lg">In the post-Roe era, we will not overcome the sin of abortion (which the Scriptures call child sacrifice) by "pro-life" gradualism. We must be pro-justice and pro-mercy, because our God and Lord, Jesus Christ, is pefectly just and merciful. We demand equal protection for the unborn, immediate and total abolition of abortion, and mobilization of the Church in Georgia to accomplish the Great Commission.</p>
+
+				<!-- Call to Action Buttons -->
+				<div class="flex gap-4 mt-8">
+					<a
+						href="{base}/near-me"
+						class="px-8 py-3 bg-crimson text-bone font-semibold rounded-lg hover:bg-ember transition-colors duration-200 shadow-lg hover:shadow-crimson/50"
+					>
+						Join
+					</a>
+					<a
+						href="{base}/about"
+						class="px-8 py-3 bg-crimson text-bone font-semibold rounded-lg hover:bg-ember transition-colors duration-200 shadow-lg hover:shadow-crimson/50"
+					>
+						Support
+					</a>
+				</div>
 			</div>
 		</div>
 
@@ -83,147 +101,139 @@
 				Our Focus
 			</h2>
 			<div class="grid md:grid-cols-3 gap-8">
-				<!-- Legislation Engagement -->
+				<!-- Legislative Discipleship -->
 				<a
 					href="{base}/georgia-battle"
-					class="block bg-panel/80 backdrop-blur-sm border border-white/10 p-8 rounded-xl hover:bg-panel hover:border-crimson/50 transition-all duration-300 group shadow-lg hover:shadow-crimson/10 hover:-translate-y-1"
+					class="flex flex-col bg-panel/80 backdrop-blur-sm border border-white/10 p-8 rounded-xl hover:bg-panel hover:border-crimson/50 transition-all duration-300 group shadow-lg hover:shadow-crimson/10 hover:-translate-y-1"
 				>
-					<div
-						class="mb-6 inline-block p-3 rounded-lg bg-crimson/20 text-crimson group-hover:bg-crimson/30 group-hover:text-ember transition-colors"
-					>
-						<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="1.5"
-								d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16a2 2 0 100-4 2 2 0 000 4z"
-							/>
-						</svg>
-					</div>
-					<h3
-						class="text-2xl font-serif font-bold text-bone mb-4 group-hover:text-ember transition-colors"
-					>
-						Legislation Engagement
-					</h3>
-					<div class="space-y-4 text-bone/70 text-base leading-relaxed font-sans">
-						<p class="font-medium text-bone">Roe is over. Equal Protection Laws Matter.</p>
-						<p>The Christian Church must pursue biblical justice to put an end to child sacrifice.</p>
-					</div>
-					<div
-						class="mt-8 flex items-center text-teal text-xs font-bold uppercase tracking-widest"
-					>
-						<span class="group-hover:mr-2 transition-all">Learn More</span>
-						<svg
-							class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
-							fill="none"
-							stroke="currentColor"
-							viewBox="0 0 24 24"
-							><path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M17 8l4 4m0 0l-4 4m4-4H3"
-							></path></svg
+					<div>
+						<div
+							class="mb-6 inline-block p-3 rounded-lg bg-crimson/20 text-crimson group-hover:bg-crimson/30 group-hover:text-ember transition-colors"
 						>
+							<svg
+								class="w-8 h-8"
+								fill="currentColor"
+								viewBox="-2 0 19 19"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									d="M9.316 14.722a.477.477 0 0 1-.475.475H1.433a.477.477 0 0 1-.475-.475v-.863a.477.477 0 0 1 .475-.475h7.408a.476.476 0 0 1 .475.475zm-2.767-2.587a.552.552 0 0 1-.392-.163L2.96 8.776a.554.554 0 0 1 .784-.784L6.94 11.19a.554.554 0 0 1-.392.946zm7.33.992L9.435 8.682l1.085-1.084-3.173-3.173-2.97 2.97 3.173 3.172 1.102-1.101 4.445 4.445a.554.554 0 1 0 .784-.784zm-2.33-5.993a.552.552 0 0 1-.391-.162L7.96 3.775a.554.554 0 1 1 .784-.784l3.196 3.197a.554.554 0 0 1-.391.946z"
+								/>
+							</svg>
+						</div>
+						<h3
+							class="text-2xl font-serif font-bold text-bone mb-4 group-hover:text-ember transition-colors"
+						>
+							Legislative Discipleship
+						</h3>
+						<div class="space-y-4 text-bone/70 text-base leading-relaxed font-sans">
+							<p>
+								The unborn in Georgia need churches, pastors, citizens and the magistrate to be
+								discipled in God's standard of justice until our laws call abortion what God says it
+								is: murder and child sacrifice.
+							</p>
+							<p>
+								Walk through line-by-line analysis of an abolition bill, learn the principles of
+								abolition, and how to disciple and press your representatives with clear, Biblical
+								standards.
+							</p>
+						</div>
+					</div>
+					<div class="mt-auto pt-8 text-center">
+						<div
+							class="inline-block px-6 py-3 rounded-lg bg-teal/80 text-bone font-semibold hover:bg-gradient-to-r from-teal to-cyan-600 transition-all duration-300 shadow-lg"
+						>
+							Study the Battle
+						</div>
 					</div>
 				</a>
 
-				<!-- Abolition with Evangelism -->
+				<!-- Conflict Evangelism -->
 				<a
 					href="{base}/abolition-basics"
-					class="block bg-panel/80 backdrop-blur-sm border border-white/10 p-8 rounded-xl hover:bg-panel hover:border-crimson/50 transition-all duration-300 group shadow-lg hover:shadow-crimson/10 hover:-translate-y-1"
+					class="flex flex-col bg-panel/80 backdrop-blur-sm border border-white/10 p-8 rounded-xl hover:bg-panel hover:border-crimson/50 transition-all duration-300 group shadow-lg hover:shadow-crimson/10 hover:-translate-y-1"
 				>
-					<div
-						class="mb-6 inline-block p-3 rounded-lg bg-crimson/20 text-crimson group-hover:bg-crimson/30 group-hover:text-ember transition-colors"
-					>
-						<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="1.5"
-								d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"
-							/>
-						</svg>
-					</div>
-					<h3
-						class="text-2xl font-serif font-bold text-bone mb-4 group-hover:text-ember transition-colors"
-					>
-						Abolition with Evangelism
-					</h3>
-					<div class="space-y-4 text-bone/70 text-base leading-relaxed font-sans">
-						<p>
-							Through partnerships with two full-time evangelists, we are taking the Gospel to child
-							sacrifice centers across GA.
-						</p>
-						<p>
-							We not only condemn the sin of murder, we preach forgiveness in Christ. We also provide
-							blessing bags, baby showers, adoptive services, and counseling for mothers and fathers
-							who chose life.
-						</p>
-					</div>
-					<div
-						class="mt-8 flex items-center text-teal text-xs font-bold uppercase tracking-widest"
-					>
-						<span class="group-hover:mr-2 transition-all">Learn More</span>
-						<svg
-							class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
-							fill="none"
-							stroke="currentColor"
-							viewBox="0 0 24 24"
-							><path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M17 8l4 4m0 0l-4 4m4-4H3"
-							></path></svg
+					<div>
+						<div
+							class="mb-6 inline-block p-3 rounded-lg bg-crimson/20 text-crimson group-hover:bg-crimson/30 group-hover:text-ember transition-colors"
 						>
+							<svg
+								class="w-8 h-8"
+								fill="currentColor"
+								viewBox="0 0 32 32"
+								version="1.1"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+<path d="M5.979 10.974v5.021h7.041v11.99h5.042v-11.99h6.958v-5.021h-6.958v-6.958h-5.042v6.958h-7.041z"></path>
+</svg>
+						</div>
+						<h3
+							class="text-2xl font-serif font-bold text-bone mb-4 group-hover:text-ember transition-colors"
+						>
+							Conflict Evangelism
+						</h3>
+						<div class="space-y-4 text-bone/70 text-base leading-relaxed font-sans">
+							<p>
+								Christians must bring both the Gospel and resistance to the place where the sin of
+								child sacrifice occurs—the hearts of pregnant mothers. We must be proactive in
+								proclaiming the law of God, that the grace of God might be witnessed all the more.
+							</p>
+							<p>
+								Praying, donating, or joining could help further the cause in Georgia by providing
+								mothers and fathers who choose life with blessing bags, baby showers, adoptive
+								services and counseling.
+							</p>
+						</div>
+					</div>
+					<div class="mt-auto pt-8 text-center">
+						<div
+							class="inline-block px-6 py-3 rounded-lg bg-teal/80 text-bone font-semibold hover:bg-gradient-to-r from-teal to-cyan-600 transition-all duration-300 shadow-lg"
+						>
+							Join the Cause
+						</div>
 					</div>
 				</a>
 
-				<!-- Local Churches -->
+				<!-- Church Mobilization -->
 				<a
 					href="{base}/near-me"
-					class="block bg-panel/80 backdrop-blur-sm border border-white/10 p-8 rounded-xl hover:bg-panel hover:border-crimson/50 transition-all duration-300 group shadow-lg hover:shadow-crimson/10 hover:-translate-y-1"
+					class="flex flex-col bg-panel/80 backdrop-blur-sm border border-white/10 p-8 rounded-xl hover:bg-panel hover:border-crimson/50 transition-all duration-300 group shadow-lg hover:shadow-crimson/10 hover:-translate-y-1"
 				>
-					<div
-						class="mb-6 inline-block p-3 rounded-lg bg-crimson/20 text-crimson group-hover:bg-crimson/30 group-hover:text-ember transition-colors"
-					>
-						<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="1.5"
-								d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-							/>
-						</svg>
-					</div>
-					<h3
-						class="text-2xl font-serif font-bold text-bone mb-4 group-hover:text-ember transition-colors"
-					>
-						Local Churches
-					</h3>
-					<div class="space-y-4 text-bone/70 text-base leading-relaxed font-sans">
-						<p>
-							We work with local churches to equip them in similar outreach programs to fulfill the
-							Great Commission.
-						</p>
-					</div>
-					<div
-						class="mt-8 flex items-center text-teal text-xs font-bold uppercase tracking-widest"
-					>
-						<span class="group-hover:mr-2 transition-all">Join the Network</span>
-						<svg
-							class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
-							fill="none"
-							stroke="currentColor"
-							viewBox="0 0 24 24"
-							><path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M17 8l4 4m0 0l-4 4m4-4H3"
-							></path></svg
+					<div>
+						<div
+							class="mb-6 inline-block p-3 rounded-lg bg-crimson/20 text-crimson group-hover:bg-crimson/30 group-hover:text-ember transition-colors"
 						>
+							<svg
+								class="w-8 h-8"
+								viewBox="0 0 24 24"
+								fill="currentColor"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C12.5523 2 13 2.44772 13 3V4H14C14.5523 4 15 4.44772 15 5C15 5.55228 14.5523 6 14 6H13V6.92805L21.007 11.6381C21.4831 11.9181 21.642 12.531 21.3619 13.007C21.0833 13.4807 20.475 13.6404 20 13.366V20C20 21.1046 19.1046 22 18 22H15H14H10H9H6C4.89543 22 4 21.1046 4 20V13.366C3.52498 13.6404 2.91671 13.4807 2.63807 13.007C2.35805 12.531 2.51695 11.9181 2.99298 11.6381L11 6.92806V6H10C9.44771 6 9 5.55228 9 5C9 4.44772 9.44771 4 10 4H11V3C11 2.44772 11.4477 2 12 2ZM11 20H13V17C13 16.4477 12.5523 16 12 16C11.4477 16 11 16.4477 11 17V20ZM15 20V17C15 15.3431 13.6569 14 12 14C10.3431 14 9 15.3431 9 17V20H6V12.1896L12 8.66018L18 12.1896V20H15Z"/>
+</svg>
+						</div>
+						<h3
+							class="text-2xl font-serif font-bold text-bone mb-4 group-hover:text-ember transition-colors"
+						>
+							Church Mobilization
+						</h3>
+						<div class="space-y-4 text-bone/70 text-base leading-relaxed font-sans">
+							<p>
+								Every faithful Local Church in Georgia has the opportunity to stand against abortion
+								by preaching, discipling, and organizing to protect their preborn neighbors.
+							</p>
+							<p>
+								Access churck kits, pastoral resources, and practical steps to start or strengthen
+								your churches ministry under the oversight of your divinely appointed leaders.
+							</p>
+						</div>
+					</div>
+					<div class="mt-auto pt-8 text-center">
+						<div
+							class="inline-block px-6 py-3 rounded-lg bg-teal/80 text-bone font-semibold hover:bg-gradient-to-r from-teal to-cyan-600 transition-all duration-300 shadow-lg"
+						>
+							Equip My Church
+						</div>
 					</div>
 				</a>
 			</div>

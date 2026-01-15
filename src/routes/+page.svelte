@@ -1,11 +1,97 @@
 <svelte:head>
 	<style>
 		.home-bg {
-			background-image: linear-gradient(to bottom, rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 0.6), rgba(2, 6, 23, 1)), url('/images/backdrop.png');
+			background-image: linear-gradient(to bottom, rgba(2, 6, 23, 0.1), rgba(2, 6, 23, 0.4), rgba(2, 6, 23, 1)), url('/images/backdrop.png');
 			background-attachment: fixed;
-			background-position: 90% 20%;
-			background-size: cover;
+			background-position: 0% 100%;
+			background-size: 120% auto;
 			background-repeat: no-repeat;
+		}
+		
+		/* Fix background positioning on smaller screens */
+		@media (max-width: 1450px) {
+			.home-bg {
+				background-position: center 0%;
+				background-size: cover;
+			}
+		}
+		
+		/* Cinematic fade-in animations - all screens */
+		.fade-in-line {
+			opacity: 0;
+			animation: fadeInCinematic 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+		}
+		
+		/* Four lines at 0.6s intervals, 1s duration each */
+		.fade-in-line:nth-child(1) { animation-delay: 0s; }
+		.fade-in-line:nth-child(2) { animation-delay: 0.6s; }
+		.fade-in-line:nth-child(3) { animation-delay: 1.0s; }
+		.fade-in-line:nth-child(4) { animation-delay: 1.4s; }
+		
+		/* Desktop paragraph - starts at 2.4s */
+		.fade-in-text {
+			opacity: 0;
+			animation: fadeInCinematic 0.5s cubic-bezier(0.16, 1, 0.3, 1) 2.4s forwards;
+		}
+		
+		/* Buttons start at 2.6s */
+		.fade-in-buttons {
+			opacity: 0;
+			animation: fadeInCinematic 0.5s cubic-bezier(0.16, 1, 0.3, 1) 2.6s forwards;
+		}
+		
+		.fade-in-scroll {
+			opacity: 0;
+			animation: fadeInBounce 0.8s ease-out 3.2s forwards;
+		}
+		
+		.fade-in-carousel-icon {
+			opacity: 0;
+			animation: fadeInBounce 0.8s ease-out 2.8s forwards;
+		}
+		
+		@keyframes fadeInCinematic {
+			from {
+				opacity: 0;
+				transform: translateY(30px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+		
+		@keyframes fadeInBounce {
+			0% {
+				opacity: 0;
+				transform: translateY(-10px);
+			}
+			50% {
+				opacity: 1;
+				transform: translateY(5px);
+			}
+			100% {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+		
+		/* Mobile carousel */
+		@media (max-width: 768px) {
+			.hero-carousel {
+				display: flex;
+				transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+				width: 200%;
+			}
+			
+			.hero-carousel.show-text {
+				transform: translateX(-50%);
+			}
+			
+			.carousel-panel {
+				width: 50%;
+				flex-shrink: 0;
+			}
 		}
 	</style>
 </svelte:head>
@@ -15,8 +101,67 @@
 	import { onMount } from 'svelte';
 
 	let heroSection: HTMLElement;
+	let backgroundOpacity = $state(0);
+	let showTextPanel = $state(false);
+	let isMobile = $state(false);
+	let touchStartX = 0;
+	let touchEndX = 0;
+
+	function handleScroll() {
+		if (!heroSection) return;
+		const heroHeight = heroSection.offsetHeight;
+		const scrollY = window.scrollY;
+		const startFade = heroHeight * 0.1; // Start fade slightly into the scroll
+		const endFade = heroHeight * 0.6; // Fully faded by 60% of hero height
+		if (scrollY > startFade) {
+			const progress = Math.min((scrollY - startFade) / (endFade - startFade), 1);
+			backgroundOpacity = progress * 0.5; // Max opacity 0.5
+		} else {
+			backgroundOpacity = 0;
+		}
+	}
+	
+	function handleTouchStart(e: TouchEvent) {
+		if (!isMobile) return;
+		touchStartX = e.touches[0].clientX;
+	}
+	
+	function handleTouchEnd(e: TouchEvent) {
+		if (!isMobile) return;
+		touchEndX = e.changedTouches[0].clientX;
+		handleSwipe();
+	}
+	
+	function handleSwipe() {
+		const swipeThreshold = 50;
+		const diff = touchStartX - touchEndX;
+		
+		if (Math.abs(diff) > swipeThreshold) {
+			if (diff > 0) {
+				// Swipe left - show text
+				showTextPanel = true;
+			} else {
+				// Swipe right - show hero
+				showTextPanel = false;
+			}
+		}
+	}
+	
+	function togglePanel() {
+		if (isMobile) {
+			showTextPanel = !showTextPanel;
+		}
+	}
 
 	onMount(() => {
+		// Check if mobile
+		const checkMobile = () => {
+			isMobile = window.innerWidth <= 768;
+		};
+		checkMobile();
+		window.addEventListener('resize', checkMobile);
+		
+		window.addEventListener('scroll', handleScroll, true);
 		// A gentle nudge to encourage scrolling, kept for UX
 		setTimeout(() => {
 			const currentScroll = window.scrollY;
@@ -24,6 +169,11 @@
 				window.scrollTo({ top: 1, behavior: 'smooth' });
 			}
 		}, 2500);
+
+		return () => {
+			window.removeEventListener('scroll', handleScroll, true);
+			window.removeEventListener('resize', checkMobile);
+		};
 	});
 </script>
 
@@ -32,55 +182,90 @@
 	<section
 		bind:this={heroSection}
 		class="relative min-h-[90vh] md:min-h-[85vh] py-12 md:py-16 px-4 flex flex-col justify-center border-b border-crimson/20 overflow-hidden"
+		ontouchstart={handleTouchStart}
+		ontouchend={handleTouchEnd}
 	>
-		<div class="relative z-10 w-full mx-auto px-6 md:px-16 mt-auto">
-			<div class="w-full max-w-3xl mr-auto">
-				<h2
-					class="text-left text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-serif font-light text-bone tracking-normal mb-8 drop-shadow-lg space-y-1 md:space-y-2 leading-tight"
-				>
-					<div class="text-left whitespace-nowrap">
-						<span>Called by <span class="text-crimson">Christ</span></span>
-					</div>
-					<div class="text-left whitespace-nowrap">
-						<span class="text-base sm:text-lg md:text-xl lg:text-2xl font-light text-bone/70"
-							>to</span
-						> condemn sin
-					</div>
-					<div class="text-left whitespace-nowrap">
-						<span class="text-base sm:text-lg md:text-xl lg:text-2xl font-light text-bone/70"
-							>and</span
-						> care for sinners
-					</div>
-					<div class="text-left whitespace-nowrap">
-						<span class="text-base sm:text-lg md:text-xl lg:text-2xl font-light text-bone/70"
-							>so that we might</span
-						> crush child sacrifice.
-					</div>
-				</h2>
-
-				<p class="text-left text-lg font-sans text-bone mb-8 drop-shadow-lg">In the post-Roe era, we will not overcome the sin of abortion (which the Scriptures call child sacrifice) by "pro-life" gradualism. We must be pro-justice and pro-mercy, because our God and Lord, Jesus Christ, is pefectly just and merciful. We demand equal protection for the unborn, immediate and total abolition of abortion, and mobilization of the Church in Georgia to accomplish the Great Commission.</p>
-
-				<!-- Call to Action Buttons -->
-				<div class="flex gap-4 mt-8">
-					<a
-						href="{base}/near-me"
-						class="px-8 py-3 bg-crimson text-bone font-semibold rounded-lg hover:bg-ember transition-colors duration-200 shadow-lg hover:shadow-crimson/50"
+		<!-- Mobile Carousel Wrapper -->
+		<div class="hero-carousel {showTextPanel ? 'show-text' : ''} md:block md:!w-auto md:!transform-none relative z-10 w-full px-6 md:px-16 mt-auto">
+			<!-- Panel 1: Hero Content -->
+			<div class="carousel-panel md:!w-full">
+				<div class="w-full max-w-4xl">
+					<h2
+						class="text-left text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif font-light text-bone tracking-normal mb-8 drop-shadow-lg space-y-1 md:space-y-2 leading-tight"
 					>
-						Join
-					</a>
-					<a
-						href="{base}/about"
-						class="px-8 py-3 bg-crimson text-bone font-semibold rounded-lg hover:bg-ember transition-colors duration-200 shadow-lg hover:shadow-crimson/50"
-					>
-						Support
-					</a>
+<div class="text-left min-[401px]:whitespace-nowrap fade-in-line">
+							<span>Called by <span class="text-crimson">Christ</span></span>
+						</div>
+<div class="text-left min-[401px]:whitespace-nowrap fade-in-line">
+							<span class="text-lg sm:text-xl md:text-xl lg:text-2xl font-light text-bone/70"
+								>to</span
+							> condemn sin
+						</div>
+<div class="text-left min-[401px]:whitespace-nowrap fade-in-line">
+							<span class="text-lg sm:text-xl md:text-xl lg:text-2xl font-light text-bone/70"
+								>and</span
+							> care for sinners
+						</div>
+						<div class="text-left min-[450px]:whitespace-nowrap fade-in-line">
+							<span class="text-lg sm:text-xl md:text-xl lg:text-2xl font-light text-bone/70"
+								>so that we might</span
+							> crush child sacrifice.
+						</div>
+					</h2>
+					
+					<!-- Hide long text on mobile, show on desktop with fade-in -->
+					<p class="hidden md:block text-left text-lg font-sans text-bone mb-8 drop-shadow-lg fade-in-text">In the post-Roe era, we will not overcome the sin of abortion (which the Scriptures call child sacrifice) by "pro-life" gradualism. We must be pro-justice and pro-mercy, because our God and Lord, Jesus Christ, is pefectly just and merciful. We demand equal protection for the unborn, immediate and total abolition of abortion, and mobilization of the Church in Georgia to accomplish the Great Commission.</p>
+
+					<!-- Call to Action Buttons -->
+					<div class="flex gap-4 mt-8 fade-in-buttons">
+						<a
+							href="{base}/near-me"
+							class="px-8 py-3 bg-crimson text-bone font-semibold rounded-lg hover:bg-ember transition-colors duration-200 shadow-lg hover:shadow-crimson/50"
+						>
+							Join
+						</a>
+						<a
+							href="{base}/about"
+							class="px-8 py-3 bg-crimson text-bone font-semibold rounded-lg hover:bg-ember transition-colors duration-200 shadow-lg hover:shadow-crimson/50"
+						>
+							Support
+						</a>
+					</div>
+					
+					<!-- Swipe Indicator - Mobile only -->
+					<div class="md:hidden mt-8 text-center fade-in-carousel-icon" onclick={togglePanel}>
+						<div class="inline-flex items-center gap-2 text-bone/50 text-sm cursor-pointer">
+							<span>Swipe for more</span>
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+							</svg>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Panel 2: Long Text - Mobile only -->
+			<div class="carousel-panel md:hidden">
+				<div class="w-full max-w-3xl mr-auto px-6">
+					<h3 class="text-2xl font-serif font-bold text-bone mb-6">Our Mission</h3>
+					<p class="text-left text-base font-sans text-bone mb-8 drop-shadow-lg leading-relaxed">In the post-Roe era, we will not overcome the sin of abortion (which the Scriptures call child sacrifice) by "pro-life" gradualism. We must be pro-justice and pro-mercy, because our God and Lord, Jesus Christ, is pefectly just and merciful. We demand equal protection for the unborn, immediate and total abolition of abortion, and mobilization of the Church in Georgia to accomplish the Great Commission.</p>
+					
+					<!-- Back Indicator -->
+					<div class="text-center" onclick={togglePanel}>
+						<div class="inline-flex items-center gap-2 text-bone/50 text-sm cursor-pointer">
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+							</svg>
+							<span>Swipe back</span>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 
-		<!-- Scroll Down Indicator -->
+		<!-- Scroll Down Indicator - Desktop only -->
 		<div
-			class="relative z-10 mt-auto mx-auto text-center text-bone/50 animate-bounce cursor-pointer"
+			class="hidden md:block relative z-10 mt-auto mx-auto text-center text-bone/50 cursor-pointer fade-in-scroll"
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -95,7 +280,10 @@
 	</section>
 
 	<!-- Our Focus Section -->
-	<section class="relative z-10 bg-transparent py-32 sm:py-40">
+	<section
+		class="relative z-10 py-16 md:py-32 sm:md:py-40"
+		style="background-color: rgba(2, 6, 23, {backgroundOpacity}); backdrop-filter: blur(4px);"
+	>
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<h2 class="text-4xl font-serif font-bold text-bone tracking-tight mb-20 text-center">
 				Our Focus
@@ -128,7 +316,7 @@
 						</h3>
 						<div class="space-y-4 text-bone/70 text-base leading-relaxed font-sans">
 							<p>
-								The unborn in Georgia need churches, pastors, citizens and the magistrate to be
+								The unborn in Georgia need churches, pastors, citizens, and the magistrate to be
 								discipled in God's standard of justice until our laws call abortion what God says it
 								is: murder and child sacrifice.
 							</p>
@@ -179,7 +367,7 @@
 								proclaiming the law of God, that the grace of God might be witnessed all the more.
 							</p>
 							<p>
-								Praying, donating, or joining could help further the cause in Georgia by providing
+								Praying, donating, or joining helps further the cause in Georgia by providing
 								mothers and fathers who choose life with blessing bags, baby showers, adoptive
 								services and counseling.
 							</p>
@@ -219,12 +407,15 @@
 						</h3>
 						<div class="space-y-4 text-bone/70 text-base leading-relaxed font-sans">
 							<p>
-								Every faithful Local Church in Georgia has the opportunity to stand against abortion
+								Every church in Georgia has the opportunity to stand against abortion
 								by preaching, discipling, and organizing to protect their preborn neighbors.
 							</p>
 							<p>
-								Access churck kits, pastoral resources, and practical steps to start or strengthen
+								Access church kits, pastoral resources, and practical steps to start or strengthen
 								your churches ministry under the oversight of your divinely appointed leaders.
+							</p>
+							<p>
+								Additionally, find other churches working hard to end child sacrifice in your area.
 							</p>
 						</div>
 					</div>

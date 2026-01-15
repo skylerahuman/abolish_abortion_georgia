@@ -1,10 +1,10 @@
 <svelte:head>
 	<style>
 		.home-bg {
-			background-image: linear-gradient(to bottom, rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 0.6), rgba(2, 6, 23, 1)), url('/images/backdrop.png');
+			background-image: linear-gradient(to bottom, rgba(2, 6, 23, 0.1), rgba(2, 6, 23, 0.5), rgba(2, 6, 23, 1)), url('/images/backdrop.png');
 			background-attachment: fixed;
-			background-position: 90% 20%;
-			background-size: cover;
+			background-position: 0% 100%;
+			background-size: 120% auto;
 			background-repeat: no-repeat;
 		}
 	</style>
@@ -15,8 +15,24 @@
 	import { onMount } from 'svelte';
 
 	let heroSection: HTMLElement;
+	let backgroundOpacity = 0;
+
+	function handleScroll() {
+		if (!heroSection) return;
+		const heroHeight = heroSection.offsetHeight;
+		const scrollY = window.scrollY;
+		const startFade = heroHeight * 0.1; // Start fade slightly into the scroll
+		const endFade = heroHeight * 0.6; // Fully faded by 60% of hero height
+		if (scrollY > startFade) {
+			const progress = Math.min((scrollY - startFade) / (endFade - startFade), 1);
+			backgroundOpacity = progress * 0.5; // Max opacity 0.5
+		} else {
+			backgroundOpacity = 0;
+		}
+	}
 
 	onMount(() => {
+		window.addEventListener('scroll', handleScroll, true);
 		// A gentle nudge to encourage scrolling, kept for UX
 		setTimeout(() => {
 			const currentScroll = window.scrollY;
@@ -24,6 +40,10 @@
 				window.scrollTo({ top: 1, behavior: 'smooth' });
 			}
 		}, 2500);
+
+		return () => {
+			window.removeEventListener('scroll', handleScroll, true);
+		};
 	});
 </script>
 
@@ -95,7 +115,12 @@
 	</section>
 
 	<!-- Our Focus Section -->
-	<section class="relative z-10 bg-transparent py-32 sm:py-40">
+	<section
+		class="relative z-10 py-32 sm:py-40"
+		style="
+			background-color: rgba(2, 6, 23, var(--bg-opacity));
+		"
+	>
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<h2 class="text-4xl font-serif font-bold text-bone tracking-tight mb-20 text-center">
 				Our Focus

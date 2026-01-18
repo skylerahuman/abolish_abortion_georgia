@@ -107,18 +107,30 @@
 	let touchStartX = 0;
 	let touchEndX = 0;
 
+	// Optimization variables
+	let heroHeight = 0;
+	let rafId: number;
+
 	function handleScroll() {
-		if (!heroSection) return;
-		const heroHeight = heroSection.offsetHeight;
-		const scrollY = window.scrollY;
-		const startFade = heroHeight * 0.1; // Start fade slightly into the scroll
-		const endFade = heroHeight * 0.6; // Fully faded by 60% of hero height
-		if (scrollY > startFade) {
-			const progress = Math.min((scrollY - startFade) / (endFade - startFade), 1);
-			backgroundOpacity = progress * 0.5; // Max opacity 0.5
-		} else {
-			backgroundOpacity = 0;
-		}
+		if (rafId) return;
+
+		rafId = requestAnimationFrame(() => {
+			if (!heroSection) {
+				rafId = 0;
+				return;
+			}
+
+			const scrollY = window.scrollY;
+			const startFade = heroHeight * 0.1; // Start fade slightly into the scroll
+			const endFade = heroHeight * 0.6; // Fully faded by 60% of hero height
+			if (scrollY > startFade) {
+				const progress = Math.min((scrollY - startFade) / (endFade - startFade), 1);
+				backgroundOpacity = progress * 0.5; // Max opacity 0.5
+			} else {
+				backgroundOpacity = 0;
+			}
+			rafId = 0;
+		});
 	}
 	
 	function handleTouchStart(e: TouchEvent) {
@@ -154,14 +166,19 @@
 	}
 
 	onMount(() => {
-		// Check if mobile
-		const checkMobile = () => {
+		// Check if mobile and update hero dimensions
+		const updateDimensions = () => {
 			isMobile = window.innerWidth <= 768;
+			if (heroSection) {
+				heroHeight = heroSection.offsetHeight;
+			}
 		};
-		checkMobile();
-		window.addEventListener('resize', checkMobile);
 		
-		window.addEventListener('scroll', handleScroll, true);
+		updateDimensions();
+		window.addEventListener('resize', updateDimensions);
+
+		window.addEventListener('scroll', handleScroll, { passive: true });
+
 		// A gentle nudge to encourage scrolling, kept for UX
 		setTimeout(() => {
 			const currentScroll = window.scrollY;
@@ -171,8 +188,9 @@
 		}, 2500);
 
 		return () => {
-			window.removeEventListener('scroll', handleScroll, true);
-			window.removeEventListener('resize', checkMobile);
+			window.removeEventListener('scroll', handleScroll);
+			window.removeEventListener('resize', updateDimensions);
+			if (rafId) cancelAnimationFrame(rafId);
 		};
 	});
 </script>

@@ -138,9 +138,16 @@
 
 	<!-- Progress Bar -->
 	{#if step > 1 && !formSubmitted}
-		<div class="mb-4">
-			<p class="text-sm text-bone/60 text-center">Step {step} of 3</p>
-			<div class="w-full bg-charcoal/50 rounded-full h-1.5 mt-1">
+		<div class="mb-4" role="region" aria-label="Form progress">
+			<p class="text-sm text-bone/60 text-center" id="progress-label">Step {step} of 3</p>
+			<div
+				class="w-full bg-charcoal/50 rounded-full h-1.5 mt-1"
+				role="progressbar"
+				aria-labelledby="progress-label"
+				aria-valuenow={step}
+				aria-valuemin="1"
+				aria-valuemax="3"
+			>
 				<div
 					class="bg-crimson h-1.5 rounded-full transition-all duration-300"
 					style="width: {((step - 1) / 2) * 100}%"
@@ -188,10 +195,12 @@
 												onclick={handleZipLookup}
 												disabled={isLoading || zipCode.length !== 5}
 												class="bg-crimson hover:bg-ember text-bone px-6 py-2 rounded-md font-bold uppercase disabled:opacity-50 transition-colors"
+												aria-label={isLoading ? "Searching for district..." : "Find district"}
 											>
 												{#if isLoading}
 													<div
 														class="w-5 h-5 border-2 border-t-transparent border-white rounded-full animate-spin"
+														aria-hidden="true"
 													></div>
 												{:else}
 													Find

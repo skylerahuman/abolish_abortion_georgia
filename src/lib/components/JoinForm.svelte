@@ -188,10 +188,12 @@
 												onclick={handleZipLookup}
 												disabled={isLoading || zipCode.length !== 5}
 												class="bg-crimson hover:bg-ember text-bone px-6 py-2 rounded-md font-bold uppercase disabled:opacity-50 transition-colors"
+												aria-label={isLoading ? "Searching for district..." : "Find district"}
 											>
 												{#if isLoading}
 													<div
 														class="w-5 h-5 border-2 border-t-transparent border-white rounded-full animate-spin"
+														aria-hidden="true"
 													></div>
 												{:else}
 													Find

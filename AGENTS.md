@@ -17,7 +17,7 @@ The project's architecture is a standard SvelteKit application with routes for d
 
 ### Development
 
-To run the development server:
+Do not run the development server. Do not execute the following commands:
 
 ```sh
 npm install

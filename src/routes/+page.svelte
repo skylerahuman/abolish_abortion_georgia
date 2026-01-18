@@ -219,7 +219,7 @@
 					<!-- Call to Action Buttons -->
 					<div class="flex gap-4 mt-8 fade-in-buttons">
 						<a
-							href="{base}/near-me"
+							href="{base}/join"
 							class="px-8 py-3 bg-crimson text-bone font-semibold rounded-lg hover:bg-ember transition-colors duration-200 shadow-lg hover:shadow-crimson/50"
 						>
 							Join
@@ -384,7 +384,7 @@
 
 				<!-- Church Mobilization -->
 				<a
-					href="{base}/near-me"
+					href="{base}/join"
 					class="flex flex-col bg-panel/80 backdrop-blur-sm border border-white/10 p-8 rounded-xl hover:bg-panel hover:border-crimson/50 transition-all duration-300 group shadow-lg hover:shadow-crimson/10 hover:-translate-y-1"
 				>
 					<div>

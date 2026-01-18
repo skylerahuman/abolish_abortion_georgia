@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { generateRandomChurches } from '$lib/utils';
 	import { onMount } from 'svelte';
 	import 'leaflet/dist/leaflet.css';
 	import type { Map } from 'leaflet';
@@ -25,9 +24,10 @@
             className: 'church-pin-icon'
         });
 
+		// Center map on Hampton, GA church location
 		map = L.map(mapElement, {
             zoomControl: false // Disable zoom control
-        }).setView([32.9605, -83.1132], 8);
+        }).setView([33.3879, -84.2835], 12);
 
 		L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
 			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
@@ -35,12 +35,9 @@
 	        maxZoom: 20
 		}).addTo(map);
 
-        // Add random pins
-        const churches = generateRandomChurches(75);
-        churches.forEach(church => {
-             const marker = L.marker([church.lat, church.lng], {icon: churchPinIcon}).addTo(map);
-             marker.bindPopup(`<b>${church.name}</b><br>Equipping the saints.`);
-        });
+        // Add Hampton GA church pin
+        const marker = L.marker([33.3879, -84.2835], {icon: churchPinIcon}).addTo(map);
+        marker.bindPopup(`<b>3913 Jonesboro Rd Hampton, GA</b><br>Pastor Wes Fuller`);
 	});
 </script>
 

@@ -138,16 +138,9 @@
 
 	<!-- Progress Bar -->
 	{#if step > 1 && !formSubmitted}
-		<div class="mb-6" role="region" aria-label="Form progress">
-			<p class="text-sm text-bone/60 text-center" id="progress-label">Step {step} of 3</p>
-			<div
-				class="w-full bg-charcoal/50 rounded-full h-1.5 mt-1"
-				role="progressbar"
-				aria-labelledby="progress-label"
-				aria-valuenow={step}
-				aria-valuemin="1"
-				aria-valuemax="3"
-			>
+		<div class="mb-6">
+			<p class="text-sm text-bone/60 text-center">Step {step} of 3</p>
+			<div class="w-full bg-charcoal/50 rounded-full h-1.5 mt-1">
 				<div
 					class="bg-crimson h-1.5 rounded-full transition-all duration-300"
 					style="width: {((step - 1) / 2) * 100}%"

@@ -21,11 +21,11 @@ A comprehensive 3-step form with:
   - Animated "scramble" effect when finding district
   - District persistence via localStorage
   - "Not in Georgia" checkbox for out-of-state supporters
-
+  
 - **Step 2: Contact Information**
   - Fields: First Name, Last Name, Email, Phone (optional)
   - Form validation
-
+  
 - **Step 3: Interests & Church**
   - Home church input
   - Interest checkboxes:

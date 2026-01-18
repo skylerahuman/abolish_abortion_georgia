@@ -1,14 +1,13 @@
 <script lang="ts">
-import '../app.css';
+	import '../app.css';
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
-	import favicon from '$lib/assets/favicon.svg';
 	import logo from '$lib/assets/logo_basic.png';
 	import { onMount } from 'svelte';
-	
+
 	let { children } = $props();
 	let mobileMenuOpen = $state(false);
-	let menuRef: HTMLElement = $state();
+	let menuRef: HTMLElement | undefined = $state();
 	let justOpened = false;
 	let navbarVisible = $state(true);
 	let lastScrollY = 0;
@@ -22,24 +21,19 @@ import '../app.css';
 	function toggleMenu() {
 		mobileMenuOpen = !mobileMenuOpen;
 		if (mobileMenuOpen) {
-			// Show navbar when opening menu
 			navbarVisible = true;
-			// Set flag to prevent immediate close from scroll
 			justOpened = true;
-			// Clear flag after 300ms
 			setTimeout(() => {
 				justOpened = false;
 			}, 300);
 		}
 	}
 	
-	// Close menu on click outside and on scroll
 	onMount(() => {
 		let scrollTimeout: number;
 		
 		const handleClickOutside = (event: MouseEvent) => {
 			const target = event.target as HTMLElement;
-			// Don't close if clicking the menu button or inside menu
 			if (target.closest('button[aria-label="Toggle menu"]')) {
 				return;
 			}
@@ -49,26 +43,21 @@ import '../app.css';
 			}
 		};
 		
-		// Handle scroll: close menu and hide/show navbar
 		const handleScroll = () => {
 			const currentScrollY = window.scrollY;
 			
-			// Show navbar at top of page
 			if (currentScrollY <= 10) {
 				navbarVisible = true;
 			} else if (!mobileMenuOpen) {
-				// Hide navbar when scrolling down (unless menu is open)
 				navbarVisible = false;
 			}
 			
 			lastScrollY = currentScrollY;
 			
-			// Don't close menu if it was just opened
 			if (justOpened) {
 				return;
 			}
 			
-			// Close menu when scrolling
 			clearTimeout(scrollTimeout);
 			scrollTimeout = window.setTimeout(() => {
 				if (mobileMenuOpen) {
@@ -77,7 +66,6 @@ import '../app.css';
 			}, 50);
 		};
 		
-		// Use mousedown instead of click for better behavior
 		document.addEventListener('mousedown', handleClickOutside);
 		window.addEventListener('scroll', handleScroll, { passive: true });
 		
@@ -100,7 +88,7 @@ import '../app.css';
 	}
 </style>
 
-<div class="min-h-screen flex flex-col">
+<div class="min-h-screen flex flex-col bg-[#0C1626]">
 	<!-- Navigation -->
 	<nav class="bg-transparent text-white sticky top-0 z-50 transition-all duration-300 {navbarVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}">
 		<div class="w-full px-4 sm:px-6 lg:px-8">
@@ -150,18 +138,18 @@ import '../app.css';
 					</a>
 				{/each}
 				<a
-					href="{base}/respond"
+					href="{base}/support"
 					onclick={() => mobileMenuOpen = false}
 					class="block w-full text-left py-4 px-6 bg-crimson/10 text-crimson hover:bg-crimson/20 hover:text-ember transition-all duration-200 rounded-sm text-base font-bold tracking-wide uppercase border-l-4 border-crimson mt-3"
 				>
-					Pray. Fight. Give.
+					Support
 				</a>
 			</div>
 		{/if}
 	</nav>
 
 	<!-- Main Content -->
-	<main class="flex-1">
+	<main class="flex-1 flex flex-col">
 		{@render children()}
 	</main>
 

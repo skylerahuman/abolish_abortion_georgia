@@ -27,14 +27,14 @@
 			title: "I'm a pastor or church leader",
 			audience: 'Shepherds called to defend the defenseless',
 			primary: { text: 'See why your voice matters', href: `${base}/for-pastors` },
-			secondary: { text: 'Connect with abolitionists', href: `${base}/near-me` }
+			secondary: { text: 'Connect with abolitionists', href: `${base}/join` }
 		},
 		{
 			id: 'abolitionist' as const,
 			title: "I already support HB 441",
 			audience: 'Abolitionists ready to take action',
-			primary: { text: 'Find allies in my district', href: `${base}/near-me` },
-			secondary: { text: 'Take action now', href: `${base}/respond` }
+			primary: { text: 'Find allies in my district', href: `${base}/join` },
+			secondary: { text: 'Take action now', href: `${base}/support` }
 		}
 	];
 	

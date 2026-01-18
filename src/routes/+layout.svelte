@@ -138,6 +138,13 @@
 					</a>
 				{/each}
 				<a
+					href="{base}/join"
+					onclick={() => mobileMenuOpen = false}
+					class="block w-full text-left py-4 px-6 text-bone/70 hover:text-bone hover:bg-charcoal transition-all duration-200 rounded-sm text-base font-bold tracking-wide uppercase border-l-4 border-transparent"
+				>
+					Join
+				</a>
+				<a
 					href="{base}/support"
 					onclick={() => mobileMenuOpen = false}
 					class="block w-full text-left py-4 px-6 bg-crimson/10 text-crimson hover:bg-crimson/20 hover:text-ember transition-all duration-200 rounded-sm text-base font-bold tracking-wide uppercase border-l-4 border-crimson mt-3"

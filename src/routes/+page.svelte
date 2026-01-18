@@ -199,16 +199,14 @@
 <div class="text-left min-[401px]:whitespace-nowrap fade-in-line">
 							<span class="text-lg sm:text-xl md:text-xl lg:text-2xl font-light text-bone/70"
 								>to</span
-							> condemn sin
+							> condemn sin,
 						</div>
 <div class="text-left min-[401px]:whitespace-nowrap fade-in-line">
-							<span class="text-lg sm:text-xl md:text-xl lg:text-2xl font-light text-bone/70"
-								>and</span
-							> care for sinners
+							care for sinners,
 						</div>
 						<div class="text-left min-[450px]:whitespace-nowrap fade-in-line">
 							<span class="text-lg sm:text-xl md:text-xl lg:text-2xl font-light text-bone/70"
-								>so that we might</span
+								>and</span
 							> crush child sacrifice.
 						</div>
 					</h2>

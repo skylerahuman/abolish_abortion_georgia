@@ -217,16 +217,16 @@
 		<!-- CTAs -->
 		<div class="flex flex-col md:flex-row gap-4 items-center justify-center">
 			<a 
-				href="{base}/near-me"
+				href="{base}/join"
 				class="w-full md:w-auto bg-crimson hover:bg-ember text-white font-bold text-lg px-10 py-4 rounded-sm uppercase tracking-wide transition-all duration-300 transform hover:scale-105 shadow-lg text-center"
 			>
 				What can I do in my district?
 			</a>
 			<a 
-				href="{base}/respond"
+				href="{base}/support"
 				class="w-full md:w-auto bg-transparent border border-white/20 hover:border-white/40 text-bone hover:text-white font-semibold px-10 py-4 rounded-sm uppercase tracking-wide transition-all duration-300 text-center"
 			>
-				Pray. Fight. Give.
+				Support
 			</a>
 		</div>
 	</div>

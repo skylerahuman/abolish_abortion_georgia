@@ -133,12 +133,12 @@
 	}
 </script>
 
-<div class="bg-panel/80 backdrop-blur-sm border border-white/10 p-6 rounded-xl shadow-lg min-h-[500px]">
-	<h2 class="text-3xl font-serif font-bold text-bone mb-4">Join the Fight</h2>
+<div class="bg-panel/80 backdrop-blur-sm border border-white/10 p-8 rounded-xl shadow-lg h-full flex flex-col">
+	<h2 class="text-3xl font-serif font-bold text-bone mb-6">Join the Fight</h2>
 
 	<!-- Progress Bar -->
 	{#if step > 1 && !formSubmitted}
-		<div class="mb-4">
+		<div class="mb-6">
 			<p class="text-sm text-bone/60 text-center">Step {step} of 3</p>
 			<div class="w-full bg-charcoal/50 rounded-full h-1.5 mt-1">
 				<div
@@ -150,15 +150,15 @@
 	{/if}
 
 	{#if !formSubmitted}
-		<form onsubmit={handleSubmit} class="flex flex-col justify-between h-full">
+		<form onsubmit={handleSubmit} class="flex flex-col flex-1">
 			<!-- STEP 1: District Finder -->
 			{#if step === 1}
 				<div
-					class="space-y-4"
+					class="flex-1 flex flex-col justify-between"
 					in:fly={{ x: -20, duration: 300, delay: 300 }}
 					out:fly={{ x: -20, duration: 300 }}
 				>
-					<div class="mb-4">
+					<div class="space-y-6">
 						<div class="flex justify-between items-center mb-2">
 							<label for="zip" class="block text-sm font-semibold text-bone/80"
 								>Find Your Georgia House District</label
@@ -222,7 +222,7 @@
 							</div>
 						{/if}
 
-						<label class="flex items-center gap-2 text-sm text-bone/60 cursor-pointer mt-4 p-3 bg-charcoal/40 border border-white/10 rounded-md hover:bg-charcoal/80 transition-colors">
+						<label class="flex items-center gap-2 text-sm text-bone/60 cursor-pointer p-3 bg-charcoal/40 border border-white/10 rounded-md hover:bg-charcoal/80 transition-colors">
 							<input
 								type="checkbox"
 								bind:checked={notInGeorgia}
@@ -231,7 +231,7 @@
 							I'm not in Georgia, but I want to help.
 						</label>
 					</div>
-					<div class="flex justify-end mt-6">
+					<div class="flex justify-end">
 						<button
 							type="button"
 							onclick={nextStep}
@@ -247,7 +247,7 @@
 			<!-- STEP 2: Contact Info -->
 			{#if step === 2}
 				<div
-					class="space-y-4"
+					class="flex-1 flex flex-col justify-between"
 					in:fly={{ x: 20, duration: 300, delay: 300 }}
 					out:fly={{ x: 20, duration: 300 }}
 				>
@@ -304,7 +304,7 @@
 						</div>
 					</div>
 
-					<div class="flex justify-between mt-6">
+					<div class="flex justify-between">
 						<button
 							type="button"
 							onclick={prevStep}
@@ -326,7 +326,7 @@
 			<!-- STEP 3: Interests & Church -->
 			{#if step === 3}
 				<div
-					class="space-y-4"
+					class="flex-1 flex flex-col justify-between"
 					in:fly={{ x: 20, duration: 300, delay: 300 }}
 					out:fly={{ x: 20, duration: 300 }}
 				>
@@ -373,7 +373,7 @@
 						</div>
 					</div>
 
-					<div class="flex justify-between mt-6">
+					<div class="flex justify-between">
 						<button
 							type="button"
 							onclick={prevStep}

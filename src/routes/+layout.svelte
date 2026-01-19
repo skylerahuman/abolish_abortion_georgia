@@ -10,7 +10,6 @@
 	let menuRef: HTMLElement | undefined = $state();
 	let justOpened = false;
 	let navbarVisible = $state(true);
-	let lastScrollY = 0;
 	
 	const navItems = [
 		{ href: `${base}/`, label: 'Home' },
@@ -51,8 +50,6 @@
 			} else if (!mobileMenuOpen) {
 				navbarVisible = false;
 			}
-			
-			lastScrollY = currentScrollY;
 			
 			if (justOpened) {
 				return;

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import { fade, fly } from 'svelte/transition';
-	import { goto } from '$app/navigation';
+	import { fly } from 'svelte/transition';
 	
 	type UserType = 'new' | 'prolife' | 'pastor' | 'abolitionist' | null;
 	

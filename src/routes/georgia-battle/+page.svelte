@@ -1,17 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
-	import { fade, fly } from 'svelte/transition';
-	
-	interface TimelineEvent {
-		id: string;
-		date: string;
-		title: string;
-		description: string;
-		type: 'tragedy' | 'hope' | 'mixed';
-		link?: string;
-		linkText?: string;
-	}
+	import type { TimelineEvent } from '$lib/types';
 	
 	let timeline = $state<TimelineEvent[]>([]);
 	let visibleCards = $state<Set<string>>(new Set());

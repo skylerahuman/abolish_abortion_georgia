@@ -249,14 +249,14 @@
 					</div>
 					
 					<!-- Swipe Indicator - Mobile only -->
-					<div class="md:hidden mt-8 text-center fade-in-carousel-icon" onclick={togglePanel}>
-						<div class="inline-flex items-center gap-2 text-bone/50 text-sm cursor-pointer">
+					<button class="md:hidden mt-8 text-center fade-in-carousel-icon w-full" onclick={togglePanel} type="button">
+						<div class="inline-flex items-center gap-2 text-bone/50 text-sm cursor-pointer justify-center">
 							<span>Swipe for more</span>
 							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
 							</svg>
 						</div>
-					</div>
+					</button>
 				</div>
 			</div>
 			
@@ -267,14 +267,14 @@
 					<p class="text-left text-base font-sans text-bone mb-8 drop-shadow-lg leading-relaxed">In the post-Roe era, we will not overcome the sin of abortion (which the Scriptures call child sacrifice) by "pro-life" gradualism. We must be pro-justice and pro-mercy, because our God and Lord, Jesus Christ, is pefectly just and merciful. We demand equal protection for the unborn, immediate and total abolition of abortion, and mobilization of the Church in Georgia to accomplish the Great Commission.</p>
 					
 					<!-- Back Indicator -->
-					<div class="text-center" onclick={togglePanel}>
-						<div class="inline-flex items-center gap-2 text-bone/50 text-sm cursor-pointer">
+					<button class="text-center w-full" onclick={togglePanel} type="button">
+						<div class="inline-flex items-center gap-2 text-bone/50 text-sm cursor-pointer justify-center">
 							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
 							</svg>
 							<span>Swipe back</span>
 						</div>
-					</div>
+					</button>
 				</div>
 			</div>
 		</div>

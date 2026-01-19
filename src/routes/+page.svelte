@@ -223,7 +223,7 @@
 							Join
 						</a>
 						<a
-							href="{base}/about"
+							href="{base}/support"
 							class="px-8 py-3 bg-crimson text-bone font-semibold rounded-lg hover:bg-ember transition-colors duration-200 shadow-lg hover:shadow-crimson/50"
 						>
 							Support
@@ -289,7 +289,7 @@
 			<div class="grid md:grid-cols-3 gap-8">
 				<!-- Legislative Discipleship -->
 				<a
-					href="{base}/georgia-battle"
+					href="{base}/legal"
 					class="flex flex-col bg-panel/80 backdrop-blur-sm border border-white/10 p-8 rounded-xl hover:bg-panel hover:border-crimson/50 transition-all duration-300 group shadow-lg hover:shadow-crimson/10 hover:-translate-y-1"
 				>
 					<div>
@@ -336,7 +336,7 @@
 
 				<!-- Conflict Evangelism -->
 				<a
-					href="{base}/abolition-basics"
+					href="{base}/join"
 					class="flex flex-col bg-panel/80 backdrop-blur-sm border border-white/10 p-8 rounded-xl hover:bg-panel hover:border-crimson/50 transition-all duration-300 group shadow-lg hover:shadow-crimson/10 hover:-translate-y-1"
 				>
 					<div>

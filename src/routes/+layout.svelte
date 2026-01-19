@@ -14,7 +14,7 @@
 	
 	const navItems = [
 		{ href: `${base}/`, label: 'Home' },
-		{ href: `${base}/georgia-battle`, label: 'Timeline' },
+		{ href: `${base}/legal`, label: 'Timeline' },
 		{ href: `${base}/faqs`, label: 'FAQs' }
 	];
 	

@@ -12,15 +12,15 @@
 			id: 'new' as const,
 			title: "I'm new to Operation Gospel and abolitionism",
 			audience: 'First-time visitors seeking to understand',
-			primary: { text: 'Learn about HB 441', href: `${base}/georgia-battle` },
-			secondary: { text: 'See the legislative battle', href: `${base}/georgia-battle` }
+			primary: { text: 'Learn about HB 441', href: `${base}/legal` },
+			secondary: { text: 'See the legislative battle', href: `${base}/legal` }
 		},
 		{
 			id: 'prolife' as const,
 			title: "I'm pro-life, but unfamiliar with equal protection",
 			audience: 'Pro-life advocates seeking biblical justice',
-			primary: { text: 'Understand equal protection', href: `${base}/georgia-battle` },
-			secondary: { text: 'View Georgia\'s timeline', href: `${base}/georgia-battle` }
+			primary: { text: 'Understand equal protection', href: `${base}/legal` },
+			secondary: { text: 'View Georgia\'s timeline', href: `${base}/legal` }
 		},
 		{
 			id: 'pastor' as const,

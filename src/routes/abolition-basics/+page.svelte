@@ -97,7 +97,7 @@
 		</div>
 
 		<div class="text-center mt-12">
-			<a href="{base}/georgia-battle" class="bg-crimson hover:bg-ember text-white font-bold py-3 px-6 rounded-lg transition-colors shadow-lg shadow-crimson/20">
+			<a href="{base}/legal" class="bg-crimson hover:bg-ember text-white font-bold py-3 px-6 rounded-lg transition-colors shadow-lg shadow-crimson/20">
 				Show me the battle in Georgia
 			</a>
 		</div>

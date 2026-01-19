@@ -2,33 +2,22 @@
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
+	import { registrationState } from '$lib/state.svelte';
+	import type { DistrictMap } from '$lib/types';
 
-	// Component State
-	let step = $state(1);
-
-	// District State
-	let district: string | null = $state(null);
+	// District Finder Interaction State
 	let zipCode = $state('');
 	let isLoading = $state(false);
 	let error = $state('');
 	let showDistrict = $state(false);
 	let notInGeorgia = $state(false);
 
-	let zipToDistrictMap: Record<string, string> | null = null;
-
-	// Form State
-	let formSubmitted = $state(false);
-	let firstName = $state('');
-	let lastName = $state('');
-	let email = $state('');
-	let phone = $state('');
-	let homeChurch = $state('');
-	let interests = $state<string[]>([]);
+	let zipToDistrictMap: DistrictMap | null = null;
 
 	onMount(async () => {
 		const savedDistrict = localStorage.getItem('userDistrict');
 		if (savedDistrict) {
-			district = savedDistrict;
+			registrationState.form.district = savedDistrict;
 			showDistrict = true;
 		}
 		await loadZipData();
@@ -40,7 +29,7 @@
 			const response = await fetch(`${base}/data/zip_to_district.csv`);
 			const csvText = await response.text();
 			const lines = csvText.split('\n');
-			const mapData: Record<string, string> = {};
+			const mapData: DistrictMap = {};
 			for (let i = 1; i < lines.length; i++) {
 				const [zip, dist] = lines[i].split(',');
 				if (zip && dist) {
@@ -71,7 +60,7 @@
 
 		// Scramble animation
 		let scrambleInterval = setInterval(() => {
-			district = Math.random().toString(36).substring(2, 5).toUpperCase();
+			registrationState.form.district = Math.random().toString(36).substring(2, 5).toUpperCase();
 		}, 50);
 
 		setTimeout(() => {
@@ -79,11 +68,11 @@
 			const foundDistrict = zipToDistrictMap![zipCode];
 			if (foundDistrict) {
 				const padded = foundDistrict.padStart(3, '0');
-				district = padded;
+				registrationState.form.district = padded;
 				localStorage.setItem('userDistrict', padded);
 				showDistrict = true;
 			} else {
-				district = null;
+				registrationState.form.district = null;
 				error = 'District not found for this ZIP code.';
 			}
 			isLoading = false;
@@ -93,43 +82,23 @@
 	function resetDistrictFinder() {
 		showDistrict = false;
 		zipCode = '';
-		district = null;
+		registrationState.form.district = null;
 		error = '';
 		localStorage.removeItem('userDistrict');
 	}
 
 	function toggleInterest(interest: string) {
-		if (interests.includes(interest)) {
-			interests = interests.filter((i) => i !== interest);
+		if (registrationState.form.interests.includes(interest)) {
+			registrationState.form.interests = registrationState.form.interests.filter((i) => i !== interest);
 		} else {
-			interests = [...interests, interest];
-		}
-	}
-
-	function nextStep() {
-		if (step < 3) {
-			step++;
-		}
-	}
-
-	function prevStep() {
-		if (step > 1) {
-			step--;
+			registrationState.form.interests = [...registrationState.form.interests, interest];
 		}
 	}
 
 	function handleSubmit(e: Event) {
 		e.preventDefault();
-		console.log('Form Submitted (Void)', {
-			firstName,
-			lastName,
-			email,
-			phone,
-			district,
-			homeChurch,
-			interests
-		});
-		formSubmitted = true;
+		console.log('Form Submitted (Void)', $state.snapshot(registrationState.form));
+		registrationState.submitted = true;
 	}
 </script>
 
@@ -137,22 +106,22 @@
 	<h2 class="text-3xl font-serif font-bold text-bone mb-6">Join the Fight</h2>
 
 	<!-- Progress Bar -->
-	{#if step > 1 && !formSubmitted}
+	{#if registrationState.step > 1 && !registrationState.submitted}
 		<div class="mb-6">
-			<p class="text-sm text-bone/60 text-center">Step {step} of 3</p>
+			<p class="text-sm text-bone/60 text-center">Step {registrationState.step} of 3</p>
 			<div class="w-full bg-charcoal/50 rounded-full h-1.5 mt-1">
 				<div
 					class="bg-crimson h-1.5 rounded-full transition-all duration-300"
-					style="width: {((step - 1) / 2) * 100}%"
+					style="width: {((registrationState.step - 1) / 2) * 100}%"
 				></div>
 			</div>
 		</div>
 	{/if}
 
-	{#if !formSubmitted}
+	{#if !registrationState.submitted}
 		<form onsubmit={handleSubmit} class="flex flex-col flex-1">
 			<!-- STEP 1: District Finder -->
-			{#if step === 1}
+			{#if registrationState.step === 1}
 				<div
 					class="flex-1 flex flex-col justify-between"
 					in:fly={{ x: -20, duration: 300, delay: 300 }}
@@ -210,7 +179,7 @@
 									>
 										<p class="text-sm text-bone/60">Your Georgia House District is:</p>
 										<p class="text-3xl font-mono font-bold text-crimson tracking-widest">
-											{district || 'N/A'}
+											{registrationState.form.district || 'N/A'}
 										</p>
 										<button
 											type="button"
@@ -236,8 +205,8 @@
 					<div class="flex justify-end">
 						<button
 							type="button"
-							onclick={nextStep}
-							disabled={!district && !notInGeorgia}
+							onclick={() => registrationState.nextStep()}
+							disabled={!registrationState.form.district && !notInGeorgia}
 							class="bg-crimson hover:bg-ember text-bone font-bold py-2 px-6 rounded-md uppercase tracking-wide transition-all disabled:opacity-30 disabled:cursor-not-allowed"
 						>
 							Next
@@ -247,7 +216,7 @@
 			{/if}
 
 			<!-- STEP 2: Contact Info -->
-			{#if step === 2}
+			{#if registrationState.step === 2}
 				<div
 					class="flex-1 flex flex-col justify-between"
 					in:fly={{ x: 20, duration: 300, delay: 300 }}
@@ -263,7 +232,7 @@
 							<input
 								type="text"
 								id="firstName"
-								bind:value={firstName}
+								bind:value={registrationState.form.firstName}
 								required
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
 							/>
@@ -275,7 +244,7 @@
 							<input
 								type="text"
 								id="lastName"
-								bind:value={lastName}
+								bind:value={registrationState.form.lastName}
 								required
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
 							/>
@@ -287,7 +256,7 @@
 							<input
 								type="email"
 								id="email"
-								bind:value={email}
+								bind:value={registrationState.form.email}
 								required
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
 							/>
@@ -300,7 +269,7 @@
 							<input
 								type="tel"
 								id="phone"
-								bind:value={phone}
+								bind:value={registrationState.form.phone}
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
 							/>
 						</div>
@@ -309,14 +278,14 @@
 					<div class="flex justify-between">
 						<button
 							type="button"
-							onclick={prevStep}
+							onclick={() => registrationState.prevStep()}
 							class="bg-white/10 hover:bg-white/20 text-bone font-bold py-2 px-6 rounded-md uppercase tracking-wide transition-colors"
 						>
 							Back
 						</button>
 						<button
 							type="button"
-							onclick={nextStep}
+							onclick={() => registrationState.nextStep()}
 							class="bg-crimson hover:bg-ember text-bone font-bold py-2 px-6 rounded-md uppercase tracking-wide transition-colors"
 						>
 							Next
@@ -326,7 +295,7 @@
 			{/if}
 
 			<!-- STEP 3: Interests & Church -->
-			{#if step === 3}
+			{#if registrationState.step === 3}
 				<div
 					class="flex-1 flex flex-col justify-between"
 					in:fly={{ x: 20, duration: 300, delay: 300 }}
@@ -340,7 +309,7 @@
 							<input
 								type="text"
 								id="homeChurch"
-								bind:value={homeChurch}
+								bind:value={registrationState.form.homeChurch}
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
 							/>
 						</div>
@@ -364,7 +333,7 @@
 										<input
 											type="checkbox"
 											value={interest.value}
-											checked={interests.includes(interest.value)}
+											checked={registrationState.form.interests.includes(interest.value)}
 											onchange={() => toggleInterest(interest.value)}
 											class="w-4 h-4 bg-charcoal border-white/30 rounded text-crimson focus:ring-crimson/50"
 										/>
@@ -378,7 +347,7 @@
 					<div class="flex justify-between">
 						<button
 							type="button"
-							onclick={prevStep}
+							onclick={() => registrationState.prevStep()}
 							class="bg-white/10 hover:bg-white/20 text-bone font-bold py-2 px-6 rounded-md uppercase tracking-wide transition-colors"
 						>
 							Back

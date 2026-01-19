@@ -92,7 +92,8 @@
 			</div>
 
 			<div class="flex-1 bg-panel p-8 rounded-lg text-bone/80">
-				{@html steps.find(step => step.id === currentStep)?.content}
+				<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+				{@html steps.find((step) => step.id === currentStep)?.content}
 			</div>
 		</div>
 

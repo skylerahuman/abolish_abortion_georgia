@@ -126,19 +126,25 @@
 					<div class="space-y-4">
 						<div class="grid grid-cols-3 gap-2">
 							<button
+								type="button"
 								class="border border-neutral-700 py-3 rounded-sm font-bold text-sm transition-all cursor-pointer {donationAmount === '25' ? 'bg-gold text-charcoal border-gold' : 'bg-charcoal text-neutral-400 hover:border-gold/50'}"
+								aria-pressed={donationAmount === '25'}
 								onclick={() => { donationAmount = '25'; customAmount = ''; }}
 							>
 								$25
 							</button>
 							<button
+								type="button"
 								class="border border-neutral-700 py-3 rounded-sm font-bold text-sm transition-all cursor-pointer {donationAmount === '100' ? 'bg-gold text-charcoal border-gold' : 'bg-charcoal text-neutral-400 hover:border-gold/50'}"
+								aria-pressed={donationAmount === '100'}
 								onclick={() => { donationAmount = '100'; customAmount = ''; }}
 							>
 								$100
 							</button>
 							<button
+								type="button"
 								class="border border-neutral-700 py-3 rounded-sm font-bold text-sm transition-all cursor-pointer {donationAmount === '500' ? 'bg-gold text-charcoal border-gold' : 'bg-charcoal text-neutral-400 hover:border-gold/50'}"
+								aria-pressed={donationAmount === '500'}
 								onclick={() => { donationAmount = '500'; customAmount = ''; }}
 							>
 								$500
@@ -150,6 +156,7 @@
 							<input
 								type="number"
 								placeholder="Custom Amount"
+								aria-label="Custom Donation Amount"
 								bind:value={customAmount}
 								oninput={() => donationAmount = 'custom'}
 								class="w-full bg-charcoal border border-neutral-700 p-4 pl-8 text-white rounded-sm focus:border-gold outline-none transition-colors"

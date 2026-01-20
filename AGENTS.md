@@ -264,7 +264,7 @@ Do not "overhaul" the basic structure unless explicitly instructed. Focus on *ex
 4. Ensure accessibility (ARIA labels, keyboard navigation)
 
 ### Modifying Data
-1. Check if data is in `static/data/` (timeline.json, zip_to_district.csv)
+1. Check if data is in `static/data/` (zip_to_district.csv) or `src/lib/data/` (timeline.json)
 2. Ensure types in `src/lib/types/index.ts` match data structure
 3. Update tests to reflect new data structure
 

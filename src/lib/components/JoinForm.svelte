@@ -4,6 +4,7 @@
 	import { fly } from 'svelte/transition';
 	import { registrationState } from '$lib/state.svelte';
 	import type { DistrictMap } from '$lib/types';
+	import { streamCsv } from '$lib/csv';
 
 	// District Finder Interaction State
 	let zipCode = $state('');
@@ -27,17 +28,23 @@
 		if (zipToDistrictMap) return;
 		try {
 			const response = await fetch(`${base}/data/zip_to_district.csv`);
-			const csvText = await response.text();
-			const lines = csvText.split('\n');
 			const mapData: DistrictMap = {};
-			for (let i = 1; i < lines.length; i++) {
-				const [zip, dist] = lines[i].split(',');
+			let isHeader = true;
+
+			await streamCsv(response, (row) => {
+				if (isHeader) {
+					isHeader = false;
+					return;
+				}
+				const [zip, dist] = row;
 				if (zip && dist) {
 					mapData[zip.trim()] = dist.trim();
 				}
-			}
+			});
+
 			zipToDistrictMap = mapData;
 		} catch (e) {
+			console.error(e);
 			error = 'Could not load district data.';
 		}
 	}

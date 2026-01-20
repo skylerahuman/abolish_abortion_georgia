@@ -170,7 +170,7 @@
 											</button>
 										</div>
 										{#if error}
-											<p class="text-ember text-sm mt-2">{error}</p>
+											<p role="alert" class="text-ember text-sm mt-2">{error}</p>
 										{/if}
 									</div>
 								{:else}

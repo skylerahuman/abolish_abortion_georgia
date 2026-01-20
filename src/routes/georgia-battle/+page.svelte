@@ -93,7 +93,7 @@
 					data-id={event.id}
 					style="animation-delay: {index * 100}ms"
 				>
-					{#if visibleCards.has(event.id) || true}
+					{#if visibleCards.has(event.id)}
 						<div class="opacity-0 animate-fade-in-left" style="animation-delay: {index * 150}ms">
 							<div class="flex items-baseline gap-3 mb-2">
 								<span class="text-sm font-mono font-bold text-bone/50 tracking-wider">

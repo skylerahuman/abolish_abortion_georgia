@@ -4,7 +4,8 @@
 	import type { TimelineEvent } from '$lib/types';
 	import timelineData from '$lib/data/timeline.json';
 	
-	let timeline = $state<TimelineEvent[]>(timelineData as TimelineEvent[]);
+	// Optimization 5: Static data doesn't need to be reactive state
+	const timeline = timelineData as TimelineEvent[];
 	let visibleCards = $state<Set<string>>(new Set());
 	
 	onMount(() => {
@@ -13,14 +14,23 @@
 		// Setup intersection observer for staggered animations
 		observer = new IntersectionObserver(
 			(entries) => {
+				let hasChanges = false;
+				// Optimization 6: Clone set once and batch updates instead of recreating for every entry
+				const nextVisible = new Set(visibleCards);
+
 				entries.forEach(entry => {
 					if (entry.isIntersecting) {
 						const id = entry.target.getAttribute('data-id');
-						if (id) {
-							visibleCards = new Set([...visibleCards, id]);
+						if (id && !nextVisible.has(id)) {
+							nextVisible.add(id);
+							hasChanges = true;
 						}
 					}
 				});
+
+				if (hasChanges) {
+					visibleCards = nextVisible;
+				}
 			},
 			{ threshold: 0.2 }
 		);

@@ -7,8 +7,8 @@
 	function handleDonate() {
 		const amount = donationAmount === 'custom' ? customAmount : donationAmount;
 		console.log(`Donation attempt: $${amount}`);
-		// Visual feedback only
-		alert(`(Demo) Initiating donation for $${amount}... Redirecting to Donorbox.`);
+		// Optimization 10: Remove blocking alert(), just redirect immediately.
+		// Speed is a feature.
 		window.open('https://donorbox.org/regular-donations-15', '_blank');
 	}
 </script>
@@ -24,7 +24,7 @@
 			Support the Mission
 		</h1>
 		<p class="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto leading-relaxed">
-			We are fighting to abolish abortion in Georgia through the power of the Gospel. Join us in prayer and financial partnership.
+			We are fighting to abolish abortion in Georgia through the power of the Gospel. Pray and give.
 		</p>
 	</div>
 
@@ -85,7 +85,7 @@
 		<div class="max-w-4xl mx-auto">
 			 <div class="text-center mb-12">
 				<h2 class="text-3xl font-bold uppercase tracking-wide text-gold mb-4">
-					Give: Fuel the Work
+					Give
 				</h2>
 				<p class="text-neutral-300 leading-relaxed max-w-3xl mx-auto">
 					Your financial partnership enables us to produce resources, train churches, and maintain a consistent presence at the darkest places in our state.

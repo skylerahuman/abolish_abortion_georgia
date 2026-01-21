@@ -11,12 +11,12 @@
 		<div class="space-y-8">
 			<div>
 				<h2 class="text-2xl font-bold mb-4 text-red-600">Our History</h2>
-				<p>For nearly a decade, Operation Gospel has been preaching the Gospel faithfully to mothers heading into abortion clinics. We are now seeking to bring the Gospel to the voters of Georgia.</p>
+				<p>Operation Gospel has been preaching the Gospel faithfully to mothers heading into abortion clinics. We are now seeking to bring the Gospel to the voters of Georgia.</p>
 			</div>
 
 			<div>
 				<h2 class="text-2xl font-bold mb-4 text-red-600">Our Team</h2>
-				<p>Operation Gospel is a team of pastors, evangelists, and everyday Christians who are committed to the abolition of abortion in Georgia. We are a grassroots organization that is funded by the faithful support of individuals and churches who believe that the Gospel must be preached at the gates of hell.</p>
+				<p>Operation Gospel is a team of pastors, evangelists, and Christians who are committed to the abolition of abortion in Georgia. We are a grassroots organization that is funded by the faithful support of individuals and churches who believe that the Gospel must be preached at the gates of hell.</p>
 			</div>
 
 			<div>
@@ -31,7 +31,7 @@
 
 			<div>
 				<h2 class="text-2xl font-bold mb-4 text-red-600">Our National Context</h2>
-				<p>Operation Gospel is part of a growing movement of abolitionist societies across the nation. We are thankful for the work of organizations like Free the States, End Abortion Now, and the Foundation to Abolish Abortion, and we are proud to stand with them in the fight to end abortion in our lifetime.</p>
+				<p>Operation Gospel is part of a growing movement of abolitionist societies across the nation. We are thankful for the work of organizations like Free the States, End Abortion Now, and the Foundation to Abolish Abortion, and we stand with them in the fight to end abortion in our lifetime.</p>
 			</div>
 		</div>
 	</div>

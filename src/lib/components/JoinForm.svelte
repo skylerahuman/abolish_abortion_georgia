@@ -1,10 +1,7 @@
 <script lang="ts">
-	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { registrationState } from '$lib/state.svelte';
-	import type { DistrictMap } from '$lib/types';
-	import { streamCsv } from '$lib/csv';
 
 	// District Finder Interaction State
 	let zipCode = $state('');
@@ -12,53 +9,24 @@
 	let error = $state('');
 	let showDistrict = $state(false);
 	let notInGeorgia = $state(false);
+	let scrambleInterval: number; // Track interval for cleanup
 
-	let zipToDistrictMap: DistrictMap | null = null;
-
-	onMount(async () => {
+	onMount(() => {
 		const savedDistrict = localStorage.getItem('userDistrict');
 		if (savedDistrict) {
 			registrationState.form.district = savedDistrict;
 			showDistrict = true;
 		}
-		await loadZipData();
+
+		// Optimization 9: Cleanup interval on unmount to prevent memory leaks
+		return () => {
+			if (scrambleInterval) clearInterval(scrambleInterval);
+		};
 	});
-
-	async function loadZipData() {
-		if (zipToDistrictMap) return;
-		try {
-			const response = await fetch(`${base}/data/zip_to_district.csv`);
-			const mapData: DistrictMap = {};
-			let isHeader = true;
-
-			await streamCsv(response, (row) => {
-				if (isHeader) {
-					isHeader = false;
-					return;
-				}
-				const [zip, dist] = row;
-				if (zip && dist) {
-					mapData[zip.trim()] = dist.trim();
-				}
-			});
-
-			zipToDistrictMap = mapData;
-		} catch (e) {
-			console.error(e);
-			error = 'Could not load district data.';
-		}
-	}
 
 	async function handleZipLookup() {
 		if (zipCode.length !== 5) {
 			error = 'Please enter a valid 5-digit ZIP code.';
-			return;
-		}
-		if (!zipToDistrictMap) {
-			await loadZipData();
-		}
-		if (!zipToDistrictMap) {
-			error = 'District data is not loaded.';
 			return;
 		}
 
@@ -66,13 +34,18 @@
 		isLoading = true;
 
 		// Scramble animation
-		let scrambleInterval = setInterval(() => {
+		scrambleInterval = window.setInterval(() => {
 			registrationState.form.district = Math.random().toString(36).substring(2, 5).toUpperCase();
 		}, 50);
 
-		setTimeout(() => {
+		try {
+			// Optimization 7: Dynamic import of large data file only when needed
+			const { zipToDistrict } = await import('$lib/data/zip_to_district');
+
+			// Optimization 8: Removed artificial 1s delay - speed is a feature!
 			clearInterval(scrambleInterval);
-			const foundDistrict = zipToDistrictMap![zipCode];
+			const foundDistrict = zipToDistrict[zipCode];
+
 			if (foundDistrict) {
 				const padded = foundDistrict.padStart(3, '0');
 				registrationState.form.district = padded;
@@ -82,8 +55,13 @@
 				registrationState.form.district = null;
 				error = 'District not found for this ZIP code.';
 			}
+		} catch (e) {
+			clearInterval(scrambleInterval);
+			error = 'Error loading district data.';
+			console.error(e);
+		} finally {
 			isLoading = false;
-		}, 1000);
+		}
 	}
 
 	function resetDistrictFinder() {

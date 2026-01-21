@@ -1,16 +1,29 @@
 <svelte:head>
 	<style>
 		.home-bg {
+			position: relative;
+			isolation: isolate;
+		}
+
+		/* Optimization: Use fixed pseudo-element instead of background-attachment: fixed for better mobile performance */
+		.home-bg::before {
+			content: '';
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
 			background-image: linear-gradient(to bottom, rgba(2, 6, 23, 0.1), rgba(2, 6, 23, 0.4), rgba(2, 6, 23, 1)), url('/images/backdrop.png');
-			background-attachment: fixed;
 			background-position: 0% 100%;
 			background-size: 120% auto;
 			background-repeat: no-repeat;
+			will-change: transform;
 		}
 		
 		/* Fix background positioning on smaller screens */
 		@media (max-width: 1450px) {
-			.home-bg {
+			.home-bg::before {
 				background-position: center 0%;
 				background-size: cover;
 			}
@@ -20,6 +33,7 @@
 		.fade-in-line {
 			opacity: 0;
 			animation: fadeInCinematic 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+			will-change: transform, opacity;
 		}
 		
 		/* Four lines at 0.6s intervals, 1s duration each */
@@ -32,6 +46,7 @@
 		.fade-in-text {
 			opacity: 0;
 			animation: fadeInCinematic 0.5s cubic-bezier(0.16, 1, 0.3, 1) 2.4s forwards;
+			will-change: transform, opacity;
 		}
 		
 		/* Buttons start at 2.6s */
@@ -110,6 +125,7 @@
 	// Optimization variables
 	let heroHeight = 0;
 	let rafId: number;
+	let resizeTimeout: number;
 
 	function handleScroll() {
 		if (rafId) return;
@@ -173,9 +189,15 @@
 				heroHeight = heroSection.offsetHeight;
 			}
 		};
+
+		// Optimization: Debounce resize event
+		const handleResize = () => {
+			clearTimeout(resizeTimeout);
+			resizeTimeout = window.setTimeout(updateDimensions, 200);
+		};
 		
 		updateDimensions();
-		window.addEventListener('resize', updateDimensions);
+		window.addEventListener('resize', handleResize);
 
 		window.addEventListener('scroll', handleScroll, { passive: true });
 
@@ -189,8 +211,9 @@
 
 		return () => {
 			window.removeEventListener('scroll', handleScroll);
-			window.removeEventListener('resize', updateDimensions);
+			window.removeEventListener('resize', handleResize);
 			if (rafId) cancelAnimationFrame(rafId);
+			if (resizeTimeout) clearTimeout(resizeTimeout);
 		};
 	});
 </script>
@@ -241,7 +264,7 @@
 							Join
 						</a>
 						<a
-							href="{base}/about"
+							href="{base}/support"
 							class="px-8 py-3 bg-crimson text-bone font-semibold rounded-lg hover:bg-ember transition-colors duration-200 shadow-lg hover:shadow-crimson/50"
 						>
 							Support

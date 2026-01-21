@@ -264,7 +264,7 @@
 							Join
 						</a>
 						<a
-							href="{base}/about"
+							href="{base}/support"
 							class="px-8 py-3 bg-crimson text-bone font-semibold rounded-lg hover:bg-ember transition-colors duration-200 shadow-lg hover:shadow-crimson/50"
 						>
 							Support

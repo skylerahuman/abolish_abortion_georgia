@@ -2,7 +2,6 @@
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { registrationState } from '$lib/state.svelte';
-	import { zipToDistrict } from '$lib/data/zip_to_district';
 
 	// District Finder Interaction State
 	let zipCode = $state('');
@@ -10,6 +9,7 @@
 	let error = $state('');
 	let showDistrict = $state(false);
 	let notInGeorgia = $state(false);
+	let scrambleInterval: number; // Track interval for cleanup
 
 	onMount(() => {
 		const savedDistrict = localStorage.getItem('userDistrict');
@@ -17,9 +17,14 @@
 			registrationState.form.district = savedDistrict;
 			showDistrict = true;
 		}
+
+		// Optimization 9: Cleanup interval on unmount to prevent memory leaks
+		return () => {
+			if (scrambleInterval) clearInterval(scrambleInterval);
+		};
 	});
 
-	function handleZipLookup() {
+	async function handleZipLookup() {
 		if (zipCode.length !== 5) {
 			error = 'Please enter a valid 5-digit ZIP code.';
 			return;
@@ -29,13 +34,18 @@
 		isLoading = true;
 
 		// Scramble animation
-		let scrambleInterval = setInterval(() => {
+		scrambleInterval = window.setInterval(() => {
 			registrationState.form.district = Math.random().toString(36).substring(2, 5).toUpperCase();
 		}, 50);
 
-		setTimeout(() => {
+		try {
+			// Optimization 7: Dynamic import of large data file only when needed
+			const { zipToDistrict } = await import('$lib/data/zip_to_district');
+
+			// Optimization 8: Removed artificial 1s delay - speed is a feature!
 			clearInterval(scrambleInterval);
 			const foundDistrict = zipToDistrict[zipCode];
+
 			if (foundDistrict) {
 				const padded = foundDistrict.padStart(3, '0');
 				registrationState.form.district = padded;
@@ -45,8 +55,13 @@
 				registrationState.form.district = null;
 				error = 'District not found for this ZIP code.';
 			}
+		} catch (e) {
+			clearInterval(scrambleInterval);
+			error = 'Error loading district data.';
+			console.error(e);
+		} finally {
 			isLoading = false;
-		}, 1000);
+		}
 	}
 
 	function resetDistrictFinder() {

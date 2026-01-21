@@ -7,8 +7,8 @@
 	function handleDonate() {
 		const amount = donationAmount === 'custom' ? customAmount : donationAmount;
 		console.log(`Donation attempt: $${amount}`);
-		// Visual feedback only
-		alert(`(Demo) Initiating donation for $${amount}... Redirecting to Donorbox.`);
+		// Optimization 10: Remove blocking alert(), just redirect immediately.
+		// Speed is a feature.
 		window.open('https://donorbox.org/regular-donations-15', '_blank');
 	}
 </script>

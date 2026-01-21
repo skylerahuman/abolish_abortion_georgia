@@ -67,7 +67,7 @@
 	<div class="max-w-4xl mx-auto">
 		<div class="text-center mb-12 relative">
 			<h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 uppercase text-crimson">Abolition not Regulation</h1>
-			<p class="text-lg text-bone/70">For five decades, the response to the greatest moral atrocity of our age has been incremental regulation. We tracked the pulse, we measured the weeks, but we failed to establish Justice. Here's why abolition is different.</p>
+			<p class="text-lg text-bone/70">For five decades, the response to the greatest moral atrocity of our age has been incremental regulation. We tracked the pulse, we measured the weeks, but we failed to establish Justice. Abolition is different.</p>
 			<button
 				onclick={ () => {navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');}}
 				class="absolute top-0 right-0 text-bone/50 hover:text-bone transition-colors text-sm"
@@ -99,7 +99,7 @@
 
 		<div class="text-center mt-12">
 			<a href="{base}/georgia-battle" class="bg-crimson hover:bg-ember text-white font-bold py-3 px-6 rounded-lg transition-colors shadow-lg shadow-crimson/20">
-				Show me the battle in Georgia
+				View the Georgia Battle
 			</a>
 		</div>
 	</div>

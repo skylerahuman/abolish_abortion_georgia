@@ -114,7 +114,11 @@
 				
 				<!-- Operation Gospel Text (Right) - Desktop only -->
 				<div class="hidden md:flex items-center">
-					<a href="{base}/" class="text-xl md:text-2xl font-serif font-bold tracking-tight uppercase leading-none whitespace-nowrap">
+					<a
+						href="{base}/"
+						class="text-xl md:text-2xl font-serif font-bold tracking-tight uppercase leading-none whitespace-nowrap"
+						aria-current={$page.url.pathname === `${base}/` ? 'page' : undefined}
+					>
 						Operation Gospel
 					</a>
 				</div>
@@ -130,6 +134,7 @@
 						onclick={() => mobileMenuOpen = false}
 						class="block w-full text-left py-4 px-6 hover:text-bone hover:bg-charcoal transition-all duration-200 rounded-sm text-base font-bold tracking-wide uppercase
 							{$page.url.pathname === item.href ? 'text-crimson bg-charcoal border-l-4 border-crimson' : 'text-bone/70 border-l-4 border-transparent'}"
+						aria-current={$page.url.pathname === item.href ? 'page' : undefined}
 					>
 						{item.label}
 					</a>
@@ -138,6 +143,7 @@
 					href="{base}/join"
 					onclick={() => mobileMenuOpen = false}
 					class="block w-full text-left py-4 px-6 text-bone/70 hover:text-bone hover:bg-charcoal transition-all duration-200 rounded-sm text-base font-bold tracking-wide uppercase border-l-4 border-transparent"
+					aria-current={$page.url.pathname === `${base}/join` ? 'page' : undefined}
 				>
 					Join
 				</a>
@@ -145,6 +151,7 @@
 					href="{base}/support"
 					onclick={() => mobileMenuOpen = false}
 					class="block w-full text-left py-4 px-6 bg-crimson/10 text-crimson hover:bg-crimson/20 hover:text-ember transition-all duration-200 rounded-sm text-base font-bold tracking-wide uppercase border-l-4 border-crimson mt-3"
+					aria-current={$page.url.pathname === `${base}/support` ? 'page' : undefined}
 				>
 					Support
 				</a>
@@ -165,7 +172,12 @@
 				<span class="block sm:inline">Scriptural Authority.</span>
 				<span class="block sm:inline sm:ml-1">No Compromise.</span>
 			</p>
-				<div class="flex justify-center space-x-6 mb-6">
+
+			<div class="flex justify-center mb-6">
+				<a href="{base}/about" class="text-sm font-bold uppercase tracking-wide text-bone/50 hover:text-bone transition-colors">About Us</a>
+			</div>
+
+			<div class="flex justify-center space-x-6 mb-6">
 				<a href="https://www.facebook.com/OperationGospel" target="_blank" rel="noopener noreferrer" class="text-bone hover:text-ember transition-colors">
 					<span class="sr-only">Facebook</span>
 					<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

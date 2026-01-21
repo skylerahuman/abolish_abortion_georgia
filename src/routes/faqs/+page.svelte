@@ -20,11 +20,11 @@
 		},
 		{
 			question: 'What about "my body, my choice"?',
-			answer: 'It should go without saying that the body inside of the woman\'s body is not her body. If abortion was about the mother\'s body, then she would be the one that dies and not the baby!\n\nSource: 10 Pro-Life Arguments'
+			answer: 'The body inside of the woman\'s body is not her body. If abortion was about the mother\'s body, then she would be the one that dies and not the baby!\n\nSource: 10 Pro-Life Arguments'
 		},
 		{
 			question: 'What about the quality of life of the mother or child? Or poverty situations?',
-			answer: 'Abortion advocates often appeal to dire situations to make their case in order to tug at the heart. Oddly enough, most of us would laugh at the absurdity of this kind of argument in any other case. Should mothers and fathers be allowed to simply kill their children if times are tough?\n\nSource: 10 Pro-Life Arguments'
+			answer: 'Abortion advocates often appeal to dire situations to make their case in order to tug at the heart. This argument is absurd. Should mothers and fathers be allowed to simply kill their children if times are tough?\n\nSource: 10 Pro-Life Arguments'
 		},
 		{
 			question: 'What about contraceptives?',
@@ -32,7 +32,7 @@
 		},
 		{
 			question: 'Isn\'t a fetus only a cluster of cells?',
-			answer: 'All human life is made up clumps of cells. Interestingly, the Latin word "fetus" means "little one," referring to the relatively small size of the preborn baby. So, a baby is still a baby regardless of what we call them. It is biologically indisputable that a unique human life exists from the moment of fertilization.\n\nSource: 10 Pro-Life Arguments'
+			answer: 'All human life is made up clumps of cells. The Latin word "fetus" means "little one," referring to the relatively small size of the preborn baby. So, a baby is still a baby regardless of what we call them. It is biologically indisputable that a unique human life exists from the moment of fertilization.\n\nSource: 10 Pro-Life Arguments'
 		},
 		{
 			question: 'What about ectopic pregnancies?',
@@ -40,7 +40,7 @@
 		},
 		{
 			question: 'Aren\'t women the only people that can effectively talk about abortion?',
-			answer: 'You do not need to experience rape to argue that rape is wrong. This is simply an attempt to steer the conversation away from the horror of abortion by focusing on you rather than the crime.\n\nSource: 10 Pro-Life Arguments'
+			answer: 'Truth is objective. This argument attempts to steer the conversation away from the horror of abortion by focusing on the speaker rather than the crime.\n\nSource: 10 Pro-Life Arguments'
 		},
 		{
 			question: 'Could the bill punish women who have had miscarriages?',

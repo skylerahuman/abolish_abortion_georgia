@@ -1,10 +1,8 @@
 <script lang="ts">
-	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { registrationState } from '$lib/state.svelte';
-	import type { DistrictMap } from '$lib/types';
-	import { streamCsv } from '$lib/csv';
+	import { zipToDistrict } from '$lib/data/zip_to_district';
 
 	// District Finder Interaction State
 	let zipCode = $state('');
@@ -13,52 +11,17 @@
 	let showDistrict = $state(false);
 	let notInGeorgia = $state(false);
 
-	let zipToDistrictMap: DistrictMap | null = null;
-
-	onMount(async () => {
+	onMount(() => {
 		const savedDistrict = localStorage.getItem('userDistrict');
 		if (savedDistrict) {
 			registrationState.form.district = savedDistrict;
 			showDistrict = true;
 		}
-		await loadZipData();
 	});
 
-	async function loadZipData() {
-		if (zipToDistrictMap) return;
-		try {
-			const response = await fetch(`${base}/data/zip_to_district.csv`);
-			const mapData: DistrictMap = {};
-			let isHeader = true;
-
-			await streamCsv(response, (row) => {
-				if (isHeader) {
-					isHeader = false;
-					return;
-				}
-				const [zip, dist] = row;
-				if (zip && dist) {
-					mapData[zip.trim()] = dist.trim();
-				}
-			});
-
-			zipToDistrictMap = mapData;
-		} catch (e) {
-			console.error(e);
-			error = 'Could not load district data.';
-		}
-	}
-
-	async function handleZipLookup() {
+	function handleZipLookup() {
 		if (zipCode.length !== 5) {
 			error = 'Please enter a valid 5-digit ZIP code.';
-			return;
-		}
-		if (!zipToDistrictMap) {
-			await loadZipData();
-		}
-		if (!zipToDistrictMap) {
-			error = 'District data is not loaded.';
 			return;
 		}
 
@@ -72,7 +35,7 @@
 
 		setTimeout(() => {
 			clearInterval(scrambleInterval);
-			const foundDistrict = zipToDistrictMap![zipCode];
+			const foundDistrict = zipToDistrict[zipCode];
 			if (foundDistrict) {
 				const padded = foundDistrict.padStart(3, '0');
 				registrationState.form.district = padded;

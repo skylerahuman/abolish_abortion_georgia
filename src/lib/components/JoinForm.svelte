@@ -108,8 +108,17 @@
 	<!-- Progress Bar -->
 	{#if registrationState.step > 1 && !registrationState.submitted}
 		<div class="mb-6">
-			<p class="text-sm text-bone/60 text-center">Step {registrationState.step} of 3</p>
-			<div class="w-full bg-charcoal/50 rounded-full h-1.5 mt-1">
+			<p id="progress-label" class="text-sm text-bone/60 text-center">
+				Step {registrationState.step} of 3
+			</p>
+			<div
+				role="progressbar"
+				aria-labelledby="progress-label"
+				aria-valuenow={((registrationState.step - 1) / 2) * 100}
+				aria-valuemin="0"
+				aria-valuemax="100"
+				class="w-full bg-charcoal/50 rounded-full h-1.5 mt-1"
+			>
 				<div
 					class="bg-crimson h-1.5 rounded-full transition-all duration-300"
 					style="width: {((registrationState.step - 1) / 2) * 100}%"

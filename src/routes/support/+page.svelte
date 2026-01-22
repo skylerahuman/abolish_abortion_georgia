@@ -81,7 +81,7 @@
 	</section>
 
 	<!-- Part 2: Donation Section -->
-	<section class="py-16 px-6 border-t border-white/10">
+	<section id="donation" class="py-16 px-6 border-t border-white/10">
 		<div class="max-w-4xl mx-auto">
 			 <div class="text-center mb-12">
 				<h2 class="text-3xl font-bold uppercase tracking-wide text-gold mb-4">

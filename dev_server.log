@@ -3,36 +3,24 @@
 > vite dev
 
 
-  VITE v7.3.0  ready in 1853 ms
+  VITE v7.3.0  ready in 1454 ms
 
   ➜  Local:   http://localhost:5173/
   ➜  Network: use --host to expose
-12:56:26 AM [vite-plugin-svelte] src/routes/bill-analysis/+page.svelte:267:3 Using `on:click` to listen to the click event is deprecated. Use the event attribute `onclick` instead
-https://svelte.dev/e/event_directive_deprecated
-12:56:26 AM [vite-plugin-svelte] src/routes/bill-analysis/+page.svelte:339:5 Using `on:click` to listen to the click event is deprecated. Use the event attribute `onclick` instead
-https://svelte.dev/e/event_directive_deprecated
-12:56:26 AM [vite-plugin-svelte] src/routes/bill-analysis/+page.svelte:407:5 Using `on:click` to listen to the click event is deprecated. Use the event attribute `onclick` instead
-https://svelte.dev/e/event_directive_deprecated
-12:56:26 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:6:1 Visible, non-interactive elements with a click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as `<button type="button">` or `<a>` might be more appropriate
+4:00:07 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:16:1 Elements with the 'dialog' interactive role must have a tabindex value
+https://svelte.dev/e/a11y_interactive_supports_focus
+4:00:07 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:16:1 Visible, non-interactive elements with a click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as `<button type="button">` or `<a>` might be more appropriate
 https://svelte.dev/e/a11y_click_events_have_key_events
-12:56:26 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:6:1 `<div>` with a click handler must have an ARIA role
-https://svelte.dev/e/a11y_no_static_element_interactions
-12:56:26 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:10:2 Visible, non-interactive elements with a click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as `<button type="button">` or `<a>` might be more appropriate
+4:00:07 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:24:2 Visible, non-interactive elements with a click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as `<button type="button">` or `<a>` might be more appropriate
 https://svelte.dev/e/a11y_click_events_have_key_events
-12:56:26 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:10:2 `<div>` with a click handler must have an ARIA role
+4:00:07 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:24:2 `<div>` with a click handler must have an ARIA role
 https://svelte.dev/e/a11y_no_static_element_interactions
-12:56:27 AM [vite-plugin-svelte] src/routes/bill-analysis/+page.svelte:267:3 Using `on:click` to listen to the click event is deprecated. Use the event attribute `onclick` instead
-https://svelte.dev/e/event_directive_deprecated
-12:56:27 AM [vite-plugin-svelte] src/routes/bill-analysis/+page.svelte:339:5 Using `on:click` to listen to the click event is deprecated. Use the event attribute `onclick` instead
-https://svelte.dev/e/event_directive_deprecated
-12:56:27 AM [vite-plugin-svelte] src/routes/bill-analysis/+page.svelte:407:5 Using `on:click` to listen to the click event is deprecated. Use the event attribute `onclick` instead
-https://svelte.dev/e/event_directive_deprecated
-12:56:27 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:6:1 Visible, non-interactive elements with a click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as `<button type="button">` or `<a>` might be more appropriate
+4:00:08 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:16:1 Elements with the 'dialog' interactive role must have a tabindex value
+https://svelte.dev/e/a11y_interactive_supports_focus
+4:00:08 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:16:1 Visible, non-interactive elements with a click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as `<button type="button">` or `<a>` might be more appropriate
 https://svelte.dev/e/a11y_click_events_have_key_events
-12:56:27 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:6:1 `<div>` with a click handler must have an ARIA role
-https://svelte.dev/e/a11y_no_static_element_interactions
-12:56:27 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:10:2 Visible, non-interactive elements with a click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as `<button type="button">` or `<a>` might be more appropriate
+4:00:08 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:24:2 Visible, non-interactive elements with a click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as `<button type="button">` or `<a>` might be more appropriate
 https://svelte.dev/e/a11y_click_events_have_key_events
-12:56:27 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:10:2 `<div>` with a click handler must have an ARIA role
+4:00:08 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:24:2 `<div>` with a click handler must have an ARIA role
 https://svelte.dev/e/a11y_no_static_element_interactions
-12:56:27 AM [vite] (client) page reload playwright-report/index.html
+4:00:08 AM [vite] (client) page reload playwright-report/index.html

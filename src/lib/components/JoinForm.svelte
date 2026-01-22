@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, tick } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { registrationState } from '$lib/state.svelte';
 
@@ -10,6 +10,12 @@
 	let showDistrict = $state(false);
 	let notInGeorgia = $state(false);
 	let scrambleInterval: number; // Track interval for cleanup
+
+	// Focus Management References
+	let resultContainer = $state<HTMLElement>();
+	let firstNameInput = $state<HTMLElement>();
+	let homeChurchInput = $state<HTMLElement>();
+	let step2Error = $state('');
 
 	onMount(() => {
 		const savedDistrict = localStorage.getItem('userDistrict');
@@ -51,6 +57,8 @@
 				registrationState.form.district = padded;
 				localStorage.setItem('userDistrict', padded);
 				showDistrict = true;
+				await tick();
+				resultContainer?.focus();
 			} else {
 				registrationState.form.district = null;
 				error = 'District not found for this ZIP code.';
@@ -84,6 +92,27 @@
 		e.preventDefault();
 		console.log('Form Submitted (Void)', $state.snapshot(registrationState.form));
 		registrationState.submitted = true;
+	}
+
+	async function handleNextStep() {
+		if (registrationState.step === 1) {
+			registrationState.nextStep();
+			await tick();
+			firstNameInput?.focus();
+		} else if (registrationState.step === 2) {
+			if (
+				!registrationState.form.firstName.trim() ||
+				!registrationState.form.lastName.trim() ||
+				!registrationState.form.email.trim()
+			) {
+				step2Error = 'Please fill in all required fields.';
+				return;
+			}
+			step2Error = '';
+			registrationState.nextStep();
+			await tick();
+			homeChurchInput?.focus();
+		}
 	}
 </script>
 
@@ -169,7 +198,9 @@
 									</div>
 								{:else}
 									<div
-										class="text-center bg-charcoal/50 border border-white/10 rounded-md p-3"
+										bind:this={resultContainer}
+										tabindex="-1"
+										class="text-center bg-charcoal/50 border border-white/10 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-crimson/50"
 									>
 										<p class="text-sm text-bone/60">Your Georgia House District is:</p>
 										<p class="text-3xl font-mono font-bold text-crimson tracking-widest">
@@ -199,7 +230,7 @@
 					<div class="flex justify-end">
 						<button
 							type="button"
-							onclick={() => registrationState.nextStep()}
+							onclick={handleNextStep}
 							disabled={!registrationState.form.district && !notInGeorgia}
 							class="bg-crimson hover:bg-ember text-bone font-bold py-2 px-6 rounded-md uppercase tracking-wide transition-all disabled:opacity-30 disabled:cursor-not-allowed"
 						>
@@ -226,9 +257,11 @@
 							<input
 								type="text"
 								id="firstName"
+								bind:this={firstNameInput}
 								bind:value={registrationState.form.firstName}
 								required
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
+								oninput={() => (step2Error = '')}
 							/>
 						</div>
 						<div>
@@ -241,6 +274,7 @@
 								bind:value={registrationState.form.lastName}
 								required
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
+								oninput={() => (step2Error = '')}
 							/>
 						</div>
 						<div>
@@ -253,6 +287,7 @@
 								bind:value={registrationState.form.email}
 								required
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
+								oninput={() => (step2Error = '')}
 							/>
 						</div>
 
@@ -269,21 +304,26 @@
 						</div>
 					</div>
 
-					<div class="flex justify-between">
-						<button
-							type="button"
-							onclick={() => registrationState.prevStep()}
-							class="bg-white/10 hover:bg-white/20 text-bone font-bold py-2 px-6 rounded-md uppercase tracking-wide transition-colors"
-						>
-							Back
-						</button>
-						<button
-							type="button"
-							onclick={() => registrationState.nextStep()}
-							class="bg-crimson hover:bg-ember text-bone font-bold py-2 px-6 rounded-md uppercase tracking-wide transition-colors"
-						>
-							Next
-						</button>
+					<div class="flex flex-col">
+						{#if step2Error}
+							<p role="alert" class="text-ember text-sm mb-2 text-right">{step2Error}</p>
+						{/if}
+						<div class="flex justify-between">
+							<button
+								type="button"
+								onclick={() => registrationState.prevStep()}
+								class="bg-white/10 hover:bg-white/20 text-bone font-bold py-2 px-6 rounded-md uppercase tracking-wide transition-colors"
+							>
+								Back
+							</button>
+							<button
+								type="button"
+								onclick={handleNextStep}
+								class="bg-crimson hover:bg-ember text-bone font-bold py-2 px-6 rounded-md uppercase tracking-wide transition-colors"
+							>
+								Next
+							</button>
+						</div>
 					</div>
 				</div>
 			{/if}
@@ -303,6 +343,7 @@
 							<input
 								type="text"
 								id="homeChurch"
+								bind:this={homeChurchInput}
 								bind:value={registrationState.form.homeChurch}
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
 							/>

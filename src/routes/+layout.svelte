@@ -30,6 +30,7 @@
 	
 	onMount(() => {
 		let scrollTimeout: number;
+		let rafId: number;
 		
 		const handleClickOutside = (event: MouseEvent) => {
 			const target = event.target as HTMLElement;
@@ -43,24 +44,32 @@
 		};
 		
 		const handleScroll = () => {
-			const currentScrollY = window.scrollY;
-			
-			if (currentScrollY <= 10) {
-				navbarVisible = true;
-			} else if (!mobileMenuOpen) {
-				navbarVisible = false;
-			}
-			
-			if (justOpened) {
-				return;
-			}
-			
-			clearTimeout(scrollTimeout);
-			scrollTimeout = window.setTimeout(() => {
-				if (mobileMenuOpen) {
-					mobileMenuOpen = false;
+			if (rafId) return;
+
+			rafId = requestAnimationFrame(() => {
+				const currentScrollY = window.scrollY;
+
+				// Optimization: Check state before assignment to avoid redundant updates
+				if (currentScrollY <= 10) {
+					if (!navbarVisible) navbarVisible = true;
+				} else if (!mobileMenuOpen) {
+					if (navbarVisible) navbarVisible = false;
 				}
-			}, 50);
+
+				if (justOpened) {
+					rafId = 0;
+					return;
+				}
+
+				clearTimeout(scrollTimeout);
+				scrollTimeout = window.setTimeout(() => {
+					if (mobileMenuOpen) {
+						mobileMenuOpen = false;
+					}
+				}, 50);
+
+				rafId = 0;
+			});
 		};
 		
 		document.addEventListener('mousedown', handleClickOutside);
@@ -68,6 +77,7 @@
 		
 		return () => {
 			clearTimeout(scrollTimeout);
+			if (rafId) cancelAnimationFrame(rafId);
 			document.removeEventListener('mousedown', handleClickOutside);
 			window.removeEventListener('scroll', handleScroll);
 		};

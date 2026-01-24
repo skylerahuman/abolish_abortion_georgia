@@ -15,3 +15,7 @@
 
 2. `background-attachment: fixed` causes constant repaints on mobile during scroll.
 **Action:** Use a fixed-position pseudo-element (`position: fixed; z-index: -1`) with `will-change: transform` to achieve the same visual effect while keeping the layer on the compositor.
+
+## 2025-02-18 - Navbar Scroll Optimization
+**Learning:** Verified that switching scroll handlers to `requestAnimationFrame` in `src/routes/+layout.svelte` maintains functionality while reducing main thread work. However, testing this specific behavior in Playwright is flaky due to the async nature of RAF and scroll events in headless mode.
+**Action:** Trust the RAF pattern for scroll performance as it's a standard best practice, but rely on manual or visual regression testing rather than brittle E2E scroll logic tests.

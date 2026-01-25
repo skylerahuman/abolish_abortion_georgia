@@ -15,3 +15,7 @@
 
 2. `background-attachment: fixed` causes constant repaints on mobile during scroll.
 **Action:** Use a fixed-position pseudo-element (`position: fixed; z-index: -1`) with `will-change: transform` to achieve the same visual effect while keeping the layer on the compositor.
+
+## 2025-02-18 - Lazy Loading & Memory Leaks in Maps
+**Learning:** Heavy third-party libraries like Leaflet (JS + CSS + Tiles) should not be loaded until visible, especially on mobile where they might be below the fold. Also, Leaflet maps must be manually destroyed (`map.remove()`) to prevent memory leaks in Single Page Applications.
+**Action:** Wrapped `Map.svelte` initialization in an `IntersectionObserver` and used dynamic imports for both JS and CSS. Added explicit cleanup logic to the `onMount` return function. Updated Playwright tests to scroll into view to trigger the observer.

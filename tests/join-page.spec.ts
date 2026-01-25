@@ -68,6 +68,10 @@ test.describe('Join Page', () => {
 		await expect(page.getByText("I'm interested in...")).toBeVisible();
 		
 		// Verify map is visible
+		// Scroll to map area to trigger lazy load (needed for mobile/smaller screens)
+		const mapArea = page.locator('.min-h-\\[400px\\]');
+		await mapArea.scrollIntoViewIfNeeded();
+
 		const mapContainer = page.locator('.leaflet-container');
 		await expect(mapContainer).toBeVisible();
 		
@@ -83,6 +87,10 @@ test.describe('Join Page', () => {
 	test('map should show Hampton GA church marker', async ({ page }) => {
 		await page.goto('/join');
 		await page.waitForLoadState('networkidle');
+
+		// Scroll to map area to trigger lazy load
+		const mapArea = page.locator('.min-h-\\[400px\\]');
+		await mapArea.scrollIntoViewIfNeeded();
 		
 		// Wait for map to load
 		await page.waitForTimeout(2000);

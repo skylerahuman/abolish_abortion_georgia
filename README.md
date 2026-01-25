@@ -44,6 +44,27 @@ npm install
 npm run dev
 ```
 
+## Testing
+
+We use a dual-layer testing strategy to ensure code quality and stability.
+
+### 1. Unit & Component Testing (Vitest)
+Used for testing individual components, utility functions, and business logic in isolation.
+
+- **Run Tests:** `npm run test:unit`
+- **Watch Mode (TDD):** `npm run test:unit -- --watch`
+
+### 2. End-to-End Testing (Playwright)
+Used for testing full user flows, navigation, forms, and browser interactions.
+
+- **Run Tests:** `npm test`
+- **UI Mode (TDD):** `npx playwright test --ui`
+
+### Continuous Integration
+Tests are automatically run on every Pull Request via GitHub Actions.
+- **Unit Tests:** Verified via Vitest.
+- **E2E Tests:** Verified via Playwright (reports uploaded as artifacts).
+
 ## Building
 
 To create a production version:

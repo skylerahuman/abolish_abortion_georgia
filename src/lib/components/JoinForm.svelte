@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, tick } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { registrationState } from '$lib/state.svelte';
 
@@ -10,6 +10,24 @@
 	let showDistrict = $state(false);
 	let notInGeorgia = $state(false);
 	let scrambleInterval: number; // Track interval for cleanup
+
+	// Focus Management
+	let zipInput: HTMLInputElement | undefined = $state();
+	let firstNameInput: HTMLInputElement | undefined = $state();
+	let homeChurchInput: HTMLInputElement | undefined = $state();
+	let previousStep = $state(registrationState.step);
+
+	$effect(() => {
+		const currentStep = registrationState.step;
+		if (currentStep !== previousStep) {
+			previousStep = currentStep;
+			tick().then(() => {
+				if (currentStep === 1) zipInput?.focus();
+				else if (currentStep === 2) firstNameInput?.focus();
+				else if (currentStep === 3) homeChurchInput?.focus();
+			});
+		}
+	});
 
 	onMount(() => {
 		const savedDistrict = localStorage.getItem('userDistrict');
@@ -70,6 +88,7 @@
 		registrationState.form.district = null;
 		error = '';
 		localStorage.removeItem('userDistrict');
+		tick().then(() => zipInput?.focus());
 	}
 
 	function toggleInterest(interest: string) {
@@ -141,6 +160,7 @@
 												type="text"
 												id="zip"
 												bind:value={zipCode}
+												bind:this={zipInput}
 												placeholder="Enter 5-digit ZIP Code"
 												class="flex-1 bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:border-crimson outline-none transition-colors"
 												maxlength="5"
@@ -227,6 +247,7 @@
 								type="text"
 								id="firstName"
 								bind:value={registrationState.form.firstName}
+								bind:this={firstNameInput}
 								required
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
 							/>
@@ -304,6 +325,7 @@
 								type="text"
 								id="homeChurch"
 								bind:value={registrationState.form.homeChurch}
+								bind:this={homeChurchInput}
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
 							/>
 						</div>

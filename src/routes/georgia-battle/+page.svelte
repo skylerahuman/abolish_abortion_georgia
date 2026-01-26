@@ -7,6 +7,16 @@
 	// Optimization 5: Static data doesn't need to be reactive state
 	const timeline = timelineData as TimelineEvent[];
 	let visibleCards = $state<Set<string>>(new Set());
+	let isCopied = $state(false);
+
+	function handleShare() {
+		navigator.clipboard.writeText(window.location.href).then(() => {
+			isCopied = true;
+			setTimeout(() => {
+				isCopied = false;
+			}, 2000);
+		});
+	}
 	
 	onMount(() => {
 		let observer: IntersectionObserver;
@@ -79,11 +89,11 @@
 				We have moved beyond the "Heartbeat Bills" that merely set a timing threshold for death. The Georgia Equal Protection Act (HB 441) represents the standard of justice required by God and the Constitution.
 			</p>
 			<button
-				onclick={ () => { navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!'); } }
-				class="absolute top-4 right-4 text-bone/50 hover:text-bone transition-colors text-sm"
-				aria-label="Share this page"
+				onclick={handleShare}
+				class="absolute top-4 right-4 text-sm transition-colors {isCopied ? 'text-teal font-bold' : 'text-bone/50 hover:text-bone'}"
+				aria-label={isCopied ? "Link copied" : "Share this page"}
 			>
-				Share →
+				{isCopied ? 'Link Copied!' : 'Share →'}
 			</button>
 		</div>
 

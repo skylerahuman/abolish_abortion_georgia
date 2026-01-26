@@ -3,6 +3,16 @@
 
 
 	let currentStep = $state('what-is-abolitionism');
+	let isCopied = $state(false);
+
+	function handleShare() {
+		navigator.clipboard.writeText(window.location.href).then(() => {
+			isCopied = true;
+			setTimeout(() => {
+				isCopied = false;
+			}, 2000);
+		});
+	}
 
 	const steps = [
 		{
@@ -69,11 +79,11 @@
 			<h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 uppercase text-crimson">Abolition not Regulation</h1>
 			<p class="text-lg text-bone/70">For five decades, the response to the greatest moral atrocity of our age has been incremental regulation. We tracked the pulse, we measured the weeks, but we failed to establish Justice. Abolition is different.</p>
 			<button
-				onclick={ () => {navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');}}
-				class="absolute top-0 right-0 text-bone/50 hover:text-bone transition-colors text-sm"
-				aria-label="Share this page"
+				onclick={handleShare}
+				class="absolute top-0 right-0 text-sm transition-colors {isCopied ? 'text-teal font-bold' : 'text-bone/50 hover:text-bone'}"
+				aria-label={isCopied ? "Link copied" : "Share this page"}
 			>
-				Share →
+				{isCopied ? 'Link Copied!' : 'Share →'}
 			</button>
 		</div>
 

@@ -94,6 +94,13 @@
 </style>
 
 <div class="min-h-screen flex flex-col bg-[#0C1626]">
+	<a
+		href="#main-content"
+		class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:rounded-md focus:bg-bone focus:px-6 focus:py-3 focus:font-bold focus:text-charcoal focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-crimson"
+	>
+		Skip to content
+	</a>
+
 	<!-- Navigation -->
 	<nav class="bg-transparent text-white sticky top-0 z-50 transition-all duration-300 {navbarVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}">
 		<div class="w-full px-4 sm:px-6 lg:px-8">
@@ -168,7 +175,7 @@
 	</nav>
 
 	<!-- Main Content -->
-	<main class="flex-1 flex flex-col">
+	<main id="main-content" tabindex="-1" class="flex-1 flex flex-col">
 		{@render children()}
 	</main>
 

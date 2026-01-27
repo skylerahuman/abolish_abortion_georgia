@@ -171,6 +171,9 @@
 												id="zip"
 												bind:value={zipCode}
 												placeholder="Enter 5-digit ZIP Code"
+												autocomplete="postal-code"
+												inputmode="numeric"
+												pattern="[0-9]*"
 												class="flex-1 bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:border-crimson outline-none transition-colors"
 												maxlength="5"
 												oninput={() => (error = '')}
@@ -260,6 +263,7 @@
 								bind:this={firstNameInput}
 								bind:value={registrationState.form.firstName}
 								required
+								autocomplete="given-name"
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
 								oninput={() => (step2Error = '')}
 							/>
@@ -273,6 +277,7 @@
 								id="lastName"
 								bind:value={registrationState.form.lastName}
 								required
+								autocomplete="family-name"
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
 								oninput={() => (step2Error = '')}
 							/>
@@ -286,6 +291,7 @@
 								id="email"
 								bind:value={registrationState.form.email}
 								required
+								autocomplete="email"
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
 								oninput={() => (step2Error = '')}
 							/>
@@ -299,6 +305,7 @@
 								type="tel"
 								id="phone"
 								bind:value={registrationState.form.phone}
+								autocomplete="tel"
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
 							/>
 						</div>

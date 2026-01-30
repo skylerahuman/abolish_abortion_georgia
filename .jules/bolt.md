@@ -15,3 +15,7 @@
 
 2. `background-attachment: fixed` causes constant repaints on mobile during scroll.
 **Action:** Use a fixed-position pseudo-element (`position: fixed; z-index: -1`) with `will-change: transform` to achieve the same visual effect while keeping the layer on the compositor.
+
+## 2025-02-18 - Lazy Loading Heavy Libraries
+**Learning:** Heavy libraries like Leaflet (JS + CSS) significantly impact initial load time even if used lower on the page.
+**Action:** Use `IntersectionObserver` combined with dynamic `import()` (for both JS and CSS) to defer loading until the component enters the viewport. Ensure a placeholder with fixed dimensions (e.g., `min-h-[400px]`) is present to prevent layout shifts.

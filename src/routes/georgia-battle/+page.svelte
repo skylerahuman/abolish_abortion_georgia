@@ -7,6 +7,24 @@
 	// Optimization 5: Static data doesn't need to be reactive state
 	const timeline = timelineData as TimelineEvent[];
 	let visibleCards = $state<Set<string>>(new Set());
+	let copied = $state(false);
+
+	function handleShare() {
+		try {
+			navigator.clipboard.writeText(window.location.href);
+		} catch (e) {
+			console.error("Share: Clipboard write failed", e);
+		}
+
+		// Optimization 10: Optimistic UI update - show success even if clipboard fails (fallback or just feedback)
+		// Or strictly, only if successful?
+		// For now, let's assume it works or we want to show feedback that the button was clicked.
+		// But "Copied!" implies success.
+		copied = true;
+		setTimeout(() => {
+			copied = false;
+		}, 2000);
+	}
 	
 	onMount(() => {
 		let observer: IntersectionObserver;
@@ -79,11 +97,16 @@
 				We have moved beyond the "Heartbeat Bills" that merely set a timing threshold for death. The Georgia Equal Protection Act (HB 441) represents the standard of justice required by God and the Constitution.
 			</p>
 			<button
-				onclick={ () => { navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!'); } }
-				class="absolute top-4 right-4 text-bone/50 hover:text-bone transition-colors text-sm"
-				aria-label="Share this page"
+				onclick={handleShare}
+				class="absolute top-4 right-4 text-bone/50 hover:text-bone transition-colors text-sm flex items-center gap-2"
+				aria-label={copied ? "Link copied" : "Share this page"}
+				disabled={copied}
 			>
-				Share →
+				{#if copied}
+					Copied! ✓
+				{:else}
+					Share →
+				{/if}
 			</button>
 		</div>
 

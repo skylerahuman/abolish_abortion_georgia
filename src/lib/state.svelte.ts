@@ -11,7 +11,7 @@ class RegistrationState {
 		homeChurch: '',
 		interests: []
 	});
-    submitted = $state(false);
+	submitted = $state(false);
 
 	nextStep() {
 		if (this.step < 3) {
@@ -25,19 +25,19 @@ class RegistrationState {
 		}
 	}
 
-    reset() {
-        this.step = 1;
-        this.submitted = false;
-        this.form = {
-            firstName: '',
-            lastName: '',
-            email: '',
-            phone: '',
-            district: null,
-            homeChurch: '',
-            interests: []
-        };
-    }
+	reset() {
+		this.step = 1;
+		this.submitted = false;
+		this.form = {
+			firstName: '',
+			lastName: '',
+			email: '',
+			phone: '',
+			district: null,
+			homeChurch: '',
+			interests: []
+		};
+	}
 }
 
 export const registrationState = new RegistrationState();

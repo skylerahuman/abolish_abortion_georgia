@@ -9,14 +9,18 @@ test.describe('For Pastors Page', () => {
 		await page.waitForLoadState('networkidle');
 
 		// 1. Verify Header
-		await expect(page.getByRole('heading', { name: 'For Pastors and Church Leaders' })).toBeVisible();
+		await expect(
+			page.getByRole('heading', { name: 'For Pastors and Church Leaders' })
+		).toBeVisible();
 
 		// 2. Verify "Turned Over Hypothesis" section
 		await expect(page.getByRole('heading', { name: 'The Turned Over Hypothesis' })).toBeVisible();
 		await expect(page.getByText('Romans 1 gives us the diagnosis')).toBeVisible();
 
 		// 3. Verify Documentary
-		await expect(page.getByRole('heading', { name: 'Essential Viewing: The Fatal Flaw' })).toBeVisible();
+		await expect(
+			page.getByRole('heading', { name: 'Essential Viewing: The Fatal Flaw' })
+		).toBeVisible();
 		// Check iframe existence
 		const iframe = page.locator('iframe[title="The Fatal Flaw Documentary"]');
 		await expect(iframe).toBeVisible();

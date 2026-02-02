@@ -169,9 +169,14 @@
 											<input
 												type="text"
 												id="zip"
+												inputmode="numeric"
+												pattern="[0-9]*"
+												autocomplete="postal-code"
 												bind:value={zipCode}
 												placeholder="Enter 5-digit ZIP Code"
-												class="flex-1 bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:border-crimson outline-none transition-colors"
+												class="flex-1 bg-charcoal border {error ? 'border-ember' : 'border-white/20'} text-bone px-4 py-2 rounded-md focus:border-crimson outline-none transition-colors"
+												aria-invalid={!!error}
+												aria-describedby={error ? 'zip-error' : undefined}
 												maxlength="5"
 												oninput={() => (error = '')}
 											/>
@@ -193,7 +198,7 @@
 											</button>
 										</div>
 										{#if error}
-											<p role="alert" class="text-ember text-sm mt-2">{error}</p>
+											<p id="zip-error" role="alert" class="text-ember text-sm mt-2">{error}</p>
 										{/if}
 									</div>
 								{:else}
@@ -257,6 +262,7 @@
 							<input
 								type="text"
 								id="firstName"
+								autocomplete="given-name"
 								bind:this={firstNameInput}
 								bind:value={registrationState.form.firstName}
 								required
@@ -271,6 +277,7 @@
 							<input
 								type="text"
 								id="lastName"
+								autocomplete="family-name"
 								bind:value={registrationState.form.lastName}
 								required
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
@@ -284,6 +291,7 @@
 							<input
 								type="email"
 								id="email"
+								autocomplete="email"
 								bind:value={registrationState.form.email}
 								required
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
@@ -298,6 +306,7 @@
 							<input
 								type="tel"
 								id="phone"
+								autocomplete="tel"
 								bind:value={registrationState.form.phone}
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
 							/>

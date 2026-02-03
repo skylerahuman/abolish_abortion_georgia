@@ -15,3 +15,7 @@
 
 2. `background-attachment: fixed` causes constant repaints on mobile during scroll.
 **Action:** Use a fixed-position pseudo-element (`position: fixed; z-index: -1`) with `will-change: transform` to achieve the same visual effect while keeping the layer on the compositor.
+
+## 2025-02-18 - Lazy Loading CSS via Vite
+**Learning:** Vite supports dynamic imports for CSS files (`await import('style.css')`), which injects the styles into the document head at runtime. This allows for true lazy loading of component-specific heavy libraries (like Leaflet) including their styles, not just their JS.
+**Action:** When lazy-loading libraries with `IntersectionObserver`, include their CSS in the `await import` chain to avoid blocking the critical rendering path with unused styles.

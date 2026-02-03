@@ -44,6 +44,20 @@
 		};
 	});
 	
+	let shared = $state(false);
+
+	async function sharePage() {
+		try {
+			await navigator.clipboard.writeText(window.location.href);
+			shared = true;
+			setTimeout(() => {
+				shared = false;
+			}, 2000);
+		} catch (err) {
+			console.error('Failed to copy: ', err);
+		}
+	}
+
 	function getTypeColor(type: string) {
 		switch (type) {
 			case 'hope':
@@ -79,11 +93,12 @@
 				We have moved beyond the "Heartbeat Bills" that merely set a timing threshold for death. The Georgia Equal Protection Act (HB 441) represents the standard of justice required by God and the Constitution.
 			</p>
 			<button
-				onclick={ () => { navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!'); } }
-				class="absolute top-4 right-4 text-bone/50 hover:text-bone transition-colors text-sm"
-				aria-label="Share this page"
+				onclick={sharePage}
+				class="absolute top-4 right-4 transition-colors text-sm {shared ? 'text-teal font-bold' : 'text-bone/50 hover:text-bone'}"
+				aria-label={shared ? "Link copied" : "Share this page"}
+				disabled={shared}
 			>
-				Share →
+				{shared ? 'Copied! ✓' : 'Share →'}
 			</button>
 		</div>
 

@@ -171,6 +171,9 @@
 												id="zip"
 												bind:value={zipCode}
 												placeholder="Enter 5-digit ZIP Code"
+												autocomplete="postal-code"
+												inputmode="numeric"
+												pattern="[0-9]*"
 												class="flex-1 bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:border-crimson outline-none transition-colors"
 												maxlength="5"
 												oninput={() => (error = '')}
@@ -257,6 +260,7 @@
 							<input
 								type="text"
 								id="firstName"
+								autocomplete="given-name"
 								bind:this={firstNameInput}
 								bind:value={registrationState.form.firstName}
 								required
@@ -271,6 +275,7 @@
 							<input
 								type="text"
 								id="lastName"
+								autocomplete="family-name"
 								bind:value={registrationState.form.lastName}
 								required
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
@@ -284,6 +289,7 @@
 							<input
 								type="email"
 								id="email"
+								autocomplete="email"
 								bind:value={registrationState.form.email}
 								required
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
@@ -298,6 +304,7 @@
 							<input
 								type="tel"
 								id="phone"
+								autocomplete="tel"
 								bind:value={registrationState.form.phone}
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
 							/>

@@ -23,3 +23,7 @@
 **Action:**
 1. Always call `observer.unobserve(target)` after the element enters the view if the animation is a one-time event.
 2. Use a "batch index" (resetting on each observer callback) and pass it via CSS variables (e.g., `--delay`) to stagger animations relative to the user's scroll action, not the list position.
+
+## 2025-02-19 - CI/CD Package Manager Alignment
+**Learning:** CI failures occurred because the repository mandates `pnpm` locally but the GitHub Actions workflow was configured for `npm`. The `actions/setup-node` step with `cache: npm` failed when no `package-lock.json` was found (since only `pnpm-lock.yaml` existed).
+**Action:** Ensure CI workflows match the project's package manager. Specifically, use `pnpm/action-setup`, update `setup-node` to `cache: pnpm`, and align all install/test commands.

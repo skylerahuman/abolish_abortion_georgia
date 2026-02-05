@@ -15,3 +15,11 @@
 
 2. `background-attachment: fixed` causes constant repaints on mobile during scroll.
 **Action:** Use a fixed-position pseudo-element (`position: fixed; z-index: -1`) with `will-change: transform` to achieve the same visual effect while keeping the layer on the compositor.
+
+## 2025-02-19 - Animation Scalability & Observer Cleanup
+**Learning:**
+1. **Unobserve One-Offs:** Using `IntersectionObserver` for entrance animations without `unobserve()` causes unnecessary callbacks on every scroll event for elements that are already visible.
+2. **Avoid Index-Based Delays:** Setting `animation-delay: {index * 150}ms` creates massive delays for items far down a list (e.g., item 50 waits 7.5s).
+**Action:**
+1. Always call `observer.unobserve(target)` after the element enters the view if the animation is a one-time event.
+2. Use a "batch index" (resetting on each observer callback) and pass it via CSS variables (e.g., `--delay`) to stagger animations relative to the user's scroll action, not the list position.

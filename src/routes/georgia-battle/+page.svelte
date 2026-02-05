@@ -17,13 +17,24 @@
 				let hasChanges = false;
 				// Optimization 6: Clone set once and batch updates instead of recreating for every entry
 				const nextVisible = new Set(visibleCards);
+				let batchIndex = 0;
 
-				entries.forEach(entry => {
+				entries.forEach((entry) => {
 					if (entry.isIntersecting) {
 						const id = entry.target.getAttribute('data-id');
+						const target = entry.target as HTMLElement;
+
 						if (id && !nextVisible.has(id)) {
 							nextVisible.add(id);
 							hasChanges = true;
+
+							// Optimization: Unobserve once visible to reduce main thread work
+							observer.unobserve(target);
+
+							// Optimization: Set staggered delay for this batch (batchIndex * 150ms)
+							// This prevents huge delays for items far down the list while preserving the stagger effect
+							target.style.setProperty('--delay', `${batchIndex * 150}ms`);
+							batchIndex++;
 						}
 					}
 				});
@@ -101,10 +112,9 @@
 				<div 
 					class="timeline-card border-l-4 pl-6 py-4 transition-all duration-500 {getTypeColor(event.type)}"
 					data-id={event.id}
-					style="animation-delay: {index * 100}ms"
 				>
 					{#if visibleCards.has(event.id)}
-						<div class="opacity-0 animate-fade-in-left" style="animation-delay: {index * 150}ms">
+						<div class="opacity-0 animate-fade-in-left" style="animation-delay: var(--delay, 0ms)">
 							<div class="flex items-baseline gap-3 mb-2">
 								<span class="text-sm font-mono font-bold text-bone/50 tracking-wider">
 									{event.date}

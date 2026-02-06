@@ -181,6 +181,11 @@
 		}
 	}
 
+	function scrollToFocus() {
+		const focusSection = document.getElementById('our-focus');
+		focusSection?.scrollIntoView({ behavior: 'smooth' });
+	}
+
 	onMount(() => {
 		// Check if mobile and update hero dimensions
 		const updateDimensions = () => {
@@ -303,8 +308,11 @@
 		</div>
 
 		<!-- Scroll Down Indicator - Desktop only -->
-		<div
-			class="hidden md:block relative z-10 mt-auto mx-auto text-center text-bone/50 cursor-pointer fade-in-scroll"
+		<button
+			type="button"
+			class="hidden md:block relative z-10 mt-auto mx-auto text-center text-bone/50 cursor-pointer fade-in-scroll hover:text-bone transition-colors"
+			onclick={scrollToFocus}
+			aria-label="Scroll to Our Focus section"
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -315,11 +323,12 @@
 			>
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
 			</svg>
-		</div>
+		</button>
 	</section>
 
 	<!-- Our Focus Section -->
 	<section
+		id="our-focus"
 		class="relative z-10 py-16 md:py-32 sm:md:py-40"
 		style="background-color: rgba(2, 6, 23, {backgroundOpacity}); backdrop-filter: blur(4px);"
 	>

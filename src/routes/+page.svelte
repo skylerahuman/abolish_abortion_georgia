@@ -116,7 +116,7 @@
 	import { onMount } from 'svelte';
 
 	let heroSection: HTMLElement;
-	let backgroundOpacity = $state(0);
+	let focusSection: HTMLElement;
 	let showTextPanel = $state(false);
 	let isMobile = $state(false);
 	let touchStartX = 0;
@@ -131,7 +131,7 @@
 		if (rafId) return;
 
 		rafId = requestAnimationFrame(() => {
-			if (!heroSection) {
+			if (!heroSection || !focusSection) {
 				rafId = 0;
 				return;
 			}
@@ -139,12 +139,15 @@
 			const scrollY = window.scrollY;
 			const startFade = heroHeight * 0.1; // Start fade slightly into the scroll
 			const endFade = heroHeight * 0.6; // Fully faded by 60% of hero height
+
+			let opacity = 0;
 			if (scrollY > startFade) {
 				const progress = Math.min((scrollY - startFade) / (endFade - startFade), 1);
-				backgroundOpacity = progress * 0.5; // Max opacity 0.5
-			} else {
-				backgroundOpacity = 0;
+				opacity = progress * 0.5; // Max opacity 0.5
 			}
+
+			// Optimization: Update CSS variable directly to avoid Svelte reactivity overhead during scroll
+			focusSection.style.setProperty('--hero-overlay-opacity', opacity.toString());
 			rafId = 0;
 		});
 	}
@@ -320,8 +323,9 @@
 
 	<!-- Our Focus Section -->
 	<section
+		bind:this={focusSection}
 		class="relative z-10 py-16 md:py-32 sm:md:py-40"
-		style="background-color: rgba(2, 6, 23, {backgroundOpacity}); backdrop-filter: blur(4px);"
+		style="background-color: rgba(2, 6, 23, var(--hero-overlay-opacity, 0)); backdrop-filter: blur(4px);"
 	>
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<h2 class="text-4xl font-serif font-bold text-bone tracking-tight mb-20 text-center">

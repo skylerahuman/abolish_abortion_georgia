@@ -7,6 +7,7 @@ This is the **primary context file** for AI agents working on the Abolition Geor
 **Start here (AGENTS.md)** for project overview, tech stack, and architecture.
 
 **Then consult these specialized files based on your task:**
+
 - **testing.md** - Before writing ANY code (TDD workflow, testing requirements)
 - **git_standards.md** - Before creating branches or committing (branching conventions, workflow)
 - **.jules/bolt.md** - Performance patterns and lessons learned
@@ -16,7 +17,7 @@ This is the **primary context file** for AI agents working on the Abolition Geor
 
 ## 1. Project Identity & Mission
 
-**Name:** Operation Gospel 
+**Name:** Operation Gospel
 **Type:** Political Advocacy & Mobilization Platform  
 **Core Philosophy:** Gospel First Abolitionism (vs. Pro-Life Incrementalism)
 
@@ -26,12 +27,12 @@ All code, content, and features must align with these core tenets:
 
 1. **Equal Protection** - The law must treat the pre-born exactly as it treats the born. No special "abortion" laws; simply the application of existing homicide statutes.
 2. **No Exceptions** - We reject any legislation that permits the murder of a child based on age, method of conception (rape/incest), or health capabilities.
-3. **Immediacy** - We demand justice *now*. We reject "incrementalism" (e.g., heartbeat bills, 15-week bans) that regulates *when* or *how* a child may be killed.
+3. **Immediacy** - We demand justice _now_. We reject "incrementalism" (e.g., heartbeat bills, 15-week bans) that regulates _when_ or _how_ a child may be killed.
 4. **Interposition** - We call on lesser magistrates (state legislators, governors) to defy unjust federal rulings and establish justice within their jurisdiction.
 
 ### Website Goals
 
-- **Mobilization** - The primary metric is *action*. Users should be driven to call, email, or visit their representatives.
+- **Mobilization** - The primary metric is _action_. Users should be driven to call, email, or visit their representatives.
 - **Education** - Clarify the distinction between "Pro-Life" (regulating abortion) and "Abolition" (ending it).
 - **Transparency** - Expose where legislators truly stand on Equal Protection principles.
 
@@ -107,6 +108,7 @@ Global state is managed in `src/lib/state.svelte.ts`:
 **Before writing ANY feature code, read TESTING_STANDARDS.md.**
 
 The TDD loop is mandatory:
+
 1. 🔴 **RED** - Write a failing test
 2. 🟢 **GREEN** - Write minimal code to pass
 3. 🔵 **REFACTOR** - Clean up while keeping tests green
@@ -139,6 +141,7 @@ npm run format       # Auto-format code
 Branch naming format: `type/scope-description`
 
 Allowed types:
+
 - `feature/` - New features
 - `fix/` - Bug fixes
 - `refactor/` - Code restructuring
@@ -150,6 +153,7 @@ Allowed types:
 **Never commit directly to `main`.** Always create a feature branch.
 
 Before requesting review:
+
 1. Run `npm run check`
 2. Run `npm run build`
 3. Run relevant tests
@@ -170,6 +174,7 @@ Before requesting review:
 ### Visual Identity (The "Abolitionist Aesthetic")
 
 **Palette:**
+
 - Primary: Black (`#000`), White (`#fff`)
 - Accent: Bold Red (`#ef4444` or darker blood red)
 - Softener: Cream/Off-white (for readability on long text)
@@ -181,6 +186,7 @@ Before requesting review:
 ### Component Testing
 
 Components live in `src/lib/components/`. Each component should have a co-located test file:
+
 - `JoinForm.svelte` → `JoinForm.test.ts`
 - Use `@testing-library/svelte` for component tests
 - Test user-facing behavior, not implementation details
@@ -202,25 +208,29 @@ Components live in `src/lib/components/`. Each component should have a co-locate
 ### Data Integrity
 
 **Current Sources of Truth:**
+
 - Type definitions: `src/lib/types/index.ts`
 - State management: `src/lib/state.svelte.ts`
 
-Do not "overhaul" the basic structure unless explicitly instructed. Focus on *execution* within this framework.
+Do not "overhaul" the basic structure unless explicitly instructed. Focus on _execution_ within this framework.
 
 ### Agent-Specific Guidance
 
 **For code generation agents:**
+
 1. Read TESTING_STANDARDS.md first
 2. Write the test before the code
 3. Check `.jules/bolt.md` for performance patterns
 4. Check `.Jules/palette.md` for accessibility patterns
 
 **For git/workflow agents:**
+
 1. Read git_standards.md for branching conventions
 2. Never commit to `main`
 3. Run verification commands before requesting review
 
 **For design/UI agents:**
+
 1. Follow the Abolitionist Aesthetic (black/white/red/gold, serious tone)
 2. Mobile-first approach
 3. Consult `.jules/palette.md` for accessibility requirements
@@ -230,18 +240,21 @@ Do not "overhaul" the basic structure unless explicitly instructed. Focus on *ex
 ## 6. Feature Overview
 
 ### Join Flow (`/join`)
+
 - Multi-step registration form (3 steps)
 - State managed by `registrationState` in `src/lib/state.svelte.ts`
 - Uses `JoinForm` component from `src/lib/components/JoinForm.svelte`
 - Includes district lookup via ZIP code mapping
 
 ### Interactive Map
+
 - Uses `Map.svelte` component from `src/lib/components/`
 - Leaflet.js for map rendering
 - Turf.js for geospatial calculations
 - ZIP → District lookup via `static/data/zip_to_district.csv`
 
 ### Educational Pages
+
 - `/abolition-basics` - Core abolitionist principles
 - `/faqs` - Common questions
 - `/for-pastors` - Pastor-specific resources with PastorCTA component
@@ -251,6 +264,7 @@ Do not "overhaul" the basic structure unless explicitly instructed. Focus on *ex
 ## 7. Common Tasks & How to Approach Them
 
 ### Adding a New Page
+
 1. Create `src/routes/page-name/+page.svelte`
 2. Add types to `src/lib/types/index.ts` if needed
 3. Write component tests (co-located `.test.ts` files)
@@ -258,22 +272,26 @@ Do not "overhaul" the basic structure unless explicitly instructed. Focus on *ex
 5. Update this file (AGENTS.md) if it changes architecture
 
 ### Adding a New Component
+
 1. Create `src/lib/components/ComponentName.svelte`
 2. Write test first: `src/lib/components/ComponentName.test.ts`
 3. Follow TDD workflow (RED → GREEN → REFACTOR)
 4. Ensure accessibility (ARIA labels, keyboard navigation)
 
 ### Modifying Data
+
 1. Check if data is in `static/data/` (zip_to_district.csv) or `src/lib/data/` (timeline.json)
 2. Ensure types in `src/lib/types/index.ts` match data structure
 3. Update tests to reflect new data structure
 
 ### Performance Optimization
+
 1. Read `.jules/bolt.md` for existing patterns
 2. Focus on scroll handlers, map rendering, and mobile performance
 3. Use `requestAnimationFrame`, passive listeners, and layout caching
 
 ### Accessibility Improvements
+
 1. Read `.Jules/palette.md` for existing patterns
 2. Use `role`, `aria-label`, `aria-busy` appropriately
 3. Test with screen readers and keyboard navigation
@@ -302,4 +320,4 @@ This file provides the complete context needed to work on Abolition Georgia. For
 - **.jules/bolt.md** - Performance patterns
 - **.Jules/palette.md** - Accessibility patterns
 
-The project structure is settled. Focus on *execution* of features within this framework, following TDD, accessibility best practices, and the Abolitionist mission.
+The project structure is settled. Focus on _execution_ of features within this framework, following TDD, accessibility best practices, and the Abolitionist mission.

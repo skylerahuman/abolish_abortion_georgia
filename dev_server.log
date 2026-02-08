@@ -13,3 +13,8 @@
 3:10:36 AM [vite] (ssr) page reload verification/verify_join.py
 3:10:36 AM [vite] (client) hmr update /src/app.css
 3:10:36 AM [vite] (ssr) page reload verification/verify_optimizations.py
+3:16:01 AM [vite] (client) hmr update /src/app.css
+3:16:01 AM [vite] (ssr) page reload tests/verify.spec.ts
+3:16:49 AM [vite-plugin-svelte] src/routes/+page.svelte:223:1 `<section>` with a touchstart or touchend handler must have an ARIA role
+https://svelte.dev/e/a11y_no_static_element_interactions
+3:17:05 AM [vite] (client) page reload playwright-report/index.html

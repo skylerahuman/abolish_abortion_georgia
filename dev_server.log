@@ -1,26 +1,15 @@
 
-> abolition-georgia@0.0.1 dev
+> abolition-georgia@0.0.1 dev /app
 > vite dev
 
 
-  VITE v7.3.0  ready in 1454 ms
+  VITE v7.3.1  ready in 1465 ms
 
   ➜  Local:   http://localhost:5173/
   ➜  Network: use --host to expose
-4:00:07 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:16:1 Elements with the 'dialog' interactive role must have a tabindex value
-https://svelte.dev/e/a11y_interactive_supports_focus
-4:00:07 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:16:1 Visible, non-interactive elements with a click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as `<button type="button">` or `<a>` might be more appropriate
-https://svelte.dev/e/a11y_click_events_have_key_events
-4:00:07 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:24:2 Visible, non-interactive elements with a click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as `<button type="button">` or `<a>` might be more appropriate
-https://svelte.dev/e/a11y_click_events_have_key_events
-4:00:07 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:24:2 `<div>` with a click handler must have an ARIA role
-https://svelte.dev/e/a11y_no_static_element_interactions
-4:00:08 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:16:1 Elements with the 'dialog' interactive role must have a tabindex value
-https://svelte.dev/e/a11y_interactive_supports_focus
-4:00:08 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:16:1 Visible, non-interactive elements with a click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as `<button type="button">` or `<a>` might be more appropriate
-https://svelte.dev/e/a11y_click_events_have_key_events
-4:00:08 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:24:2 Visible, non-interactive elements with a click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as `<button type="button">` or `<a>` might be more appropriate
-https://svelte.dev/e/a11y_click_events_have_key_events
-4:00:08 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:24:2 `<div>` with a click handler must have an ARIA role
-https://svelte.dev/e/a11y_no_static_element_interactions
-4:00:08 AM [vite] (client) page reload playwright-report/index.html
+3:07:44 AM [vite] (client) hmr update /src/app.css
+3:07:44 AM [vite] (ssr) page reload verification/verify_join.py
+3:10:36 AM [vite] (client) hmr update /src/app.css
+3:10:36 AM [vite] (ssr) page reload verification/verify_join.py
+3:10:36 AM [vite] (client) hmr update /src/app.css
+3:10:36 AM [vite] (ssr) page reload verification/verify_optimizations.py

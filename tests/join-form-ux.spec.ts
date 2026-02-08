@@ -56,4 +56,23 @@ test('Join Form UX improvements', async ({ page }) => {
 
   // CHECK 4: Focus Management on Step 3
   await expect(page.getByLabel('Home Church')).toBeFocused();
+
+  // CHECK 5: Submission Loading State
+  // Fill Step 3
+  await page.getByLabel('Home Church').fill('Test Church');
+  await page.getByText('I want to find an abolitionist church').click();
+
+  // Click Submit
+  const submitBtn = page.getByRole('button', { name: 'Submit' });
+  await submitBtn.click();
+
+  // Verify loading state
+  // Now the button text should be "Sending..."
+  const sendingBtn = page.getByRole('button', { name: 'Sending...' });
+  await expect(sendingBtn).toBeVisible();
+  await expect(sendingBtn).toBeDisabled();
+
+  // Wait for submission to complete (simulated delay)
+  // The form should disappear and success message appear
+  await expect(page.getByText('Thank you for joining the fight!')).toBeVisible({ timeout: 5000 });
 });

@@ -15,6 +15,8 @@
 	let resultContainer = $state<HTMLElement>();
 	let firstNameInput = $state<HTMLElement>();
 	let homeChurchInput = $state<HTMLElement>();
+	let zipInput = $state<HTMLElement>();
+	let notInGeorgiaCheckbox = $state<HTMLElement>();
 	let step2Error = $state('');
 
 	onMount(() => {
@@ -72,12 +74,14 @@
 		}
 	}
 
-	function resetDistrictFinder() {
+	async function resetDistrictFinder() {
 		showDistrict = false;
 		zipCode = '';
 		registrationState.form.district = null;
 		error = '';
 		localStorage.removeItem('userDistrict');
+		await tick();
+		zipInput?.focus();
 	}
 
 	function toggleInterest(interest: string) {
@@ -112,6 +116,22 @@
 			registrationState.nextStep();
 			await tick();
 			homeChurchInput?.focus();
+		}
+	}
+
+	async function handlePrevStep() {
+		registrationState.prevStep();
+		await tick();
+		if (registrationState.step === 1) {
+			if (showDistrict) {
+				resultContainer?.focus();
+			} else if (notInGeorgia) {
+				notInGeorgiaCheckbox?.focus();
+			} else {
+				zipInput?.focus();
+			}
+		} else if (registrationState.step === 2) {
+			firstNameInput?.focus();
 		}
 	}
 </script>
@@ -169,6 +189,7 @@
 											<input
 												type="text"
 												id="zip"
+												bind:this={zipInput}
 												bind:value={zipCode}
 												placeholder="Enter 5-digit ZIP Code"
 												class="flex-1 bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:border-crimson outline-none transition-colors"
@@ -221,6 +242,7 @@
 						<label class="flex items-center gap-2 text-sm text-bone/60 cursor-pointer p-3 bg-charcoal/40 border border-white/10 rounded-md hover:bg-charcoal/80 transition-colors">
 							<input
 								type="checkbox"
+								bind:this={notInGeorgiaCheckbox}
 								bind:checked={notInGeorgia}
 								class="w-5 h-5 bg-charcoal border-white/30 rounded text-crimson focus:ring-crimson/50"
 							/>
@@ -311,7 +333,7 @@
 						<div class="flex justify-between">
 							<button
 								type="button"
-								onclick={() => registrationState.prevStep()}
+								onclick={handlePrevStep}
 								class="bg-white/10 hover:bg-white/20 text-bone font-bold py-2 px-6 rounded-md uppercase tracking-wide transition-colors"
 							>
 								Back
@@ -382,7 +404,7 @@
 					<div class="flex justify-between">
 						<button
 							type="button"
-							onclick={() => registrationState.prevStep()}
+							onclick={handlePrevStep}
 							class="bg-white/10 hover:bg-white/20 text-bone font-bold py-2 px-6 rounded-md uppercase tracking-wide transition-colors"
 						>
 							Back

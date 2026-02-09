@@ -56,4 +56,25 @@ test('Join Form UX improvements', async ({ page }) => {
 
   // CHECK 4: Focus Management on Step 3
   await expect(page.getByLabel('Home Church')).toBeFocused();
+
+  // CHECK 5: Focus Management Backward (Step 3 -> Step 2)
+  // Ensure Step 2 is fully gone so we don't have multiple Back buttons
+  await expect(page.getByLabel('First Name')).not.toBeVisible();
+
+  await page.getByRole('button', { name: 'Back' }).click();
+  await expect(page.getByLabel('First Name')).toBeFocused();
+
+  // CHECK 6: Focus Management Backward (Step 2 -> Step 1)
+  // Ensure Step 3 is fully gone
+  await expect(page.getByLabel('Home Church')).not.toBeVisible();
+
+  await page.getByRole('button', { name: 'Back' }).click();
+
+  // Since we found a district earlier, we expect the result container to be focused
+  const resultContainerStep1 = page.locator('.text-center.bg-charcoal\\/50');
+  await expect(resultContainerStep1).toBeFocused();
+
+  // CHECK 7: Reset District Finder Focus
+  await page.getByRole('button', { name: 'Not your district?' }).click();
+  await expect(page.getByPlaceholder('Enter 5-digit ZIP Code')).toBeFocused();
 });

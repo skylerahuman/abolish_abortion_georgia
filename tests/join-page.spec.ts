@@ -68,6 +68,10 @@ test.describe('Join Page', () => {
 		await expect(page.getByText("I'm interested in...")).toBeVisible();
 		
 		// Verify map is visible
+		// Scroll to map to trigger lazy load
+		const mapWrapper = page.getByTestId('map-container');
+		await mapWrapper.scrollIntoViewIfNeeded();
+
 		const mapContainer = page.locator('.leaflet-container');
 		await expect(mapContainer).toBeVisible();
 		
@@ -84,6 +88,10 @@ test.describe('Join Page', () => {
 		await page.goto('/join');
 		await page.waitForLoadState('networkidle');
 		
+		// Scroll to map to trigger lazy load
+		const mapWrapper = page.getByTestId('map-container');
+		await mapWrapper.scrollIntoViewIfNeeded();
+
 		// Wait for map to load
 		await page.waitForTimeout(2000);
 		

@@ -21,11 +21,11 @@ export interface ContactForm {
 }
 
 export interface DistrictMap {
-    [zip: string]: string;
+	[zip: string]: string;
 }
 
 export interface Church {
-    name: string;
-    lat: number;
-    lng: number;
+	name: string;
+	lat: number;
+	lng: number;
 }

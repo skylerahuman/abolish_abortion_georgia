@@ -13,7 +13,7 @@ class RegistrationState {
 		homeChurch: '',
 		interests: []
 	});
-    submitted = $state(false);
+	submitted = $state(false);
 
 	nextStep() {
 		if (this.step < 3) {

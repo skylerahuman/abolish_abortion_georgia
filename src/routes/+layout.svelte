@@ -30,7 +30,7 @@
 
 	onMount(() => {
 		let scrollTimeout: number;
-
+		let rafId: number | null = null;
 		const handleClickOutside = (event: MouseEvent) => {
 			const target = event.target as HTMLElement;
 			if (target.closest('button[aria-label="Toggle menu"]')) {
@@ -43,24 +43,30 @@
 		};
 
 		const handleScroll = () => {
-			const currentScrollY = window.scrollY;
+			if (rafId) return;
 
-			if (currentScrollY <= 10) {
-				navbarVisible = true;
-			} else if (!mobileMenuOpen) {
-				navbarVisible = false;
-			}
+			rafId = requestAnimationFrame(() => {
+				const currentScrollY = window.scrollY;
 
-			if (justOpened) {
-				return;
-			}
-
-			clearTimeout(scrollTimeout);
-			scrollTimeout = window.setTimeout(() => {
-				if (mobileMenuOpen) {
-					mobileMenuOpen = false;
+				if (currentScrollY <= 10) {
+					navbarVisible = true;
+				} else if (!mobileMenuOpen) {
+					navbarVisible = false;
 				}
-			}, 50);
+
+				if (justOpened) {
+					rafId = null;
+					return;
+				}
+
+				clearTimeout(scrollTimeout);
+				scrollTimeout = window.setTimeout(() => {
+					if (mobileMenuOpen) {
+						mobileMenuOpen = false;
+					}
+				}, 50);
+				rafId = null;
+			});
 		};
 
 		document.addEventListener('mousedown', handleClickOutside);
@@ -68,6 +74,7 @@
 
 		return () => {
 			clearTimeout(scrollTimeout);
+			if (rafId) cancelAnimationFrame(rafId);
 			document.removeEventListener('mousedown', handleClickOutside);
 			window.removeEventListener('scroll', handleScroll);
 		};

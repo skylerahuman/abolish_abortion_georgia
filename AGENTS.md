@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 # AGENTS.md - AI Agent Master Instructions
 
 This is the **primary context file** for AI agents working on the Abolition Georgia project. Read this file first, then consult specialized instruction files as needed.
@@ -326,6 +327,8 @@ The project structure is settled. Focus on _execution_ of features within this f
 =======
 =======
 >>>>>>> Home-Page-Revisions
+=======
+>>>>>>> Moving-Changes-Stashed
 # Project: Abolish Abortion Georgia
 
 ## Project Overview
@@ -345,7 +348,11 @@ The project's architecture is a standard SvelteKit application with routes for d
 
 ### Development
 
+<<<<<<< HEAD
 To run the development server:
+=======
+Do not run the development server. Do not execute the following commands:
+>>>>>>> Moving-Changes-Stashed
 
 ```sh
 npm install
@@ -377,6 +384,9 @@ npm run check
 - **Mapping**: The interactive map is built using Leaflet.js. The `form` page contains the logic for geocoding, district lookup, and map rendering.
 - **State Management**: The project uses Svelte's built-in state management capabilities (`$state`).
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
 =======
 >>>>>>> Home-Page-Revisions
+=======
+>>>>>>> Moving-Changes-Stashed

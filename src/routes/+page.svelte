@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
@@ -141,6 +142,8 @@
 		@media (max-width: 1450px) {
 			.home-bg::before {
 =======
+=======
+>>>>>>> Moving-Changes-Stashed
 <svelte:head>
 	<style>
 		.home-bg {
@@ -154,20 +157,28 @@
 		/* Fix background positioning on smaller screens */
 		@media (max-width: 1450px) {
 			.home-bg {
+<<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
+=======
+>>>>>>> Moving-Changes-Stashed
 				background-position: center 0%;
 				background-size: cover;
 			}
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 		
 >>>>>>> Content-Changes-By-Skyler
+=======
+		
+>>>>>>> Moving-Changes-Stashed
 		/* Cinematic fade-in animations - all screens */
 		.fade-in-line {
 			opacity: 0;
 			animation: fadeInCinematic 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+<<<<<<< HEAD
 <<<<<<< HEAD
 			will-change: transform, opacity;
 		}
@@ -187,6 +198,8 @@
 		}
 
 =======
+=======
+>>>>>>> Moving-Changes-Stashed
 		}
 		
 		/* Four lines at 0.6s intervals, 1s duration each */
@@ -195,11 +208,15 @@
 		.fade-in-line:nth-child(3) { animation-delay: 1.0s; }
 		.fade-in-line:nth-child(4) { animation-delay: 1.4s; }
 		
+<<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
+=======
+>>>>>>> Moving-Changes-Stashed
 		/* Desktop paragraph - starts at 2.4s */
 		.fade-in-text {
 			opacity: 0;
 			animation: fadeInCinematic 0.5s cubic-bezier(0.16, 1, 0.3, 1) 2.4s forwards;
+<<<<<<< HEAD
 <<<<<<< HEAD
 			will-change: transform, opacity;
 		}
@@ -208,34 +225,50 @@
 		}
 		
 >>>>>>> Content-Changes-By-Skyler
+=======
+		}
+		
+>>>>>>> Moving-Changes-Stashed
 		/* Buttons start at 2.6s */
 		.fade-in-buttons {
 			opacity: 0;
 			animation: fadeInCinematic 0.5s cubic-bezier(0.16, 1, 0.3, 1) 2.6s forwards;
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 		
 >>>>>>> Content-Changes-By-Skyler
+=======
+		
+>>>>>>> Moving-Changes-Stashed
 		.fade-in-scroll {
 			opacity: 0;
 			animation: fadeInBounce 0.8s ease-out 3.2s forwards;
 		}
 <<<<<<< HEAD
-
-=======
-		
->>>>>>> Content-Changes-By-Skyler
-		.fade-in-carousel-icon {
-			opacity: 0;
-			animation: fadeInBounce 0.8s ease-out 2.8s forwards;
-		}
 <<<<<<< HEAD
 
 =======
 		
 >>>>>>> Content-Changes-By-Skyler
+=======
+		
+>>>>>>> Moving-Changes-Stashed
+		.fade-in-carousel-icon {
+			opacity: 0;
+			animation: fadeInBounce 0.8s ease-out 2.8s forwards;
+		}
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+		
+>>>>>>> Content-Changes-By-Skyler
+=======
+		
+>>>>>>> Moving-Changes-Stashed
 		@keyframes fadeInCinematic {
 			from {
 				opacity: 0;
@@ -247,10 +280,14 @@
 			}
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 		
 >>>>>>> Content-Changes-By-Skyler
+=======
+		
+>>>>>>> Moving-Changes-Stashed
 		@keyframes fadeInBounce {
 			0% {
 				opacity: 0;
@@ -266,10 +303,14 @@
 			}
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 		
 >>>>>>> Content-Changes-By-Skyler
+=======
+		
+>>>>>>> Moving-Changes-Stashed
 		/* Mobile carousel */
 		@media (max-width: 768px) {
 			.hero-carousel {
@@ -278,22 +319,29 @@
 				width: 200%;
 			}
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 			.hero-carousel.show-text {
 				transform: translateX(-50%);
 			}
 
 =======
+=======
+>>>>>>> Moving-Changes-Stashed
 			
 			.hero-carousel.show-text {
 				transform: translateX(-50%);
 			}
 			
+<<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
+=======
+>>>>>>> Moving-Changes-Stashed
 			.carousel-panel {
 				width: 50%;
 				flex-shrink: 0;
 			}
+<<<<<<< HEAD
 =======
 <svelte:head>
 	<style>
@@ -304,21 +352,29 @@
 			background-size: cover;
 			background-repeat: no-repeat;
 >>>>>>> Home-Page-Revisions
+=======
+>>>>>>> Moving-Changes-Stashed
 		}
 	</style>
 </svelte:head>
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> Home-Page-Revisions
+=======
+>>>>>>> Moving-Changes-Stashed
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
 
 	let heroSection: HTMLElement;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Moving-Changes-Stashed
 	let backgroundOpacity = $state(0);
 	let showTextPanel = $state(false);
 	let isMobile = $state(false);
@@ -380,10 +436,13 @@
 		window.addEventListener('resize', checkMobile);
 		
 		window.addEventListener('scroll', handleScroll, true);
+<<<<<<< HEAD
 =======
 
 	onMount(() => {
 >>>>>>> Home-Page-Revisions
+=======
+>>>>>>> Moving-Changes-Stashed
 		// A gentle nudge to encourage scrolling, kept for UX
 		setTimeout(() => {
 			const currentScroll = window.scrollY;
@@ -392,6 +451,9 @@
 			}
 		}, 2500);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Moving-Changes-Stashed
 
 		return () => {
 			window.removeEventListener('scroll', handleScroll, true);
@@ -400,22 +462,29 @@
 	});
 </script>
 
+<<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
 =======
 	});
 </script>
 
 >>>>>>> Home-Page-Revisions
+=======
+>>>>>>> Moving-Changes-Stashed
 <div class="home-bg">
 	<!-- Hero Section -->
 	<section
 		bind:this={heroSection}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Moving-Changes-Stashed
 		class="relative min-h-[90vh] md:min-h-[85vh] py-12 md:py-16 px-4 flex flex-col justify-center border-b border-crimson/20 overflow-hidden"
 		ontouchstart={handleTouchStart}
 		ontouchend={handleTouchEnd}
 	>
 		<!-- Mobile Carousel Wrapper -->
+<<<<<<< HEAD
 <<<<<<< HEAD
 		<div
 			class="hero-carousel {showTextPanel
@@ -462,6 +531,8 @@
 							href="{base}/support"
 							class="px-10 py-4 border-2 border-crimson text-bone font-bold rounded-lg hover:bg-crimson/10 transition-all duration-300 shadow-xl hover:-translate-y-0.5 active:translate-y-0"
 =======
+=======
+>>>>>>> Moving-Changes-Stashed
 		<div class="hero-carousel {showTextPanel ? 'show-text' : ''} md:block md:!w-auto md:!transform-none relative z-10 w-full px-6 md:px-16 mt-auto">
 			<!-- Panel 1: Hero Content -->
 			<div class="carousel-panel md:!w-full">
@@ -495,7 +566,11 @@
 					<!-- Call to Action Buttons -->
 					<div class="flex gap-4 mt-8 fade-in-buttons">
 						<a
+<<<<<<< HEAD
 							href="{base}/near-me"
+=======
+							href="{base}/join"
+>>>>>>> Moving-Changes-Stashed
 							class="px-8 py-3 bg-crimson text-bone font-semibold rounded-lg hover:bg-ember transition-colors duration-200 shadow-lg hover:shadow-crimson/50"
 						>
 							Join
@@ -503,11 +578,15 @@
 						<a
 							href="{base}/about"
 							class="px-8 py-3 bg-crimson text-bone font-semibold rounded-lg hover:bg-ember transition-colors duration-200 shadow-lg hover:shadow-crimson/50"
+<<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
+=======
+>>>>>>> Moving-Changes-Stashed
 						>
 							Support
 						</a>
 					</div>
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 					<!-- Swipe Indicator - Mobile only -->
@@ -540,6 +619,8 @@
 			</div>
 
 =======
+=======
+>>>>>>> Moving-Changes-Stashed
 					
 					<!-- Swipe Indicator - Mobile only -->
 					<div class="md:hidden mt-8 text-center fade-in-carousel-icon" onclick={togglePanel}>
@@ -553,11 +634,15 @@
 				</div>
 			</div>
 			
+<<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
+=======
+>>>>>>> Moving-Changes-Stashed
 			<!-- Panel 2: Long Text - Mobile only -->
 			<div class="carousel-panel md:hidden">
 				<div class="w-full max-w-3xl mr-auto px-6">
 					<h3 class="text-2xl font-serif font-bold text-bone mb-6">Our Mission</h3>
+<<<<<<< HEAD
 <<<<<<< HEAD
 					<p class="text-left text-base font-sans text-bone mb-8 drop-shadow-lg leading-relaxed">
 						In the post-Roe era, we will not overcome the sin of abortion (which the Scriptures call
@@ -590,6 +675,8 @@
 						</div>
 					</button>
 =======
+=======
+>>>>>>> Moving-Changes-Stashed
 					<p class="text-left text-base font-sans text-bone mb-8 drop-shadow-lg leading-relaxed">In the post-Roe era, we will not overcome the sin of abortion (which the Scriptures call child sacrifice) by "pro-life" gradualism. We must be pro-justice and pro-mercy, because our God and Lord, Jesus Christ, is pefectly just and merciful. We demand equal protection for the unborn, immediate and total abolition of abortion, and mobilization of the Church in Georgia to accomplish the Great Commission.</p>
 					
 					<!-- Back Indicator -->
@@ -601,7 +688,10 @@
 							<span>Swipe back</span>
 						</div>
 					</div>
+<<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
+=======
+>>>>>>> Moving-Changes-Stashed
 				</div>
 			</div>
 		</div>
@@ -609,6 +699,7 @@
 		<!-- Scroll Down Indicator - Desktop only -->
 		<div
 			class="hidden md:block relative z-10 mt-auto mx-auto text-center text-bone/50 cursor-pointer fade-in-scroll"
+<<<<<<< HEAD
 =======
 		class="relative min-h-[90vh] md:min-h-[85vh] py-12 md:py-16 px-4 flex flex-col justify-center border-b border-red-900/20 overflow-hidden"
 	>
@@ -643,6 +734,8 @@
 		<div
 			class="relative z-10 mt-auto mx-auto text-center text-white/50 animate-bounce cursor-pointer"
 >>>>>>> Home-Page-Revisions
+=======
+>>>>>>> Moving-Changes-Stashed
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -651,6 +744,7 @@
 				viewBox="0 0 24 24"
 				stroke="currentColor"
 			>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 				<path
@@ -665,12 +759,18 @@
 =======
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
 >>>>>>> Home-Page-Revisions
+=======
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
+>>>>>>> Moving-Changes-Stashed
 			</svg>
 		</div>
 	</section>
 
 	<!-- Our Focus Section -->
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Moving-Changes-Stashed
 	<section
 		class="relative z-10 py-16 md:py-32 sm:md:py-40"
 		style="background-color: rgba(2, 6, 23, {backgroundOpacity}); backdrop-filter: blur(4px);"
@@ -721,10 +821,14 @@
 					<div class="mt-auto pt-8 text-center">
 						<div
 <<<<<<< HEAD
+<<<<<<< HEAD
 							class="inline-block px-6 py-3 rounded-lg bg-teal/80 text-bone font-semibold hover:bg-linear-to-r from-teal to-cyan-600 transition-all duration-300 shadow-lg"
 =======
 							class="inline-block px-6 py-3 rounded-lg bg-teal/80 text-bone font-semibold hover:bg-gradient-to-r from-teal to-cyan-600 transition-all duration-300 shadow-lg"
 >>>>>>> Content-Changes-By-Skyler
+=======
+							class="inline-block px-6 py-3 rounded-lg bg-teal/80 text-bone font-semibold hover:bg-gradient-to-r from-teal to-cyan-600 transition-all duration-300 shadow-lg"
+>>>>>>> Moving-Changes-Stashed
 						>
 							Study the Battle
 						</div>
@@ -748,6 +852,7 @@
 								xmlns="http://www.w3.org/2000/svg"
 							>
 <<<<<<< HEAD
+<<<<<<< HEAD
 								<path
 									d="M5.979 10.974v5.021h7.041v11.99h5.042v-11.99h6.958v-5.021h-6.958v-6.958h-5.042v6.958h-7.041z"
 								></path>
@@ -756,6 +861,10 @@
 <path d="M5.979 10.974v5.021h7.041v11.99h5.042v-11.99h6.958v-5.021h-6.958v-6.958h-5.042v6.958h-7.041z"></path>
 </svg>
 >>>>>>> Content-Changes-By-Skyler
+=======
+<path d="M5.979 10.974v5.021h7.041v11.99h5.042v-11.99h6.958v-5.021h-6.958v-6.958h-5.042v6.958h-7.041z"></path>
+</svg>
+>>>>>>> Moving-Changes-Stashed
 						</div>
 						<h3
 							class="text-2xl font-serif font-bold text-bone mb-4 group-hover:text-ember transition-colors"
@@ -778,10 +887,14 @@
 					<div class="mt-auto pt-8 text-center">
 						<div
 <<<<<<< HEAD
+<<<<<<< HEAD
 							class="inline-block px-6 py-3 rounded-lg bg-teal/80 text-bone font-semibold hover:bg-linear-to-r from-teal to-cyan-600 transition-all duration-300 shadow-lg"
 =======
 							class="inline-block px-6 py-3 rounded-lg bg-teal/80 text-bone font-semibold hover:bg-gradient-to-r from-teal to-cyan-600 transition-all duration-300 shadow-lg"
 >>>>>>> Content-Changes-By-Skyler
+=======
+							class="inline-block px-6 py-3 rounded-lg bg-teal/80 text-bone font-semibold hover:bg-gradient-to-r from-teal to-cyan-600 transition-all duration-300 shadow-lg"
+>>>>>>> Moving-Changes-Stashed
 						>
 							Join the Cause
 						</div>
@@ -791,10 +904,14 @@
 				<!-- Church Mobilization -->
 				<a
 <<<<<<< HEAD
+<<<<<<< HEAD
 					href="{base}/join"
 =======
 					href="{base}/near-me"
 >>>>>>> Content-Changes-By-Skyler
+=======
+					href="{base}/near-me"
+>>>>>>> Moving-Changes-Stashed
 					class="flex flex-col bg-panel/80 backdrop-blur-sm border border-white/10 p-8 rounded-xl hover:bg-panel hover:border-crimson/50 transition-all duration-300 group shadow-lg hover:shadow-crimson/10 hover:-translate-y-1"
 				>
 					<div>
@@ -808,6 +925,7 @@
 								xmlns="http://www.w3.org/2000/svg"
 							>
 <<<<<<< HEAD
+<<<<<<< HEAD
 								<path
 									fill-rule="evenodd"
 									clip-rule="evenodd"
@@ -818,6 +936,10 @@
 <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C12.5523 2 13 2.44772 13 3V4H14C14.5523 4 15 4.44772 15 5C15 5.55228 14.5523 6 14 6H13V6.92805L21.007 11.6381C21.4831 11.9181 21.642 12.531 21.3619 13.007C21.0833 13.4807 20.475 13.6404 20 13.366V20C20 21.1046 19.1046 22 18 22H15H14H10H9H6C4.89543 22 4 21.1046 4 20V13.366C3.52498 13.6404 2.91671 13.4807 2.63807 13.007C2.35805 12.531 2.51695 11.9181 2.99298 11.6381L11 6.92806V6H10C9.44771 6 9 5.55228 9 5C9 4.44772 9.44771 4 10 4H11V3C11 2.44772 11.4477 2 12 2ZM11 20H13V17C13 16.4477 12.5523 16 12 16C11.4477 16 11 16.4477 11 17V20ZM15 20V17C15 15.3431 13.6569 14 12 14C10.3431 14 9 15.3431 9 17V20H6V12.1896L12 8.66018L18 12.1896V20H15Z"/>
 </svg>
 >>>>>>> Content-Changes-By-Skyler
+=======
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C12.5523 2 13 2.44772 13 3V4H14C14.5523 4 15 4.44772 15 5C15 5.55228 14.5523 6 14 6H13V6.92805L21.007 11.6381C21.4831 11.9181 21.642 12.531 21.3619 13.007C21.0833 13.4807 20.475 13.6404 20 13.366V20C20 21.1046 19.1046 22 18 22H15H14H10H9H6C4.89543 22 4 21.1046 4 20V13.366C3.52498 13.6404 2.91671 13.4807 2.63807 13.007C2.35805 12.531 2.51695 11.9181 2.99298 11.6381L11 6.92806V6H10C9.44771 6 9 5.55228 9 5C9 4.44772 9.44771 4 10 4H11V3C11 2.44772 11.4477 2 12 2ZM11 20H13V17C13 16.4477 12.5523 16 12 16C11.4477 16 11 16.4477 11 17V20ZM15 20V17C15 15.3431 13.6569 14 12 14C10.3431 14 9 15.3431 9 17V20H6V12.1896L12 8.66018L18 12.1896V20H15Z"/>
+</svg>
+>>>>>>> Moving-Changes-Stashed
 						</div>
 						<h3
 							class="text-2xl font-serif font-bold text-bone mb-4 group-hover:text-ember transition-colors"
@@ -827,12 +949,17 @@
 						<div class="space-y-4 text-bone/70 text-base leading-relaxed font-sans">
 							<p>
 <<<<<<< HEAD
+<<<<<<< HEAD
 								Every church in Georgia has the opportunity to stand against abortion by preaching,
 								discipling, and organizing to protect their preborn neighbors.
 =======
 								Every church in Georgia has the opportunity to stand against abortion
 								by preaching, discipling, and organizing to protect their preborn neighbors.
 >>>>>>> Content-Changes-By-Skyler
+=======
+								Every church in Georgia has the opportunity to stand against abortion
+								by preaching, discipling, and organizing to protect their preborn neighbors.
+>>>>>>> Moving-Changes-Stashed
 							</p>
 							<p>
 								Access church kits, pastoral resources, and practical steps to start or strengthen
@@ -845,6 +972,7 @@
 					</div>
 					<div class="mt-auto pt-8 text-center">
 						<div
+<<<<<<< HEAD
 <<<<<<< HEAD
 							class="inline-block px-6 py-3 rounded-lg bg-teal/80 text-bone font-semibold hover:bg-linear-to-r from-teal to-cyan-600 transition-all duration-300 shadow-lg"
 =======
@@ -1002,11 +1130,18 @@
 							></path></svg
 						>
 >>>>>>> Home-Page-Revisions
+=======
+							class="inline-block px-6 py-3 rounded-lg bg-teal/80 text-bone font-semibold hover:bg-gradient-to-r from-teal to-cyan-600 transition-all duration-300 shadow-lg"
+						>
+							Equip My Church
+						</div>
+>>>>>>> Moving-Changes-Stashed
 					</div>
 				</a>
 			</div>
 		</div>
 	</section>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 </div>
@@ -1195,3 +1330,6 @@
 	</section>
 </div>
 >>>>>>> Home-Page-Tweaks
+=======
+</div>
+>>>>>>> Moving-Changes-Stashed

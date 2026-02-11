@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script lang="ts">
     import JoinForm from '$lib/components/JoinForm.svelte';
     import Map from '$lib/components/Map.svelte';
@@ -21,3 +22,9 @@
         <PastorCTA />
     </div>
 </div>
+=======
+<!-- This page is intentionally left blank. The content is now handled by the root layout. -->
+<div class="p-8">
+    <h1 class="text-2xl text-white">Join the Fight</h1>
+</div>
+>>>>>>> Moving-Changes-Stashed

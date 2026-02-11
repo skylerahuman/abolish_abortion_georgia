@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @import 'tailwindcss';
 
 @theme {
@@ -90,6 +91,8 @@
 =======
 =======
 >>>>>>> Home-Page-Revisions
+=======
+>>>>>>> Moving-Changes-Stashed
 @import "tailwindcss";
 
 @theme {
@@ -97,6 +100,9 @@
   --font-serif: "Libre Baskerville", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Moving-Changes-Stashed
   /* Core Palette */
   --color-charcoal: #080A0F;
   --color-panel: #151820;
@@ -106,8 +112,11 @@
   --color-gold: #CDA763;
   --color-teal: #2E6A73;
 
+<<<<<<< HEAD
 =======
 >>>>>>> Home-Page-Revisions
+=======
+>>>>>>> Moving-Changes-Stashed
   /* Slate palette (Cooler, more alive neutrals) */
   --color-neutral-50: #f8fafc;
   --color-neutral-100: #f1f5f9;
@@ -122,6 +131,7 @@
   --color-neutral-950: #020617;
   
   /* Stone palette (retained but slightly tuned if needed, keeping standard for now) */
+<<<<<<< HEAD
 =======
 @import "tailwindcss";
 
@@ -141,6 +151,8 @@
   
   /* Stone palette (from HTML) */
 >>>>>>> Home-Page-Tweaks
+=======
+>>>>>>> Moving-Changes-Stashed
   --color-stone-50: #fafaf9;
   --color-stone-100: #f5f5f4;
   --color-stone-200: #e7e5e4;
@@ -154,10 +166,14 @@
   --color-stone-950: #0c0a09;
   
 <<<<<<< HEAD
+<<<<<<< HEAD
   /* Vibrant Red/Crimson palette - More life */
 =======
   /* Red/Crimson palette */
 >>>>>>> Home-Page-Tweaks
+=======
+  /* Vibrant Red/Crimson palette - More life */
+>>>>>>> Moving-Changes-Stashed
   --color-red-50: #fef2f2;
   --color-red-100: #fee2e2;
   --color-red-200: #fecaca;
@@ -171,10 +187,14 @@
   --color-red-950: #450a0a;
   
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Moving-Changes-Stashed
   /* Muted Green for success states */
   --color-green-500: #22c55e;
   --color-green-600: #16a34a;
   
+<<<<<<< HEAD
 <<<<<<< HEAD
   /* Deep Rich Black (mapped to Charcoal) */
   --color-black: #080A0F;
@@ -190,10 +210,15 @@
   /* Black */
   --color-black: #000000;
 >>>>>>> Home-Page-Tweaks
+=======
+  /* Deep Rich Black (mapped to Charcoal) */
+  --color-black: #080A0F;
+>>>>>>> Moving-Changes-Stashed
 }
 
 @layer base {
   body {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     @apply bg-charcoal text-bone antialiased font-sans;
@@ -203,6 +228,9 @@
 =======
     @apply bg-black text-gray-200 antialiased font-sans;
 >>>>>>> Home-Page-Tweaks
+=======
+    @apply bg-charcoal text-bone antialiased font-sans;
+>>>>>>> Moving-Changes-Stashed
   }
   
   /* Custom Scrollbar */
@@ -212,6 +240,9 @@
   ::-webkit-scrollbar-track {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Moving-Changes-Stashed
     background: var(--color-charcoal);
   }
   ::-webkit-scrollbar-thumb {
@@ -220,6 +251,7 @@
   }
   ::-webkit-scrollbar-thumb:hover {
     background: var(--color-ember);
+<<<<<<< HEAD
 =======
     background: var(--color-neutral-950);
   }
@@ -240,10 +272,13 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #525252;
 >>>>>>> Home-Page-Tweaks
+=======
+>>>>>>> Moving-Changes-Stashed
   }
   
   /* Selection */
   ::selection {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     @apply bg-crimson text-white;
@@ -253,6 +288,9 @@
 =======
     @apply bg-red-900 text-white;
 >>>>>>> Home-Page-Tweaks
+=======
+    @apply bg-crimson text-white;
+>>>>>>> Moving-Changes-Stashed
   }
 }
 
@@ -275,6 +313,7 @@
     width: 3px;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     background: var(--color-charcoal);
 =======
     background: var(--color-black);
@@ -282,6 +321,9 @@
 =======
     background: #000;
 >>>>>>> Home-Page-Tweaks
+=======
+    background: var(--color-charcoal);
+>>>>>>> Moving-Changes-Stashed
   }
   
   /* Each timeline row */
@@ -313,6 +355,7 @@
     border-radius: 50%;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     background: var(--color-bone);
 =======
     background: #fff;
@@ -320,6 +363,9 @@
 =======
     background: #fff;
 >>>>>>> Home-Page-Tweaks
+=======
+    background: var(--color-bone);
+>>>>>>> Moving-Changes-Stashed
     border: 3px solid currentColor;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   }
@@ -330,6 +376,7 @@
     font-size: 0.9rem;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     color: var(--color-gold);
 =======
     color: #78716c;
@@ -337,6 +384,9 @@
 =======
     color: #78716c;
 >>>>>>> Home-Page-Tweaks
+=======
+    color: var(--color-gold);
+>>>>>>> Moving-Changes-Stashed
   }
   
   /* Right column: content */
@@ -359,6 +409,7 @@
     font-weight: 600;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     color: var(--color-gold);
 =======
     color: #78716c;
@@ -366,12 +417,16 @@
 =======
     color: #78716c;
 >>>>>>> Home-Page-Tweaks
+=======
+    color: var(--color-gold);
+>>>>>>> Moving-Changes-Stashed
     letter-spacing: 0.05em;
   }
   
   .timeline-content p {
     margin: 0;
     line-height: 1.6;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     color: var(--color-bone);
@@ -381,6 +436,9 @@
 =======
     color: #57534e;
 >>>>>>> Home-Page-Tweaks
+=======
+    color: var(--color-bone);
+>>>>>>> Moving-Changes-Stashed
   }
   
   /* Gospel Hope tag */
@@ -396,6 +454,7 @@
     letter-spacing: 0.05em;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     color: var(--color-crimson);
     background: var(--color-red-50);
 =======
@@ -406,6 +465,10 @@
     color: #881337;
     background: #fef2f2;
 >>>>>>> Home-Page-Tweaks
+=======
+    color: var(--color-crimson);
+    background: var(--color-red-50);
+>>>>>>> Moving-Changes-Stashed
     border-radius: 4px;
   }
   
@@ -440,9 +503,18 @@
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
 =======
 >>>>>>> Home-Page-Revisions
 =======
 >>>>>>> Home-Page-Tweaks
 }
+=======
+
+  .church-pin-icon {
+    filter: invert(28%) sepia(93%) saturate(3166%) hue-rotate(348deg) brightness(93%) contrast(95%);
+  }
+}
+
+>>>>>>> Moving-Changes-Stashed

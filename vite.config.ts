@@ -5,7 +5,11 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
 	plugins: [tailwindcss(), sveltekit()]
 <<<<<<< HEAD
+<<<<<<< HEAD
 });
 =======
 });
 >>>>>>> Home-Page-Tweaks
+=======
+});
+>>>>>>> Moving-Changes-Stashed

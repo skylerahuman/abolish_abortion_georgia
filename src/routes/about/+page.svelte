@@ -1,6 +1,7 @@
 <svelte:head>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<title>Operation Gospel - About Us</title>
 </svelte:head>
 
@@ -63,6 +64,8 @@
 =======
 =======
 >>>>>>> Home-Page-Revisions
+=======
+>>>>>>> Moving-Changes-Stashed
 	<title>Operation Gospel - About</title>
 </svelte:head>
 
@@ -101,6 +104,9 @@
 	</div>
 </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
 =======
 >>>>>>> Home-Page-Revisions
+=======
+>>>>>>> Moving-Changes-Stashed

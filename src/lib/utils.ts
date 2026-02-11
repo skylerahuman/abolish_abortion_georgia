@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import type { Church } from '$lib/types';
 
 export const churchNamesFirst: string[] = [
@@ -60,6 +61,8 @@ export function generateRandomChurches(count: number): Church[] {
 	}
 	return churches;
 =======
+=======
+>>>>>>> Moving-Changes-Stashed
 export const churchNamesFirst = ["Grace", "Faith", "Truth", "Sovereign", "Reformed", "Community", "Hope", "Victory", "Peace", "Redeemer", "Providence", "Trinity", "Cornerstone", "Living", "Heritage", "Calvary", "Emmanuel"];
 export const churchNamesSecond = ["Baptist", "Bible", "Community", "Fellowship", "Chapel", "Tabernacle", "Church"];
 
@@ -90,5 +93,8 @@ export function generateRandomChurches(count: number) {
         churches.push({ name, lat, lng });
     }
     return churches;
+<<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
+=======
+>>>>>>> Moving-Changes-Stashed
 }

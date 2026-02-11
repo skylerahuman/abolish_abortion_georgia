@@ -1,6 +1,7 @@
 <script lang="ts">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	import PastorCTA from '$lib/components/PastorCTA.svelte';
 </script>
 
@@ -86,6 +87,8 @@
 =======
 =======
 >>>>>>> Home-Page-Revisions
+=======
+>>>>>>> Moving-Changes-Stashed
 	import { base } from '$app/paths';
 </script>
 
@@ -165,9 +168,12 @@
 			</div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
 =======
 >>>>>>> Home-Page-Revisions
+=======
+>>>>>>> Moving-Changes-Stashed
 		</div>
 	</div>
 </div>

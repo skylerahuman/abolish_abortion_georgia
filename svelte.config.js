@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import adapter from '@sveltejs/adapter-auto';
 =======
 import adapter from '@sveltejs/adapter-static';
 >>>>>>> Home-Page-Tweaks
+=======
+import adapter from '@sveltejs/adapter-auto';
+>>>>>>> Moving-Changes-Stashed
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -13,11 +17,15 @@ const config = {
 
 	kit: {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Moving-Changes-Stashed
 		adapter: adapter()
 	}
 };
 
 export default config;
+<<<<<<< HEAD
 =======
 		// adapter-static for GitHub Pages
 		adapter: adapter({
@@ -35,3 +43,5 @@ export default config;
 
 export default config;
 >>>>>>> Home-Page-Tweaks
+=======
+>>>>>>> Moving-Changes-Stashed

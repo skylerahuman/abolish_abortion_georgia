@@ -2,6 +2,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 This project is dedicated to the complete abolition of abortion in the state of Georgia. Our mission is to establish equal protection for all human beings, from the moment of fertilization to natural death, without exception or compromise.
 =======
 This project is dedicated to the complete abolition of abortion in the state of Georgia. Our mission is to establish equal protection for all human beings, from the moment of fertilization to natural death, without exception or compromise. We seek to mobilize Georgians to demand the immediate criminalization of abortion as murder, ensuring that pre-born children receive the same legal standing and protection as born persons.
@@ -9,6 +10,9 @@ This project is dedicated to the complete abolition of abortion in the state of 
 =======
 This project is dedicated to the complete abolition of abortion in the state of Georgia. Our mission is to establish equal protection for all human beings, from the moment of fertilization to natural death, without exception or compromise. We seek to mobilize Georgians to demand the immediate criminalization of abortion as murder, ensuring that pre-born children receive the same legal standing and protection as born persons.
 >>>>>>> Home-Page-Tweaks
+=======
+This project is dedicated to the complete abolition of abortion in the state of Georgia. Our mission is to establish equal protection for all human beings, from the moment of fertilization to natural death, without exception or compromise.
+>>>>>>> Moving-Changes-Stashed
 
 ## Mission & Goals
 
@@ -16,9 +20,12 @@ Our core objective is **Equal Protection**:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> Content-Changes-By-Skyler
+=======
+>>>>>>> Moving-Changes-Stashed
 1.  **Total Abolition:** We advocate for the complete removal of all laws allowing for the destruction of pre-born human life.
 2.  **Equal Justice:** We demand that the laws of Georgia treat the intentional killing of a pre-born child with the same severity as the killing of a born person.
 3.  **No Exceptions:** We stand against any exceptions based on age, method of conception, or developmental stage.
@@ -28,17 +35,22 @@ Our core objective is **Equal Protection**:
 
 ### Local Church Network (Near Me)
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 Interactive map-based tool that helps Georgia residents:
 
 =======
 Interactive map-based tool that helps Georgia residents:
 >>>>>>> Content-Changes-By-Skyler
+=======
+Interactive map-based tool that helps Georgia residents:
+>>>>>>> Moving-Changes-Stashed
 - Find their GA House District by ZIP code.
 - Connect with abolitionist churches.
 - View random markers indicating network presence (simulated).
 - Powered by Leaflet.js and a ZIP-to-District mapping.
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 ### Abolition Basics & FAQs
 
@@ -49,6 +61,8 @@ Educational resources explaining the difference between Pro-Life regulation and 
 Action center for:
 
 =======
+=======
+>>>>>>> Moving-Changes-Stashed
 ### The Battleground (Georgia Battle)
 A timeline and status tracker for the Georgia Equal Protection Act (HB 441).
 - Visual timeline of events.
@@ -60,6 +74,7 @@ Educational resources explaining the difference between Pro-Life regulation and 
 
 ### Respond
 Action center for:
+<<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
 - Prayer requests.
 - Learning about HB 441.
@@ -95,6 +110,11 @@ Answers to common questions about abolitionism, equal protection, and why we mus
 >>>>>>> Home-Page-Revisions
 =======
 >>>>>>> Home-Page-Tweaks
+=======
+- Prayer requests.
+- Learning about HB 441.
+- Donating to the cause.
+>>>>>>> Moving-Changes-Stashed
 
 ## Tech Stack
 
@@ -104,6 +124,9 @@ Answers to common questions about abolitionism, equal protection, and why we mus
 - **Mapping**: Leaflet.js with OpenStreetMap tiles
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Moving-Changes-Stashed
 
 ## Developing
 
@@ -114,6 +137,7 @@ npm install
 npm run dev
 ```
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 ## Testing
 
@@ -169,6 +193,11 @@ To create a production version of your app:
 >>>>>>> Home-Page-Revisions
 =======
 >>>>>>> Home-Page-Tweaks
+=======
+## Building
+
+To create a production version:
+>>>>>>> Moving-Changes-Stashed
 
 ```sh
 npm run build
@@ -176,11 +205,15 @@ npm run build
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Moving-Changes-Stashed
 ## Data Files
 
 The application uses data files in `static/data/`:
 
 - `zip_to_district.csv` - Mapping of GA ZIP codes to State House Districts.
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 - `timeline.json` - Events for the Georgia Battle timeline.
@@ -210,6 +243,9 @@ See `TEST_ADDRESSES.md` for test ZIP codes and addresses to verify the "Who Do I
 >>>>>>> Home-Page-Revisions
 =======
 >>>>>>> Home-Page-Tweaks
+=======
+- `timeline.json` - Events for the Georgia Battle timeline.
+>>>>>>> Moving-Changes-Stashed
 
 ## Project Structure
 
@@ -218,20 +254,28 @@ abolition_georgia/
 ├── src/
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Moving-Changes-Stashed
 │   ├── lib/
 │   │   └── utils.ts           # Utility functions
 │   ├── routes/
 │   │   ├── near-me/           # Local Church Network & District Finder
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 │   │   ├── georgia-battle/    # HB 441 Timeline & Status
 >>>>>>> Content-Changes-By-Skyler
+=======
+│   │   ├── georgia-battle/    # HB 441 Timeline & Status
+>>>>>>> Moving-Changes-Stashed
 │   │   ├── respond/           # Action center
 │   │   ├── abolition-basics/  # Educational content
 │   │   └── ...
 │   └── app.html               # HTML template
 ├── static/
 │   └── data/                  # CSV and JSON data files
+<<<<<<< HEAD
 =======
 │   ├── routes/
 │   │   ├── form/              # Interactive representative finder
@@ -249,5 +293,7 @@ abolition_georgia/
 >>>>>>> Home-Page-Revisions
 =======
 >>>>>>> Home-Page-Tweaks
+=======
+>>>>>>> Moving-Changes-Stashed
 └── README.md
 ```

@@ -2,17 +2,27 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Moving-Changes-Stashed
 	import '../app.css';
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
 	import logo from '$lib/assets/logo_basic.png';
 	import { onMount } from 'svelte';
+<<<<<<< HEAD
+=======
+    import JoinForm from '$lib/components/JoinForm.svelte';
+    import Map from '$lib/components/Map.svelte';
+    import PastorCTA from '$lib/components/PastorCTA.svelte';
+>>>>>>> Moving-Changes-Stashed
 
 	let { children } = $props();
 	let mobileMenuOpen = $state(false);
 	let menuRef: HTMLElement | undefined = $state();
 	let justOpened = false;
 	let navbarVisible = $state(true);
+<<<<<<< HEAD
 
 =======
 =======
@@ -37,11 +47,16 @@ import '../app.css';
 	
 <<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
+=======
+	let lastScrollY = 0;
+	
+>>>>>>> Moving-Changes-Stashed
 	const navItems = [
 		{ href: `${base}/`, label: 'Home' },
 		{ href: `${base}/georgia-battle`, label: 'Timeline' },
 		{ href: `${base}/faqs`, label: 'FAQs' }
 	];
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 	function toggleMenu() {
@@ -57,10 +72,13 @@ import '../app.css';
 		{ href: `${base}/faqs`, label: 'FAQs' }
 	];
 >>>>>>> Home-Page-Revisions
+=======
+>>>>>>> Moving-Changes-Stashed
 	
 	function toggleMenu() {
 		mobileMenuOpen = !mobileMenuOpen;
 		if (mobileMenuOpen) {
+<<<<<<< HEAD
 			// Show navbar when opening menu
 			navbarVisible = true;
 			// Set flag to prevent immediate close from scroll
@@ -70,11 +88,16 @@ import '../app.css';
 >>>>>>> Content-Changes-By-Skyler
 =======
 >>>>>>> Home-Page-Revisions
+=======
+			navbarVisible = true;
+			justOpened = true;
+>>>>>>> Moving-Changes-Stashed
 			setTimeout(() => {
 				justOpened = false;
 			}, 300);
 		}
 	}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -102,6 +125,14 @@ import '../app.css';
 >>>>>>> Content-Changes-By-Skyler
 =======
 >>>>>>> Home-Page-Revisions
+=======
+	
+	onMount(() => {
+		let scrollTimeout: number;
+		
+		const handleClickOutside = (event: MouseEvent) => {
+			const target = event.target as HTMLElement;
+>>>>>>> Moving-Changes-Stashed
 			if (target.closest('button[aria-label="Toggle menu"]')) {
 				return;
 			}
@@ -110,6 +141,7 @@ import '../app.css';
 				justOpened = false;
 			}
 		};
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -159,17 +191,32 @@ import '../app.css';
 				navbarVisible = true;
 			} else if (!mobileMenuOpen) {
 				// Hide navbar when scrolling down (unless menu is open)
+=======
+		
+		const handleScroll = () => {
+			const currentScrollY = window.scrollY;
+			
+			if (currentScrollY <= 10) {
+				navbarVisible = true;
+			} else if (!mobileMenuOpen) {
+>>>>>>> Moving-Changes-Stashed
 				navbarVisible = false;
 			}
 			
 			lastScrollY = currentScrollY;
 			
+<<<<<<< HEAD
 			// Don't close menu if it was just opened
+=======
+>>>>>>> Moving-Changes-Stashed
 			if (justOpened) {
 				return;
 			}
 			
+<<<<<<< HEAD
 			// Close menu when scrolling
+=======
+>>>>>>> Moving-Changes-Stashed
 			clearTimeout(scrollTimeout);
 			scrollTimeout = window.setTimeout(() => {
 				if (mobileMenuOpen) {
@@ -178,17 +225,23 @@ import '../app.css';
 			}, 50);
 		};
 		
+<<<<<<< HEAD
 		// Use mousedown instead of click for better behavior
+=======
+>>>>>>> Moving-Changes-Stashed
 		document.addEventListener('mousedown', handleClickOutside);
 		window.addEventListener('scroll', handleScroll, { passive: true });
 		
 		return () => {
 			clearTimeout(scrollTimeout);
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
 =======
 			clearTimeout(openTimeout);
 >>>>>>> Home-Page-Revisions
+=======
+>>>>>>> Moving-Changes-Stashed
 			document.removeEventListener('mousedown', handleClickOutside);
 			window.removeEventListener('scroll', handleScroll);
 		};
@@ -200,6 +253,7 @@ import '../app.css';
 	<link rel="icon" href={logo} />
 </svelte:head>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <div class="min-h-screen flex flex-col bg-[#0C1626]">
@@ -221,16 +275,24 @@ import '../app.css';
 		transition: filter 0.2s ease;
 	}
 >>>>>>> Home-Page-Revisions
+=======
+<style>
+>>>>>>> Moving-Changes-Stashed
 	.logo-button:hover img {
 		filter: brightness(0) saturate(100%) invert(28%) sepia(93%) saturate(3166%) hue-rotate(348deg) brightness(93%) contrast(95%);
 	}
 </style>
 
+<<<<<<< HEAD
 <div class="min-h-screen flex flex-col">
+=======
+<div class="min-h-screen flex flex-col bg-[#0C1626]">
+>>>>>>> Moving-Changes-Stashed
 	<!-- Navigation -->
 	<nav class="bg-transparent text-white sticky top-0 z-50 transition-all duration-300 {navbarVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}">
 		<div class="w-full px-4 sm:px-6 lg:px-8">
 			<div class="flex items-center justify-between h-16">
+<<<<<<< HEAD
 <<<<<<< HEAD
 				<!-- Menu Button (Left) - Logo Icon - Desktop only -->
 				<div class="hidden md:flex items-center relative z-50">
@@ -239,6 +301,10 @@ import '../app.css';
 				<!-- Menu Button (Left) - Logo Icon -->
 				<div class="flex items-center relative z-50">
 >>>>>>> Home-Page-Revisions
+=======
+				<!-- Menu Button (Left) - Logo Icon - Desktop only -->
+				<div class="hidden md:flex items-center relative z-50">
+>>>>>>> Moving-Changes-Stashed
 					<button
 						onclick={toggleMenu}
 						class="logo-button focus:outline-none cursor-pointer relative z-50"
@@ -247,6 +313,7 @@ import '../app.css';
 						<img src={logo} alt="Menu" class="h-10 w-auto" />
 					</button>
 				</div>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -258,6 +325,8 @@ import '../app.css';
 						aria-current={$page.url.pathname === `${base}/` ? 'page' : undefined}
 					>
 =======
+=======
+>>>>>>> Moving-Changes-Stashed
 				
 				<!-- Centered Logo - Mobile only -->
 				<div class="md:hidden flex items-center justify-center w-full relative z-50">
@@ -273,12 +342,16 @@ import '../app.css';
 				<!-- Operation Gospel Text (Right) - Desktop only -->
 				<div class="hidden md:flex items-center">
 					<a href="{base}/" class="text-xl md:text-2xl font-serif font-bold tracking-tight uppercase leading-none whitespace-nowrap">
+<<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
+=======
+>>>>>>> Moving-Changes-Stashed
 						Operation Gospel
 					</a>
 				</div>
 			</div>
 		</div>
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 		<!-- Hamburger Menu -->
@@ -297,10 +370,13 @@ import '../app.css';
 							: 'text-bone/70 border-l-4 border-transparent'}"
 						aria-current={$page.url.pathname === item.href ? 'page' : undefined}
 =======
+=======
+>>>>>>> Moving-Changes-Stashed
 		
 		<!-- Hamburger Menu -->
 		{#if mobileMenuOpen}
 			<div bind:this={menuRef} class="bg-panel backdrop-blur-md border-t border-white/10 p-6 relative z-50">
+<<<<<<< HEAD
 =======
 				
 				<!-- Operation Gospel Text (Right) - Hidden on mobile -->
@@ -400,10 +476,13 @@ import '../app.css';
 		{#if mobileMenuOpen}
 			<div class="md:hidden bg-neutral-950 backdrop-blur-md border-t border-neutral-800 p-4">
 >>>>>>> Home-Page-Tweaks
+=======
+>>>>>>> Moving-Changes-Stashed
 				{#each navItems as item}
 					<a
 						href={item.href}
 						onclick={() => mobileMenuOpen = false}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 						class="block w-full text-left py-4 px-6 hover:text-bone hover:bg-charcoal transition-all duration-200 rounded-sm text-base font-bold tracking-wide uppercase
@@ -417,10 +496,15 @@ import '../app.css';
 						class="block w-full text-left py-3 px-4 hover:text-neutral-300 hover:bg-neutral-900 transition-all duration-200 rounded-sm text-[10px] font-bold tracking-wider uppercase
 							{$page.url.pathname === item.href ? 'text-red-500 bg-neutral-900 border-l-2 border-red-600' : 'text-neutral-500 border-l-2 border-transparent'}"
 >>>>>>> Home-Page-Tweaks
+=======
+						class="block w-full text-left py-4 px-6 hover:text-bone hover:bg-charcoal transition-all duration-200 rounded-sm text-base font-bold tracking-wide uppercase
+							{$page.url.pathname === item.href ? 'text-crimson bg-charcoal border-l-4 border-crimson' : 'text-bone/70 border-l-4 border-transparent'}"
+>>>>>>> Moving-Changes-Stashed
 					>
 						{item.label}
 					</a>
 				{/each}
+<<<<<<< HEAD
 <<<<<<< HEAD
 				<a
 <<<<<<< HEAD
@@ -441,10 +525,15 @@ import '../app.css';
 					Support
 =======
 					href="{base}/respond"
+=======
+				<a
+					href="{base}/join"
+>>>>>>> Moving-Changes-Stashed
 					onclick={() => mobileMenuOpen = false}
 					class="block w-full text-left py-4 px-6 bg-crimson/10 text-crimson hover:bg-crimson/20 hover:text-ember transition-all duration-200 rounded-sm text-base font-bold tracking-wide uppercase border-l-4 border-crimson mt-3"
 				>
 					Pray. Fight. Give.
+<<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
 =======
 					href="{base}/respond"
@@ -456,11 +545,15 @@ import '../app.css';
 				</a>
 =======
 >>>>>>> Home-Page-Tweaks
+=======
+				</a>
+>>>>>>> Moving-Changes-Stashed
 			</div>
 		{/if}
 	</nav>
 
 	<!-- Main Content -->
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -550,6 +643,29 @@ import '../app.css';
 							clip-rule="evenodd"
 						/>
 =======
+=======
+	<main class="flex-1 flex flex-col">
+		{#if $page.url.pathname === `${base}/join`}
+            <div class="flex-1 grid grid-cols-1 md:grid-cols-5 gap-4 p-2 items-stretch">
+                <!-- Left Column (Form) -->
+                <div class="md:col-span-2 flex flex-col">
+                    <JoinForm />
+                </div>
+                <!-- Right Column (Map & CTA) -->
+                <div class="md:col-span-3 flex flex-col gap-4">
+                    <div class="flex-1 min-h-[240px]">
+                        <Map />
+                    </div>
+                    <PastorCTA />
+                </div>
+            </div>
+		{:else}
+			{@render children()}
+		{/if}
+	</main>
+
+	<!-- Footer -->
+>>>>>>> Moving-Changes-Stashed
 	<footer class="bg-panel text-bone/60 py-12 border-t border-white/5">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
@@ -559,6 +675,7 @@ import '../app.css';
 			</p>
 				<div class="flex justify-center space-x-6 mb-6">
 				<a href="https://www.facebook.com/OperationGospel" target="_blank" rel="noopener noreferrer" class="text-bone hover:text-ember transition-colors">
+<<<<<<< HEAD
 =======
 	<footer class="bg-neutral-950 text-neutral-400 py-12 border-t border-neutral-900">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -569,16 +686,22 @@ import '../app.css';
 			<div class="flex justify-center space-x-6 mb-6">
 				<a href="https://www.facebook.com/OperationGospel" target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-white transition-colors">
 >>>>>>> Home-Page-Revisions
+=======
+>>>>>>> Moving-Changes-Stashed
 					<span class="sr-only">Facebook</span>
 					<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
 						<path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
 					</svg>
 				</a>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Moving-Changes-Stashed
 				<a href="https://www.youtube.com/@OperationGospel" target="_blank" rel="noopener noreferrer" class="text-bone hover:text-ember transition-colors">
 					<span class="sr-only">YouTube</span>
 					<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
 						<path fill-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.254.418-4.814a2.503 2.503 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z" clip-rule="evenodd" />
+<<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
 =======
 				<a href="https://www.youtube.com/@OperationGospel" target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-white transition-colors">
@@ -586,10 +709,13 @@ import '../app.css';
 					<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
 						<path fill-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.254.418-4.814a2.503 2.503 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z" clip-rule="evenodd" />
 >>>>>>> Home-Page-Revisions
+=======
+>>>>>>> Moving-Changes-Stashed
 					</svg>
 				</a>
 			</div>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 			<div class="text-[8px] text-bone/40 uppercase font-mono tracking-wide">
 <<<<<<< HEAD
@@ -641,10 +767,15 @@ import '../app.css';
 					<p>© {new Date().getFullYear()} Abolition Georgia</p>
 				</div>
 >>>>>>> Home-Page-Tweaks
+=======
+			<div class="text-[8px] text-bone/40 uppercase font-mono tracking-wide">
+				<p class="mt-2">© 2026 Operation Gospel. All rights reserved.</p>
+>>>>>>> Moving-Changes-Stashed
 			</div>
 		</div>
 	</footer>
 </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -661,3 +792,5 @@ import '../app.css';
 >>>>>>> Home-Page-Revisions
 =======
 >>>>>>> Home-Page-Tweaks
+=======
+>>>>>>> Moving-Changes-Stashed

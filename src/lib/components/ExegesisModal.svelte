@@ -3,26 +3,46 @@
 	import { fly } from 'svelte/transition';
 
 	let {
-		showModal,
-		title = 'Default Title'
+		showModal = $bindable(),
+		title = 'Default Title',
+		children
 	}: {
 		showModal: boolean;
 		title?: string;
 		children: Snippet;
 	} = $props();
+
+	function handleKeydown(e: KeyboardEvent) {
+		if (showModal && e.key === 'Escape') {
+			showModal = false;
+		}
+	}
+
+	$effect(() => {
+		if (showModal) {
+			const previousActiveElement = document.activeElement as HTMLElement;
+			return () => {
+				previousActiveElement?.focus();
+			};
+		}
+	});
 </script>
+
+<svelte:window onkeydown={handleKeydown} />
 
 {#if showModal}
 	<div
-		class="fixed inset-0 bg-navy-deep/70 backdrop-blur-sm z-[100] flex items-center justify-center p-4"
+		class="fixed inset-0 bg-navy-deep/70 backdrop-blur-sm z-[100] flex items-center justify-center p-4 focus:outline-none"
 		role="dialog"
 		aria-modal="true"
 		aria-labelledby="modal-title"
+		tabindex="-1"
 		onclick={() => (showModal = false)}
 		transition:fly={{ duration: 300, y: 20, opacity: 0, easing: quintOut }}
 	>
 		<div
 			class="bg-navy-light border border-gold/20 rounded-xl shadow-2xl max-w-2xl w-full max-h-[80vh] flex flex-col"
+			role="document"
 			onclick={(e) => e.stopPropagation()}
 		>
 			<header class="flex items-center justify-between p-6 border-b border-white/10">

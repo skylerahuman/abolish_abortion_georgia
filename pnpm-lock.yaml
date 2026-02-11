@@ -18,6 +18,7 @@ importers:
       '@playwright/test':
         specifier: ^1.57.0
 <<<<<<< HEAD
+<<<<<<< HEAD
         version: 1.58.2
       '@sveltejs/adapter-auto':
         specifier: ^7.0.0
@@ -40,6 +41,18 @@ importers:
         specifier: ^6.2.1
         version: 6.2.4(svelte@5.49.0)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2))
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+        version: 1.58.1
+      '@sveltejs/adapter-auto':
+        specifier: ^7.0.0
+        version: 7.0.0(@sveltejs/kit@2.50.1(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.49.1)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2)))(svelte@5.49.1)(typescript@5.9.3)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2)))
+      '@sveltejs/kit':
+        specifier: ^2.49.1
+        version: 2.50.1(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.49.1)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2)))(svelte@5.49.1)(typescript@5.9.3)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2))
+      '@sveltejs/vite-plugin-svelte':
+        specifier: ^6.2.1
+        version: 6.2.4(svelte@5.49.1)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2))
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
       '@tailwindcss/postcss':
         specifier: ^4.1.18
         version: 4.1.18
@@ -55,10 +68,14 @@ importers:
       '@testing-library/svelte':
         specifier: ^5.3.1
 <<<<<<< HEAD
+<<<<<<< HEAD
         version: 5.3.1(svelte@5.50.0)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2))(vitest@4.0.18(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.30.2))
 =======
         version: 5.3.1(svelte@5.49.0)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2))(vitest@4.0.18(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.30.2))
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+        version: 5.3.1(svelte@5.49.1)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2))(vitest@4.0.18(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.30.2))
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
       '@typescript-eslint/eslint-plugin':
         specifier: ^7.0.0
         version: 7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1)(typescript@5.9.3)
@@ -74,10 +91,14 @@ importers:
       eslint-plugin-svelte:
         specifier: ^2.35.1
 <<<<<<< HEAD
+<<<<<<< HEAD
         version: 2.46.1(eslint@8.57.1)(svelte@5.50.0)
 =======
         version: 2.46.1(eslint@8.57.1)(svelte@5.49.0)
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+        version: 2.46.1(eslint@8.57.1)(svelte@5.49.1)
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
       jsdom:
         specifier: ^27.4.0
         version: 27.4.0
@@ -86,6 +107,7 @@ importers:
         version: 3.8.1
       prettier-plugin-svelte:
         specifier: ^3.1.2
+<<<<<<< HEAD
 <<<<<<< HEAD
         version: 3.4.1(prettier@3.8.1)(svelte@5.50.0)
       prettier-plugin-tailwindcss:
@@ -109,6 +131,18 @@ importers:
         specifier: ^4.3.4
         version: 4.3.5(picomatch@4.0.3)(svelte@5.49.0)(typescript@5.9.3)
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+        version: 3.4.1(prettier@3.8.1)(svelte@5.49.1)
+      prettier-plugin-tailwindcss:
+        specifier: ^0.5.11
+        version: 0.5.14(prettier-plugin-svelte@3.4.1(prettier@3.8.1)(svelte@5.49.1))(prettier@3.8.1)
+      svelte:
+        specifier: ^5.45.6
+        version: 5.49.1
+      svelte-check:
+        specifier: ^4.3.4
+        version: 4.3.6(picomatch@4.0.3)(svelte@5.49.1)(typescript@5.9.3)
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
       tailwindcss:
         specifier: ^4.1.18
         version: 4.1.18
@@ -135,6 +169,7 @@ packages:
     engines: {node: '>=10'}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   '@asamuzakjp/css-color@4.1.2':
     resolution: {integrity: sha512-NfBUvBaYgKIuq6E/RBLY1m0IohzNHAYyaJGuTK79Z23uNwmz2jl1mPsC5ZxCCxylinKhT1Amn5oNTlx1wN8cQg==}
 
@@ -147,10 +182,18 @@ packages:
   '@asamuzakjp/dom-selector@6.7.6':
     resolution: {integrity: sha512-hBaJER6A9MpdG3WgdlOolHmbOYvSk46y7IQN/1+iqiCuUu6iWdQrs9DGKF8ocqsEqWujWf/V7b7vaDgiUmIvUg==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@asamuzakjp/css-color@4.1.1':
+    resolution: {integrity: sha512-B0Hv6G3gWGMn0xKJ0txEi/jM5iFpT3MfDxmhZFb4W047GvytCf1DHQ1D69W3zHI4yWe2aTZAA0JnbMZ7Xc8DuQ==}
+
+  '@asamuzakjp/dom-selector@6.7.7':
+    resolution: {integrity: sha512-8CO/UQ4tzDd7ula+/CVimJIVWez99UJlbMyIgk8xOnhAVPKLnBZmUFYVgugS441v2ZqUq5EnSh6B0Ua0liSFAA==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
 
   '@asamuzakjp/nwsapi@2.3.9':
     resolution: {integrity: sha512-n8GuYSrI9bF7FFZ/SjhwevlHc8xaVlb/7HmHelnc/PZXBD2ZR49NnN9sMMuDdEGPeeRQ5d0hqlSlEpgCX3Wl0Q==}
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@babel/code-frame@7.29.0':
     resolution: {integrity: sha512-9NhCeYjq9+3uxgdtp20LSiJXJvN0FeCtNGpJxuMFZ1Kv3cWUNb6DOhJwUvcVCzKGR66cw4njwM6hrJLqgOwbcw==}
@@ -158,6 +201,10 @@ packages:
   '@babel/code-frame@7.28.6':
     resolution: {integrity: sha512-JYgintcMjRiCvS8mMECzaEn+m3PfoQiyqukOMCCVQtoJGYJw8j/8LBJEiqkHLkfwCcs74E3pbAUFNg7d9VNJ+Q==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@babel/code-frame@7.29.0':
+    resolution: {integrity: sha512-9NhCeYjq9+3uxgdtp20LSiJXJvN0FeCtNGpJxuMFZ1Kv3cWUNb6DOhJwUvcVCzKGR66cw4njwM6hrJLqgOwbcw==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=6.9.0'}
 
   '@babel/helper-validator-identifier@7.28.5':
@@ -168,6 +215,7 @@ packages:
     resolution: {integrity: sha512-05WQkdpL9COIMz4LjTxGpPNCdlpyimKppYNoJ5Di5EUObifl8t4tuLuUBBZEpoLYOmfvIWrsp9fCl0HoPRVTdA==}
     engines: {node: '>=6.9.0'}
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@csstools/color-helpers@6.0.1':
     resolution: {integrity: sha512-NmXRccUJMk2AWA5A7e5a//3bCIMyOu2hAtdRYrhPPHjDxINuCwX1w6rnIZ4xjLcp0ayv6h8Pc3X0eJUGiAAXHQ==}
@@ -193,6 +241,8 @@ packages:
     peerDependencies:
       '@csstools/css-tokenizer': ^4.0.0
 =======
+=======
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
   '@csstools/color-helpers@5.1.0':
     resolution: {integrity: sha512-S11EXWJyy0Mz5SYvRmY8nJYTFFd1LCNV+7cXyAgQtOOuzb4EsgfqDufL+9esx72/eLhsRdGZwaldu/h+E4t4BA==}
     engines: {node: '>=18'}
@@ -216,11 +266,15 @@ packages:
     engines: {node: '>=18'}
     peerDependencies:
       '@csstools/css-tokenizer': ^3.0.4
+<<<<<<< HEAD
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
 
   '@csstools/css-syntax-patches-for-csstree@1.0.26':
     resolution: {integrity: sha512-6boXK0KkzT5u5xOgF6TKB+CLq9SOpEGmkZw0g5n9/7yg85wab3UzSxB8TxhLJ31L4SGJ6BCFRw/iftTha1CJXA==}
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@csstools/css-tokenizer@4.0.0':
     resolution: {integrity: sha512-QxULHAm7cNu72w97JUNCBFODFaXpbDg+dP8b/oWFAZ2MTRppA3U00Y2L1HqaS4J6yBqxwa/Y3nMBaxVKbB/NsA==}
@@ -229,17 +283,23 @@ packages:
   '@esbuild/aix-ppc64@0.27.3':
     resolution: {integrity: sha512-9fJMTNFTWZMh5qwrBItuziu834eOCUcEqymSH7pY+zoMVEZg3gcPuBNxH1EvfVYe9h0x/Ptw8KBzv7qxb7l8dg==}
 =======
+=======
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
   '@csstools/css-tokenizer@3.0.4':
     resolution: {integrity: sha512-Vd/9EVDiu6PPJt9yAh6roZP6El1xHrdvIVGjyBsHR0RYwNHgL7FJPyIIW4fANJNG6FtyZfvlRPpFI4ZM/lubvw==}
     engines: {node: '>=18'}
 
   '@esbuild/aix-ppc64@0.27.2':
     resolution: {integrity: sha512-GZMB+a0mOMZs4MpDbj8RJp4cw+w1WV5NYD6xzgvzUJ5Ek2jerwfO2eADyI6ExDSUED+1X8aMbegahsJi+8mgpw==}
+<<<<<<< HEAD
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     cpu: [ppc64]
     os: [aix]
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@esbuild/android-arm64@0.27.3':
     resolution: {integrity: sha512-YdghPYUmj/FX2SYKJ0OZxf+iaKgMsKHVPF1MAq/P8WirnSpCStzKJFjOjzsW0QQ7oIAiccHdcqjbHmJxRb/dmg==}
@@ -247,10 +307,15 @@ packages:
   '@esbuild/android-arm64@0.27.2':
     resolution: {integrity: sha512-pvz8ZZ7ot/RBphf8fv60ljmaoydPU12VuXHImtAs0XhLLw+EXBi2BLe3OYSBslR4rryHvweW5gmkKFwTiFy6KA==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@esbuild/android-arm64@0.27.2':
+    resolution: {integrity: sha512-pvz8ZZ7ot/RBphf8fv60ljmaoydPU12VuXHImtAs0XhLLw+EXBi2BLe3OYSBslR4rryHvweW5gmkKFwTiFy6KA==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     cpu: [arm64]
     os: [android]
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@esbuild/android-arm@0.27.3':
     resolution: {integrity: sha512-i5D1hPY7GIQmXlXhs2w8AWHhenb00+GxjxRncS2ZM7YNVGNfaMxgzSGuO8o8SJzRc/oZwU2bcScvVERk03QhzA==}
@@ -258,10 +323,15 @@ packages:
   '@esbuild/android-arm@0.27.2':
     resolution: {integrity: sha512-DVNI8jlPa7Ujbr1yjU2PfUSRtAUZPG9I1RwW4F4xFB1Imiu2on0ADiI/c3td+KmDtVKNbi+nffGDQMfcIMkwIA==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@esbuild/android-arm@0.27.2':
+    resolution: {integrity: sha512-DVNI8jlPa7Ujbr1yjU2PfUSRtAUZPG9I1RwW4F4xFB1Imiu2on0ADiI/c3td+KmDtVKNbi+nffGDQMfcIMkwIA==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     cpu: [arm]
     os: [android]
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@esbuild/android-x64@0.27.3':
     resolution: {integrity: sha512-IN/0BNTkHtk8lkOM8JWAYFg4ORxBkZQf9zXiEOfERX/CzxW3Vg1ewAhU7QSWQpVIzTW+b8Xy+lGzdYXV6UZObQ==}
@@ -269,10 +339,15 @@ packages:
   '@esbuild/android-x64@0.27.2':
     resolution: {integrity: sha512-z8Ank4Byh4TJJOh4wpz8g2vDy75zFL0TlZlkUkEwYXuPSgX8yzep596n6mT7905kA9uHZsf/o2OJZubl2l3M7A==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@esbuild/android-x64@0.27.2':
+    resolution: {integrity: sha512-z8Ank4Byh4TJJOh4wpz8g2vDy75zFL0TlZlkUkEwYXuPSgX8yzep596n6mT7905kA9uHZsf/o2OJZubl2l3M7A==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     cpu: [x64]
     os: [android]
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@esbuild/darwin-arm64@0.27.3':
     resolution: {integrity: sha512-Re491k7ByTVRy0t3EKWajdLIr0gz2kKKfzafkth4Q8A5n1xTHrkqZgLLjFEHVD+AXdUGgQMq+Godfq45mGpCKg==}
@@ -280,10 +355,15 @@ packages:
   '@esbuild/darwin-arm64@0.27.2':
     resolution: {integrity: sha512-davCD2Zc80nzDVRwXTcQP/28fiJbcOwvdolL0sOiOsbwBa72kegmVU0Wrh1MYrbuCL98Omp5dVhQFWRKR2ZAlg==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@esbuild/darwin-arm64@0.27.2':
+    resolution: {integrity: sha512-davCD2Zc80nzDVRwXTcQP/28fiJbcOwvdolL0sOiOsbwBa72kegmVU0Wrh1MYrbuCL98Omp5dVhQFWRKR2ZAlg==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     cpu: [arm64]
     os: [darwin]
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@esbuild/darwin-x64@0.27.3':
     resolution: {integrity: sha512-vHk/hA7/1AckjGzRqi6wbo+jaShzRowYip6rt6q7VYEDX4LEy1pZfDpdxCBnGtl+A5zq8iXDcyuxwtv3hNtHFg==}
@@ -291,10 +371,15 @@ packages:
   '@esbuild/darwin-x64@0.27.2':
     resolution: {integrity: sha512-ZxtijOmlQCBWGwbVmwOF/UCzuGIbUkqB1faQRf5akQmxRJ1ujusWsb3CVfk/9iZKr2L5SMU5wPBi1UWbvL+VQA==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@esbuild/darwin-x64@0.27.2':
+    resolution: {integrity: sha512-ZxtijOmlQCBWGwbVmwOF/UCzuGIbUkqB1faQRf5akQmxRJ1ujusWsb3CVfk/9iZKr2L5SMU5wPBi1UWbvL+VQA==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     cpu: [x64]
     os: [darwin]
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@esbuild/freebsd-arm64@0.27.3':
     resolution: {integrity: sha512-ipTYM2fjt3kQAYOvo6vcxJx3nBYAzPjgTCk7QEgZG8AUO3ydUhvelmhrbOheMnGOlaSFUoHXB6un+A7q4ygY9w==}
@@ -302,10 +387,15 @@ packages:
   '@esbuild/freebsd-arm64@0.27.2':
     resolution: {integrity: sha512-lS/9CN+rgqQ9czogxlMcBMGd+l8Q3Nj1MFQwBZJyoEKI50XGxwuzznYdwcav6lpOGv5BqaZXqvBSiB/kJ5op+g==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@esbuild/freebsd-arm64@0.27.2':
+    resolution: {integrity: sha512-lS/9CN+rgqQ9czogxlMcBMGd+l8Q3Nj1MFQwBZJyoEKI50XGxwuzznYdwcav6lpOGv5BqaZXqvBSiB/kJ5op+g==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     cpu: [arm64]
     os: [freebsd]
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@esbuild/freebsd-x64@0.27.3':
     resolution: {integrity: sha512-dDk0X87T7mI6U3K9VjWtHOXqwAMJBNN2r7bejDsc+j03SEjtD9HrOl8gVFByeM0aJksoUuUVU9TBaZa2rgj0oA==}
@@ -313,10 +403,15 @@ packages:
   '@esbuild/freebsd-x64@0.27.2':
     resolution: {integrity: sha512-tAfqtNYb4YgPnJlEFu4c212HYjQWSO/w/h/lQaBK7RbwGIkBOuNKQI9tqWzx7Wtp7bTPaGC6MJvWI608P3wXYA==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@esbuild/freebsd-x64@0.27.2':
+    resolution: {integrity: sha512-tAfqtNYb4YgPnJlEFu4c212HYjQWSO/w/h/lQaBK7RbwGIkBOuNKQI9tqWzx7Wtp7bTPaGC6MJvWI608P3wXYA==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     cpu: [x64]
     os: [freebsd]
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@esbuild/linux-arm64@0.27.3':
     resolution: {integrity: sha512-sZOuFz/xWnZ4KH3YfFrKCf1WyPZHakVzTiqji3WDc0BCl2kBwiJLCXpzLzUBLgmp4veFZdvN5ChW4Eq/8Fc2Fg==}
@@ -324,10 +419,15 @@ packages:
   '@esbuild/linux-arm64@0.27.2':
     resolution: {integrity: sha512-hYxN8pr66NsCCiRFkHUAsxylNOcAQaxSSkHMMjcpx0si13t1LHFphxJZUiGwojB1a/Hd5OiPIqDdXONia6bhTw==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@esbuild/linux-arm64@0.27.2':
+    resolution: {integrity: sha512-hYxN8pr66NsCCiRFkHUAsxylNOcAQaxSSkHMMjcpx0si13t1LHFphxJZUiGwojB1a/Hd5OiPIqDdXONia6bhTw==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     cpu: [arm64]
     os: [linux]
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@esbuild/linux-arm@0.27.3':
     resolution: {integrity: sha512-s6nPv2QkSupJwLYyfS+gwdirm0ukyTFNl3KTgZEAiJDd+iHZcbTPPcWCcRYH+WlNbwChgH2QkE9NSlNrMT8Gfw==}
@@ -335,10 +435,15 @@ packages:
   '@esbuild/linux-arm@0.27.2':
     resolution: {integrity: sha512-vWfq4GaIMP9AIe4yj1ZUW18RDhx6EPQKjwe7n8BbIecFtCQG4CfHGaHuh7fdfq+y3LIA2vGS/o9ZBGVxIDi9hw==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@esbuild/linux-arm@0.27.2':
+    resolution: {integrity: sha512-vWfq4GaIMP9AIe4yj1ZUW18RDhx6EPQKjwe7n8BbIecFtCQG4CfHGaHuh7fdfq+y3LIA2vGS/o9ZBGVxIDi9hw==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     cpu: [arm]
     os: [linux]
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@esbuild/linux-ia32@0.27.3':
     resolution: {integrity: sha512-yGlQYjdxtLdh0a3jHjuwOrxQjOZYD/C9PfdbgJJF3TIZWnm/tMd/RcNiLngiu4iwcBAOezdnSLAwQDPqTmtTYg==}
@@ -346,10 +451,15 @@ packages:
   '@esbuild/linux-ia32@0.27.2':
     resolution: {integrity: sha512-MJt5BRRSScPDwG2hLelYhAAKh9imjHK5+NE/tvnRLbIqUWa+0E9N4WNMjmp/kXXPHZGqPLxggwVhz7QP8CTR8w==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@esbuild/linux-ia32@0.27.2':
+    resolution: {integrity: sha512-MJt5BRRSScPDwG2hLelYhAAKh9imjHK5+NE/tvnRLbIqUWa+0E9N4WNMjmp/kXXPHZGqPLxggwVhz7QP8CTR8w==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     cpu: [ia32]
     os: [linux]
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@esbuild/linux-loong64@0.27.3':
     resolution: {integrity: sha512-WO60Sn8ly3gtzhyjATDgieJNet/KqsDlX5nRC5Y3oTFcS1l0KWba+SEa9Ja1GfDqSF1z6hif/SkpQJbL63cgOA==}
@@ -357,10 +467,15 @@ packages:
   '@esbuild/linux-loong64@0.27.2':
     resolution: {integrity: sha512-lugyF1atnAT463aO6KPshVCJK5NgRnU4yb3FUumyVz+cGvZbontBgzeGFO1nF+dPueHD367a2ZXe1NtUkAjOtg==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@esbuild/linux-loong64@0.27.2':
+    resolution: {integrity: sha512-lugyF1atnAT463aO6KPshVCJK5NgRnU4yb3FUumyVz+cGvZbontBgzeGFO1nF+dPueHD367a2ZXe1NtUkAjOtg==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     cpu: [loong64]
     os: [linux]
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@esbuild/linux-mips64el@0.27.3':
     resolution: {integrity: sha512-APsymYA6sGcZ4pD6k+UxbDjOFSvPWyZhjaiPyl/f79xKxwTnrn5QUnXR5prvetuaSMsb4jgeHewIDCIWljrSxw==}
@@ -368,10 +483,15 @@ packages:
   '@esbuild/linux-mips64el@0.27.2':
     resolution: {integrity: sha512-nlP2I6ArEBewvJ2gjrrkESEZkB5mIoaTswuqNFRv/WYd+ATtUpe9Y09RnJvgvdag7he0OWgEZWhviS1OTOKixw==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@esbuild/linux-mips64el@0.27.2':
+    resolution: {integrity: sha512-nlP2I6ArEBewvJ2gjrrkESEZkB5mIoaTswuqNFRv/WYd+ATtUpe9Y09RnJvgvdag7he0OWgEZWhviS1OTOKixw==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     cpu: [mips64el]
     os: [linux]
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@esbuild/linux-ppc64@0.27.3':
     resolution: {integrity: sha512-eizBnTeBefojtDb9nSh4vvVQ3V9Qf9Df01PfawPcRzJH4gFSgrObw+LveUyDoKU3kxi5+9RJTCWlj4FjYXVPEA==}
@@ -379,10 +499,15 @@ packages:
   '@esbuild/linux-ppc64@0.27.2':
     resolution: {integrity: sha512-C92gnpey7tUQONqg1n6dKVbx3vphKtTHJaNG2Ok9lGwbZil6DrfyecMsp9CrmXGQJmZ7iiVXvvZH6Ml5hL6XdQ==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@esbuild/linux-ppc64@0.27.2':
+    resolution: {integrity: sha512-C92gnpey7tUQONqg1n6dKVbx3vphKtTHJaNG2Ok9lGwbZil6DrfyecMsp9CrmXGQJmZ7iiVXvvZH6Ml5hL6XdQ==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     cpu: [ppc64]
     os: [linux]
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@esbuild/linux-riscv64@0.27.3':
     resolution: {integrity: sha512-3Emwh0r5wmfm3ssTWRQSyVhbOHvqegUDRd0WhmXKX2mkHJe1SFCMJhagUleMq+Uci34wLSipf8Lagt4LlpRFWQ==}
@@ -390,10 +515,15 @@ packages:
   '@esbuild/linux-riscv64@0.27.2':
     resolution: {integrity: sha512-B5BOmojNtUyN8AXlK0QJyvjEZkWwy/FKvakkTDCziX95AowLZKR6aCDhG7LeF7uMCXEJqwa8Bejz5LTPYm8AvA==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@esbuild/linux-riscv64@0.27.2':
+    resolution: {integrity: sha512-B5BOmojNtUyN8AXlK0QJyvjEZkWwy/FKvakkTDCziX95AowLZKR6aCDhG7LeF7uMCXEJqwa8Bejz5LTPYm8AvA==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     cpu: [riscv64]
     os: [linux]
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@esbuild/linux-s390x@0.27.3':
     resolution: {integrity: sha512-pBHUx9LzXWBc7MFIEEL0yD/ZVtNgLytvx60gES28GcWMqil8ElCYR4kvbV2BDqsHOvVDRrOxGySBM9Fcv744hw==}
@@ -401,10 +531,15 @@ packages:
   '@esbuild/linux-s390x@0.27.2':
     resolution: {integrity: sha512-p4bm9+wsPwup5Z8f4EpfN63qNagQ47Ua2znaqGH6bqLlmJ4bx97Y9JdqxgGZ6Y8xVTixUnEkoKSHcpRlDnNr5w==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@esbuild/linux-s390x@0.27.2':
+    resolution: {integrity: sha512-p4bm9+wsPwup5Z8f4EpfN63qNagQ47Ua2znaqGH6bqLlmJ4bx97Y9JdqxgGZ6Y8xVTixUnEkoKSHcpRlDnNr5w==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     cpu: [s390x]
     os: [linux]
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@esbuild/linux-x64@0.27.3':
     resolution: {integrity: sha512-Czi8yzXUWIQYAtL/2y6vogER8pvcsOsk5cpwL4Gk5nJqH5UZiVByIY8Eorm5R13gq+DQKYg0+JyQoytLQas4dA==}
@@ -412,10 +547,15 @@ packages:
   '@esbuild/linux-x64@0.27.2':
     resolution: {integrity: sha512-uwp2Tip5aPmH+NRUwTcfLb+W32WXjpFejTIOWZFw/v7/KnpCDKG66u4DLcurQpiYTiYwQ9B7KOeMJvLCu/OvbA==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@esbuild/linux-x64@0.27.2':
+    resolution: {integrity: sha512-uwp2Tip5aPmH+NRUwTcfLb+W32WXjpFejTIOWZFw/v7/KnpCDKG66u4DLcurQpiYTiYwQ9B7KOeMJvLCu/OvbA==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     cpu: [x64]
     os: [linux]
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@esbuild/netbsd-arm64@0.27.3':
     resolution: {integrity: sha512-sDpk0RgmTCR/5HguIZa9n9u+HVKf40fbEUt+iTzSnCaGvY9kFP0YKBWZtJaraonFnqef5SlJ8/TiPAxzyS+UoA==}
@@ -423,10 +563,15 @@ packages:
   '@esbuild/netbsd-arm64@0.27.2':
     resolution: {integrity: sha512-Kj6DiBlwXrPsCRDeRvGAUb/LNrBASrfqAIok+xB0LxK8CHqxZ037viF13ugfsIpePH93mX7xfJp97cyDuTZ3cw==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@esbuild/netbsd-arm64@0.27.2':
+    resolution: {integrity: sha512-Kj6DiBlwXrPsCRDeRvGAUb/LNrBASrfqAIok+xB0LxK8CHqxZ037viF13ugfsIpePH93mX7xfJp97cyDuTZ3cw==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     cpu: [arm64]
     os: [netbsd]
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@esbuild/netbsd-x64@0.27.3':
     resolution: {integrity: sha512-P14lFKJl/DdaE00LItAukUdZO5iqNH7+PjoBm+fLQjtxfcfFE20Xf5CrLsmZdq5LFFZzb5JMZ9grUwvtVYzjiA==}
@@ -434,10 +579,15 @@ packages:
   '@esbuild/netbsd-x64@0.27.2':
     resolution: {integrity: sha512-HwGDZ0VLVBY3Y+Nw0JexZy9o/nUAWq9MlV7cahpaXKW6TOzfVno3y3/M8Ga8u8Yr7GldLOov27xiCnqRZf0tCA==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@esbuild/netbsd-x64@0.27.2':
+    resolution: {integrity: sha512-HwGDZ0VLVBY3Y+Nw0JexZy9o/nUAWq9MlV7cahpaXKW6TOzfVno3y3/M8Ga8u8Yr7GldLOov27xiCnqRZf0tCA==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     cpu: [x64]
     os: [netbsd]
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@esbuild/openbsd-arm64@0.27.3':
     resolution: {integrity: sha512-AIcMP77AvirGbRl/UZFTq5hjXK+2wC7qFRGoHSDrZ5v5b8DK/GYpXW3CPRL53NkvDqb9D+alBiC/dV0Fb7eJcw==}
@@ -445,10 +595,15 @@ packages:
   '@esbuild/openbsd-arm64@0.27.2':
     resolution: {integrity: sha512-DNIHH2BPQ5551A7oSHD0CKbwIA/Ox7+78/AWkbS5QoRzaqlev2uFayfSxq68EkonB+IKjiuxBFoV8ESJy8bOHA==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@esbuild/openbsd-arm64@0.27.2':
+    resolution: {integrity: sha512-DNIHH2BPQ5551A7oSHD0CKbwIA/Ox7+78/AWkbS5QoRzaqlev2uFayfSxq68EkonB+IKjiuxBFoV8ESJy8bOHA==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     cpu: [arm64]
     os: [openbsd]
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@esbuild/openbsd-x64@0.27.3':
     resolution: {integrity: sha512-DnW2sRrBzA+YnE70LKqnM3P+z8vehfJWHXECbwBmH/CU51z6FiqTQTHFenPlHmo3a8UgpLyH3PT+87OViOh1AQ==}
@@ -456,10 +611,15 @@ packages:
   '@esbuild/openbsd-x64@0.27.2':
     resolution: {integrity: sha512-/it7w9Nb7+0KFIzjalNJVR5bOzA9Vay+yIPLVHfIQYG/j+j9VTH84aNB8ExGKPU4AzfaEvN9/V4HV+F+vo8OEg==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@esbuild/openbsd-x64@0.27.2':
+    resolution: {integrity: sha512-/it7w9Nb7+0KFIzjalNJVR5bOzA9Vay+yIPLVHfIQYG/j+j9VTH84aNB8ExGKPU4AzfaEvN9/V4HV+F+vo8OEg==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     cpu: [x64]
     os: [openbsd]
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@esbuild/openharmony-arm64@0.27.3':
     resolution: {integrity: sha512-NinAEgr/etERPTsZJ7aEZQvvg/A6IsZG/LgZy+81wON2huV7SrK3e63dU0XhyZP4RKGyTm7aOgmQk0bGp0fy2g==}
@@ -467,10 +627,15 @@ packages:
   '@esbuild/openharmony-arm64@0.27.2':
     resolution: {integrity: sha512-LRBbCmiU51IXfeXk59csuX/aSaToeG7w48nMwA6049Y4J4+VbWALAuXcs+qcD04rHDuSCSRKdmY63sruDS5qag==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@esbuild/openharmony-arm64@0.27.2':
+    resolution: {integrity: sha512-LRBbCmiU51IXfeXk59csuX/aSaToeG7w48nMwA6049Y4J4+VbWALAuXcs+qcD04rHDuSCSRKdmY63sruDS5qag==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     cpu: [arm64]
     os: [openharmony]
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@esbuild/sunos-x64@0.27.3':
     resolution: {integrity: sha512-PanZ+nEz+eWoBJ8/f8HKxTTD172SKwdXebZ0ndd953gt1HRBbhMsaNqjTyYLGLPdoWHy4zLU7bDVJztF5f3BHA==}
@@ -478,10 +643,15 @@ packages:
   '@esbuild/sunos-x64@0.27.2':
     resolution: {integrity: sha512-kMtx1yqJHTmqaqHPAzKCAkDaKsffmXkPHThSfRwZGyuqyIeBvf08KSsYXl+abf5HDAPMJIPnbBfXvP2ZC2TfHg==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@esbuild/sunos-x64@0.27.2':
+    resolution: {integrity: sha512-kMtx1yqJHTmqaqHPAzKCAkDaKsffmXkPHThSfRwZGyuqyIeBvf08KSsYXl+abf5HDAPMJIPnbBfXvP2ZC2TfHg==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     cpu: [x64]
     os: [sunos]
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@esbuild/win32-arm64@0.27.3':
     resolution: {integrity: sha512-B2t59lWWYrbRDw/tjiWOuzSsFh1Y/E95ofKz7rIVYSQkUYBjfSgf6oeYPNWHToFRr2zx52JKApIcAS/D5TUBnA==}
@@ -489,10 +659,15 @@ packages:
   '@esbuild/win32-arm64@0.27.2':
     resolution: {integrity: sha512-Yaf78O/B3Kkh+nKABUF++bvJv5Ijoy9AN1ww904rOXZFLWVc5OLOfL56W+C8F9xn5JQZa3UX6m+IktJnIb1Jjg==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@esbuild/win32-arm64@0.27.2':
+    resolution: {integrity: sha512-Yaf78O/B3Kkh+nKABUF++bvJv5Ijoy9AN1ww904rOXZFLWVc5OLOfL56W+C8F9xn5JQZa3UX6m+IktJnIb1Jjg==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     cpu: [arm64]
     os: [win32]
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@esbuild/win32-ia32@0.27.3':
     resolution: {integrity: sha512-QLKSFeXNS8+tHW7tZpMtjlNb7HKau0QDpwm49u0vUp9y1WOF+PEzkU84y9GqYaAVW8aH8f3GcBck26jh54cX4Q==}
@@ -500,10 +675,15 @@ packages:
   '@esbuild/win32-ia32@0.27.2':
     resolution: {integrity: sha512-Iuws0kxo4yusk7sw70Xa2E2imZU5HoixzxfGCdxwBdhiDgt9vX9VUCBhqcwY7/uh//78A1hMkkROMJq9l27oLQ==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@esbuild/win32-ia32@0.27.2':
+    resolution: {integrity: sha512-Iuws0kxo4yusk7sw70Xa2E2imZU5HoixzxfGCdxwBdhiDgt9vX9VUCBhqcwY7/uh//78A1hMkkROMJq9l27oLQ==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     cpu: [ia32]
     os: [win32]
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@esbuild/win32-x64@0.27.3':
     resolution: {integrity: sha512-4uJGhsxuptu3OcpVAzli+/gWusVGwZZHTlS63hh++ehExkVT8SgiEf7/uC/PclrPPkLhZqGgCTjd0VWLo6xMqA==}
@@ -511,6 +691,10 @@ packages:
   '@esbuild/win32-x64@0.27.2':
     resolution: {integrity: sha512-sRdU18mcKf7F+YgheI/zGf5alZatMUTKj/jNS6l744f9u3WFu4v7twcUI9vu4mknF4Y9aDlblIie0IM+5xxaqQ==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@esbuild/win32-x64@0.27.2':
+    resolution: {integrity: sha512-sRdU18mcKf7F+YgheI/zGf5alZatMUTKj/jNS6l744f9u3WFu4v7twcUI9vu4mknF4Y9aDlblIie0IM+5xxaqQ==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
@@ -535,6 +719,7 @@ packages:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   '@exodus/bytes@1.12.0':
     resolution: {integrity: sha512-BuCOHA/EJdPN0qQ5MdgAiJSt9fYDHbghlgrj33gRdy/Yp1/FMCDhU6vJfcKrLC0TPWGSrfH3vYXBQWmFHxlddw==}
 =======
@@ -545,6 +730,10 @@ packages:
   '@exodus/bytes@1.10.0':
     resolution: {integrity: sha512-tf8YdcbirXdPnJ+Nd4UN1EXnz+IP2DI45YVEr3vvzcVTOyrApkmIB4zvOQVd3XPr7RXnfBtAx+PXImXOIU0Ajg==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@exodus/bytes@1.10.0':
+    resolution: {integrity: sha512-tf8YdcbirXdPnJ+Nd4UN1EXnz+IP2DI45YVEr3vvzcVTOyrApkmIB4zvOQVd3XPr7RXnfBtAx+PXImXOIU0Ajg==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0}
     peerDependencies:
       '@noble/hashes': ^1.8.0 || ^2.0.0
@@ -594,12 +783,17 @@ packages:
     engines: {node: '>= 8'}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   '@playwright/test@1.58.2':
     resolution: {integrity: sha512-akea+6bHYBBfA9uQqSYmlJXn61cTa+jbO87xVLCWbTqbWadRVmhxlXATaOjOgcBaWU4ePo0wB41KMFv3o35IXA==}
 =======
   '@playwright/test@1.58.0':
     resolution: {integrity: sha512-fWza+Lpbj6SkQKCrU6si4iu+fD2dD3gxNHFhUPxsfXBPhnv3rRSQVd0NtBUT9Z/RhF/boCBcuUaMUSTRTopjZg==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@playwright/test@1.58.1':
+    resolution: {integrity: sha512-6LdVIUERWxQMmUSSQi0I53GgCBYgM2RpGngCPY7hSeju+VrKjq3lvs7HpJoPbDiY5QM5EYRtRX5fvrinnMAz3w==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     hasBin: true
 
@@ -607,6 +801,9 @@ packages:
     resolution: {integrity: sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww==}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
   '@rollup/rollup-android-arm-eabi@4.57.1':
     resolution: {integrity: sha512-A6ehUVSiSaaliTxai040ZpZ2zTevHYbvu/lDoeAteHI8QnaosIzm4qwtezfRg1jOYaUmnzLX1AOD6Z+UJjtifg==}
     cpu: [arm]
@@ -729,6 +926,7 @@ packages:
 
   '@rollup/rollup-win32-x64-msvc@4.57.1':
     resolution: {integrity: sha512-mxRFDdHIWRxg3UfIIAwCm6NzvxG0jDX/wBN6KsQFTvKFqqg9vTrWUE68qEjHt19A5wwx5X5aUi2zuZT7YR0jrA==}
+<<<<<<< HEAD
 =======
   '@rollup/rollup-android-arm-eabi@4.57.0':
     resolution: {integrity: sha512-tPgXB6cDTndIe1ah7u6amCI1T0SsnlOuKgg10Xh3uizJk4e5M1JGaUMk7J4ciuAUcFpbOiNhm2XIjP9ON0dUqA==}
@@ -853,6 +1051,8 @@ packages:
   '@rollup/rollup-win32-x64-msvc@4.57.0':
     resolution: {integrity: sha512-Zv7v6q6aV+VslnpwzqKAmrk5JdVkLUzok2208ZXGipjb+msxBr/fJPZyeEXiFgH7k62Ak0SLIfxQRZQvTuf7rQ==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     cpu: [x64]
     os: [win32]
 
@@ -870,12 +1070,17 @@ packages:
       '@sveltejs/kit': ^2.0.0
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   '@sveltejs/kit@2.50.2':
     resolution: {integrity: sha512-875hTUkEbz+MyJIxWbQjfMaekqdmEKUUfR7JyKcpfMRZqcGyrO9Gd+iS1D/Dx8LpE5FEtutWGOtlAh4ReSAiOA==}
 =======
   '@sveltejs/kit@2.50.1':
     resolution: {integrity: sha512-XRHD2i3zC4ukhz2iCQzO4mbsts081PAZnnMAQ7LNpWeYgeBmwMsalf0FGSwhFXBbtr2XViPKnFJBDCckWqrsLw==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@sveltejs/kit@2.50.1':
+    resolution: {integrity: sha512-XRHD2i3zC4ukhz2iCQzO4mbsts081PAZnnMAQ7LNpWeYgeBmwMsalf0FGSwhFXBbtr2XViPKnFJBDCckWqrsLw==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18.13'}
     hasBin: true
     peerDependencies:
@@ -1306,12 +1511,17 @@ packages:
     resolution: {integrity: sha512-7ZgogeTnjuHbo+ct10G9Ffp0mif17idi0IyWNVA/wcwcm7NPOD/WEHVP3n7n3MhXqxoIYm8d6MuZohYWIZ4T3w==}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   enhanced-resolve@5.19.0:
     resolution: {integrity: sha512-phv3E1Xl4tQOShqSte26C7Fl84EwUdZsyOuSSk9qtAGyyQs2s3jJzComh+Abf4g187lUUAvH+H26omrqia2aGg==}
 =======
   enhanced-resolve@5.18.4:
     resolution: {integrity: sha512-LgQMM4WXU3QI+SYgEc2liRgznaD5ojbmY3sb8LxyguVkIg5FxdpTkvk72te2R38/TGKxH634oLxXRGY6d7AP+Q==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  enhanced-resolve@5.18.4:
+    resolution: {integrity: sha512-LgQMM4WXU3QI+SYgEc2liRgznaD5ojbmY3sb8LxyguVkIg5FxdpTkvk72te2R38/TGKxH634oLxXRGY6d7AP+Q==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=10.13.0'}
 
   entities@6.0.1:
@@ -1322,12 +1532,17 @@ packages:
     resolution: {integrity: sha512-jEQoCwk8hyb2AZziIOLhDqpm5+2ww5uIE6lkO/6jcOCusfk6LhMHpXXfBLXTZ7Ydyt0j4VoUQv6uGNYbdW+kBA==}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   esbuild@0.27.3:
     resolution: {integrity: sha512-8VwMnyGCONIs6cWue2IdpHxHnAjzxnw2Zr7MkVxB2vjmQ2ivqGFb4LEG3SMnv0Gb2F/G/2yA8zUaiL1gywDCCg==}
 =======
   esbuild@0.27.2:
     resolution: {integrity: sha512-HyNQImnsOC7X9PMNaCIeAm4ISCQXs5a5YasTXVliKv4uuBo1dKrG0A+uQS8M5eXjVMnLg3WgXaKvprHlFJQffw==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  esbuild@0.27.2:
+    resolution: {integrity: sha512-HyNQImnsOC7X9PMNaCIeAm4ISCQXs5a5YasTXVliKv4uuBo1dKrG0A+uQS8M5eXjVMnLg3WgXaKvprHlFJQffw==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     hasBin: true
 
@@ -1383,12 +1598,17 @@ packages:
     engines: {node: '>=0.10'}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   esrap@2.2.3:
     resolution: {integrity: sha512-8fOS+GIGCQZl/ZIlhl59htOlms6U8NvX6ZYgYHpRU/b6tVSh3uHkOHZikl3D4cMbYM0JlpBe+p/BkZEi8J9XIQ==}
 =======
   esrap@2.2.2:
     resolution: {integrity: sha512-zA6497ha+qKvoWIK+WM9NAh5ni17sKZKhbS5B3PoYbBvaYHZWoS33zmFybmyqpn07RLUxSmn+RCls2/XF+d0oQ==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  esrap@2.2.2:
+    resolution: {integrity: sha512-zA6497ha+qKvoWIK+WM9NAh5ni17sKZKhbS5B3PoYbBvaYHZWoS33zmFybmyqpn07RLUxSmn+RCls2/XF+d0oQ==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
 
   esrecurse@4.3.0:
     resolution: {integrity: sha512-KmfKL3b6G+RXvP8N1vr3Tq1kL/oCFgn2NYXEtqP8/L3pKapUA4G8cFVaoF3SU323CD4XypR/ffioHmkti6/Tag==}
@@ -1477,10 +1697,14 @@ packages:
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
 <<<<<<< HEAD
+<<<<<<< HEAD
     deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 =======
     deprecated: Glob versions prior to v9 are no longer supported
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+    deprecated: Glob versions prior to v9 are no longer supported
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
 
   globals@13.24.0:
     resolution: {integrity: sha512-AhO5QUcj8llrbG09iWhPU2B204J1xnPeL8kQmVorSsy+Sjj1sk8gIyh6cUocGmH4L0UuhAJy+hJMRA4mgA4mFQ==}
@@ -1798,6 +2022,7 @@ packages:
     engines: {node: '>=12'}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   playwright-core@1.58.2:
     resolution: {integrity: sha512-yZkEtftgwS8CsfYo7nm0KE8jsvm6i/PTgVtB8DL726wNf6H2IMsDuxCpJj59KDaxCtSnrWan2AeDqM7JBaultg==}
     engines: {node: '>=18'}
@@ -1814,6 +2039,15 @@ packages:
   playwright@1.58.0:
     resolution: {integrity: sha512-2SVA0sbPktiIY/MCOPX8e86ehA/e+tDNq+e5Y8qjKYti2Z/JG7xnronT/TXTIkKbYGWlCbuucZ6dziEgkoEjQQ==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  playwright-core@1.58.1:
+    resolution: {integrity: sha512-bcWzOaTxcW+VOOGBCQgnaKToLJ65d6AqfLVKEWvexyS3AS6rbXl+xdpYRMGSRBClPvyj44njOWoxjNdL/H9UNg==}
+    engines: {node: '>=18'}
+    hasBin: true
+
+  playwright@1.58.1:
+    resolution: {integrity: sha512-+2uTZHxSCcxjvGc5C891LrS1/NlxglGxzrC4seZiVjcYVQfUa87wBL6rTDqzGjuoWNjnBzRqKmF6zRYGMvQUaQ==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
     hasBin: true
 
@@ -1956,12 +2190,17 @@ packages:
     hasBin: true
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   rollup@4.57.1:
     resolution: {integrity: sha512-oQL6lgK3e2QZeQ7gcgIkS2YZPg5slw37hYufJ3edKlfQSGGm8ICoxswK15ntSzF/a8+h7ekRy7k7oWc3BQ7y8A==}
 =======
   rollup@4.57.0:
     resolution: {integrity: sha512-e5lPJi/aui4TO1LpAXIRLySmwXSE8k3b9zoGfd42p67wzxog4WHjiZF3M2uheQih4DGyc25QEV4yRBbpueNiUA==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  rollup@4.57.1:
+    resolution: {integrity: sha512-oQL6lgK3e2QZeQ7gcgIkS2YZPg5slw37hYufJ3edKlfQSGGm8ICoxswK15ntSzF/a8+h7ekRy7k7oWc3BQ7y8A==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18.0.0', npm: '>=8.0.0'}
     hasBin: true
 
@@ -1977,6 +2216,7 @@ packages:
     engines: {node: '>=v12.22.7'}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   semver@7.7.4:
     resolution: {integrity: sha512-vFKC2IEtQnVhpT78h1Yp8wzwrf8CM+MzKMHGJZfBtzhZNycRFnXsHk6E5TxIkkMsgNS7mdX3AGB7x2QM2di4lA==}
     engines: {node: '>=10'}
@@ -1985,6 +2225,8 @@ packages:
   set-cookie-parser@3.0.1:
     resolution: {integrity: sha512-n7Z7dXZhJbwuAHhNzkTti6Aw9QDDjZtm3JTpTGATIdNzdQz5GuFs22w90BcvF4INfnrL5xrX3oGsuqO5Dx3A1Q==}
 =======
+=======
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
   semver@7.7.3:
     resolution: {integrity: sha512-SdsKMrI9TdgjdweUSR9MweHA4EJ8YxHn8DFaDisvhVlUOe4BF1tLD7GAj0lIqWVl+dPb/rExr0Btby5loQm20Q==}
     engines: {node: '>=10'}
@@ -1992,7 +2234,10 @@ packages:
 
   set-cookie-parser@2.7.2:
     resolution: {integrity: sha512-oeM1lpU/UvhTxw+g3cIfxXHyJRc/uidd3yK1P242gzHds0udQBYzs3y8j4gCCW+ZJ7ad0yctld8RYO+bdurlvw==}
+<<<<<<< HEAD
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
 
   shebang-command@2.0.0:
     resolution: {integrity: sha512-kHxr2zZpYtdmrN1qDjrrX/Z1rR1kG8Dx+gkpK1G4eXmvXswmcE1hTWBWYUzlraYw1/yZp6YuDY77YtvbN0dmDA==}
@@ -2040,12 +2285,17 @@ packages:
     engines: {node: '>=8'}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   svelte-check@4.3.6:
     resolution: {integrity: sha512-uBkz96ElE3G4pt9E1Tw0xvBfIUQkeH794kDQZdAUk795UVMr+NJZpuFSS62vcmO/DuSalK83LyOwhgWq8YGU1Q==}
 =======
   svelte-check@4.3.5:
     resolution: {integrity: sha512-e4VWZETyXaKGhpkxOXP+B/d0Fp/zKViZoJmneZWe/05Y2aqSKj3YN2nLfYPJBQ87WEiY4BQCQ9hWGu9mPT1a1Q==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  svelte-check@4.3.6:
+    resolution: {integrity: sha512-uBkz96ElE3G4pt9E1Tw0xvBfIUQkeH794kDQZdAUk795UVMr+NJZpuFSS62vcmO/DuSalK83LyOwhgWq8YGU1Q==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>= 18.0.0'}
     hasBin: true
     peerDependencies:
@@ -2062,12 +2312,17 @@ packages:
         optional: true
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   svelte@5.50.0:
     resolution: {integrity: sha512-FR9kTLmX5i0oyeQ5j/+w8DuagIkQ7MWMuPpPVioW2zx9Dw77q+1ufLzF1IqNtcTXPRnIIio4PlasliVn43OnbQ==}
 =======
   svelte@5.49.0:
     resolution: {integrity: sha512-Fn2mCc3XX0gnnbBYzWOTrZHi5WnF9KvqmB1+KGlUWoJkdioPmFYtg2ALBr6xl2dcnFTz3Vi7/mHpbKSVg/imVg==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  svelte@5.49.1:
+    resolution: {integrity: sha512-jj95WnbKbXsXXngYj28a4zx8jeZx50CN/J4r0CEeax2pbfdsETv/J1K8V9Hbu3DCXnpHz5qAikICuxEooi7eNQ==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     engines: {node: '>=18'}
 
   symbol-tree@3.2.4:
@@ -2100,6 +2355,7 @@ packages:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   tldts-core@7.0.23:
     resolution: {integrity: sha512-0g9vrtDQLrNIiCj22HSe9d4mLVG3g5ph5DZ8zCKBr4OtrspmNB6ss7hVyzArAeE88ceZocIEGkyW1Ime7fxPtQ==}
 
@@ -2119,6 +2375,13 @@ packages:
   tldts@7.0.19:
     resolution: {integrity: sha512-8PWx8tvC4jDB39BQw1m4x8y5MH1BcQ5xHeL2n7UVFulMPH/3Q0uiamahFJ3lXA0zO2SUyRXuVVbWSDmstlt9YA==}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  tldts-core@7.0.21:
+    resolution: {integrity: sha512-oVOMdHvgjqyzUZH1rOESgJP1uNe2bVrfK0jUHHmiM2rpEiRbf3j4BrsIc6JigJRbHGanQwuZv/R+LTcHsw+bLA==}
+
+  tldts@7.0.21:
+    resolution: {integrity: sha512-Plu6V8fF/XU6d2k8jPtlQf5F4Xx2hAin4r2C2ca7wR8NK5MbRTo9huLUWRe28f3Uk8bYZfg74tit/dSjc18xnw==}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     hasBin: true
 
   to-regex-range@5.0.1:
@@ -2320,6 +2583,7 @@ snapshots:
   '@alloc/quick-lru@5.2.0': {}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   '@asamuzakjp/css-color@4.1.2':
     dependencies:
       '@csstools/css-calc': 3.0.0(@csstools/css-parser-algorithms@4.0.0(@csstools/css-tokenizer@4.0.0))(@csstools/css-tokenizer@4.0.0)
@@ -2330,6 +2594,8 @@ snapshots:
 
   '@asamuzakjp/dom-selector@6.7.8':
 =======
+=======
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
   '@asamuzakjp/css-color@4.1.1':
     dependencies:
       '@csstools/css-calc': 2.1.4(@csstools/css-parser-algorithms@3.0.5(@csstools/css-tokenizer@3.0.4))(@csstools/css-tokenizer@3.0.4)
@@ -2338,8 +2604,12 @@ snapshots:
       '@csstools/css-tokenizer': 3.0.4
       lru-cache: 11.2.5
 
+<<<<<<< HEAD
   '@asamuzakjp/dom-selector@6.7.6':
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@asamuzakjp/dom-selector@6.7.7':
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     dependencies:
       '@asamuzakjp/nwsapi': 2.3.9
       bidi-js: 1.0.3
@@ -2350,10 +2620,14 @@ snapshots:
   '@asamuzakjp/nwsapi@2.3.9': {}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   '@babel/code-frame@7.29.0':
 =======
   '@babel/code-frame@7.28.6':
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@babel/code-frame@7.29.0':
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     dependencies:
       '@babel/helper-validator-identifier': 7.28.5
       js-tokens: 4.0.0
@@ -2363,6 +2637,7 @@ snapshots:
 
   '@babel/runtime@7.28.6': {}
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@csstools/color-helpers@6.0.1': {}
 
@@ -2463,6 +2738,8 @@ snapshots:
 
   '@esbuild/win32-x64@0.27.3':
 =======
+=======
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
   '@csstools/color-helpers@5.1.0': {}
 
   '@csstools/css-calc@2.1.4(@csstools/css-parser-algorithms@3.0.5(@csstools/css-tokenizer@3.0.4))(@csstools/css-tokenizer@3.0.4)':
@@ -2561,7 +2838,10 @@ snapshots:
     optional: true
 
   '@esbuild/win32-x64@0.27.2':
+<<<<<<< HEAD
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     optional: true
 
   '@eslint-community/eslint-utils@4.9.1(eslint@8.57.1)':
@@ -2589,6 +2869,7 @@ snapshots:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   '@exodus/bytes@1.12.0': {}
 =======
   '@exodus/bytes@1.11.0': {}
@@ -2596,6 +2877,9 @@ snapshots:
 =======
   '@exodus/bytes@1.10.0': {}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@exodus/bytes@1.10.0': {}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
 
   '@humanwhocodes/config-array@0.13.0':
     dependencies:
@@ -2641,9 +2925,15 @@ snapshots:
       fastq: 1.20.1
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   '@playwright/test@1.58.2':
     dependencies:
       playwright: 1.58.2
+=======
+  '@playwright/test@1.58.1':
+    dependencies:
+      playwright: 1.58.1
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
 
   '@polka/url@1.0.0-next.29': {}
 
@@ -2720,6 +3010,7 @@ snapshots:
     optional: true
 
   '@rollup/rollup-win32-x64-msvc@4.57.1':
+<<<<<<< HEAD
 =======
   '@playwright/test@1.58.0':
     dependencies:
@@ -2801,6 +3092,8 @@ snapshots:
 
   '@rollup/rollup-win32-x64-msvc@4.57.0':
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     optional: true
 
   '@standard-schema/spec@1.1.0': {}
@@ -2809,6 +3102,7 @@ snapshots:
     dependencies:
       acorn: 8.15.0
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@sveltejs/adapter-auto@7.0.0(@sveltejs/kit@2.50.2(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.50.0)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2)))(svelte@5.50.0)(typescript@5.9.3)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2)))':
     dependencies:
@@ -2830,6 +3124,17 @@ snapshots:
       '@sveltejs/acorn-typescript': 1.0.8(acorn@8.15.0)
       '@sveltejs/vite-plugin-svelte': 6.2.4(svelte@5.49.0)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2))
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@sveltejs/adapter-auto@7.0.0(@sveltejs/kit@2.50.1(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.49.1)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2)))(svelte@5.49.1)(typescript@5.9.3)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2)))':
+    dependencies:
+      '@sveltejs/kit': 2.50.1(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.49.1)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2)))(svelte@5.49.1)(typescript@5.9.3)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2))
+
+  '@sveltejs/kit@2.50.1(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.49.1)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2)))(svelte@5.49.1)(typescript@5.9.3)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2))':
+    dependencies:
+      '@standard-schema/spec': 1.1.0
+      '@sveltejs/acorn-typescript': 1.0.8(acorn@8.15.0)
+      '@sveltejs/vite-plugin-svelte': 6.2.4(svelte@5.49.1)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2))
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
       '@types/cookie': 0.6.0
       acorn: 8.15.0
       cookie: 0.6.0
@@ -2840,6 +3145,7 @@ snapshots:
       mrmime: 2.0.1
       sade: 1.8.1
 <<<<<<< HEAD
+<<<<<<< HEAD
       set-cookie-parser: 3.0.1
       sirv: 3.0.2
       svelte: 5.50.0
@@ -2848,10 +3154,16 @@ snapshots:
       sirv: 3.0.2
       svelte: 5.49.0
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+      set-cookie-parser: 2.7.2
+      sirv: 3.0.2
+      svelte: 5.49.1
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
       vite: 7.3.1(jiti@2.6.1)(lightningcss@1.30.2)
     optionalDependencies:
       typescript: 5.9.3
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@sveltejs/vite-plugin-svelte-inspector@5.0.2(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.50.0)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2)))(svelte@5.50.0)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2))':
     dependencies:
@@ -2883,6 +3195,22 @@ snapshots:
       obug: 2.1.1
       svelte: 5.49.0
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@sveltejs/vite-plugin-svelte-inspector@5.0.2(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.49.1)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2)))(svelte@5.49.1)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2))':
+    dependencies:
+      '@sveltejs/vite-plugin-svelte': 6.2.4(svelte@5.49.1)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2))
+      obug: 2.1.1
+      svelte: 5.49.1
+      vite: 7.3.1(jiti@2.6.1)(lightningcss@1.30.2)
+
+  '@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.49.1)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2))':
+    dependencies:
+      '@sveltejs/vite-plugin-svelte-inspector': 5.0.2(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.49.1)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2)))(svelte@5.49.1)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2))
+      deepmerge: 4.3.1
+      magic-string: 0.30.21
+      obug: 2.1.1
+      svelte: 5.49.1
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
       vite: 7.3.1(jiti@2.6.1)(lightningcss@1.30.2)
       vitefu: 1.1.1(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2))
 
@@ -2890,10 +3218,14 @@ snapshots:
     dependencies:
       '@jridgewell/remapping': 2.3.5
 <<<<<<< HEAD
+<<<<<<< HEAD
       enhanced-resolve: 5.19.0
 =======
       enhanced-resolve: 5.18.4
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+      enhanced-resolve: 5.18.4
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
       jiti: 2.6.1
       lightningcss: 1.30.2
       magic-string: 0.30.21
@@ -2969,10 +3301,14 @@ snapshots:
   '@testing-library/dom@10.4.1':
     dependencies:
 <<<<<<< HEAD
+<<<<<<< HEAD
       '@babel/code-frame': 7.29.0
 =======
       '@babel/code-frame': 7.28.6
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+      '@babel/code-frame': 7.29.0
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
       '@babel/runtime': 7.28.6
       '@types/aria-query': 5.0.4
       aria-query: 5.3.0
@@ -2990,6 +3326,7 @@ snapshots:
       picocolors: 1.1.1
       redent: 3.0.0
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   '@testing-library/svelte-core@1.0.0(svelte@5.50.0)':
     dependencies:
@@ -3011,6 +3348,17 @@ snapshots:
       '@testing-library/svelte-core': 1.0.0(svelte@5.49.0)
       svelte: 5.49.0
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  '@testing-library/svelte-core@1.0.0(svelte@5.49.1)':
+    dependencies:
+      svelte: 5.49.1
+
+  '@testing-library/svelte@5.3.1(svelte@5.49.1)(vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2))(vitest@4.0.18(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.30.2))':
+    dependencies:
+      '@testing-library/dom': 10.4.1
+      '@testing-library/svelte-core': 1.0.0(svelte@5.49.1)
+      svelte: 5.49.1
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     optionalDependencies:
       vite: 7.3.1(jiti@2.6.1)(lightningcss@1.30.2)
       vitest: 4.0.18(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.30.2)
@@ -3093,10 +3441,14 @@ snapshots:
       is-glob: 4.0.3
       minimatch: 9.0.5
 <<<<<<< HEAD
+<<<<<<< HEAD
       semver: 7.7.4
 =======
       semver: 7.7.3
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+      semver: 7.7.3
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
       ts-api-utils: 1.4.3(typescript@5.9.3)
     optionalDependencies:
       typescript: 5.9.3
@@ -3259,10 +3611,14 @@ snapshots:
   cssstyle@5.3.7:
     dependencies:
 <<<<<<< HEAD
+<<<<<<< HEAD
       '@asamuzakjp/css-color': 4.1.2
 =======
       '@asamuzakjp/css-color': 4.1.1
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+      '@asamuzakjp/css-color': 4.1.1
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
       '@csstools/css-syntax-patches-for-csstree': 1.0.26
       css-tree: 3.1.0
       lru-cache: 11.2.5
@@ -3301,10 +3657,14 @@ snapshots:
   dom-accessibility-api@0.6.3: {}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   enhanced-resolve@5.19.0:
 =======
   enhanced-resolve@5.18.4:
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  enhanced-resolve@5.18.4:
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     dependencies:
       graceful-fs: 4.2.11
       tapable: 2.3.0
@@ -3313,6 +3673,7 @@ snapshots:
 
   es-module-lexer@1.7.0: {}
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   esbuild@0.27.3:
     optionalDependencies:
@@ -3343,6 +3704,8 @@ snapshots:
       '@esbuild/win32-ia32': 0.27.3
       '@esbuild/win32-x64': 0.27.3
 =======
+=======
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
   esbuild@0.27.2:
     optionalDependencies:
       '@esbuild/aix-ppc64': 0.27.2
@@ -3371,7 +3734,10 @@ snapshots:
       '@esbuild/win32-arm64': 0.27.2
       '@esbuild/win32-ia32': 0.27.2
       '@esbuild/win32-x64': 0.27.2
+<<<<<<< HEAD
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
 
   escape-string-regexp@4.0.0: {}
 
@@ -3379,20 +3745,28 @@ snapshots:
     dependencies:
       eslint: 8.57.1
 <<<<<<< HEAD
+<<<<<<< HEAD
       semver: 7.7.4
 =======
       semver: 7.7.3
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+      semver: 7.7.3
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
 
   eslint-config-prettier@9.1.2(eslint@8.57.1):
     dependencies:
       eslint: 8.57.1
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   eslint-plugin-svelte@2.46.1(eslint@8.57.1)(svelte@5.50.0):
 =======
   eslint-plugin-svelte@2.46.1(eslint@8.57.1)(svelte@5.49.0):
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  eslint-plugin-svelte@2.46.1(eslint@8.57.1)(svelte@5.49.1):
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     dependencies:
       '@eslint-community/eslint-utils': 4.9.1(eslint@8.57.1)
       '@jridgewell/sourcemap-codec': 1.5.5
@@ -3405,6 +3779,7 @@ snapshots:
       postcss-safe-parser: 6.0.0(postcss@8.5.6)
       postcss-selector-parser: 6.1.2
 <<<<<<< HEAD
+<<<<<<< HEAD
       semver: 7.7.4
       svelte-eslint-parser: 0.43.0(svelte@5.50.0)
     optionalDependencies:
@@ -3415,6 +3790,12 @@ snapshots:
     optionalDependencies:
       svelte: 5.49.0
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+      semver: 7.7.3
+      svelte-eslint-parser: 0.43.0(svelte@5.49.1)
+    optionalDependencies:
+      svelte: 5.49.1
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     transitivePeerDependencies:
       - ts-node
 
@@ -3481,10 +3862,14 @@ snapshots:
       estraverse: 5.3.0
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   esrap@2.2.3:
 =======
   esrap@2.2.2:
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  esrap@2.2.2:
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
 
@@ -3593,6 +3978,7 @@ snapshots:
     dependencies:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       '@exodus/bytes': 1.12.0
 =======
       '@exodus/bytes': 1.11.0
@@ -3600,6 +3986,9 @@ snapshots:
 =======
       '@exodus/bytes': 1.10.0
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+      '@exodus/bytes': 1.10.0
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     transitivePeerDependencies:
       - '@noble/hashes'
 
@@ -3665,6 +4054,7 @@ snapshots:
     dependencies:
       '@acemir/cssom': 0.9.31
 <<<<<<< HEAD
+<<<<<<< HEAD
       '@asamuzakjp/dom-selector': 6.7.8
 <<<<<<< HEAD
       '@exodus/bytes': 1.12.0
@@ -3675,6 +4065,10 @@ snapshots:
       '@asamuzakjp/dom-selector': 6.7.6
       '@exodus/bytes': 1.10.0
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+      '@asamuzakjp/dom-selector': 6.7.7
+      '@exodus/bytes': 1.10.0
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
       cssstyle: 5.3.7
       data-urls: 6.0.1
       decimal.js: 10.6.0
@@ -3863,6 +4257,7 @@ snapshots:
   picomatch@4.0.3: {}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   playwright-core@1.58.2: {}
 
   playwright@1.58.2:
@@ -3875,6 +4270,13 @@ snapshots:
     dependencies:
       playwright-core: 1.58.0
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  playwright-core@1.58.1: {}
+
+  playwright@1.58.1:
+    dependencies:
+      playwright-core: 1.58.1
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     optionalDependencies:
       fsevents: 2.3.2
 
@@ -3907,6 +4309,7 @@ snapshots:
   prelude-ls@1.2.1: {}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   prettier-plugin-svelte@3.4.1(prettier@3.8.1)(svelte@5.50.0):
     dependencies:
       prettier: 3.8.1
@@ -3929,6 +4332,18 @@ snapshots:
     optionalDependencies:
       prettier-plugin-svelte: 3.4.1(prettier@3.8.1)(svelte@5.49.0)
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  prettier-plugin-svelte@3.4.1(prettier@3.8.1)(svelte@5.49.1):
+    dependencies:
+      prettier: 3.8.1
+      svelte: 5.49.1
+
+  prettier-plugin-tailwindcss@0.5.14(prettier-plugin-svelte@3.4.1(prettier@3.8.1)(svelte@5.49.1))(prettier@3.8.1):
+    dependencies:
+      prettier: 3.8.1
+    optionalDependencies:
+      prettier-plugin-svelte: 3.4.1(prettier@3.8.1)(svelte@5.49.1)
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
 
   prettier@3.8.1: {}
 
@@ -3962,6 +4377,9 @@ snapshots:
       glob: 7.2.3
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
   rollup@4.57.1:
     dependencies:
       '@types/estree': 1.0.8
@@ -3991,6 +4409,7 @@ snapshots:
       '@rollup/rollup-win32-ia32-msvc': 4.57.1
       '@rollup/rollup-win32-x64-gnu': 4.57.1
       '@rollup/rollup-win32-x64-msvc': 4.57.1
+<<<<<<< HEAD
 =======
   rollup@4.57.0:
     dependencies:
@@ -4022,6 +4441,8 @@ snapshots:
       '@rollup/rollup-win32-x64-gnu': 4.57.0
       '@rollup/rollup-win32-x64-msvc': 4.57.0
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
       fsevents: 2.3.3
 
   run-parallel@1.2.0:
@@ -4037,6 +4458,7 @@ snapshots:
       xmlchars: 2.2.0
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   semver@7.7.4: {}
 
   set-cookie-parser@3.0.1: {}
@@ -4045,6 +4467,11 @@ snapshots:
 
   set-cookie-parser@2.7.2: {}
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  semver@7.7.3: {}
+
+  set-cookie-parser@2.7.2: {}
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
 
   shebang-command@2.0.0:
     dependencies:
@@ -4083,10 +4510,14 @@ snapshots:
       has-flag: 4.0.0
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   svelte-check@4.3.6(picomatch@4.0.3)(svelte@5.50.0)(typescript@5.9.3):
 =======
   svelte-check@4.3.5(picomatch@4.0.3)(svelte@5.49.0)(typescript@5.9.3):
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  svelte-check@4.3.6(picomatch@4.0.3)(svelte@5.49.1)(typescript@5.9.3):
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
       chokidar: 4.0.3
@@ -4094,19 +4525,27 @@ snapshots:
       picocolors: 1.1.1
       sade: 1.8.1
 <<<<<<< HEAD
+<<<<<<< HEAD
       svelte: 5.50.0
 =======
       svelte: 5.49.0
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+      svelte: 5.49.1
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
       typescript: 5.9.3
     transitivePeerDependencies:
       - picomatch
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   svelte-eslint-parser@0.43.0(svelte@5.50.0):
 =======
   svelte-eslint-parser@0.43.0(svelte@5.49.0):
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  svelte-eslint-parser@0.43.0(svelte@5.49.1):
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     dependencies:
       eslint-scope: 7.2.2
       eslint-visitor-keys: 3.4.3
@@ -4114,6 +4553,7 @@ snapshots:
       postcss: 8.5.6
       postcss-scss: 4.0.9(postcss@8.5.6)
     optionalDependencies:
+<<<<<<< HEAD
 <<<<<<< HEAD
       svelte: 5.50.0
 
@@ -4123,6 +4563,11 @@ snapshots:
 
   svelte@5.49.0:
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+      svelte: 5.49.1
+
+  svelte@5.49.1:
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
     dependencies:
       '@jridgewell/remapping': 2.3.5
       '@jridgewell/sourcemap-codec': 1.5.5
@@ -4135,10 +4580,14 @@ snapshots:
       devalue: 5.6.2
       esm-env: 1.2.2
 <<<<<<< HEAD
+<<<<<<< HEAD
       esrap: 2.2.3
 =======
       esrap: 2.2.2
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+      esrap: 2.2.2
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
       is-reference: 3.0.3
       locate-character: 3.0.0
       magic-string: 0.30.21
@@ -4165,6 +4614,7 @@ snapshots:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   tldts-core@7.0.23: {}
 
   tldts@7.0.23:
@@ -4184,6 +4634,13 @@ snapshots:
     dependencies:
       tldts-core: 7.0.19
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+  tldts-core@7.0.21: {}
+
+  tldts@7.0.21:
+    dependencies:
+      tldts-core: 7.0.21
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
 
   to-regex-range@5.0.1:
     dependencies:
@@ -4195,6 +4652,7 @@ snapshots:
     dependencies:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       tldts: 7.0.23
 =======
       tldts: 7.0.22
@@ -4202,6 +4660,9 @@ snapshots:
 =======
       tldts: 7.0.19
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+      tldts: 7.0.21
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
 
   tr46@6.0.0:
     dependencies:
@@ -4228,18 +4689,25 @@ snapshots:
   vite@7.3.1(jiti@2.6.1)(lightningcss@1.30.2):
     dependencies:
 <<<<<<< HEAD
+<<<<<<< HEAD
       esbuild: 0.27.3
       fdir: 6.5.0(picomatch@4.0.3)
       picomatch: 4.0.3
       postcss: 8.5.6
       rollup: 4.57.1
 =======
+=======
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
       esbuild: 0.27.2
       fdir: 6.5.0(picomatch@4.0.3)
       picomatch: 4.0.3
       postcss: 8.5.6
+<<<<<<< HEAD
       rollup: 4.57.0
 >>>>>>> origin/feature/share-button-ux-16764305220176616901
+=======
+      rollup: 4.57.1
+>>>>>>> origin/bolt-lazy-load-leaflet-180235226573669409
       tinyglobby: 0.2.15
     optionalDependencies:
       fsevents: 2.3.3

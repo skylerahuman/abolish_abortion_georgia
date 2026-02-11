@@ -10,6 +10,7 @@
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 <<<<<<< HEAD
+<<<<<<< HEAD
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"test": "playwright test",
 		"test:unit": "vitest",
@@ -29,15 +30,21 @@
 		"prettier-plugin-svelte": "^3.1.2",
 		"prettier-plugin-tailwindcss": "^0.5.11",
 =======
+=======
+>>>>>>> Home-Page-Revisions
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^7.0.0",
+<<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
+=======
+>>>>>>> Home-Page-Revisions
 		"@sveltejs/kit": "^2.49.1",
 		"@sveltejs/vite-plugin-svelte": "^6.2.1",
 		"@tailwindcss/postcss": "^4.1.18",
 		"@tailwindcss/vite": "^4.1.18",
+<<<<<<< HEAD
 <<<<<<< HEAD
 		"@testing-library/dom": "^10.4.1",
 		"@testing-library/jest-dom": "^6.9.1",
@@ -45,21 +52,29 @@
 		"jsdom": "^27.4.0",
 =======
 >>>>>>> Content-Changes-By-Skyler
+=======
+>>>>>>> Home-Page-Revisions
 		"svelte": "^5.45.6",
 		"svelte-check": "^4.3.4",
 		"tailwindcss": "^4.1.18",
 		"typescript": "^5.9.3",
+<<<<<<< HEAD
 <<<<<<< HEAD
 		"vite": "^7.2.6",
 		"vitest": "^4.0.17"
 	},
 	"dependencies": {
 =======
+=======
+>>>>>>> Home-Page-Revisions
 		"vite": "^7.2.6"
 	},
 	"dependencies": {
 		"@turf/turf": "^7.3.1",
+<<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
+=======
+>>>>>>> Home-Page-Revisions
 		"@types/leaflet": "^1.9.21",
 		"leaflet": "^1.9.4"
 	}

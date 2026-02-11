@@ -1,5 +1,6 @@
 <script lang="ts">
 <<<<<<< HEAD
+<<<<<<< HEAD
 	import '../app.css';
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
@@ -13,6 +14,8 @@
 	let navbarVisible = $state(true);
 
 =======
+=======
+>>>>>>> Home-Page-Revisions
 import '../app.css';
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
@@ -22,11 +25,16 @@ import '../app.css';
 	
 	let { children } = $props();
 	let mobileMenuOpen = $state(false);
+<<<<<<< HEAD
 	let menuRef: HTMLElement = $state();
+=======
+	let menuRef: HTMLElement;
+>>>>>>> Home-Page-Revisions
 	let justOpened = false;
 	let navbarVisible = $state(true);
 	let lastScrollY = 0;
 	
+<<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
 	const navItems = [
 		{ href: `${base}/`, label: 'Home' },
@@ -41,6 +49,13 @@ import '../app.css';
 			navbarVisible = true;
 			justOpened = true;
 =======
+=======
+	const navItems = [
+		{ href: `${base}/`, label: 'Home' },
+		{ href: `${base}/timeline`, label: 'Timeline' },
+		{ href: `${base}/faqs`, label: 'FAQs' }
+	];
+>>>>>>> Home-Page-Revisions
 	
 	function toggleMenu() {
 		mobileMenuOpen = !mobileMenuOpen;
@@ -50,12 +65,16 @@ import '../app.css';
 			// Set flag to prevent immediate close from scroll
 			justOpened = true;
 			// Clear flag after 300ms
+<<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
+=======
+>>>>>>> Home-Page-Revisions
 			setTimeout(() => {
 				justOpened = false;
 			}, 300);
 		}
 	}
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 	onMount(() => {
@@ -64,15 +83,24 @@ import '../app.css';
 		const handleClickOutside = (event: MouseEvent) => {
 			const target = event.target as HTMLElement;
 =======
+=======
+>>>>>>> Home-Page-Revisions
 	
 	// Close menu on click outside and on scroll
 	onMount(() => {
 		let scrollTimeout: number;
+<<<<<<< HEAD
+=======
+		let openTimeout: number;
+>>>>>>> Home-Page-Revisions
 		
 		const handleClickOutside = (event: MouseEvent) => {
 			const target = event.target as HTMLElement;
 			// Don't close if clicking the menu button or inside menu
+<<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
+=======
+>>>>>>> Home-Page-Revisions
 			if (target.closest('button[aria-label="Toggle menu"]')) {
 				return;
 			}
@@ -81,6 +109,7 @@ import '../app.css';
 				justOpened = false;
 			}
 		};
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 		const handleScroll = () => {
@@ -117,6 +146,8 @@ import '../app.css';
 			clearTimeout(scrollTimeout);
 			if (rafId) cancelAnimationFrame(rafId);
 =======
+=======
+>>>>>>> Home-Page-Revisions
 		
 		// Handle scroll: close menu and hide/show navbar
 		const handleScroll = () => {
@@ -152,7 +183,11 @@ import '../app.css';
 		
 		return () => {
 			clearTimeout(scrollTimeout);
+<<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
+=======
+			clearTimeout(openTimeout);
+>>>>>>> Home-Page-Revisions
 			document.removeEventListener('mousedown', handleClickOutside);
 			window.removeEventListener('scroll', handleScroll);
 		};
@@ -164,6 +199,7 @@ import '../app.css';
 	<link rel="icon" href={logo} />
 </svelte:head>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <div class="min-h-screen flex flex-col bg-[#0C1626]">
 	<!-- Navigation -->
@@ -178,6 +214,12 @@ import '../app.css';
 				<div class="flex items-center relative z-50">
 =======
 <style>
+=======
+<style>
+	.logo-button img {
+		transition: filter 0.2s ease;
+	}
+>>>>>>> Home-Page-Revisions
 	.logo-button:hover img {
 		filter: brightness(0) saturate(100%) invert(28%) sepia(93%) saturate(3166%) hue-rotate(348deg) brightness(93%) contrast(95%);
 	}
@@ -188,9 +230,14 @@ import '../app.css';
 	<nav class="bg-transparent text-white sticky top-0 z-50 transition-all duration-300 {navbarVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}">
 		<div class="w-full px-4 sm:px-6 lg:px-8">
 			<div class="flex items-center justify-between h-16">
+<<<<<<< HEAD
 				<!-- Menu Button (Left) - Logo Icon - Desktop only -->
 				<div class="hidden md:flex items-center relative z-50">
 >>>>>>> Content-Changes-By-Skyler
+=======
+				<!-- Menu Button (Left) - Logo Icon -->
+				<div class="flex items-center relative z-50">
+>>>>>>> Home-Page-Revisions
 					<button
 						onclick={toggleMenu}
 						class="logo-button focus:outline-none cursor-pointer relative z-50"
@@ -199,6 +246,7 @@ import '../app.css';
 						<img src={logo} alt="Menu" class="h-10 w-auto" />
 					</button>
 				</div>
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 				<!-- Operation Gospel Text (Right) - Desktop only -->
@@ -252,18 +300,46 @@ import '../app.css';
 		<!-- Hamburger Menu -->
 		{#if mobileMenuOpen}
 			<div bind:this={menuRef} class="bg-panel backdrop-blur-md border-t border-white/10 p-6 relative z-50">
+=======
+				
+				<!-- Operation Gospel Text (Right) - Hidden on mobile -->
+				<div class="hidden md:flex items-center">
+					<a href="{base}/" class="text-xl md:text-2xl font-serif font-bold tracking-tight uppercase leading-none whitespace-nowrap">
+						Operation Gospel
+					</a>
+				</div>
+				
+				<!-- Logo Icon (Right) - Mobile only -->
+				<div class="md:hidden flex items-center">
+					<a href="{base}/">
+						<img src={logo} alt="Operation Gospel" class="h-10 w-auto" />
+					</a>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Hamburger Menu -->
+		{#if mobileMenuOpen}
+			<div bind:this={menuRef} class="bg-neutral-950 backdrop-blur-md border-t border-neutral-800 p-6 relative z-50">
+>>>>>>> Home-Page-Revisions
 				{#each navItems as item}
 					<a
 						href={item.href}
 						onclick={() => mobileMenuOpen = false}
+<<<<<<< HEAD
 						class="block w-full text-left py-4 px-6 hover:text-bone hover:bg-charcoal transition-all duration-200 rounded-sm text-base font-bold tracking-wide uppercase
 							{$page.url.pathname === item.href ? 'text-crimson bg-charcoal border-l-4 border-crimson' : 'text-bone/70 border-l-4 border-transparent'}"
 >>>>>>> Content-Changes-By-Skyler
+=======
+						class="block w-full text-left py-4 px-6 hover:text-white hover:bg-neutral-900 transition-all duration-200 rounded-sm text-base font-bold tracking-wide uppercase
+							{$page.url.pathname === item.href ? 'text-red-500 bg-neutral-900 border-l-4 border-red-600' : 'text-neutral-300 border-l-4 border-transparent'}"
+>>>>>>> Home-Page-Revisions
 					>
 						{item.label}
 					</a>
 				{/each}
 				<a
+<<<<<<< HEAD
 <<<<<<< HEAD
 					href="{base}/join"
 					onclick={() => (mobileMenuOpen = false)}
@@ -286,6 +362,13 @@ import '../app.css';
 				>
 					Pray. Fight. Give.
 >>>>>>> Content-Changes-By-Skyler
+=======
+					href="{base}/respond"
+					onclick={() => mobileMenuOpen = false}
+					class="block w-full text-left py-4 px-6 bg-red-900/20 text-red-500 hover:bg-red-900/40 hover:text-red-400 transition-all duration-200 rounded-sm text-base font-bold tracking-wide uppercase border-l-4 border-red-600 mt-3"
+				>
+					Pray. Fight. Give.
+>>>>>>> Home-Page-Revisions
 				</a>
 			</div>
 		{/if}
@@ -293,14 +376,19 @@ import '../app.css';
 
 	<!-- Main Content -->
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<main class="flex-1 flex flex-col">
 =======
 	<main class="flex-1">
 >>>>>>> Content-Changes-By-Skyler
+=======
+	<main class="flex-1">
+>>>>>>> Home-Page-Revisions
 		{@render children()}
 	</main>
 
 	<!-- Footer -->
+<<<<<<< HEAD
 <<<<<<< HEAD
 	<footer
 		class="bg-panel text-bone/60 border-t border-white/5 relative z-10 {$page.url.pathname ===
@@ -380,20 +468,38 @@ import '../app.css';
 			</p>
 				<div class="flex justify-center space-x-6 mb-6">
 				<a href="https://www.facebook.com/OperationGospel" target="_blank" rel="noopener noreferrer" class="text-bone hover:text-ember transition-colors">
+=======
+	<footer class="bg-neutral-950 text-neutral-400 py-12 border-t border-neutral-900">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+			<svg class="w-8 h-8 mx-auto mb-4 text-neutral-600" fill="currentColor" viewBox="0 0 20 20">
+				<path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z"/>
+			</svg>
+
+			<div class="flex justify-center space-x-6 mb-6">
+				<a href="https://www.facebook.com/OperationGospel" target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-white transition-colors">
+>>>>>>> Home-Page-Revisions
 					<span class="sr-only">Facebook</span>
 					<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
 						<path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
 					</svg>
 				</a>
+<<<<<<< HEAD
 				<a href="https://www.youtube.com/@OperationGospel" target="_blank" rel="noopener noreferrer" class="text-bone hover:text-ember transition-colors">
 					<span class="sr-only">YouTube</span>
 					<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
 						<path fill-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.254.418-4.814a2.503 2.503 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z" clip-rule="evenodd" />
 >>>>>>> Content-Changes-By-Skyler
+=======
+				<a href="https://www.youtube.com/@OperationGospel" target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-white transition-colors">
+					<span class="sr-only">YouTube</span>
+					<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+						<path fill-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.254.418-4.814a2.503 2.503 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z" clip-rule="evenodd" />
+>>>>>>> Home-Page-Revisions
 					</svg>
 				</a>
 			</div>
 
+<<<<<<< HEAD
 			<div class="text-[8px] text-bone/40 uppercase font-mono tracking-wide">
 <<<<<<< HEAD
 				<p class={$page.url.pathname === `${base}/support` ? 'mt-0' : 'mt-2'}>
@@ -402,10 +508,22 @@ import '../app.css';
 =======
 				<p class="mt-2">© 2026 Operation Gospel. All rights reserved.</p>
 >>>>>>> Content-Changes-By-Skyler
+=======
+            <p class="text-base font-serif font-bold uppercase tracking-widest text-red-600 mb-2">Scriptural authority. No compromise.</p>
+            <div class="text-2xl text-neutral-600 mb-6 font-serif">α &nbsp; ω</div>
+
+			<p class="mb-4 font-serif italic text-xl text-neutral-200">
+				"Open your mouth for the mute, for the rights of all who are destitute."
+			</p>
+			<p class="text-sm mb-8 text-neutral-500">Proverbs 31:8</p>
+			<div class="text-[8px] text-neutral-600 uppercase font-mono tracking-wide">
+				<p class="mt-2">© 2026 Operation Gospel. All rights reserved.</p>
+>>>>>>> Home-Page-Revisions
 			</div>
 		</div>
 	</footer>
 </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 <style>
@@ -416,3 +534,5 @@ import '../app.css';
 </style>
 =======
 >>>>>>> Content-Changes-By-Skyler
+=======
+>>>>>>> Home-Page-Revisions

@@ -1,5 +1,6 @@
 <svelte:head>
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<title>Operation Gospel - About Us</title>
 </svelte:head>
 
@@ -60,6 +61,8 @@
 	}
 </style>
 =======
+=======
+>>>>>>> Home-Page-Revisions
 	<title>Operation Gospel - About</title>
 </svelte:head>
 
@@ -97,4 +100,7 @@
 		</div>
 	</div>
 </div>
+<<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
+=======
+>>>>>>> Home-Page-Revisions

@@ -1,6 +1,7 @@
 <script lang="ts">
 	let openFaq = $state<number | null>(null);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	const faqs = [
 		{
@@ -111,6 +112,8 @@
 	];
 
 =======
+=======
+>>>>>>> Home-Page-Revisions
 	
 	const faqs = [
 		{
@@ -159,13 +162,17 @@
 		}
 	];
 	
+<<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
+=======
+>>>>>>> Home-Page-Revisions
 	function toggleFaq(index: number) {
 		openFaq = openFaq === index ? null : index;
 	}
 </script>
 
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<<<<<<< HEAD
 	<h1 class="text-4xl font-bold text-bone mb-4">Frequently Asked Questions</h1>
 	<p class="text-bone/70 mb-12 text-lg">
 		Find answers to common questions about equal protection and HB 441.
@@ -194,10 +201,30 @@
 =======
 						class="w-6 h-6 text-crimson flex-shrink-0 transform transition-transform duration-200 {openFaq === i ? 'rotate-180' : ''}"
 >>>>>>> Content-Changes-By-Skyler
+=======
+	<h1 class="text-4xl font-bold text-charcoal-900 dark:text-cream-100 mb-4">Frequently Asked Questions</h1>
+	<p class="text-charcoal-700 dark:text-cream-200 mb-12 text-lg">
+		Find answers to common questions about equal protection and HB 441.
+	</p>
+	
+	<div class="space-y-4">
+		{#each faqs as faq, i}
+			<div class="bg-cream-50 dark:bg-charcoal-800 rounded-lg shadow-md overflow-hidden">
+				<button
+					onclick={() => toggleFaq(i)}
+					class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-cream-100 dark:hover:bg-charcoal-750 transition-colors duration-200"
+				>
+					<span class="text-lg font-semibold text-charcoal-900 dark:text-cream-100 pr-4">
+						{faq.question}
+					</span>
+					<svg
+						class="w-6 h-6 text-crimson-700 dark:text-crimson-500 flex-shrink-0 transform transition-transform duration-200 {openFaq === i ? 'rotate-180' : ''}"
+>>>>>>> Home-Page-Revisions
 						fill="none"
 						stroke="currentColor"
 						viewBox="0 0 24 24"
 					>
+<<<<<<< HEAD
 <<<<<<< HEAD
 						<path
 							stroke-linecap="round"
@@ -237,14 +264,21 @@
 							</div>
 						{/if}
 =======
+=======
+>>>>>>> Home-Page-Revisions
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
 					</svg>
 				</button>
 				
 				{#if openFaq === i}
+<<<<<<< HEAD
 					<div class="px-6 pb-4 text-bone/70 whitespace-pre-line">
 						{faq.answer}
 >>>>>>> Content-Changes-By-Skyler
+=======
+					<div class="px-6 pb-4 text-charcoal-700 dark:text-cream-200 whitespace-pre-line">
+						{faq.answer}
+>>>>>>> Home-Page-Revisions
 					</div>
 				{/if}
 			</div>

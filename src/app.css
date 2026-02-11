@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 @import 'tailwindcss';
 
 @theme {
@@ -86,12 +87,15 @@
 		@apply bg-crimson text-white;
 	}
 =======
+=======
+>>>>>>> Home-Page-Revisions
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Libre Baskerville", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 
+<<<<<<< HEAD
   /* Core Palette */
   --color-charcoal: #080A0F;
   --color-panel: #151820;
@@ -101,6 +105,8 @@
   --color-gold: #CDA763;
   --color-teal: #2E6A73;
 
+=======
+>>>>>>> Home-Page-Revisions
   /* Slate palette (Cooler, more alive neutrals) */
   --color-neutral-50: #f8fafc;
   --color-neutral-100: #f1f5f9;
@@ -144,13 +150,22 @@
   --color-green-500: #22c55e;
   --color-green-600: #16a34a;
   
+<<<<<<< HEAD
   /* Deep Rich Black (mapped to Charcoal) */
   --color-black: #080A0F;
+=======
+  /* Deep Rich Black (Slate 950) */
+  --color-black: #020617;
+>>>>>>> Home-Page-Revisions
 }
 
 @layer base {
   body {
+<<<<<<< HEAD
     @apply bg-charcoal text-bone antialiased font-sans;
+=======
+    @apply bg-black text-gray-200 antialiased font-sans;
+>>>>>>> Home-Page-Revisions
   }
   
   /* Custom Scrollbar */
@@ -158,6 +173,7 @@
     width: 8px;
   }
   ::-webkit-scrollbar-track {
+<<<<<<< HEAD
     background: var(--color-charcoal);
   }
   ::-webkit-scrollbar-thumb {
@@ -166,11 +182,25 @@
   }
   ::-webkit-scrollbar-thumb:hover {
     background: var(--color-ember);
+=======
+    background: var(--color-neutral-950);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-neutral-700);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-neutral-600);
+>>>>>>> Home-Page-Revisions
   }
   
   /* Selection */
   ::selection {
+<<<<<<< HEAD
     @apply bg-crimson text-white;
+=======
+    @apply bg-red-900 text-white;
+>>>>>>> Home-Page-Revisions
   }
 }
 
@@ -191,7 +221,11 @@
     top: 0;
     bottom: 0;
     width: 3px;
+<<<<<<< HEAD
     background: var(--color-charcoal);
+=======
+    background: var(--color-black);
+>>>>>>> Home-Page-Revisions
   }
   
   /* Each timeline row */
@@ -221,7 +255,11 @@
     width: 16px;
     height: 16px;
     border-radius: 50%;
+<<<<<<< HEAD
     background: var(--color-bone);
+=======
+    background: #fff;
+>>>>>>> Home-Page-Revisions
     border: 3px solid currentColor;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   }
@@ -230,7 +268,11 @@
   .timeline-year {
     font-weight: 700;
     font-size: 0.9rem;
+<<<<<<< HEAD
     color: var(--color-gold);
+=======
+    color: #78716c;
+>>>>>>> Home-Page-Revisions
   }
   
   /* Right column: content */
@@ -251,14 +293,22 @@
     font-size: 0.75rem;
     text-transform: uppercase;
     font-weight: 600;
+<<<<<<< HEAD
     color: var(--color-gold);
+=======
+    color: #78716c;
+>>>>>>> Home-Page-Revisions
     letter-spacing: 0.05em;
   }
   
   .timeline-content p {
     margin: 0;
     line-height: 1.6;
+<<<<<<< HEAD
     color: var(--color-bone);
+=======
+    color: #57534e;
+>>>>>>> Home-Page-Revisions
   }
   
   /* Gospel Hope tag */
@@ -272,8 +322,13 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+<<<<<<< HEAD
     color: var(--color-crimson);
     background: var(--color-red-50);
+=======
+    color: #881337;
+    background: #fef2f2;
+>>>>>>> Home-Page-Revisions
     border-radius: 4px;
   }
   
@@ -306,5 +361,8 @@
       font-size: 1.1rem;
     }
   }
+<<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
+=======
+>>>>>>> Home-Page-Revisions
 }

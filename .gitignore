@@ -7,7 +7,10 @@ node_modules
 .wrangler
 /.svelte-kit
 /build
+<<<<<<< HEAD
 /docs
+=======
+>>>>>>> Home-Page-Revisions
 
 # OS
 .DS_Store
@@ -23,6 +26,7 @@ Thumbs.db
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 # Testing
 /test-results
@@ -32,3 +36,5 @@ vite.config.ts.timestamp-*
 junit.xml
 =======
 >>>>>>> Content-Changes-By-Skyler
+=======
+>>>>>>> Home-Page-Revisions

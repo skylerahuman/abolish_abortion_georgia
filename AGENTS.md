@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # AGENTS.md - AI Agent Master Instructions
 
 This is the **primary context file** for AI agents working on the Abolition Georgia project. Read this file first, then consult specialized instruction files as needed.
@@ -323,6 +324,8 @@ This file provides the complete context needed to work on Abolition Georgia. For
 
 The project structure is settled. Focus on _execution_ of features within this framework, following TDD, accessibility best practices, and the Abolitionist mission.
 =======
+=======
+>>>>>>> Home-Page-Revisions
 # Project: Abolish Abortion Georgia
 
 ## Project Overview
@@ -373,4 +376,7 @@ npm run check
 - **Data**: The application relies on several JSON files located in the `static/data` directory. These files contain information about elected representatives, points of contact, and GeoJSON data for electoral districts.
 - **Mapping**: The interactive map is built using Leaflet.js. The `form` page contains the logic for geocoding, district lookup, and map rendering.
 - **State Management**: The project uses Svelte's built-in state management capabilities (`$state`).
+<<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
+=======
+>>>>>>> Home-Page-Revisions

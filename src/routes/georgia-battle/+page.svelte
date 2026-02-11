@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
+<<<<<<< HEAD
 	import type { TimelineEvent } from '$lib/types';
 	import timelineData from '$lib/data/timeline.json';
 	
@@ -56,6 +57,51 @@
 		document.querySelectorAll('.timeline-card').forEach(card => {
 			observer.observe(card);
 		});
+=======
+	import { fade, fly } from 'svelte/transition';
+	
+	interface TimelineEvent {
+		id: string;
+		date: string;
+		title: string;
+		description: string;
+		type: 'tragedy' | 'hope' | 'mixed';
+		link?: string;
+		linkText?: string;
+	}
+	
+	let timeline = $state<TimelineEvent[]>([]);
+	let visibleCards = $state<Set<string>>(new Set());
+	
+	onMount(() => {
+		let observer: IntersectionObserver;
+
+		const init = async () => {
+			const response = await fetch(`${base}/data/timeline.json`);
+			timeline = await response.json();
+
+			// Setup intersection observer for staggered animations
+			observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting) {
+							const id = entry.target.getAttribute('data-id');
+							if (id) {
+								visibleCards = new Set([...visibleCards, id]);
+							}
+						}
+					});
+				},
+				{ threshold: 0.2 }
+			);
+
+			document.querySelectorAll('.timeline-card').forEach(card => {
+				observer.observe(card);
+			});
+		};
+		
+		init();
+>>>>>>> Content-Changes-By-Skyler
 		
 		return () => {
 			if (observer) observer.disconnect();
@@ -97,6 +143,7 @@
 				We have moved beyond the "Heartbeat Bills" that merely set a timing threshold for death. The Georgia Equal Protection Act (HB 441) represents the standard of justice required by God and the Constitution.
 			</p>
 			<button
+<<<<<<< HEAD
 				onclick={handleShare}
 				class="absolute top-4 right-4 text-bone/50 hover:text-bone transition-colors text-sm flex items-center gap-2"
 				aria-label={copied ? "Link copied" : "Share this page"}
@@ -107,6 +154,13 @@
 				{:else}
 					Share →
 				{/if}
+=======
+				onclick={ () => { navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!'); } }
+				class="absolute top-4 right-4 text-bone/50 hover:text-bone transition-colors text-sm"
+				aria-label="Share this page"
+			>
+				Share →
+>>>>>>> Content-Changes-By-Skyler
 			</button>
 		</div>
 
@@ -126,7 +180,11 @@
 					data-id={event.id}
 					style="animation-delay: {index * 100}ms"
 				>
+<<<<<<< HEAD
 					{#if visibleCards.has(event.id)}
+=======
+					{#if visibleCards.has(event.id) || true}
+>>>>>>> Content-Changes-By-Skyler
 						<div class="opacity-0 animate-fade-in-left" style="animation-delay: {index * 150}ms">
 							<div class="flex items-baseline gap-3 mb-2">
 								<span class="text-sm font-mono font-bold text-bone/50 tracking-wider">
@@ -234,16 +292,27 @@
 		<!-- CTAs -->
 		<div class="flex flex-col md:flex-row gap-4 items-center justify-center">
 			<a 
+<<<<<<< HEAD
 				href="{base}/join"
+=======
+				href="{base}/near-me"
+>>>>>>> Content-Changes-By-Skyler
 				class="w-full md:w-auto bg-crimson hover:bg-ember text-white font-bold text-lg px-10 py-4 rounded-sm uppercase tracking-wide transition-all duration-300 transform hover:scale-105 shadow-lg text-center"
 			>
 				What can I do in my district?
 			</a>
 			<a 
+<<<<<<< HEAD
 				href="{base}/support"
 				class="w-full md:w-auto bg-transparent border border-white/20 hover:border-white/40 text-bone hover:text-white font-semibold px-10 py-4 rounded-sm uppercase tracking-wide transition-all duration-300 text-center"
 			>
 				Support
+=======
+				href="{base}/respond"
+				class="w-full md:w-auto bg-transparent border border-white/20 hover:border-white/40 text-bone hover:text-white font-semibold px-10 py-4 rounded-sm uppercase tracking-wide transition-all duration-300 text-center"
+			>
+				Pray. Fight. Give.
+>>>>>>> Content-Changes-By-Skyler
 			</a>
 		</div>
 	</div>

@@ -5,7 +5,10 @@ This project is dedicated to the complete abolition of abortion in the state of 
 ## Mission & Goals
 
 Our core objective is **Equal Protection**:
+<<<<<<< HEAD
 
+=======
+>>>>>>> Content-Changes-By-Skyler
 1.  **Total Abolition:** We advocate for the complete removal of all laws allowing for the destruction of pre-born human life.
 2.  **Equal Justice:** We demand that the laws of Georgia treat the intentional killing of a pre-born child with the same severity as the killing of a born person.
 3.  **No Exceptions:** We stand against any exceptions based on age, method of conception, or developmental stage.
@@ -14,14 +17,19 @@ Our core objective is **Equal Protection**:
 ## Features
 
 ### Local Church Network (Near Me)
+<<<<<<< HEAD
 
 Interactive map-based tool that helps Georgia residents:
 
+=======
+Interactive map-based tool that helps Georgia residents:
+>>>>>>> Content-Changes-By-Skyler
 - Find their GA House District by ZIP code.
 - Connect with abolitionist churches.
 - View random markers indicating network presence (simulated).
 - Powered by Leaflet.js and a ZIP-to-District mapping.
 
+<<<<<<< HEAD
 ### Abolition Basics & FAQs
 
 Educational resources explaining the difference between Pro-Life regulation and Abolitionist immediatism.
@@ -30,6 +38,19 @@ Educational resources explaining the difference between Pro-Life regulation and 
 
 Action center for:
 
+=======
+### The Battleground (Georgia Battle)
+A timeline and status tracker for the Georgia Equal Protection Act (HB 441).
+- Visual timeline of events.
+- Comparison between regulation and abolition.
+- Current bill status.
+
+### Abolition Basics & FAQs
+Educational resources explaining the difference between Pro-Life regulation and Abolitionist immediatism.
+
+### Respond
+Action center for:
+>>>>>>> Content-Changes-By-Skyler
 - Prayer requests.
 - Learning about HB 441.
 - Donating to the cause.
@@ -50,6 +71,7 @@ npm install
 npm run dev
 ```
 
+<<<<<<< HEAD
 ## Testing
 
 We use a dual-layer testing strategy to ensure code quality and stability.
@@ -75,6 +97,8 @@ Tests are automatically run on every Pull Request via GitHub Actions.
 - **Unit Tests:** Verified via Vitest.
 - **E2E Tests:** Verified via Playwright (reports uploaded as artifacts).
 
+=======
+>>>>>>> Content-Changes-By-Skyler
 ## Building
 
 To create a production version:
@@ -88,6 +112,10 @@ npm run build
 The application uses data files in `static/data/`:
 
 - `zip_to_district.csv` - Mapping of GA ZIP codes to State House Districts.
+<<<<<<< HEAD
+=======
+- `timeline.json` - Events for the Georgia Battle timeline.
+>>>>>>> Content-Changes-By-Skyler
 
 ## Project Structure
 
@@ -98,6 +126,10 @@ abolition_georgia/
 │   │   └── utils.ts           # Utility functions
 │   ├── routes/
 │   │   ├── near-me/           # Local Church Network & District Finder
+<<<<<<< HEAD
+=======
+│   │   ├── georgia-battle/    # HB 441 Timeline & Status
+>>>>>>> Content-Changes-By-Skyler
 │   │   ├── respond/           # Action center
 │   │   ├── abolition-basics/  # Educational content
 │   │   └── ...

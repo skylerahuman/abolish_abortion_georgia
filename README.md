@@ -1,14 +1,19 @@
 # Abolish Abortion Georgia
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 This project is dedicated to the complete abolition of abortion in the state of Georgia. Our mission is to establish equal protection for all human beings, from the moment of fertilization to natural death, without exception or compromise.
 =======
 This project is dedicated to the complete abolition of abortion in the state of Georgia. Our mission is to establish equal protection for all human beings, from the moment of fertilization to natural death, without exception or compromise. We seek to mobilize Georgians to demand the immediate criminalization of abortion as murder, ensuring that pre-born children receive the same legal standing and protection as born persons.
 >>>>>>> Home-Page-Revisions
+=======
+This project is dedicated to the complete abolition of abortion in the state of Georgia. Our mission is to establish equal protection for all human beings, from the moment of fertilization to natural death, without exception or compromise. We seek to mobilize Georgians to demand the immediate criminalization of abortion as murder, ensuring that pre-born children receive the same legal standing and protection as born persons.
+>>>>>>> Home-Page-Tweaks
 
 ## Mission & Goals
 
 Our core objective is **Equal Protection**:
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -60,6 +65,8 @@ Action center for:
 - Learning about HB 441.
 - Donating to the cause.
 =======
+=======
+>>>>>>> Home-Page-Tweaks
 1.  **Total Abolition:** We advocate for the complete removal of all laws allowing for the destruction of pre-born human life. We reject incremental regulations that regulate rather than abolish the evil of abortion.
 2.  **Equal Justice:** We demand that the laws of Georgia treat the intentional killing of a pre-born child with the same severity as the killing of a born person.
 3.  **No Exceptions:** We stand against any exceptions based on age, method of conception, or developmental stage. Human rights are inherent to our humanity, not our circumstances.
@@ -84,7 +91,10 @@ A chronological overview of the fight for equal protection and the history of ab
 
 ### FAQs
 Answers to common questions about abolitionism, equal protection, and why we must move beyond pro-life regulation to total abolition.
+<<<<<<< HEAD
 >>>>>>> Home-Page-Revisions
+=======
+>>>>>>> Home-Page-Tweaks
 
 ## Tech Stack
 
@@ -92,6 +102,7 @@ Answers to common questions about abolitionism, equal protection, and why we mus
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS 4
 - **Mapping**: Leaflet.js with OpenStreetMap tiles
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 ## Developing
@@ -135,6 +146,8 @@ Tests are automatically run on every Pull Request via GitHub Actions.
 
 To create a production version:
 =======
+=======
+>>>>>>> Home-Page-Tweaks
 - **Geospatial**: Turf.js
 - **Geocoding**: Nominatim (OpenStreetMap)
 
@@ -152,12 +165,16 @@ npm run dev -- --open
 ## Building
 
 To create a production version of your app:
+<<<<<<< HEAD
 >>>>>>> Home-Page-Revisions
+=======
+>>>>>>> Home-Page-Tweaks
 
 ```sh
 npm run build
 ```
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 ## Data Files
 
@@ -169,6 +186,8 @@ The application uses data files in `static/data/`:
 - `timeline.json` - Events for the Georgia Battle timeline.
 >>>>>>> Content-Changes-By-Skyler
 =======
+=======
+>>>>>>> Home-Page-Tweaks
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
@@ -187,13 +206,17 @@ The "Who Do I Call" feature uses JSON data files in `static/data/`:
 ## Testing
 
 See `TEST_ADDRESSES.md` for test ZIP codes and addresses to verify the "Who Do I Call" functionality.
+<<<<<<< HEAD
 >>>>>>> Home-Page-Revisions
+=======
+>>>>>>> Home-Page-Tweaks
 
 ## Project Structure
 
 ```
 abolition_georgia/
 ├── src/
+<<<<<<< HEAD
 <<<<<<< HEAD
 │   ├── lib/
 │   │   └── utils.ts           # Utility functions
@@ -212,12 +235,19 @@ abolition_georgia/
 =======
 │   ├── routes/
 │   │   ├── form/              # Interactive representative finder
+=======
+│   ├── routes/
+│   │   ├── who-do-i-call/     # Interactive representative finder
+>>>>>>> Home-Page-Tweaks
 │   │   ├── timeline/           # Abolitionist timeline
 │   │   ├── faqs/              # FAQs on Abolitionism
 │   │   └── +layout.svelte     # Main layout with navigation
 │   └── app.html               # HTML template
 ├── static/
 │   └── data/                  # JSON data files for districts and representatives
+<<<<<<< HEAD
 >>>>>>> Home-Page-Revisions
+=======
+>>>>>>> Home-Page-Tweaks
 └── README.md
 ```

@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
@@ -1015,3 +1016,182 @@
 =======
 </div>
 >>>>>>> Home-Page-Revisions
+=======
+<script lang="ts">
+	import { base } from '$app/paths';
+	import TwoColumnLayout from '$lib/components/TwoColumnLayout.svelte';
+	import DataCard from '$lib/components/DataCard.svelte';
+</script>
+
+<svelte:head>
+	<title>The Charge | Abolition Georgia</title>
+</svelte:head>
+
+<div class="bg-black text-white min-h-screen font-sans selection:bg-red-900 selection:text-white">
+	
+	<!-- Hero Section -->
+	<section class="relative min-h-[70vh] flex flex-col justify-center items-center px-4 overflow-hidden">
+		<!-- Background Image: Inverted Skyline -->
+		<div class="fixed inset-0 z-0 opacity-20 pointer-events-none select-none">
+			<img 
+				src="{base}/images/atlanta_skyline.png" 
+				alt="Atlanta Skyline" 
+				class="w-full h-full object-cover grayscale invert"
+			/>
+			<div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
+		</div>
+
+		<div class="relative z-10 max-w-6xl mx-auto w-full py-20">
+			<!-- Scripture Block: Left Justified, Bright White -->
+			<div class="mb-16">
+				<div class="text-red-600 font-serif font-bold text-2xl md:text-5xl leading-tight text-left border-l-8 border-red-900 pl-8 py-4 mb-6">
+					<p class="text-white">"Open thy mouth for the dumb in the cause of all such as are appointed to destruction."</p>
+					<p class="mt-4 text-white/90">"Open thy mouth, judge righteously, and plead the cause of the poor and needy."</p>
+					<span class="block mt-6 text-red-600 text-xl font-sans uppercase tracking-widest">— Proverbs 31:8-9</span>
+				</div>
+			</div>
+
+			<TwoColumnLayout>
+				{#snippet left()}
+					<div class="space-y-12">
+						<div class="prose prose-invert prose-xl max-w-none">
+							<h1 class="text-3xl md:text-6xl font-serif font-black text-white leading-tight uppercase tracking-tighter">
+								State of Abortion in Georgia: <span class="text-red-600">2024–2025</span>
+							</h1>
+							<p class="text-2xl font-serif italic text-white/70 border-b border-white/10 pb-8">
+								The Inadequacy of Regulatory Restriction
+							</p>
+						</div>
+
+						<div class="prose prose-invert prose-lg max-w-none text-white/80 leading-relaxed space-y-6">
+							<p>
+								Georgia's HB481 heartbeat bill purports to restrict abortion to the first six weeks of pregnancy. Despite full implementation, comprehensive 2024 data demonstrates that <strong class="text-white">this law has failed</strong> to meaningfully eliminate abortion access in our state.
+							</p>
+							<p>
+								Instead, the regulatory framework has merely displaced abortion access to alternative methods and out-of-state providers. The evidence is clear: <span class="text-red-600 font-bold">Abortion regulation without complete legal abolition is fundamentally ineffective.</span>
+							</p>
+						</div>
+
+						<section class="space-y-8">
+							<h2 class="text-2xl font-serif font-bold text-white uppercase tracking-wide border-l-4 border-red-600 pl-4">The Failure of the Heartbeat Bill</h2>
+							<div class="prose prose-invert prose-lg max-w-none text-white/70 space-y-4">
+								<p>
+									Pre-implementation projections suggested the heartbeat law would render <strong>88.4%</strong> of abortions illegal. The 2024 reality? Reported in-state abortions decreased by a mere <strong>9%</strong>. 
+								</p>
+								<p>
+									Even with the law in effect, <strong>98% of reported abortions</strong> occurred at or before the six-week threshold, and abortions at prohibited gestational ages (7-23 weeks) actually <span class="text-white">increased</span> compared to 2023.
+								</p>
+							</div>
+						</section>
+
+						<section class="space-y-8">
+							<h2 class="text-2xl font-serif font-bold text-white uppercase tracking-wide border-l-4 border-red-600 pl-4">The Telehealth Workaround</h2>
+							<div class="prose prose-invert prose-lg max-w-none text-white/70 space-y-4">
+								<p>
+									The state's reporting captures only clinical abortions, masking a massive surge in mail-order chemical abortions. While the state reported 26,034 abortions, independent estimates place the true total at nearly <strong>36,000</strong>.
+								</p>
+								<p>
+									This 10,000-abortion discrepancy represents the <strong class="text-white">Telehealth Loophole</strong>—a blind spot that regulatory frameworks are structurally incapable of addressing.
+								</p>
+							</div>
+						</section>
+
+						<section class="space-y-8">
+							<h2 class="text-2xl font-serif font-bold text-white uppercase tracking-wide border-l-4 border-red-600 pl-4">Displacement, Not Reduction</h2>
+							<div class="prose prose-invert prose-lg max-w-none text-white/70 space-y-4">
+								<p>
+									Rather than eliminating abortion, Georgia has exported it. In 2024, an estimated <strong>10,750 Georgia residents</strong> traveled out-of-state to obtain abortions, primarily to North Carolina and Virginia.
+								</p>
+								<p>
+									The law does not prevent the murder of children; it merely redistributes where those murders occur based on geography and economic resources.
+								</p>
+							</div>
+						</section>
+
+						<div class="pt-12 border-t border-white/10">
+							<h3 class="text-3xl font-serif font-bold text-white mb-6">The Necessity of Total Abolition</h3>
+							<p class="text-xl text-white/60 leading-relaxed mb-8">
+								The 2024 data provides empirical validation: regulation achieves neither the stated legal goal nor the practical outcome of reduction. Only complete legal prohibition—the standard of <strong>HB 441</strong>—can establish justice for the pre-born.
+							</p>
+							<div class="flex flex-col items-center gap-6 md:flex-row md:items-start" data-testid="cta-container">
+								<a href="{base}/the-standard" class="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 uppercase tracking-widest text-sm transition-colors text-center w-full md:w-auto">
+									The Standard of 2026
+								</a>
+								<a href="{base}/get-involved" class="border border-white/20 hover:border-red-600 text-white font-bold py-4 px-8 uppercase tracking-widest text-sm transition-colors text-center w-full md:w-auto">
+									Who Do I Call?
+								</a>
+							</div>
+						</div>
+					</div>
+				{/snippet}
+
+				{#snippet right()}
+					<DataCard 
+						class="min-w-[85vw] md:min-w-0 snap-center"
+						title="The Reality Gap" 
+						value="~36,000" 
+						description="Estimated total abortions in GA (2024), 27% higher than state-reported figures due to telehealth." 
+					/>
+					<DataCard 
+						class="min-w-[85vw] md:min-w-0 snap-center"
+						title="Chemical Warfare" 
+						value="83%" 
+						description="Of reported abortions were drug-induced chemical abortions, easily circumventing gestational bans via mail." 
+					/>
+					<DataCard 
+						class="min-w-[85vw] md:min-w-0 snap-center"
+						title="Regulatory Failure" 
+						value="9%" 
+						description="Actual reduction in reported resident abortions, despite projections of 88% reduction under HB481." 
+					/>
+					<DataCard 
+						class="min-w-[85vw] md:min-w-0 snap-center"
+						title="Exported Slaughter" 
+						value="10,750" 
+						description="Georgia residents who traveled out-of-state for abortion in 2024." 
+					/>
+					<DataCard 
+						class="min-w-[85vw] md:min-w-0 snap-center"
+						title="Informed Consent Gap" 
+						value="55%" 
+						description="Of women did NOT receive state-mandated medical risk info before their abortion." 
+					/>
+					<DataCard 
+						class="min-w-[85vw] md:min-w-0 snap-center"
+						title="Racial Injustice" 
+						value="6x" 
+						description="The Black abortion rate remains nearly 6x higher than the white rate under current regulations." 
+					/>
+				{/snippet}
+			</TwoColumnLayout>
+		</div>
+	</section>
+
+	<!-- Footer / Additional Links -->
+	<section class="relative py-24 px-4 bg-neutral-950 border-t border-white/10 z-10">
+		<div class="max-w-4xl mx-auto grid gap-12 md:grid-cols-3">
+			<div class="space-y-4">
+				<h4 class="text-red-600 font-bold uppercase tracking-widest text-xs">Mobilize</h4>
+				<ul class="space-y-2 text-sm text-white/40">
+					<li><a href="{base}/get-involved" class="hover:text-white transition-colors">Find Your Representative</a></li>
+					<li><a href="{base}/get-involved" class="hover:text-white transition-colors">Take the Charge to the Capitol</a></li>
+				</ul>
+			</div>
+			<div class="space-y-4">
+				<h4 class="text-red-600 font-bold uppercase tracking-widest text-xs">Educate</h4>
+				<ul class="space-y-2 text-sm text-white/40">
+					<li><a href="{base}/the-standard" class="hover:text-white transition-colors">Abolition vs. Pro-Life</a></li>
+					<li><a href="{base}/faqs" class="hover:text-white transition-colors">Frequently Asked Questions</a></li>
+				</ul>
+			</div>
+			<div class="space-y-4">
+				<h4 class="text-red-600 font-bold uppercase tracking-widest text-xs">Connect</h4>
+				<ul class="space-y-2 text-sm text-white/40">
+					<li><a href="{base}/the-gathering" class="hover:text-white transition-colors">Abolitionist Churches</a></li>
+					<li><a href="{base}/timeline" class="hover:text-white transition-colors">Legislative Timeline</a></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+</div>
+>>>>>>> Home-Page-Tweaks

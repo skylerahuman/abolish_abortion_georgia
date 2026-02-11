@@ -1,6 +1,7 @@
 <script lang="ts">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	import '../app.css';
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
@@ -322,10 +323,88 @@ import '../app.css';
 		{#if mobileMenuOpen}
 			<div bind:this={menuRef} class="bg-neutral-950 backdrop-blur-md border-t border-neutral-800 p-6 relative z-50">
 >>>>>>> Home-Page-Revisions
+=======
+	import '../app.css';
+	import { page } from '$app/stores';
+	import { base } from '$app/paths';
+	import favicon from '$lib/assets/favicon.svg';
+	
+	let { children } = $props();
+	let mobileMenuOpen = $state(false);
+	
+	const navItems = [
+		{ href: `${base}/`, label: 'Home' },
+		{ href: `${base}/timeline`, label: 'Timeline' },
+		{ href: `${base}/get-involved`, label: 'Get Involved' },
+		{ href: `${base}/faqs`, label: 'FAQs' }
+	];
+</script>
+
+<svelte:head>
+	<link rel="icon" href={favicon} />
+</svelte:head>
+
+<div class="min-h-screen flex flex-col bg-black text-white">
+	<!-- Navigation -->
+	<nav class="bg-black text-white shadow-lg sticky top-0 z-50 border-b border-neutral-900">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="flex justify-between items-center h-16">
+				<!-- Logo/Brand -->
+				<div class="flex items-center space-x-3">
+					<div class="text-2xl text-red-600 font-bold">
+						<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+							<path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1.323l3.954 1.582 1.599-.8a1 1 0 01.894 1.79l-1.233.616 1.738 5.42a1 1 0 01-.285 1.05A3.989 3.989 0 0115 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.738-5.42-1.233-.617a1 1 0 01.894-1.788l1.599.799L11 4.323V3a1 1 0 011-1zm-5 8.274l-.818 2.552c-.25.78-.03 1.661.58 2.173.609.512 1.456.56 2.116.116l.906-.605-.9-2.814a1 1 0 01-.084-.374 1.088 1.088 0 01.084-.374l.9-2.814-.906-.605c-.66-.444-1.507-.396-2.116.116a2.267 2.267 0 00-.58 2.173z" clip-rule="evenodd" />
+						</svg>
+					</div>
+					<div>
+						<a href="{base}/" class="text-xl md:text-2xl font-black tracking-tighter uppercase leading-none">
+							Equal Protection
+						</a>
+						<p class="text-[10px] text-neutral-500 tracking-widest uppercase font-bold">The Road to Abolition</p>
+					</div>
+				</div>
+				
+				<!-- Desktop Navigation -->
+				<div class="hidden md:flex md:items-center md:space-x-1">
+					{#each navItems as item}
+						<a 
+							href={item.href}
+							class="hover:text-neutral-300 hover:bg-neutral-900 transition-all duration-200 px-3 py-3 text-[10px] font-bold tracking-wider uppercase rounded-sm
+								{$page.url.pathname === item.href ? 'text-red-500 bg-neutral-900 border-l-2 border-red-600' : 'text-neutral-500 border-l-2 border-transparent'}"
+						>
+							{item.label}
+						</a>
+					{/each}
+				</div>
+				
+				<!-- Mobile Menu Button -->
+				<div class="flex items-center">
+					<button
+						onclick={() => mobileMenuOpen = !mobileMenuOpen}
+						class="md:hidden text-red-500 focus:outline-none"
+						aria-label="Toggle menu"
+					>
+						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							{#if mobileMenuOpen}
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+							{:else}
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+							{/if}
+						</svg>
+					</button>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Mobile Navigation -->
+		{#if mobileMenuOpen}
+			<div class="md:hidden bg-neutral-950 backdrop-blur-md border-t border-neutral-800 p-4">
+>>>>>>> Home-Page-Tweaks
 				{#each navItems as item}
 					<a
 						href={item.href}
 						onclick={() => mobileMenuOpen = false}
+<<<<<<< HEAD
 <<<<<<< HEAD
 						class="block w-full text-left py-4 px-6 hover:text-bone hover:bg-charcoal transition-all duration-200 rounded-sm text-base font-bold tracking-wide uppercase
 							{$page.url.pathname === item.href ? 'text-crimson bg-charcoal border-l-4 border-crimson' : 'text-bone/70 border-l-4 border-transparent'}"
@@ -334,10 +413,15 @@ import '../app.css';
 						class="block w-full text-left py-4 px-6 hover:text-white hover:bg-neutral-900 transition-all duration-200 rounded-sm text-base font-bold tracking-wide uppercase
 							{$page.url.pathname === item.href ? 'text-red-500 bg-neutral-900 border-l-4 border-red-600' : 'text-neutral-300 border-l-4 border-transparent'}"
 >>>>>>> Home-Page-Revisions
+=======
+						class="block w-full text-left py-3 px-4 hover:text-neutral-300 hover:bg-neutral-900 transition-all duration-200 rounded-sm text-[10px] font-bold tracking-wider uppercase
+							{$page.url.pathname === item.href ? 'text-red-500 bg-neutral-900 border-l-2 border-red-600' : 'text-neutral-500 border-l-2 border-transparent'}"
+>>>>>>> Home-Page-Tweaks
 					>
 						{item.label}
 					</a>
 				{/each}
+<<<<<<< HEAD
 				<a
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -370,11 +454,14 @@ import '../app.css';
 					Pray. Fight. Give.
 >>>>>>> Home-Page-Revisions
 				</a>
+=======
+>>>>>>> Home-Page-Tweaks
 			</div>
 		{/if}
 	</nav>
 
 	<!-- Main Content -->
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	<main class="flex-1 flex flex-col">
@@ -384,10 +471,14 @@ import '../app.css';
 =======
 	<main class="flex-1">
 >>>>>>> Home-Page-Revisions
+=======
+	<main class="flex-1">
+>>>>>>> Home-Page-Tweaks
 		{@render children()}
 	</main>
 
 	<!-- Footer -->
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	<footer
@@ -519,10 +610,42 @@ import '../app.css';
 			<div class="text-[8px] text-neutral-600 uppercase font-mono tracking-wide">
 				<p class="mt-2">© 2026 Operation Gospel. All rights reserved.</p>
 >>>>>>> Home-Page-Revisions
+=======
+	<footer class="bg-black text-neutral-400 py-24 border-t border-neutral-900">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
+			<!-- Scripture Focus -->
+			<div class="space-y-6">
+				<div class="text-red-600 font-serif font-bold text-2xl md:text-3xl leading-tight">
+					<p class="text-white">"Open thy mouth for the dumb in the cause of all such as are appointed to destruction."</p>
+					<p class="mt-4 text-white/90">"Open thy mouth, judge righteously, and plead the cause of the poor and needy."</p>
+					<span class="block mt-6 text-red-600 text-sm font-sans uppercase tracking-widest">— Proverbs 31:8-9</span>
+				</div>
+			</div>
+
+			<!-- Simplified Links -->
+			<nav class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+				{#each navItems as item}
+					<a 
+						href={item.href}
+						class="text-[10px] font-bold tracking-widest uppercase hover:text-white transition-colors"
+					>
+						{item.label}
+					</a>
+				{/each}
+			</nav>
+
+			<!-- Minimalist Info -->
+			<div class="pt-8 border-t border-neutral-900">
+				<div class="text-[8px] text-neutral-600 uppercase font-bold tracking-[0.2em] space-y-2">
+					<p>Establishing Justice for the Pre-born in Georgia</p>
+					<p>© {new Date().getFullYear()} Abolition Georgia</p>
+				</div>
+>>>>>>> Home-Page-Tweaks
 			</div>
 		</div>
 	</footer>
 </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -536,3 +659,5 @@ import '../app.css';
 >>>>>>> Content-Changes-By-Skyler
 =======
 >>>>>>> Home-Page-Revisions
+=======
+>>>>>>> Home-Page-Tweaks

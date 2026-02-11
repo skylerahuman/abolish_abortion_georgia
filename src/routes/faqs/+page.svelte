@@ -2,6 +2,7 @@
 	let openFaq = $state<number | null>(null);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	const faqs = [
 		{
@@ -114,6 +115,8 @@
 =======
 =======
 >>>>>>> Home-Page-Revisions
+=======
+>>>>>>> Home-Page-Tweaks
 	
 	const faqs = [
 		{
@@ -163,15 +166,19 @@
 	];
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Content-Changes-By-Skyler
 =======
 >>>>>>> Home-Page-Revisions
+=======
+>>>>>>> Home-Page-Tweaks
 	function toggleFaq(index: number) {
 		openFaq = openFaq === index ? null : index;
 	}
 </script>
 
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<<<<<<< HEAD
 <<<<<<< HEAD
 	<h1 class="text-4xl font-bold text-bone mb-4">Frequently Asked Questions</h1>
 	<p class="text-bone/70 mb-12 text-lg">
@@ -202,6 +209,8 @@
 						class="w-6 h-6 text-crimson flex-shrink-0 transform transition-transform duration-200 {openFaq === i ? 'rotate-180' : ''}"
 >>>>>>> Content-Changes-By-Skyler
 =======
+=======
+>>>>>>> Home-Page-Tweaks
 	<h1 class="text-4xl font-bold text-charcoal-900 dark:text-cream-100 mb-4">Frequently Asked Questions</h1>
 	<p class="text-charcoal-700 dark:text-cream-200 mb-12 text-lg">
 		Find answers to common questions about equal protection and HB 441.
@@ -219,11 +228,15 @@
 					</span>
 					<svg
 						class="w-6 h-6 text-crimson-700 dark:text-crimson-500 flex-shrink-0 transform transition-transform duration-200 {openFaq === i ? 'rotate-180' : ''}"
+<<<<<<< HEAD
 >>>>>>> Home-Page-Revisions
+=======
+>>>>>>> Home-Page-Tweaks
 						fill="none"
 						stroke="currentColor"
 						viewBox="0 0 24 24"
 					>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 						<path
@@ -266,11 +279,14 @@
 =======
 =======
 >>>>>>> Home-Page-Revisions
+=======
+>>>>>>> Home-Page-Tweaks
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
 					</svg>
 				</button>
 				
 				{#if openFaq === i}
+<<<<<<< HEAD
 <<<<<<< HEAD
 					<div class="px-6 pb-4 text-bone/70 whitespace-pre-line">
 						{faq.answer}
@@ -279,6 +295,10 @@
 					<div class="px-6 pb-4 text-charcoal-700 dark:text-cream-200 whitespace-pre-line">
 						{faq.answer}
 >>>>>>> Home-Page-Revisions
+=======
+					<div class="px-6 pb-4 text-charcoal-700 dark:text-cream-200 whitespace-pre-line">
+						{faq.answer}
+>>>>>>> Home-Page-Tweaks
 					</div>
 				{/if}
 			</div>

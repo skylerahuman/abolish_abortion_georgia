@@ -1,0 +1,128 @@
+{
+  "GA-1": [
+    {
+      "name": "Savannah Community Outreach Hub",
+      "lat": 32.0809,
+      "lng": -81.0912,
+      "type": "Outreach Center",
+      "address": "123 Broughton St, Savannah, GA 31401"
+    }
+  ],
+  "GA-2": [
+    {
+      "name": "Albany Advocacy Center",
+      "lat": 31.5785,
+      "lng": -84.1557,
+      "type": "Advocacy Center",
+      "address": "456 Pine Ave, Albany, GA 31701"
+    }
+  ],
+  "GA-3": [
+    {
+      "name": "Newnan Community Hub",
+      "lat": 33.3807,
+      "lng": -84.7997,
+      "type": "Community Center",
+      "address": "789 Jackson St, Newnan, GA 30263"
+    }
+  ],
+  "GA-4": [
+    {
+      "name": "DeKalb Outreach Office",
+      "lat": 33.7676,
+      "lng": -84.2186,
+      "type": "Outreach Office",
+      "address": "234 Memorial Dr, Decatur, GA 30030"
+    }
+  ],
+  "GA-5": [
+    {
+      "name": "Atlanta Capitol Visitor Center",
+      "lat": 33.7490,
+      "lng": -84.3880,
+      "type": "Info Office",
+      "address": "206 Washington St SW, Atlanta, GA 30334"
+    }
+  ],
+  "GA-6": [
+    {
+      "name": "Alpharetta Community Services",
+      "lat": 34.0754,
+      "lng": -84.2941,
+      "type": "Community Services",
+      "address": "567 Main St, Alpharetta, GA 30009"
+    }
+  ],
+  "GA-7": [
+    {
+      "name": "Gwinnett Advocacy Hub",
+      "lat": 33.9526,
+      "lng": -84.1518,
+      "type": "Advocacy Hub",
+      "address": "890 Buford Hwy, Norcross, GA 30071"
+    }
+  ],
+  "GA-8": [
+    {
+      "name": "Macon Resource Center",
+      "lat": 32.8407,
+      "lng": -83.6324,
+      "type": "Resource Center",
+      "address": "123 Cherry St, Macon, GA 31201"
+    }
+  ],
+  "GA-9": [
+    {
+      "name": "Gainesville Community Center",
+      "lat": 34.2979,
+      "lng": -83.8241,
+      "type": "Community Center",
+      "address": "456 Spring St, Gainesville, GA 30501"
+    }
+  ],
+  "GA-10": [
+    {
+      "name": "Athens Advocacy Office",
+      "lat": 33.9519,
+      "lng": -83.3576,
+      "type": "Advocacy Office",
+      "address": "789 College Ave, Athens, GA 30601"
+    }
+  ],
+  "GA-11": [
+    {
+      "name": "Marietta Community Hub",
+      "lat": 33.9526,
+      "lng": -84.5499,
+      "type": "Community Hub",
+      "address": "234 Church St, Marietta, GA 30060"
+    }
+  ],
+  "GA-12": [
+    {
+      "name": "Augusta Outreach Center",
+      "lat": 33.4735,
+      "lng": -82.0105,
+      "type": "Outreach Center",
+      "address": "567 Broad St, Augusta, GA 30901"
+    }
+  ],
+  "GA-13": [
+    {
+      "name": "South Fulton Services Center",
+      "lat": 33.6412,
+      "lng": -84.4435,
+      "type": "Services Center",
+      "address": "890 Camp Creek Pkwy, East Point, GA 30344"
+    }
+  ],
+  "GA-14": [
+    {
+      "name": "Dalton Community Office",
+      "lat": 34.7698,
+      "lng": -84.9702,
+      "type": "Community Office",
+      "address": "123 Hamilton St, Dalton, GA 30720"
+    }
+  ]
+}

@@ -8,9 +8,12 @@ node_modules
 /.svelte-kit
 /build
 <<<<<<< HEAD
+<<<<<<< HEAD
 /docs
 =======
 >>>>>>> Home-Page-Revisions
+=======
+>>>>>>> Home-Page-Tweaks
 
 # OS
 .DS_Store
@@ -27,6 +30,7 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 # Testing
 /test-results
@@ -38,3 +42,8 @@ junit.xml
 >>>>>>> Content-Changes-By-Skyler
 =======
 >>>>>>> Home-Page-Revisions
+=======
+
+# Tests
+coverage/
+>>>>>>> Home-Page-Tweaks

@@ -173,6 +173,10 @@
 												placeholder="Enter 5-digit ZIP Code"
 												class="flex-1 bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:border-crimson outline-none transition-colors"
 												maxlength="5"
+												inputmode="numeric"
+												autocomplete="postal-code"
+												aria-invalid={!!error}
+												aria-describedby="zip-error"
 												oninput={() => (error = '')}
 											/>
 											<button
@@ -193,7 +197,7 @@
 											</button>
 										</div>
 										{#if error}
-											<p role="alert" class="text-ember text-sm mt-2">{error}</p>
+											<p id="zip-error" role="alert" class="text-ember text-sm mt-2">{error}</p>
 										{/if}
 									</div>
 								{:else}
@@ -260,6 +264,7 @@
 								bind:this={firstNameInput}
 								bind:value={registrationState.form.firstName}
 								required
+								autocomplete="given-name"
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
 								oninput={() => (step2Error = '')}
 							/>
@@ -273,6 +278,7 @@
 								id="lastName"
 								bind:value={registrationState.form.lastName}
 								required
+								autocomplete="family-name"
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
 								oninput={() => (step2Error = '')}
 							/>
@@ -286,6 +292,7 @@
 								id="email"
 								bind:value={registrationState.form.email}
 								required
+								autocomplete="email"
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
 								oninput={() => (step2Error = '')}
 							/>
@@ -299,6 +306,7 @@
 								type="tel"
 								id="phone"
 								bind:value={registrationState.form.phone}
+								autocomplete="tel"
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
 							/>
 						</div>

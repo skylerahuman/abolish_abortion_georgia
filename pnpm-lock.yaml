@@ -326,8 +326,13 @@ packages:
     resolution: {integrity: sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
+<<<<<<< HEAD
   '@exodus/bytes@1.12.0':
     resolution: {integrity: sha512-BuCOHA/EJdPN0qQ5MdgAiJSt9fYDHbghlgrj33gRdy/Yp1/FMCDhU6vJfcKrLC0TPWGSrfH3vYXBQWmFHxlddw==}
+=======
+  '@exodus/bytes@1.11.0':
+    resolution: {integrity: sha512-wO3vd8nsEHdumsXrjGO/v4p6irbg7hy9kvIeR6i2AwylZSk4HJdWgL0FNaVquW1+AweJcdvU1IEpuIWk/WaPnA==}
+>>>>>>> origin/palette/join-form-loading-ux-14478805327420284073
     engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0}
     peerDependencies:
       '@noble/hashes': ^1.8.0 || ^2.0.0
@@ -1692,11 +1697,19 @@ packages:
     resolution: {integrity: sha512-PSkbLUoxOFRzJYjjxHJt9xro7D+iilgMX/C9lawzVuYiIdcihh9DXmVibBe8lmcFrRi/VzlPjBxbN7rH24q8/Q==}
     engines: {node: '>=14.0.0'}
 
+<<<<<<< HEAD
   tldts-core@7.0.23:
     resolution: {integrity: sha512-0g9vrtDQLrNIiCj22HSe9d4mLVG3g5ph5DZ8zCKBr4OtrspmNB6ss7hVyzArAeE88ceZocIEGkyW1Ime7fxPtQ==}
 
   tldts@7.0.23:
     resolution: {integrity: sha512-ASdhgQIBSay0R/eXggAkQ53G4nTJqTXqC2kbaBbdDwM7SkjyZyO0OaaN1/FH7U/yCeqOHDwFO5j8+Os/IS1dXw==}
+=======
+  tldts-core@7.0.22:
+    resolution: {integrity: sha512-KgbTDC5wzlL6j/x6np6wCnDSMUq4kucHNm00KXPbfNzmllCmtmvtykJHfmgdHntwIeupW04y8s1N/43S1PkQDw==}
+
+  tldts@7.0.22:
+    resolution: {integrity: sha512-nqpKFC53CgopKPjT6Wfb6tpIcZXHcI6G37hesvikhx0EmUGPkZrujRyAjgnmp1SHNgpQfKVanZ+KfpANFt2Hxw==}
+>>>>>>> origin/palette/join-form-loading-ux-14478805327420284073
     hasBin: true
 
   to-regex-range@5.0.1:
@@ -2048,7 +2061,11 @@ snapshots:
 
   '@eslint/js@8.57.1': {}
 
+<<<<<<< HEAD
   '@exodus/bytes@1.12.0': {}
+=======
+  '@exodus/bytes@1.11.0': {}
+>>>>>>> origin/palette/join-form-loading-ux-14478805327420284073
 
   '@humanwhocodes/config-array@0.13.0':
     dependencies:
@@ -2845,7 +2862,11 @@ snapshots:
 
   html-encoding-sniffer@6.0.0:
     dependencies:
+<<<<<<< HEAD
       '@exodus/bytes': 1.12.0
+=======
+      '@exodus/bytes': 1.11.0
+>>>>>>> origin/palette/join-form-loading-ux-14478805327420284073
     transitivePeerDependencies:
       - '@noble/hashes'
 
@@ -2911,7 +2932,11 @@ snapshots:
     dependencies:
       '@acemir/cssom': 0.9.31
       '@asamuzakjp/dom-selector': 6.7.8
+<<<<<<< HEAD
       '@exodus/bytes': 1.12.0
+=======
+      '@exodus/bytes': 1.11.0
+>>>>>>> origin/palette/join-form-loading-ux-14478805327420284073
       cssstyle: 5.3.7
       data-urls: 6.0.1
       decimal.js: 10.6.0
@@ -3319,11 +3344,19 @@ snapshots:
 
   tinyrainbow@3.0.3: {}
 
+<<<<<<< HEAD
   tldts-core@7.0.23: {}
 
   tldts@7.0.23:
     dependencies:
       tldts-core: 7.0.23
+=======
+  tldts-core@7.0.22: {}
+
+  tldts@7.0.22:
+    dependencies:
+      tldts-core: 7.0.22
+>>>>>>> origin/palette/join-form-loading-ux-14478805327420284073
 
   to-regex-range@5.0.1:
     dependencies:
@@ -3333,7 +3366,11 @@ snapshots:
 
   tough-cookie@6.0.0:
     dependencies:
+<<<<<<< HEAD
       tldts: 7.0.23
+=======
+      tldts: 7.0.22
+>>>>>>> origin/palette/join-form-loading-ux-14478805327420284073
 
   tr46@6.0.0:
     dependencies:

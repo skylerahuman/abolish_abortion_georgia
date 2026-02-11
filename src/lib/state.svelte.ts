@@ -7,6 +7,8 @@ class RegistrationState {
 		lastName: '',
 		email: '',
 		phone: '',
+		city: '',
+		address: '',
 		district: null,
 		homeChurch: '',
 		interests: []
@@ -33,10 +35,15 @@ class RegistrationState {
             lastName: '',
             email: '',
             phone: '',
+            city: '',
+            address: '',
             district: null,
             homeChurch: '',
             interests: []
         };
+        if (typeof window !== 'undefined') {
+            localStorage.removeItem('userDistrict');
+        }
     }
 }
 

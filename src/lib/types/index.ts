@@ -13,6 +13,8 @@ export interface ContactForm {
 	lastName: string;
 	email: string;
 	phone: string;
+	city: string;
+	address: string;
 	district: string | null;
 	homeChurch: string;
 	interests: string[];

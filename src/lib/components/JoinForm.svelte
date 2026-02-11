@@ -12,6 +12,11 @@
 	let scrambleInterval: number; // Track interval for cleanup
 
 	onMount(() => {
+		// If the app state shows submitted, reset it for a fresh mount (e.g. navigation back to page)
+		if (registrationState.submitted) {
+			registrationState.reset();
+		}
+
 		const savedDistrict = localStorage.getItem('userDistrict');
 		if (savedDistrict) {
 			registrationState.form.district = savedDistrict;
@@ -24,11 +29,23 @@
 		};
 	});
 
+	function handleZipInput(e: Event) {
+		const input = e.target as HTMLInputElement;
+		// Only allow numbers
+		zipCode = input.value.replace(/\D/g, '').slice(0, 5);
+		error = '';
+		if (zipCode.length === 5) {
+			handleZipLookup();
+		}
+	}
+
 	async function handleZipLookup() {
 		if (zipCode.length !== 5) {
-			error = 'Please enter a valid 5-digit ZIP code.';
+			error = 'Enter a 5-digit ZIP code.';
 			return;
 		}
+
+		if (isLoading) return;
 
 		error = '';
 		isLoading = true;
@@ -39,10 +56,8 @@
 		}, 50);
 
 		try {
-			// Optimization 7: Dynamic import of large data file only when needed
 			const { zipToDistrict } = await import('$lib/data/zip_to_district');
 
-			// Optimization 8: Removed artificial 1s delay - speed is a feature!
 			clearInterval(scrambleInterval);
 			const foundDistrict = zipToDistrict[zipCode];
 
@@ -53,7 +68,7 @@
 				showDistrict = true;
 			} else {
 				registrationState.form.district = null;
-				error = 'District not found for this ZIP code.';
+				error = 'Georgia district not found.';
 			}
 		} catch (e) {
 			clearInterval(scrambleInterval);
@@ -61,6 +76,17 @@
 			console.error(e);
 		} finally {
 			isLoading = false;
+		}
+	}
+
+	function handleKeyDown(e: KeyboardEvent) {
+		if (e.key === 'Enter') {
+			e.preventDefault();
+			if (showDistrict || notInGeorgia) {
+				registrationState.nextStep();
+			} else if (zipCode.length === 5) {
+				handleZipLookup();
+			}
 		}
 	}
 
@@ -74,7 +100,9 @@
 
 	function toggleInterest(interest: string) {
 		if (registrationState.form.interests.includes(interest)) {
-			registrationState.form.interests = registrationState.form.interests.filter((i) => i !== interest);
+			registrationState.form.interests = registrationState.form.interests.filter(
+				(i) => i !== interest
+			);
 		} else {
 			registrationState.form.interests = [...registrationState.form.interests, interest];
 		}
@@ -83,11 +111,25 @@
 	function handleSubmit(e: Event) {
 		e.preventDefault();
 		console.log('Form Submitted (Void)', $state.snapshot(registrationState.form));
+
+		// Optimization: Clear local persistence on successful submission
+		// to allow immediate second entries for other people/districts
+		localStorage.removeItem('userDistrict');
+
 		registrationState.submitted = true;
+	}
+
+	function handleAddAnother() {
+		registrationState.reset();
+		showDistrict = false;
+		zipCode = '';
+		error = '';
 	}
 </script>
 
-<div class="bg-panel/80 backdrop-blur-sm border border-white/10 p-8 rounded-xl shadow-lg h-full flex flex-col">
+<div
+	class="bg-panel/80 backdrop-blur-sm border border-white/10 p-8 rounded-xl shadow-lg h-full flex flex-col"
+>
 	<h2 class="text-3xl font-serif font-bold text-bone mb-6">Join the Fight</h2>
 
 	<!-- Progress Bar -->
@@ -128,66 +170,76 @@
 							>
 						</div>
 						<p class="text-sm text-bone/60 mb-4">
-							Our primary objective is to pass a bill in the Georgia House. Please enter your ZIP code
-							to identify your representative.
+							Our primary objective is to pass a bill in the Georgia House. Please enter your ZIP
+							code to identify your representative.
 						</p>
 
 						{#if !notInGeorgia}
-							<div class="relative min-h-[76px]">
-								{#if !showDistrict}
-									<div>
-										<div class="flex gap-2">
-											<input
-												type="text"
-												id="zip"
-												bind:value={zipCode}
-												placeholder="Enter 5-digit ZIP Code"
-												class="flex-1 bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:border-crimson outline-none transition-colors"
-												maxlength="5"
-												oninput={() => (error = '')}
-											/>
-											<button
-												type="button"
-												onclick={handleZipLookup}
-												disabled={isLoading || zipCode.length !== 5}
-												class="bg-crimson hover:bg-ember text-bone px-6 py-2 rounded-md font-bold uppercase disabled:opacity-50 transition-colors"
-												aria-label={isLoading ? "Searching for district..." : "Find district"}
-											>
-												{#if isLoading}
-													<div
-														class="w-5 h-5 border-2 border-t-transparent border-white rounded-full animate-spin"
-														aria-hidden="true"
-													></div>
-												{:else}
-													Find
-												{/if}
-											</button>
-										</div>
-										{#if error}
-											<p role="alert" class="text-ember text-sm mt-2">{error}</p>
-										{/if}
-									</div>
-								{:else}
+							<div class="space-y-4">
+								<div class="flex gap-2">
+									<input
+										type="text"
+										id="zip"
+										bind:value={zipCode}
+										inputmode="numeric"
+										pattern="[0-9]*"
+										placeholder="Enter 5-digit ZIP Code"
+										class="flex-1 bg-charcoal border {showDistrict
+											? 'border-green-500/50'
+											: 'border-white/20'} text-bone px-4 py-2 rounded-md focus:border-crimson outline-none transition-all font-mono"
+										maxlength="5"
+										oninput={handleZipInput}
+										onkeydown={handleKeyDown}
+										disabled={isLoading}
+									/>
+									{#if !showDistrict}
+										<button
+											type="button"
+											onclick={handleZipLookup}
+											disabled={isLoading || zipCode.length !== 5}
+											class="bg-crimson hover:bg-ember text-bone px-6 py-2 rounded-md font-bold uppercase disabled:opacity-50 transition-colors"
+											aria-label={isLoading ? 'Searching for district...' : 'Find district'}
+										>
+											{#if isLoading}
+												<div
+													class="w-5 h-5 border-2 border-t-transparent border-white rounded-full animate-spin"
+													aria-hidden="true"
+												></div>
+											{:else}
+												Find
+											{/if}
+										</button>
+									{/if}
+								</div>
+								{#if error}
+									<p role="alert" class="text-ember text-xs mt-1">{error}</p>
+								{/if}
+
+								{#if showDistrict}
 									<div
-										class="text-center bg-charcoal/50 border border-white/10 rounded-md p-3"
+										class="text-center bg-green-900/10 border border-green-500/20 rounded-md p-4 animate-in fade-in slide-in-from-top-2 duration-300"
 									>
-										<p class="text-sm text-bone/60">Your Georgia House District is:</p>
-										<p class="text-3xl font-mono font-bold text-crimson tracking-widest">
+										<p class="text-xs text-bone/60 uppercase tracking-widest mb-1">
+											Found District
+										</p>
+										<p class="text-4xl font-mono font-bold text-green-400 tracking-widest mb-2">
 											{registrationState.form.district || 'N/A'}
 										</p>
 										<button
 											type="button"
 											onclick={resetDistrictFinder}
-											class="text-xs text-bone/50 hover:text-ember transition-colors mt-1"
+											class="text-xs text-bone/40 hover:text-ember underline underline-offset-4 transition-colors"
 										>
-											Not your district?
+											Use a different ZIP?
 										</button>
 									</div>
 								{/if}
 							</div>
 						{/if}
 
-						<label class="flex items-center gap-2 text-sm text-bone/60 cursor-pointer p-3 bg-charcoal/40 border border-white/10 rounded-md hover:bg-charcoal/80 transition-colors">
+						<label
+							class="flex items-center gap-2 text-sm text-bone/60 cursor-pointer p-3 bg-charcoal/40 border border-white/10 rounded-md hover:bg-charcoal/80 transition-colors"
+						>
 							<input
 								type="checkbox"
 								bind:checked={notInGeorgia}
@@ -257,6 +309,30 @@
 						</div>
 
 						<div>
+							<label for="address" class="block text-sm font-semibold text-bone/80 mb-1"
+								>Physical Address *</label
+							>
+							<input
+								type="text"
+								id="address"
+								bind:value={registrationState.form.address}
+								required
+								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
+							/>
+						</div>
+
+						<div>
+							<label for="city" class="block text-sm font-semibold text-bone/80 mb-1">City *</label>
+							<input
+								type="text"
+								id="city"
+								bind:value={registrationState.form.city}
+								required
+								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
+							/>
+						</div>
+
+						<div>
 							<label for="phone" class="block text-sm font-semibold text-bone/80 mb-1"
 								>Cell (Optional)</label
 							>
@@ -311,16 +387,7 @@
 						<div>
 							<p class="text-sm font-semibold text-bone/80 mb-2">I'm interested in...</p>
 							<div class="space-y-2">
-								{#each [
-									{ value: 'find-church', label: 'I want to find an abolitionist church' },
-									{ value: 'help-bill', label: 'I want to help pass an abolition bill' },
-									{ value: 'evangelism', label: 'I want to be involved with evangelistically' },
-									{
-										value: 'pastor-elder',
-										label: "I'm a pastor/elder interested in abolitionism"
-									},
-									{ value: 'prayer', label: 'I want to support with prayer' }
-								] as interest}
+								{#each [{ value: 'find-church', label: 'I want to find an abolitionist church' }, { value: 'help-bill', label: 'I want to help pass an abolition bill' }, { value: 'evangelism', label: 'I want to be involved with evangelistically' }, { value: 'pastor-elder', label: "I'm a pastor/elder interested in abolitionism" }, { value: 'prayer', label: 'I want to support with prayer' }] as interest}
 									<label
 										class="flex items-center gap-3 cursor-pointer p-2 bg-charcoal/50 border border-transparent rounded-md hover:border-white/20 transition-colors"
 									>
@@ -359,10 +426,20 @@
 	{:else}
 		<div
 			in:fly={{ y: 20, duration: 300, delay: 300 }}
-			class="bg-green-900/20 border border-green-600 p-6 rounded-md text-center"
+			class="bg-green-900/20 border border-green-600 p-8 rounded-md text-center flex flex-col items-center gap-6"
 		>
-			<p class="text-lg font-semibold text-green-400 mb-2">Thank you for joining the fight!</p>
-			<p class="text-bone/80">Someone already engaged in your area will contact you soon.</p>
+			<div>
+				<p class="text-xl font-bold text-green-400 mb-2">Thank you for joining the fight!</p>
+				<p class="text-bone/80">Someone already engaged in your area will contact you soon.</p>
+			</div>
+
+			<button
+				type="button"
+				onclick={handleAddAnother}
+				class="bg-white/10 hover:bg-white/20 text-bone px-6 py-2 rounded-md font-bold uppercase tracking-wider transition-colors text-sm"
+			>
+				Submit Another Entry
+			</button>
 		</div>
 	{/if}
 </div>

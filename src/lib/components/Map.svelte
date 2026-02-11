@@ -19,12 +19,19 @@
 
 		// Center map on Hampton, GA church location
 		map = L.map(mapElement, {
-			zoomControl: false // Disable zoom control
+			zoomControl: false,
+			attributionControl: true,
+			scrollWheelZoom: false,
+			dragging: false,
+			touchZoom: false,
+			doubleClickZoom: false,
+			boxZoom: false,
+			keyboard: false
 		}).setView([33.3879, -84.2835], 12);
 
 		L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
 			attribution:
-				'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+				'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 			subdomains: 'abcd',
 			maxZoom: 20
 		}).addTo(map);
@@ -35,10 +42,31 @@
 	});
 </script>
 
-<div bind:this={mapElement} class="h-full w-full rounded-xl border border-white/10 z-0"></div>
+<div
+	bind:this={mapElement}
+	class="h-full w-full rounded-xl border border-white/10 z-0 shadow-inner"
+></div>
 
 <style>
 	:global(.church-pin-icon) {
 		filter: invert(28%) sepia(93%) saturate(3166%) hue-rotate(348deg) brightness(93%) contrast(95%);
+	}
+
+	/* Fast solution to drop the flag while maintaining legal attribution */
+	:global(.leaflet-attribution-flag) {
+		display: none !important;
+	}
+
+	:global(.leaflet-control-attribution) {
+		background: rgba(2, 6, 23, 0.7) !important;
+		color: rgba(234, 224, 213, 0.4) !important;
+		font-size: 9px !important;
+		backdrop-filter: blur(4px);
+		border-top-left-radius: 4px;
+		border: 1px solid rgba(255, 255, 255, 0.05);
+	}
+
+	:global(.leaflet-control-attribution a) {
+		color: rgba(234, 224, 213, 0.6) !important;
 	}
 </style>

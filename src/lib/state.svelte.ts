@@ -7,8 +7,6 @@ class RegistrationState {
 		lastName: '',
 		email: '',
 		phone: '',
-		city: '',
-		address: '',
 		district: null,
 		homeChurch: '',
 		interests: []
@@ -27,24 +25,19 @@ class RegistrationState {
 		}
 	}
 
-    reset() {
-        this.step = 1;
-        this.submitted = false;
-        this.form = {
-            firstName: '',
-            lastName: '',
-            email: '',
-            phone: '',
-            city: '',
-            address: '',
-            district: null,
-            homeChurch: '',
-            interests: []
-        };
-        if (typeof window !== 'undefined') {
-            localStorage.removeItem('userDistrict');
-        }
-    }
+	reset() {
+		this.step = 1;
+		this.submitted = false;
+		this.form = {
+			firstName: '',
+			lastName: '',
+			email: '',
+			phone: '',
+			district: null,
+			homeChurch: '',
+			interests: []
+		};
+	}
 }
 
 export const registrationState = new RegistrationState();

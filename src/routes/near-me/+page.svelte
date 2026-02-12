@@ -1,25 +1,18 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-<<<<<<< HEAD
-	import { generateRandomChurches } from '$lib/utils';
 	import { onMount } from 'svelte';
 	import 'leaflet/dist/leaflet.css';
-	import type { Map } from 'leaflet';
+	import type { Map as LeafletMap } from 'leaflet';
     // @ts-ignore
     import markerIcon from 'leaflet/dist/images/marker-icon.png';
     // @ts-ignore
     import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
     // @ts-ignore
     import markerShadow from 'leaflet/dist/images/marker-shadow.png';
-=======
-	import { onMount } from 'svelte';
-	import 'leaflet/dist/leaflet.css';
-	import type { Map } from 'leaflet';
->>>>>>> Home-Page-Revisions
 
 	let L: any;
 	let mapElement: HTMLDivElement;
-	let map: Map;
+	let map: LeafletMap;
 
 	// District State
 	let districtDigit1 = $state('0');
@@ -46,8 +39,6 @@
 	let homeChurch = $state('');
 	let interests = $state<string[]>([]);
 
-<<<<<<< HEAD
-=======
 	// Random Churches Data
 	const churchNamesFirst = ["Grace", "Faith", "Truth", "Sovereign", "Reformed", "Community", "Hope", "Victory", "Peace", "Redeemer", "Providence", "Trinity", "Cornerstone", "Living", "Heritage", "Calvary", "Emmanuel"];
 	const churchNamesSecond = ["Baptist", "Bible", "Community", "Fellowship", "Chapel", "Tabernacle", "Church"];
@@ -67,7 +58,6 @@
         return churches;
     }
 
->>>>>>> Home-Page-Revisions
 	onMount(async () => {
         // Load District from LocalStorage
         const savedDistrict = localStorage.getItem('userDistrict');
@@ -79,7 +69,6 @@
 
 		L = await import('leaflet');
 
-<<<<<<< HEAD
         // Fix Leaflet's default icon path issues with Vite
         delete L.Icon.Default.prototype._getIconUrl;
         L.Icon.Default.mergeOptions({
@@ -88,8 +77,6 @@
             shadowUrl: markerShadow
         });
 
-=======
->>>>>>> Home-Page-Revisions
 		map = L.map(mapElement).setView([32.986, -83.648], 7);
 
 		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -211,7 +198,7 @@
             <p class="text-red-500 text-sm mb-4">{lookupError}</p>
         {/if}
 
-        <button onclick={() => showLookupModal = false} class="text-neutral-500 hover:text-white text-sm underline">Close</button>
+        <button onclick={() => (showLookupModal = false)} class="text-neutral-500 hover:text-white text-sm underline">Close</button>
     </div>
 </div>
 {/if}
@@ -257,24 +244,24 @@
                      <div class="flex items-center gap-2 mb-2">
                         <!-- Digit 1 -->
                         <div class="flex flex-col items-center">
-                            <button onclick={() => districtDigit1 = cycleDigit(districtDigit1, 'up')} class="text-neutral-500 hover:text-white mb-1">▲</button>
+                            <button onclick={() => (districtDigit1 = cycleDigit(districtDigit1, 'up'))} class="text-neutral-500 hover:text-white mb-1">▲</button>
                             <input type="text" readonly value={districtDigit1} class="w-12 h-16 bg-black border border-neutral-700 text-3xl text-center font-mono rounded-sm text-red-500 focus:outline-none" />
-                            <button onclick={() => districtDigit1 = cycleDigit(districtDigit1, 'down')} class="text-neutral-500 hover:text-white mt-1">▼</button>
+                            <button onclick={() => (districtDigit1 = cycleDigit(districtDigit1, 'down'))} class="text-neutral-500 hover:text-white mt-1">▼</button>
                         </div>
                          <!-- Digit 2 -->
                         <div class="flex flex-col items-center">
-                            <button onclick={() => districtDigit2 = cycleDigit(districtDigit2, 'up')} class="text-neutral-500 hover:text-white mb-1">▲</button>
+                            <button onclick={() => (districtDigit2 = cycleDigit(districtDigit2, 'up'))} class="text-neutral-500 hover:text-white mb-1">▲</button>
                             <input type="text" readonly value={districtDigit2} class="w-12 h-16 bg-black border border-neutral-700 text-3xl text-center font-mono rounded-sm text-red-500 focus:outline-none" />
-                            <button onclick={() => districtDigit2 = cycleDigit(districtDigit2, 'down')} class="text-neutral-500 hover:text-white mt-1">▼</button>
+                            <button onclick={() => (districtDigit2 = cycleDigit(districtDigit2, 'down'))} class="text-neutral-500 hover:text-white mt-1">▼</button>
                         </div>
                          <!-- Digit 3 -->
                         <div class="flex flex-col items-center">
-                            <button onclick={() => districtDigit3 = cycleDigit(districtDigit3, 'up')} class="text-neutral-500 hover:text-white mb-1">▲</button>
+                            <button onclick={() => (districtDigit3 = cycleDigit(districtDigit3, 'up'))} class="text-neutral-500 hover:text-white mb-1">▲</button>
                             <input type="text" readonly value={districtDigit3} class="w-12 h-16 bg-black border border-neutral-700 text-3xl text-center font-mono rounded-sm text-red-500 focus:outline-none" />
-                            <button onclick={() => districtDigit3 = cycleDigit(districtDigit3, 'down')} class="text-neutral-500 hover:text-white mt-1">▼</button>
+                            <button onclick={() => (districtDigit3 = cycleDigit(districtDigit3, 'down'))} class="text-neutral-500 hover:text-white mt-1">▼</button>
                         </div>
                      </div>
-                     <button onclick={() => showLookupModal = true} class="text-sm text-red-500 hover:text-red-400 underline uppercase tracking-wider font-bold">
+                     <button onclick={() => (showLookupModal = true)} class="text-sm text-red-500 hover:text-red-400 underline uppercase tracking-wider font-bold">
                         Not sure your district? Find it &rarr;
                      </button>
                  </div>

@@ -1,34 +1,12 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-import adapter from '@sveltejs/adapter-auto';
-=======
 import adapter from '@sveltejs/adapter-static';
->>>>>>> Home-Page-Tweaks
-=======
-import adapter from '@sveltejs/adapter-auto';
->>>>>>> Moving-Changes-Stashed
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Consult https://svelte.dev/docs/kit/integrations
-	// for more information about preprocessors
-	preprocess: vitePreprocess(),
+    preprocess: vitePreprocess(),
 
-	kit: {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Moving-Changes-Stashed
-		adapter: adapter()
-	}
-};
-
-export default config;
-<<<<<<< HEAD
-=======
-		// adapter-static for GitHub Pages
-		adapter: adapter({
+    kit: {
+        adapter: adapter({
             pages: 'docs',
             assets: 'docs',
             fallback: '404.html',
@@ -38,10 +16,7 @@ export default config;
         paths: {
             base: process.argv.includes('dev') ? '' : '/abolish_abortion_georgia'
         }
-	}
+    }
 };
 
 export default config;
->>>>>>> Home-Page-Tweaks
-=======
->>>>>>> Moving-Changes-Stashed

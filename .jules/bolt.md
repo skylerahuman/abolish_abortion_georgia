@@ -15,3 +15,7 @@
 
 2. `background-attachment: fixed` causes constant repaints on mobile during scroll.
 **Action:** Use a fixed-position pseudo-element (`position: fixed; z-index: -1`) with `will-change: transform` to achieve the same visual effect while keeping the layer on the compositor.
+
+## 2025-02-19 - Leaflet Lazy Loading
+**Learning:** Initializing heavy third-party libraries like Leaflet on mount blocks the main thread and delays Time to Interactive (TTI), even if the component is below the fold.
+**Action:** Wrap heavy imports and initialization logic in an `IntersectionObserver`. Use `data-testid` on the container to allow testing tools (Playwright) to explicitly scroll the element into view, ensuring the observer triggers reliably during tests.

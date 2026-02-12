@@ -67,7 +67,9 @@ test.describe('Join Page', () => {
 		await expect(page.getByLabel('Home Church')).toBeVisible();
 		await expect(page.getByText("I'm interested in...")).toBeVisible();
 		
-		// Verify map is visible
+		// Verify map is visible (trigger lazy load)
+		const mapContainerWrapper = page.getByTestId('map-container');
+		await mapContainerWrapper.scrollIntoViewIfNeeded();
 		const mapContainer = page.locator('.leaflet-container');
 		await expect(mapContainer).toBeVisible();
 		
@@ -83,6 +85,10 @@ test.describe('Join Page', () => {
 	test('map should show Hampton GA church marker', async ({ page }) => {
 		await page.goto('/join');
 		await page.waitForLoadState('networkidle');
+
+		// Scroll to map to trigger lazy load
+		const mapContainerWrapper = page.getByTestId('map-container');
+		await mapContainerWrapper.scrollIntoViewIfNeeded();
 		
 		// Wait for map to load
 		await page.waitForTimeout(2000);

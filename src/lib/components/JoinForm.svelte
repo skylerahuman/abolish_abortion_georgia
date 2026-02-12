@@ -171,7 +171,7 @@
 												id="zip"
 												bind:value={zipCode}
 												placeholder="Enter 5-digit ZIP Code"
-												class="flex-1 bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:border-crimson outline-none transition-colors"
+												class="flex-1 bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-crimson/50 focus:border-crimson transition-colors"
 												maxlength="5"
 												oninput={() => (error = '')}
 											/>
@@ -222,7 +222,7 @@
 							<input
 								type="checkbox"
 								bind:checked={notInGeorgia}
-								class="w-5 h-5 bg-charcoal border-white/30 rounded text-crimson focus:ring-crimson/50"
+								class="w-5 h-5 bg-charcoal border-white/30 rounded text-crimson focus-visible:ring-2 focus-visible:ring-crimson/50"
 							/>
 							I'm not in Georgia, but I want to help.
 						</label>
@@ -260,7 +260,7 @@
 								bind:this={firstNameInput}
 								bind:value={registrationState.form.firstName}
 								required
-								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
+								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-crimson/50 focus:border-crimson transition-colors"
 								oninput={() => (step2Error = '')}
 							/>
 						</div>
@@ -273,7 +273,7 @@
 								id="lastName"
 								bind:value={registrationState.form.lastName}
 								required
-								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
+								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-crimson/50 focus:border-crimson transition-colors"
 								oninput={() => (step2Error = '')}
 							/>
 						</div>
@@ -286,7 +286,7 @@
 								id="email"
 								bind:value={registrationState.form.email}
 								required
-								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
+								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-crimson/50 focus:border-crimson transition-colors"
 								oninput={() => (step2Error = '')}
 							/>
 						</div>
@@ -299,7 +299,7 @@
 								type="tel"
 								id="phone"
 								bind:value={registrationState.form.phone}
-								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
+								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-crimson/50 focus:border-crimson transition-colors"
 							/>
 						</div>
 					</div>
@@ -345,7 +345,7 @@
 								id="homeChurch"
 								bind:this={homeChurchInput}
 								bind:value={registrationState.form.homeChurch}
-								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
+								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-crimson/50 focus:border-crimson transition-colors"
 							/>
 						</div>
 
@@ -370,7 +370,7 @@
 											value={interest.value}
 											checked={registrationState.form.interests.includes(interest.value)}
 											onchange={() => toggleInterest(interest.value)}
-											class="w-4 h-4 bg-charcoal border-white/30 rounded text-crimson focus:ring-crimson/50"
+											class="w-4 h-4 bg-charcoal border-white/30 rounded text-crimson focus-visible:ring-2 focus-visible:ring-crimson/50"
 										/>
 										<span class="text-sm text-bone">{interest.label}</span>
 									</label>

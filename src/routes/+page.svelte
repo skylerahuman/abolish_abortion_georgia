@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
@@ -110,6 +106,7 @@
 </script>
 
 <svelte:head>
+	<title>Operation Gospel - Abolish Abortion Georgia</title>
 	<style>
 		.home-bg {
 			position: relative;
@@ -141,45 +138,15 @@
 		/* Fix background positioning on smaller screens */
 		@media (max-width: 1450px) {
 			.home-bg::before {
-=======
-=======
->>>>>>> Moving-Changes-Stashed
-<svelte:head>
-	<style>
-		.home-bg {
-			background-image: linear-gradient(to bottom, rgba(2, 6, 23, 0.1), rgba(2, 6, 23, 0.4), rgba(2, 6, 23, 1)), url('/images/backdrop.png');
-			background-attachment: fixed;
-			background-position: 0% 100%;
-			background-size: 120% auto;
-			background-repeat: no-repeat;
-		}
-		
-		/* Fix background positioning on smaller screens */
-		@media (max-width: 1450px) {
-			.home-bg {
-<<<<<<< HEAD
->>>>>>> Content-Changes-By-Skyler
-=======
->>>>>>> Moving-Changes-Stashed
 				background-position: center 0%;
 				background-size: cover;
 			}
 		}
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-		
->>>>>>> Content-Changes-By-Skyler
-=======
-		
->>>>>>> Moving-Changes-Stashed
 		/* Cinematic fade-in animations - all screens */
 		.fade-in-line {
 			opacity: 0;
 			animation: fadeInCinematic 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-<<<<<<< HEAD
-<<<<<<< HEAD
 			will-change: transform, opacity;
 		}
 
@@ -197,78 +164,29 @@
 			animation-delay: 1.4s;
 		}
 
-=======
-=======
->>>>>>> Moving-Changes-Stashed
-		}
-		
-		/* Four lines at 0.6s intervals, 1s duration each */
-		.fade-in-line:nth-child(1) { animation-delay: 0s; }
-		.fade-in-line:nth-child(2) { animation-delay: 0.6s; }
-		.fade-in-line:nth-child(3) { animation-delay: 1.0s; }
-		.fade-in-line:nth-child(4) { animation-delay: 1.4s; }
-		
-<<<<<<< HEAD
->>>>>>> Content-Changes-By-Skyler
-=======
->>>>>>> Moving-Changes-Stashed
 		/* Desktop paragraph - starts at 2.4s */
 		.fade-in-text {
 			opacity: 0;
 			animation: fadeInCinematic 0.5s cubic-bezier(0.16, 1, 0.3, 1) 2.4s forwards;
-<<<<<<< HEAD
-<<<<<<< HEAD
 			will-change: transform, opacity;
 		}
 
-=======
-		}
-		
->>>>>>> Content-Changes-By-Skyler
-=======
-		}
-		
->>>>>>> Moving-Changes-Stashed
 		/* Buttons start at 2.6s */
 		.fade-in-buttons {
 			opacity: 0;
 			animation: fadeInCinematic 0.5s cubic-bezier(0.16, 1, 0.3, 1) 2.6s forwards;
 		}
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-		
->>>>>>> Content-Changes-By-Skyler
-=======
-		
->>>>>>> Moving-Changes-Stashed
 		.fade-in-scroll {
 			opacity: 0;
 			animation: fadeInBounce 0.8s ease-out 3.2s forwards;
 		}
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-		
->>>>>>> Content-Changes-By-Skyler
-=======
-		
->>>>>>> Moving-Changes-Stashed
 		.fade-in-carousel-icon {
 			opacity: 0;
 			animation: fadeInBounce 0.8s ease-out 2.8s forwards;
 		}
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-		
->>>>>>> Content-Changes-By-Skyler
-=======
-		
->>>>>>> Moving-Changes-Stashed
 		@keyframes fadeInCinematic {
 			from {
 				opacity: 0;
@@ -279,15 +197,7 @@
 				transform: translateY(0);
 			}
 		}
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-		
->>>>>>> Content-Changes-By-Skyler
-=======
-		
->>>>>>> Moving-Changes-Stashed
 		@keyframes fadeInBounce {
 			0% {
 				opacity: 0;
@@ -302,15 +212,7 @@
 				transform: translateY(0);
 			}
 		}
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-		
->>>>>>> Content-Changes-By-Skyler
-=======
-		
->>>>>>> Moving-Changes-Stashed
 		/* Mobile carousel */
 		@media (max-width: 768px) {
 			.hero-carousel {
@@ -318,174 +220,28 @@
 				transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 				width: 200%;
 			}
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 			.hero-carousel.show-text {
 				transform: translateX(-50%);
 			}
 
-=======
-=======
->>>>>>> Moving-Changes-Stashed
-			
-			.hero-carousel.show-text {
-				transform: translateX(-50%);
-			}
-			
-<<<<<<< HEAD
->>>>>>> Content-Changes-By-Skyler
-=======
->>>>>>> Moving-Changes-Stashed
 			.carousel-panel {
 				width: 50%;
 				flex-shrink: 0;
 			}
-<<<<<<< HEAD
-=======
-<svelte:head>
-	<style>
-		.home-bg {
-			background-image: linear-gradient(to bottom, rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 0.6), rgba(2, 6, 23, 1)), url('/images/backdrop.png');
-			background-attachment: fixed;
-			background-position: 90% 20%;
-			background-size: cover;
-			background-repeat: no-repeat;
->>>>>>> Home-Page-Revisions
-=======
->>>>>>> Moving-Changes-Stashed
 		}
 	</style>
 </svelte:head>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> Home-Page-Revisions
-=======
->>>>>>> Moving-Changes-Stashed
-<script lang="ts">
-	import { base } from '$app/paths';
-	import { onMount } from 'svelte';
-
-	let heroSection: HTMLElement;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Moving-Changes-Stashed
-	let backgroundOpacity = $state(0);
-	let showTextPanel = $state(false);
-	let isMobile = $state(false);
-	let touchStartX = 0;
-	let touchEndX = 0;
-
-	function handleScroll() {
-		if (!heroSection) return;
-		const heroHeight = heroSection.offsetHeight;
-		const scrollY = window.scrollY;
-		const startFade = heroHeight * 0.1; // Start fade slightly into the scroll
-		const endFade = heroHeight * 0.6; // Fully faded by 60% of hero height
-		if (scrollY > startFade) {
-			const progress = Math.min((scrollY - startFade) / (endFade - startFade), 1);
-			backgroundOpacity = progress * 0.5; // Max opacity 0.5
-		} else {
-			backgroundOpacity = 0;
-		}
-	}
-	
-	function handleTouchStart(e: TouchEvent) {
-		if (!isMobile) return;
-		touchStartX = e.touches[0].clientX;
-	}
-	
-	function handleTouchEnd(e: TouchEvent) {
-		if (!isMobile) return;
-		touchEndX = e.changedTouches[0].clientX;
-		handleSwipe();
-	}
-	
-	function handleSwipe() {
-		const swipeThreshold = 50;
-		const diff = touchStartX - touchEndX;
-		
-		if (Math.abs(diff) > swipeThreshold) {
-			if (diff > 0) {
-				// Swipe left - show text
-				showTextPanel = true;
-			} else {
-				// Swipe right - show hero
-				showTextPanel = false;
-			}
-		}
-	}
-	
-	function togglePanel() {
-		if (isMobile) {
-			showTextPanel = !showTextPanel;
-		}
-	}
-
-	onMount(() => {
-		// Check if mobile
-		const checkMobile = () => {
-			isMobile = window.innerWidth <= 768;
-		};
-		checkMobile();
-		window.addEventListener('resize', checkMobile);
-		
-		window.addEventListener('scroll', handleScroll, true);
-<<<<<<< HEAD
-=======
-
-	onMount(() => {
->>>>>>> Home-Page-Revisions
-=======
->>>>>>> Moving-Changes-Stashed
-		// A gentle nudge to encourage scrolling, kept for UX
-		setTimeout(() => {
-			const currentScroll = window.scrollY;
-			if (currentScroll === 0) {
-				window.scrollTo({ top: 1, behavior: 'smooth' });
-			}
-		}, 2500);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Moving-Changes-Stashed
-
-		return () => {
-			window.removeEventListener('scroll', handleScroll, true);
-			window.removeEventListener('resize', checkMobile);
-		};
-	});
-</script>
-
-<<<<<<< HEAD
->>>>>>> Content-Changes-By-Skyler
-=======
-	});
-</script>
-
->>>>>>> Home-Page-Revisions
-=======
->>>>>>> Moving-Changes-Stashed
 <div class="home-bg">
 	<!-- Hero Section -->
 	<section
 		bind:this={heroSection}
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Moving-Changes-Stashed
 		class="relative min-h-[90vh] md:min-h-[85vh] py-12 md:py-16 px-4 flex flex-col justify-center border-b border-crimson/20 overflow-hidden"
 		ontouchstart={handleTouchStart}
 		ontouchend={handleTouchEnd}
 	>
 		<!-- Mobile Carousel Wrapper -->
-<<<<<<< HEAD
-<<<<<<< HEAD
 		<div
 			class="hero-carousel {showTextPanel
 				? 'show-text'
@@ -530,64 +286,10 @@
 						<a
 							href="{base}/support"
 							class="px-10 py-4 border-2 border-crimson text-bone font-bold rounded-lg hover:bg-crimson/10 transition-all duration-300 shadow-xl hover:-translate-y-0.5 active:translate-y-0"
-=======
-=======
->>>>>>> Moving-Changes-Stashed
-		<div class="hero-carousel {showTextPanel ? 'show-text' : ''} md:block md:!w-auto md:!transform-none relative z-10 w-full px-6 md:px-16 mt-auto">
-			<!-- Panel 1: Hero Content -->
-			<div class="carousel-panel md:!w-full">
-				<div class="w-full max-w-4xl">
-					<h2
-						class="text-left text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-serif font-light text-bone tracking-normal mb-8 drop-shadow-lg space-y-1 md:space-y-2 leading-tight"
-					>
-<div class="text-left min-[401px]:whitespace-nowrap fade-in-line">
-							<span>Called by <span class="text-crimson">Christ</span></span>
-						</div>
-<div class="text-left min-[401px]:whitespace-nowrap fade-in-line">
-							<span class="text-lg sm:text-xl md:text-xl lg:text-2xl font-light text-bone/70"
-								>to</span
-							> condemn sin
-						</div>
-<div class="text-left min-[401px]:whitespace-nowrap fade-in-line">
-							<span class="text-lg sm:text-xl md:text-xl lg:text-2xl font-light text-bone/70"
-								>and</span
-							> care for sinners
-						</div>
-						<div class="text-left min-[450px]:whitespace-nowrap fade-in-line">
-							<span class="text-lg sm:text-xl md:text-xl lg:text-2xl font-light text-bone/70"
-								>so that we might</span
-							> crush child sacrifice.
-						</div>
-					</h2>
-					
-					<!-- Hide long text on mobile, show on desktop with fade-in -->
-					<p class="hidden md:block text-left text-lg font-sans text-bone mb-8 drop-shadow-lg fade-in-text">In the post-Roe era, we will not overcome the sin of abortion (which the Scriptures call child sacrifice) by "pro-life" gradualism. We must be pro-justice and pro-mercy, because our God and Lord, Jesus Christ, is pefectly just and merciful. We demand equal protection for the unborn, immediate and total abolition of abortion, and mobilization of the Church in Georgia to accomplish the Great Commission.</p>
-
-					<!-- Call to Action Buttons -->
-					<div class="flex gap-4 mt-8 fade-in-buttons">
-						<a
-<<<<<<< HEAD
-							href="{base}/near-me"
-=======
-							href="{base}/join"
->>>>>>> Moving-Changes-Stashed
-							class="px-8 py-3 bg-crimson text-bone font-semibold rounded-lg hover:bg-ember transition-colors duration-200 shadow-lg hover:shadow-crimson/50"
-						>
-							Join
-						</a>
-						<a
-							href="{base}/about"
-							class="px-8 py-3 bg-crimson text-bone font-semibold rounded-lg hover:bg-ember transition-colors duration-200 shadow-lg hover:shadow-crimson/50"
-<<<<<<< HEAD
->>>>>>> Content-Changes-By-Skyler
-=======
->>>>>>> Moving-Changes-Stashed
 						>
 							Support
 						</a>
 					</div>
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 					<!-- Swipe Indicator - Mobile only -->
 					<button
@@ -618,36 +320,14 @@
 				</div>
 			</div>
 
-=======
-=======
->>>>>>> Moving-Changes-Stashed
-					
-					<!-- Swipe Indicator - Mobile only -->
-					<div class="md:hidden mt-8 text-center fade-in-carousel-icon" onclick={togglePanel}>
-						<div class="inline-flex items-center gap-2 text-bone/50 text-sm cursor-pointer">
-							<span>Swipe for more</span>
-							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-							</svg>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-<<<<<<< HEAD
->>>>>>> Content-Changes-By-Skyler
-=======
->>>>>>> Moving-Changes-Stashed
 			<!-- Panel 2: Long Text - Mobile only -->
 			<div class="carousel-panel md:hidden">
 				<div class="w-full max-w-3xl mr-auto px-6">
 					<h3 class="text-2xl font-serif font-bold text-bone mb-6">Our Mission</h3>
-<<<<<<< HEAD
-<<<<<<< HEAD
 					<p class="text-left text-base font-sans text-bone mb-8 drop-shadow-lg leading-relaxed">
 						In the post-Roe era, we will not overcome the sin of abortion (which the Scriptures call
 						child sacrifice) by "pro-life" gradualism. We must be pro-justice and pro-mercy, because
-						our God and Lord, Jesus Christ, is pefectly just and merciful. We demand equal
+						our God and Lord, Jesus Christ, is perfectly just and merciful. We demand equal
 						protection for the unborn, immediate and total abolition of abortion, and mobilization
 						of the Church in Georgia to accomplish the Great Commission.
 					</p>
@@ -674,24 +354,6 @@
 							<span>Swipe back</span>
 						</div>
 					</button>
-=======
-=======
->>>>>>> Moving-Changes-Stashed
-					<p class="text-left text-base font-sans text-bone mb-8 drop-shadow-lg leading-relaxed">In the post-Roe era, we will not overcome the sin of abortion (which the Scriptures call child sacrifice) by "pro-life" gradualism. We must be pro-justice and pro-mercy, because our God and Lord, Jesus Christ, is pefectly just and merciful. We demand equal protection for the unborn, immediate and total abolition of abortion, and mobilization of the Church in Georgia to accomplish the Great Commission.</p>
-					
-					<!-- Back Indicator -->
-					<div class="text-center" onclick={togglePanel}>
-						<div class="inline-flex items-center gap-2 text-bone/50 text-sm cursor-pointer">
-							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-							</svg>
-							<span>Swipe back</span>
-						</div>
-					</div>
-<<<<<<< HEAD
->>>>>>> Content-Changes-By-Skyler
-=======
->>>>>>> Moving-Changes-Stashed
 				</div>
 			</div>
 		</div>
@@ -699,43 +361,6 @@
 		<!-- Scroll Down Indicator - Desktop only -->
 		<div
 			class="hidden md:block relative z-10 mt-auto mx-auto text-center text-bone/50 cursor-pointer fade-in-scroll"
-<<<<<<< HEAD
-=======
-		class="relative min-h-[90vh] md:min-h-[85vh] py-12 md:py-16 px-4 flex flex-col justify-center border-b border-red-900/20 overflow-hidden"
-	>
-		<div class="relative z-10 w-full mx-auto px-6 md:px-16 mt-auto">
-			<div class="w-full max-w-3xl mr-auto">
-				<h2
-					class="text-left text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-serif font-light text-white tracking-normal mb-8 drop-shadow-lg space-y-1 md:space-y-2 leading-tight"
-				>
-					<div class="text-left whitespace-nowrap">
-						<span>Called by <span class="text-red-500">Christ</span></span>
-					</div>
-					<div class="text-left whitespace-nowrap">
-						<span class="text-base sm:text-lg md:text-xl lg:text-2xl font-light text-neutral-400"
-							>to</span
-						> condemn sin
-					</div>
-					<div class="text-left whitespace-nowrap">
-						<span class="text-base sm:text-lg md:text-xl lg:text-2xl font-light text-neutral-400"
-							>and</span
-						> care for sinners
-					</div>
-					<div class="text-left whitespace-nowrap">
-						<span class="text-base sm:text-lg md:text-xl lg:text-2xl font-light text-neutral-400"
-							>so that we might</span
-						> crush child sacrifice.
-					</div>
-				</h2>
-			</div>
-		</div>
-
-		<!-- Scroll Down Indicator -->
-		<div
-			class="relative z-10 mt-auto mx-auto text-center text-white/50 animate-bounce cursor-pointer"
->>>>>>> Home-Page-Revisions
-=======
->>>>>>> Moving-Changes-Stashed
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -744,33 +369,17 @@
 				viewBox="0 0 24 24"
 				stroke="currentColor"
 			>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 				<path
 					stroke-linecap="round"
 					stroke-linejoin="round"
 					stroke-width="1.5"
 					d="M19 9l-7 7-7-7"
 				/>
-=======
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
->>>>>>> Content-Changes-By-Skyler
-=======
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
->>>>>>> Home-Page-Revisions
-=======
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
->>>>>>> Moving-Changes-Stashed
 			</svg>
 		</div>
 	</section>
 
 	<!-- Our Focus Section -->
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Moving-Changes-Stashed
 	<section
 		class="relative z-10 py-16 md:py-32 sm:md:py-40"
 		style="background-color: rgba(2, 6, 23, {backgroundOpacity}); backdrop-filter: blur(4px);"
@@ -820,15 +429,7 @@
 					</div>
 					<div class="mt-auto pt-8 text-center">
 						<div
-<<<<<<< HEAD
-<<<<<<< HEAD
 							class="inline-block px-6 py-3 rounded-lg bg-teal/80 text-bone font-semibold hover:bg-linear-to-r from-teal to-cyan-600 transition-all duration-300 shadow-lg"
-=======
-							class="inline-block px-6 py-3 rounded-lg bg-teal/80 text-bone font-semibold hover:bg-gradient-to-r from-teal to-cyan-600 transition-all duration-300 shadow-lg"
->>>>>>> Content-Changes-By-Skyler
-=======
-							class="inline-block px-6 py-3 rounded-lg bg-teal/80 text-bone font-semibold hover:bg-gradient-to-r from-teal to-cyan-600 transition-all duration-300 shadow-lg"
->>>>>>> Moving-Changes-Stashed
 						>
 							Study the Battle
 						</div>
@@ -851,20 +452,10 @@
 								version="1.1"
 								xmlns="http://www.w3.org/2000/svg"
 							>
-<<<<<<< HEAD
-<<<<<<< HEAD
 								<path
 									d="M5.979 10.974v5.021h7.041v11.99h5.042v-11.99h6.958v-5.021h-6.958v-6.958h-5.042v6.958h-7.041z"
 								></path>
 							</svg>
-=======
-<path d="M5.979 10.974v5.021h7.041v11.99h5.042v-11.99h6.958v-5.021h-6.958v-6.958h-5.042v6.958h-7.041z"></path>
-</svg>
->>>>>>> Content-Changes-By-Skyler
-=======
-<path d="M5.979 10.974v5.021h7.041v11.99h5.042v-11.99h6.958v-5.021h-6.958v-6.958h-5.042v6.958h-7.041z"></path>
-</svg>
->>>>>>> Moving-Changes-Stashed
 						</div>
 						<h3
 							class="text-2xl font-serif font-bold text-bone mb-4 group-hover:text-ember transition-colors"
@@ -886,15 +477,7 @@
 					</div>
 					<div class="mt-auto pt-8 text-center">
 						<div
-<<<<<<< HEAD
-<<<<<<< HEAD
 							class="inline-block px-6 py-3 rounded-lg bg-teal/80 text-bone font-semibold hover:bg-linear-to-r from-teal to-cyan-600 transition-all duration-300 shadow-lg"
-=======
-							class="inline-block px-6 py-3 rounded-lg bg-teal/80 text-bone font-semibold hover:bg-gradient-to-r from-teal to-cyan-600 transition-all duration-300 shadow-lg"
->>>>>>> Content-Changes-By-Skyler
-=======
-							class="inline-block px-6 py-3 rounded-lg bg-teal/80 text-bone font-semibold hover:bg-gradient-to-r from-teal to-cyan-600 transition-all duration-300 shadow-lg"
->>>>>>> Moving-Changes-Stashed
 						>
 							Join the Cause
 						</div>
@@ -903,15 +486,7 @@
 
 				<!-- Church Mobilization -->
 				<a
-<<<<<<< HEAD
-<<<<<<< HEAD
 					href="{base}/join"
-=======
-					href="{base}/near-me"
->>>>>>> Content-Changes-By-Skyler
-=======
-					href="{base}/near-me"
->>>>>>> Moving-Changes-Stashed
 					class="flex flex-col bg-panel/80 backdrop-blur-sm border border-white/10 p-8 rounded-xl hover:bg-panel hover:border-crimson/50 transition-all duration-300 group shadow-lg hover:shadow-crimson/10 hover:-translate-y-1"
 				>
 					<div>
@@ -924,22 +499,12 @@
 								fill="currentColor"
 								xmlns="http://www.w3.org/2000/svg"
 							>
-<<<<<<< HEAD
-<<<<<<< HEAD
 								<path
 									fill-rule="evenodd"
 									clip-rule="evenodd"
 									d="M12 2C12.5523 2 13 2.44772 13 3V4H14C14.5523 4 15 4.44772 15 5C15 5.55228 14.5523 6 14 6H13V6.92805L21.007 11.6381C21.4831 11.9181 21.642 12.531 21.3619 13.007C21.0833 13.4807 20.475 13.6404 20 13.366V20C20 21.1046 19.1046 22 18 22H15H14H10H9H6C4.89543 22 4 21.1046 4 20V13.366C3.52498 13.6404 2.91671 13.4807 2.63807 13.007C2.35805 12.531 2.51695 11.9181 2.99298 11.6381L11 6.92806V6H10C9.44771 6 9 5.55228 9 5C9 4.44772 9.44771 4 10 4H11V3C11 2.44772 11.4477 2 12 2ZM11 20H13V17C13 16.4477 12.5523 16 12 16C11.4477 16 11 16.4477 11 17V20ZM15 20V17C15 15.3431 13.6569 14 12 14C10.3431 14 9 15.3431 9 17V20H6V12.1896L12 8.66018L18 12.1896V20H15Z"
 								/>
 							</svg>
-=======
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C12.5523 2 13 2.44772 13 3V4H14C14.5523 4 15 4.44772 15 5C15 5.55228 14.5523 6 14 6H13V6.92805L21.007 11.6381C21.4831 11.9181 21.642 12.531 21.3619 13.007C21.0833 13.4807 20.475 13.6404 20 13.366V20C20 21.1046 19.1046 22 18 22H15H14H10H9H6C4.89543 22 4 21.1046 4 20V13.366C3.52498 13.6404 2.91671 13.4807 2.63807 13.007C2.35805 12.531 2.51695 11.9181 2.99298 11.6381L11 6.92806V6H10C9.44771 6 9 5.55228 9 5C9 4.44772 9.44771 4 10 4H11V3C11 2.44772 11.4477 2 12 2ZM11 20H13V17C13 16.4477 12.5523 16 12 16C11.4477 16 11 16.4477 11 17V20ZM15 20V17C15 15.3431 13.6569 14 12 14C10.3431 14 9 15.3431 9 17V20H6V12.1896L12 8.66018L18 12.1896V20H15Z"/>
-</svg>
->>>>>>> Content-Changes-By-Skyler
-=======
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C12.5523 2 13 2.44772 13 3V4H14C14.5523 4 15 4.44772 15 5C15 5.55228 14.5523 6 14 6H13V6.92805L21.007 11.6381C21.4831 11.9181 21.642 12.531 21.3619 13.007C21.0833 13.4807 20.475 13.6404 20 13.366V20C20 21.1046 19.1046 22 18 22H15H14H10H9H6C4.89543 22 4 21.1046 4 20V13.366C3.52498 13.6404 2.91671 13.4807 2.63807 13.007C2.35805 12.531 2.51695 11.9181 2.99298 11.6381L11 6.92806V6H10C9.44771 6 9 5.55228 9 5C9 4.44772 9.44771 4 10 4H11V3C11 2.44772 11.4477 2 12 2ZM11 20H13V17C13 16.4477 12.5523 16 12 16C11.4477 16 11 16.4477 11 17V20ZM15 20V17C15 15.3431 13.6569 14 12 14C10.3431 14 9 15.3431 9 17V20H6V12.1896L12 8.66018L18 12.1896V20H15Z"/>
-</svg>
->>>>>>> Moving-Changes-Stashed
 						</div>
 						<h3
 							class="text-2xl font-serif font-bold text-bone mb-4 group-hover:text-ember transition-colors"
@@ -948,18 +513,8 @@
 						</h3>
 						<div class="space-y-4 text-bone/70 text-base leading-relaxed font-sans">
 							<p>
-<<<<<<< HEAD
-<<<<<<< HEAD
 								Every church in Georgia has the opportunity to stand against abortion by preaching,
 								discipling, and organizing to protect their preborn neighbors.
-=======
-								Every church in Georgia has the opportunity to stand against abortion
-								by preaching, discipling, and organizing to protect their preborn neighbors.
->>>>>>> Content-Changes-By-Skyler
-=======
-								Every church in Georgia has the opportunity to stand against abortion
-								by preaching, discipling, and organizing to protect their preborn neighbors.
->>>>>>> Moving-Changes-Stashed
 							</p>
 							<p>
 								Access church kits, pastoral resources, and practical steps to start or strengthen
@@ -972,364 +527,13 @@
 					</div>
 					<div class="mt-auto pt-8 text-center">
 						<div
-<<<<<<< HEAD
-<<<<<<< HEAD
 							class="inline-block px-6 py-3 rounded-lg bg-teal/80 text-bone font-semibold hover:bg-linear-to-r from-teal to-cyan-600 transition-all duration-300 shadow-lg"
-=======
-							class="inline-block px-6 py-3 rounded-lg bg-teal/80 text-bone font-semibold hover:bg-gradient-to-r from-teal to-cyan-600 transition-all duration-300 shadow-lg"
->>>>>>> Content-Changes-By-Skyler
 						>
 							Equip My Church
 						</div>
-=======
-	<section class="relative z-10 bg-transparent py-32 sm:py-40">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<h2 class="text-4xl font-serif font-bold text-white tracking-tight mb-20 text-center">
-				Our Focus
-			</h2>
-			<div class="grid md:grid-cols-3 gap-8">
-				<!-- Legislation Engagement -->
-				<a
-					href="{base}/timeline"
-					class="block bg-neutral-900/50 backdrop-blur-sm border border-neutral-800 p-8 rounded-xl hover:bg-neutral-900 hover:border-red-800/50 transition-all duration-300 group shadow-lg hover:shadow-red-900/10 hover:-translate-y-1"
-				>
-					<div
-						class="mb-6 inline-block p-3 rounded-lg bg-red-900/20 text-red-500 group-hover:bg-red-900/30 group-hover:text-red-400 transition-colors"
-					>
-						<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="1.5"
-								d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16a2 2 0 100-4 2 2 0 000 4z"
-							/>
-						</svg>
-					</div>
-					<h3
-						class="text-2xl font-serif font-bold text-white mb-4 group-hover:text-red-400 transition-colors"
-					>
-						Legislation Engagement
-					</h3>
-					<div class="space-y-4 text-neutral-400 text-base leading-relaxed font-sans">
-						<p class="font-medium text-neutral-200">Roe is over. Equal Protection Laws Matter.</p>
-						<p>The Christian Church must pursue biblical justice to put an end to child sacrifice.</p>
-					</div>
-					<div
-						class="mt-8 flex items-center text-red-500 text-xs font-bold uppercase tracking-widest"
-					>
-						<span class="group-hover:mr-2 transition-all">Learn More</span>
-						<svg
-							class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
-							fill="none"
-							stroke="currentColor"
-							viewBox="0 0 24 24"
-							><path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M17 8l4 4m0 0l-4 4m4-4H3"
-							></path></svg
-						>
-					</div>
-				</a>
-
-				<!-- Abolition with Evangelism -->
-				<a
-					href="{base}/abolition-basics"
-					class="block bg-neutral-900/50 backdrop-blur-sm border border-neutral-800 p-8 rounded-xl hover:bg-neutral-900 hover:border-red-800/50 transition-all duration-300 group shadow-lg hover:shadow-red-900/10 hover:-translate-y-1"
-				>
-					<div
-						class="mb-6 inline-block p-3 rounded-lg bg-red-900/20 text-red-500 group-hover:bg-red-900/30 group-hover:text-red-400 transition-colors"
-					>
-						<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="1.5"
-								d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"
-							/>
-						</svg>
-					</div>
-					<h3
-						class="text-2xl font-serif font-bold text-white mb-4 group-hover:text-red-400 transition-colors"
-					>
-						Abolition with Evangelism
-					</h3>
-					<div class="space-y-4 text-neutral-400 text-base leading-relaxed font-sans">
-						<p>
-							Through partnerships with two full-time evangelists, we are taking the Gospel to child
-							sacrifice centers across GA.
-						</p>
-						<p>
-							We not only condemn the sin of murder, we preach forgiveness in Christ. We also provide
-							blessing bags, baby showers, adoptive services, and counseling for mothers and fathers
-							who chose life.
-						</p>
-					</div>
-					<div
-						class="mt-8 flex items-center text-red-500 text-xs font-bold uppercase tracking-widest"
-					>
-						<span class="group-hover:mr-2 transition-all">Learn More</span>
-						<svg
-							class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
-							fill="none"
-							stroke="currentColor"
-							viewBox="0 0 24 24"
-							><path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M17 8l4 4m0 0l-4 4m4-4H3"
-							></path></svg
-						>
-					</div>
-				</a>
-
-				<!-- Local Churches -->
-				<a
-					href="{base}/near-me"
-					class="block bg-neutral-900/50 backdrop-blur-sm border border-neutral-800 p-8 rounded-xl hover:bg-neutral-900 hover:border-red-800/50 transition-all duration-300 group shadow-lg hover:shadow-red-900/10 hover:-translate-y-1"
-				>
-					<div
-						class="mb-6 inline-block p-3 rounded-lg bg-red-900/20 text-red-500 group-hover:bg-red-900/30 group-hover:text-red-400 transition-colors"
-					>
-						<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="1.5"
-								d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-							/>
-						</svg>
-					</div>
-					<h3
-						class="text-2xl font-serif font-bold text-white mb-4 group-hover:text-red-400 transition-colors"
-					>
-						Local Churches
-					</h3>
-					<div class="space-y-4 text-neutral-400 text-base leading-relaxed font-sans">
-						<p>
-							We work with local churches to equip them in similar outreach programs to fulfill the
-							Great Commission.
-						</p>
-					</div>
-					<div
-						class="mt-8 flex items-center text-red-500 text-xs font-bold uppercase tracking-widest"
-					>
-						<span class="group-hover:mr-2 transition-all">Join the Network</span>
-						<svg
-							class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
-							fill="none"
-							stroke="currentColor"
-							viewBox="0 0 24 24"
-							><path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M17 8l4 4m0 0l-4 4m4-4H3"
-							></path></svg
-						>
->>>>>>> Home-Page-Revisions
-=======
-							class="inline-block px-6 py-3 rounded-lg bg-teal/80 text-bone font-semibold hover:bg-gradient-to-r from-teal to-cyan-600 transition-all duration-300 shadow-lg"
-						>
-							Equip My Church
-						</div>
->>>>>>> Moving-Changes-Stashed
 					</div>
 				</a>
 			</div>
 		</div>
 	</section>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 </div>
-=======
-</div>
->>>>>>> Content-Changes-By-Skyler
-=======
-</div>
->>>>>>> Home-Page-Revisions
-=======
-<script lang="ts">
-	import { base } from '$app/paths';
-	import TwoColumnLayout from '$lib/components/TwoColumnLayout.svelte';
-	import DataCard from '$lib/components/DataCard.svelte';
-</script>
-
-<svelte:head>
-	<title>The Charge | Abolition Georgia</title>
-</svelte:head>
-
-<div class="bg-black text-white min-h-screen font-sans selection:bg-red-900 selection:text-white">
-	
-	<!-- Hero Section -->
-	<section class="relative min-h-[70vh] flex flex-col justify-center items-center px-4 overflow-hidden">
-		<!-- Background Image: Inverted Skyline -->
-		<div class="fixed inset-0 z-0 opacity-20 pointer-events-none select-none">
-			<img 
-				src="{base}/images/atlanta_skyline.png" 
-				alt="Atlanta Skyline" 
-				class="w-full h-full object-cover grayscale invert"
-			/>
-			<div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
-		</div>
-
-		<div class="relative z-10 max-w-6xl mx-auto w-full py-20">
-			<!-- Scripture Block: Left Justified, Bright White -->
-			<div class="mb-16">
-				<div class="text-red-600 font-serif font-bold text-2xl md:text-5xl leading-tight text-left border-l-8 border-red-900 pl-8 py-4 mb-6">
-					<p class="text-white">"Open thy mouth for the dumb in the cause of all such as are appointed to destruction."</p>
-					<p class="mt-4 text-white/90">"Open thy mouth, judge righteously, and plead the cause of the poor and needy."</p>
-					<span class="block mt-6 text-red-600 text-xl font-sans uppercase tracking-widest">— Proverbs 31:8-9</span>
-				</div>
-			</div>
-
-			<TwoColumnLayout>
-				{#snippet left()}
-					<div class="space-y-12">
-						<div class="prose prose-invert prose-xl max-w-none">
-							<h1 class="text-3xl md:text-6xl font-serif font-black text-white leading-tight uppercase tracking-tighter">
-								State of Abortion in Georgia: <span class="text-red-600">2024–2025</span>
-							</h1>
-							<p class="text-2xl font-serif italic text-white/70 border-b border-white/10 pb-8">
-								The Inadequacy of Regulatory Restriction
-							</p>
-						</div>
-
-						<div class="prose prose-invert prose-lg max-w-none text-white/80 leading-relaxed space-y-6">
-							<p>
-								Georgia's HB481 heartbeat bill purports to restrict abortion to the first six weeks of pregnancy. Despite full implementation, comprehensive 2024 data demonstrates that <strong class="text-white">this law has failed</strong> to meaningfully eliminate abortion access in our state.
-							</p>
-							<p>
-								Instead, the regulatory framework has merely displaced abortion access to alternative methods and out-of-state providers. The evidence is clear: <span class="text-red-600 font-bold">Abortion regulation without complete legal abolition is fundamentally ineffective.</span>
-							</p>
-						</div>
-
-						<section class="space-y-8">
-							<h2 class="text-2xl font-serif font-bold text-white uppercase tracking-wide border-l-4 border-red-600 pl-4">The Failure of the Heartbeat Bill</h2>
-							<div class="prose prose-invert prose-lg max-w-none text-white/70 space-y-4">
-								<p>
-									Pre-implementation projections suggested the heartbeat law would render <strong>88.4%</strong> of abortions illegal. The 2024 reality? Reported in-state abortions decreased by a mere <strong>9%</strong>. 
-								</p>
-								<p>
-									Even with the law in effect, <strong>98% of reported abortions</strong> occurred at or before the six-week threshold, and abortions at prohibited gestational ages (7-23 weeks) actually <span class="text-white">increased</span> compared to 2023.
-								</p>
-							</div>
-						</section>
-
-						<section class="space-y-8">
-							<h2 class="text-2xl font-serif font-bold text-white uppercase tracking-wide border-l-4 border-red-600 pl-4">The Telehealth Workaround</h2>
-							<div class="prose prose-invert prose-lg max-w-none text-white/70 space-y-4">
-								<p>
-									The state's reporting captures only clinical abortions, masking a massive surge in mail-order chemical abortions. While the state reported 26,034 abortions, independent estimates place the true total at nearly <strong>36,000</strong>.
-								</p>
-								<p>
-									This 10,000-abortion discrepancy represents the <strong class="text-white">Telehealth Loophole</strong>—a blind spot that regulatory frameworks are structurally incapable of addressing.
-								</p>
-							</div>
-						</section>
-
-						<section class="space-y-8">
-							<h2 class="text-2xl font-serif font-bold text-white uppercase tracking-wide border-l-4 border-red-600 pl-4">Displacement, Not Reduction</h2>
-							<div class="prose prose-invert prose-lg max-w-none text-white/70 space-y-4">
-								<p>
-									Rather than eliminating abortion, Georgia has exported it. In 2024, an estimated <strong>10,750 Georgia residents</strong> traveled out-of-state to obtain abortions, primarily to North Carolina and Virginia.
-								</p>
-								<p>
-									The law does not prevent the murder of children; it merely redistributes where those murders occur based on geography and economic resources.
-								</p>
-							</div>
-						</section>
-
-						<div class="pt-12 border-t border-white/10">
-							<h3 class="text-3xl font-serif font-bold text-white mb-6">The Necessity of Total Abolition</h3>
-							<p class="text-xl text-white/60 leading-relaxed mb-8">
-								The 2024 data provides empirical validation: regulation achieves neither the stated legal goal nor the practical outcome of reduction. Only complete legal prohibition—the standard of <strong>HB 441</strong>—can establish justice for the pre-born.
-							</p>
-							<div class="flex flex-col items-center gap-6 md:flex-row md:items-start" data-testid="cta-container">
-								<a href="{base}/the-standard" class="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 uppercase tracking-widest text-sm transition-colors text-center w-full md:w-auto">
-									The Standard of 2026
-								</a>
-								<a href="{base}/get-involved" class="border border-white/20 hover:border-red-600 text-white font-bold py-4 px-8 uppercase tracking-widest text-sm transition-colors text-center w-full md:w-auto">
-									Who Do I Call?
-								</a>
-							</div>
-						</div>
-					</div>
-				{/snippet}
-
-				{#snippet right()}
-					<DataCard 
-						class="min-w-[85vw] md:min-w-0 snap-center"
-						title="The Reality Gap" 
-						value="~36,000" 
-						description="Estimated total abortions in GA (2024), 27% higher than state-reported figures due to telehealth." 
-					/>
-					<DataCard 
-						class="min-w-[85vw] md:min-w-0 snap-center"
-						title="Chemical Warfare" 
-						value="83%" 
-						description="Of reported abortions were drug-induced chemical abortions, easily circumventing gestational bans via mail." 
-					/>
-					<DataCard 
-						class="min-w-[85vw] md:min-w-0 snap-center"
-						title="Regulatory Failure" 
-						value="9%" 
-						description="Actual reduction in reported resident abortions, despite projections of 88% reduction under HB481." 
-					/>
-					<DataCard 
-						class="min-w-[85vw] md:min-w-0 snap-center"
-						title="Exported Slaughter" 
-						value="10,750" 
-						description="Georgia residents who traveled out-of-state for abortion in 2024." 
-					/>
-					<DataCard 
-						class="min-w-[85vw] md:min-w-0 snap-center"
-						title="Informed Consent Gap" 
-						value="55%" 
-						description="Of women did NOT receive state-mandated medical risk info before their abortion." 
-					/>
-					<DataCard 
-						class="min-w-[85vw] md:min-w-0 snap-center"
-						title="Racial Injustice" 
-						value="6x" 
-						description="The Black abortion rate remains nearly 6x higher than the white rate under current regulations." 
-					/>
-				{/snippet}
-			</TwoColumnLayout>
-		</div>
-	</section>
-
-	<!-- Footer / Additional Links -->
-	<section class="relative py-24 px-4 bg-neutral-950 border-t border-white/10 z-10">
-		<div class="max-w-4xl mx-auto grid gap-12 md:grid-cols-3">
-			<div class="space-y-4">
-				<h4 class="text-red-600 font-bold uppercase tracking-widest text-xs">Mobilize</h4>
-				<ul class="space-y-2 text-sm text-white/40">
-					<li><a href="{base}/get-involved" class="hover:text-white transition-colors">Find Your Representative</a></li>
-					<li><a href="{base}/get-involved" class="hover:text-white transition-colors">Take the Charge to the Capitol</a></li>
-				</ul>
-			</div>
-			<div class="space-y-4">
-				<h4 class="text-red-600 font-bold uppercase tracking-widest text-xs">Educate</h4>
-				<ul class="space-y-2 text-sm text-white/40">
-					<li><a href="{base}/the-standard" class="hover:text-white transition-colors">Abolition vs. Pro-Life</a></li>
-					<li><a href="{base}/faqs" class="hover:text-white transition-colors">Frequently Asked Questions</a></li>
-				</ul>
-			</div>
-			<div class="space-y-4">
-				<h4 class="text-red-600 font-bold uppercase tracking-widest text-xs">Connect</h4>
-				<ul class="space-y-2 text-sm text-white/40">
-					<li><a href="{base}/the-gathering" class="hover:text-white transition-colors">Abolitionist Churches</a></li>
-					<li><a href="{base}/timeline" class="hover:text-white transition-colors">Legislative Timeline</a></li>
-				</ul>
-			</div>
-		</div>
-	</section>
-</div>
->>>>>>> Home-Page-Tweaks
-=======
-</div>
->>>>>>> Moving-Changes-Stashed

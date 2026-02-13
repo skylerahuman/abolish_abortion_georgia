@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { slide } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
 	import ExegesisModal from '$lib/components/ExegesisModal.svelte';
@@ -119,7 +120,7 @@
 								Track Bill
 							</button>
 							<a
-								href="/HB441.pdf"
+								href="{base}/HB441.pdf"
 								download
 								class="flex items-center gap-2 px-3 py-1.5 rounded hover:bg-gold/10 text-xs font-mono text-slate-400 hover:text-gold transition-all"
 							>
@@ -251,10 +252,10 @@
                             This analysis is provided to equip the church. Help us continue this work and push this bill to the floor.
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                            <a href="/join" class="bg-gold hover:bg-yellow-500 text-navy-dark font-bold py-3 px-8 rounded transition-all shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]">
+                            <a href="{base}/join" class="bg-gold hover:bg-yellow-500 text-navy-dark font-bold py-3 px-8 rounded transition-all shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]">
                                 Contact Legislators
                             </a>
-                            <a href="/support#donation" class="bg-transparent border border-white/20 hover:bg-white/5 text-white font-bold py-3 px-8 rounded transition-all">
+                            <a href="{base}/support#donation" class="bg-transparent border border-white/20 hover:bg-white/5 text-white font-bold py-3 px-8 rounded transition-all">
                                 Donate
                             </a>
                         </div>

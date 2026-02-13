@@ -1,0 +1,26 @@
+// HB 441 - The Abolition of Abortion Act
+// Introduced: Regular Session, 2024
+// Status: In Committee
+// ----------------------------------------
+
+SECTION 1. SHORT TITLE.
+This Act may be cited as the "Abolition of Abortion in [State] Act."
+
+SECTION 2. LEGISLATIVE FINDINGS.
+The Legislature finds that:
+(1) Human life begins at fertilization.
+(2) The State has a compelling interest in protecting the lives of all human beings from the moment of conception.
+(3) Current statutes provide immunity for certain classes of homicide that must be repealed to establish equal justice.
+
+SECTION 3. DEFINITION OF PERSON.
+Section 1.01 of the Penal Code is amended to read:
+"Person" means a human being who is alive, including an unborn child at every stage of gestation from fertilization until birth.
+
+SECTION 4. REPEAL OF EXCEPTIONS.
+(a) All defenses to prosecution for the homicide of an unborn child that do not apply to the homicide of a born child are hereby repealed.
+(b) No provision of this Act shall be construed to prohibit medical treatment intended to save the life of the mother where the death of the unborn child is an unintended result.
+
+SECTION 5. JURISDICTION.
+The Attorney General shall have concurrent jurisdiction to prosecute offenses under this chapter if the local district attorney fails or refuses to prosecute.
+
+// End of File

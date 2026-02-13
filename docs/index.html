@@ -3,66 +3,186 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-			integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-			crossorigin="" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+			rel="stylesheet"
+		/>
 		
-<<<<<<< HEAD
-		<link href="./_app/immutable/assets/0.DhIbnBBt.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.Dkg7h1ot.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/C3nn_KOS.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/DJ2Boix_.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/FQ7IEtaQ.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/CvqyRpfB.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/A7sQcLub.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.D0DCMqjZ.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/BjDpoNx0.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/Chk-kckB.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/DtWRs5Cq.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/BFaMWwCj.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/B5xSDW4y.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/0.DHckKNvw.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/CJp5y0v8.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/D8458Aw8.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/2.AjdhWLx4.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/B9k3Vrp2.js"><!--12qhfyh--><link rel="icon" href="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='107'%20height='128'%20viewBox='0%200%20107%20128'%3e%3ctitle%3esvelte-logo%3c/title%3e%3cpath%20d='M94.157%2022.819c-10.4-14.885-30.94-19.297-45.792-9.835L22.282%2029.608A29.92%2029.92%200%200%200%208.764%2049.65a31.5%2031.5%200%200%200%203.108%2020.231%2030%2030%200%200%200-4.477%2011.183%2031.9%2031.9%200%200%200%205.448%2024.116c10.402%2014.887%2030.942%2019.297%2045.791%209.835l26.083-16.624A29.92%2029.92%200%200%200%2098.235%2078.35a31.53%2031.53%200%200%200-3.105-20.232%2030%2030%200%200%200%204.474-11.182%2031.88%2031.88%200%200%200-5.447-24.116'%20style='fill:%23ff3e00'/%3e%3cpath%20d='M45.817%20106.582a20.72%2020.72%200%200%201-22.237-8.243%2019.17%2019.17%200%200%201-3.277-14.503%2018%2018%200%200%201%20.624-2.435l.49-1.498%201.337.981a33.6%2033.6%200%200%200%2010.203%205.098l.97.294-.09.968a5.85%205.85%200%200%200%201.052%203.878%206.24%206.24%200%200%200%206.695%202.485%205.8%205.8%200%200%200%201.603-.704L69.27%2076.28a5.43%205.43%200%200%200%202.45-3.631%205.8%205.8%200%200%200-.987-4.371%206.24%206.24%200%200%200-6.698-2.487%205.7%205.7%200%200%200-1.6.704l-9.953%206.345a19%2019%200%200%201-5.296%202.326%2020.72%2020.72%200%200%201-22.237-8.243%2019.17%2019.17%200%200%201-3.277-14.502%2017.99%2017.99%200%200%201%208.13-12.052l26.081-16.623a19%2019%200%200%201%205.3-2.329%2020.72%2020.72%200%200%201%2022.237%208.243%2019.17%2019.17%200%200%201%203.277%2014.503%2018%2018%200%200%201-.624%202.435l-.49%201.498-1.337-.98a33.6%2033.6%200%200%200-10.203-5.1l-.97-.294.09-.968a5.86%205.86%200%200%200-1.052-3.878%206.24%206.24%200%200%200-6.696-2.485%205.8%205.8%200%200%200-1.602.704L37.73%2051.72a5.42%205.42%200%200%200-2.449%203.63%205.79%205.79%200%200%200%20.986%204.372%206.24%206.24%200%200%200%206.698%202.486%205.8%205.8%200%200%200%201.602-.704l9.952-6.342a19%2019%200%200%201%205.295-2.328%2020.72%2020.72%200%200%201%2022.237%208.242%2019.17%2019.17%200%200%201%203.277%2014.503%2018%2018%200%200%201-8.13%2012.053l-26.081%2016.622a19%2019%200%200%201-5.3%202.328'%20style='fill:%23fff'/%3e%3c/svg%3e"/><!---->
+		<link href="./_app/immutable/assets/0.Bj1Cb9vV.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.BgoTsgHh.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/OewybSUV.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/rvO96ovo.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/BOZwUnDS.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/Cyv_yjPw.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/Bfh70wKf.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/DGQ93oaC.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.FADnTYxH.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/PPVm8Dsz.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/B7h0y9B8.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/BQJIW4hw.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/CY5M9QH9.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/B2oiWCv6.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/BrdBp72D.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/DFbaiXW0.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/CtaFTir0.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.C0866LOW.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/D5uLbxCV.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/sASIvHFp.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/Dyz6xL-l.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/BIZQoEtA.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/MLHHVL6O.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.DYF5v-Dc.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/DQ9wegHW.js"><!--12qhfyh--><!----><!--1uha8ag--><style>
+		.home-bg {
+			position: relative;
+			isolation: isolate;
+		}
+
+		/* Optimization: Use fixed pseudo-element instead of background-attachment: fixed for better mobile performance */
+		.home-bg::before {
+			content: '';
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			background-image: linear-gradient(
+					to bottom,
+					rgba(2, 6, 23, 0.1),
+					rgba(2, 6, 23, 0.4),
+					rgba(2, 6, 23, 1)
+				),
+				url('/images/backdrop.png');
+			background-position: center top;
+			background-size: cover;
+			background-repeat: no-repeat;
+			will-change: transform;
+		}
+
+		/* Fix background positioning on smaller screens */
+		@media (max-width: 1450px) {
+			.home-bg::before {
+				background-position: center 0%;
+				background-size: cover;
+			}
+		}
+
+		/* Cinematic fade-in animations - all screens */
+		.fade-in-line {
+			opacity: 0;
+			animation: fadeInCinematic 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+			will-change: transform, opacity;
+		}
+
+		/* Four lines at 0.6s intervals, 1s duration each */
+		.fade-in-line:nth-child(1) {
+			animation-delay: 0s;
+		}
+		.fade-in-line:nth-child(2) {
+			animation-delay: 0.6s;
+		}
+		.fade-in-line:nth-child(3) {
+			animation-delay: 1s;
+		}
+		.fade-in-line:nth-child(4) {
+			animation-delay: 1.4s;
+		}
+
+		/* Desktop paragraph - starts at 2.4s */
+		.fade-in-text {
+			opacity: 0;
+			animation: fadeInCinematic 0.5s cubic-bezier(0.16, 1, 0.3, 1) 2.4s forwards;
+			will-change: transform, opacity;
+		}
+
+		/* Buttons start at 2.6s */
+		.fade-in-buttons {
+			opacity: 0;
+			animation: fadeInCinematic 0.5s cubic-bezier(0.16, 1, 0.3, 1) 2.6s forwards;
+		}
+
+		.fade-in-scroll {
+			opacity: 0;
+			animation: fadeInBounce 0.8s ease-out 3.2s forwards;
+		}
+
+		.fade-in-carousel-icon {
+			opacity: 0;
+			animation: fadeInBounce 0.8s ease-out 2.8s forwards;
+		}
+
+		@keyframes fadeInCinematic {
+			from {
+				opacity: 0;
+				transform: translateY(30px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		@keyframes fadeInBounce {
+			0% {
+				opacity: 0;
+				transform: translateY(-10px);
+			}
+			50% {
+				opacity: 1;
+				transform: translateY(5px);
+			}
+			100% {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		/* Mobile carousel */
+		@media (max-width: 768px) {
+			.hero-carousel {
+				display: flex;
+				transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+				width: 200%;
+			}
+
+			.hero-carousel.show-text {
+				transform: translateX(-50%);
+			}
+
+			.carousel-panel {
+				width: 50%;
+				flex-shrink: 0;
+			}
+		}
+	</style><!----><title>Operation Gospel - Abolish Abortion Georgia</title>
 	</head>
 	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents"><!--[--><!--[--><!----><div class="min-h-screen flex flex-col"><nav class="bg-black text-white shadow-lg sticky top-0 z-50 border-b border-neutral-800"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-16"><div class="flex items-center space-x-3"><div class="text-2xl text-red-600 font-bold"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1.323l3.954 1.582 1.599-.8a1 1 0 01.894 1.79l-1.233.616 1.738 5.42a1 1 0 01-.285 1.05A3.989 3.989 0 0115 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.738-5.42-1.233-.617a1 1 0 01.894-1.788l1.599.799L11 4.323V3a1 1 0 011-1zm-5 8.274l-.818 2.552c-.25.78-.03 1.661.58 2.173.609.512 1.456.56 2.116.116l.906-.605-.9-2.814a1 1 0 01-.084-.374 1.088 1.088 0 01.084-.374l.9-2.814-.906-.605c-.66-.444-1.507-.396-2.116.116a2.267 2.267 0 00-.58 2.173z" clip-rule="evenodd"></path></svg></div> <div><a href="./" class="text-xl md:text-2xl font-black tracking-tighter uppercase leading-none">Equal Protection</a> <p class="text-[10px] text-neutral-500 tracking-widest uppercase font-bold">The Road to Abolition</p></div></div> <div class="hidden md:flex md:items-center md:space-x-1"><!--[--><a href="./" class="hover:text-neutral-300 hover:bg-neutral-900 transition-all duration-200 px-4 py-3 text-[10px] font-bold tracking-wider uppercase rounded-sm text-neutral-500 border-l-2 border-transparent">Home</a><a href="./who-do-i-call" class="hover:text-neutral-300 hover:bg-neutral-900 transition-all duration-200 px-4 py-3 text-[10px] font-bold tracking-wider uppercase rounded-sm text-neutral-500 border-l-2 border-transparent">Who Do I Call</a><a href="./timeline" class="hover:text-neutral-300 hover:bg-neutral-900 transition-all duration-200 px-4 py-3 text-[10px] font-bold tracking-wider uppercase rounded-sm text-neutral-500 border-l-2 border-transparent">Timeline</a><a href="./faqs" class="hover:text-neutral-300 hover:bg-neutral-900 transition-all duration-200 px-4 py-3 text-[10px] font-bold tracking-wider uppercase rounded-sm text-neutral-500 border-l-2 border-transparent">FAQs</a><!--]--></div> <div class="flex items-center"><button class="md:hidden text-red-500 focus:outline-none" aria-label="Toggle menu"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><!--[!--><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path><!--]--></svg></button></div></div></div> <!--[!--><!--]--></nav> <main class="flex-1"><!----><section class="relative py-20 px-4 bg-black border-b border-red-900/20"><div class="max-w-4xl mx-auto text-center"><h2 class="text-4xl md:text-6xl font-black text-white uppercase tracking-tight mb-6"><span class="text-red-600">ABOLITION</span> NOT REGULATION</h2> <p class="text-sm md:text-base text-neutral-400 leading-relaxed mb-8">For five decades, the response to the greatest moral atrocity of our age has been incremental regulation. 
-			We tracked the pulse, we measured the weeks, but we failed to establish <strong class="text-white">Justice</strong>.
-			This timeline chronicles the journey from the darkness of <em>Roe</em> to the rising light of the <strong class="text-white">Equal Protection</strong> movement.</p> <div class="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto"><div class="p-5 border border-neutral-800 bg-neutral-900/40 text-left hover:border-red-900/50 transition-colors"><h3 class="font-bold text-red-500 uppercase text-[10px] tracking-widest mb-2">The Goal</h3> <p class="text-xs text-gray-300 leading-relaxed">To criminalize abortion as homicide, providing equal protection under the 14th Amendment to the pre-born.</p></div> <div class="p-5 border border-neutral-800 bg-neutral-900/40 text-left hover:border-neutral-600 transition-colors"><h3 class="font-bold text-white uppercase text-[10px] tracking-widest mb-2">The Hope</h3> <p class="text-xs text-gray-300 leading-relaxed">The Gospel of Jesus Christ, which commands us to rescue those being led away to death (Proverbs 24:11).</p></div></div></div></section> <section class="py-20 bg-black"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="text-center max-w-3xl mx-auto mb-16 border-b border-red-900/20 pb-8"><span class="text-red-500 font-bold tracking-widest uppercase text-xs">The Current Battleground</span> <h2 class="text-3xl md:text-4xl font-black text-white uppercase tracking-tight mt-2 mb-6">Georgia HB 441: Equal Protection</h2> <p class="text-sm text-neutral-400 leading-relaxed">We have moved beyond the "Heartbeat Bills" that merely set a timing threshold for death. The Georgia Equal Protection Act (HB 441) represents the standard of justice required by God and the Constitution.</p></div> <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto"><div class="bg-neutral-900/20 p-8 border border-neutral-800 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all"><div class="flex items-center justify-between mb-6"><h3 class="text-sm font-bold text-neutral-500 uppercase tracking-widest">The Old Way: Regulation</h3> <svg class="w-6 h-6 text-neutral-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z" clip-rule="evenodd"></path></svg></div> <ul class="space-y-4 text-xs text-neutral-400"><li class="flex gap-2"><svg class="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg> <span><strong class="text-neutral-300">Arbitrary Lines:</strong> Protects life only after a detectable heartbeat, 15 weeks, or viability.</span></li> <li class="flex gap-2"><svg class="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg> <span><strong class="text-neutral-300">Immunity:</strong> Often gives immunity to the mother or providers in certain cases.</span></li> <li class="flex gap-2"><svg class="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg> <span><strong class="text-neutral-300">Subservient:</strong> Often bows to federal court opinions (Roe) rather than challenging them.</span></li></ul></div> <div class="bg-neutral-900/80 p-8 border border-red-900/50 shadow-xl relative overflow-hidden hover:border-red-800 transition-colors"><div class="absolute top-0 right-0 bg-red-900 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1">The Standard</div> <div class="flex items-center justify-between mb-6 mt-6"><h3 class="text-sm font-bold text-red-500 uppercase tracking-widest">The New Way: HB 441</h3> <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z"></path></svg></div> <ul class="space-y-4 text-xs text-gray-300"><li class="flex gap-2"><svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> <span><strong class="text-white">Total Abolition:</strong> Defines life from fertilization. No arbitrary time limits.</span></li> <li class="flex gap-2"><svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> <span><strong class="text-white">Equal Protection:</strong> Applies the exact same laws protecting born people to pre-born people.</span></li> <li class="flex gap-2"><svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> <span><strong class="text-white">Interposition:</strong> Asserts state sovereignty to protect life regardless of federal overreach.</span></li></ul></div></div> <div class="mt-12 text-center"><a href="./timeline" class="bg-red-900 text-white px-8 py-3 hover:bg-red-800 transition-colors font-bold uppercase tracking-widest text-xs shadow-lg inline-block border border-red-800">View Timeline</a></div></div></section><!----><!----></main> <footer class="bg-neutral-950 text-neutral-400 py-12 border-t border-neutral-900"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"><svg class="w-8 h-8 mx-auto mb-4 text-neutral-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z"></path></svg> <p class="mb-4 font-serif italic text-lg text-white">"Open your mouth for the mute, for the rights of all who are destitute."</p> <p class="text-sm mb-8 text-neutral-500">Proverbs 31:8</p> <div class="text-[8px] text-neutral-600 uppercase font-mono tracking-wide"><p>This timeline is an educational resource advocating for the equal protection of all human beings.</p> <p class="mt-2">© 2025 Abolition Georgia. All rights reserved.</p></div></div></footer></div><!----><!--]--> <!--[!--><!--]--><!--]-->
+		<div style="display: contents"><!--[--><!--[--><!----><div class="min-h-screen flex flex-col bg-black text-white"><nav class="bg-black text-white shadow-lg sticky top-0 z-50 border-b border-neutral-900 nav-container"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-16"><div class="flex items-center space-x-3"><div class="text-2xl text-red-600 font-bold"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1.323l3.954 1.582 1.599-.8a1 1 0 01.894 1.79l-1.233.616 1.738 5.42a1 1 0 01-.285 1.05A3.989 3.989 0 0115 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.738-5.42-1.233-.617a1 1 0 01.894-1.788l1.599.799L11 4.323V3a1 1 0 011-1zm-5 8.274l-.818 2.552c-.25.78-.03 1.661.58 2.173.609.512 1.456.56 2.116.116l.906-.605-.9-2.814a1 1 0 01-.084-.374 1.088 1.088 0 01.084-.374l.9-2.814-.906-.605c-.66-.444-1.507-.396-2.116.116a2.267 2.267 0 00-.58 2.173z" clip-rule="evenodd"></path></svg></div> <div><a href="./" class="text-xl md:text-2xl font-black tracking-tighter uppercase leading-none">Abolish Abortion</a> <p class="text-[10px] text-neutral-500 tracking-widest uppercase font-bold">Georgia</p></div></div> <div class="hidden md:flex md:items-center md:space-x-1"><!--[--><a href="./" class="hover:text-neutral-300 hover:bg-neutral-900 transition-all duration-200 px-3 py-3 text-[10px] font-bold tracking-wider uppercase rounded-sm text-neutral-500 border-l-2 border-transparent">Home</a><a href="./georgia-battle" class="hover:text-neutral-300 hover:bg-neutral-900 transition-all duration-200 px-3 py-3 text-[10px] font-bold tracking-wider uppercase rounded-sm text-neutral-500 border-l-2 border-transparent">Timeline</a><a href="./faqs" class="hover:text-neutral-300 hover:bg-neutral-900 transition-all duration-200 px-3 py-3 text-[10px] font-bold tracking-wider uppercase rounded-sm text-neutral-500 border-l-2 border-transparent">FAQs</a><!--]--> <a href="./join" class="ml-4 px-4 py-2 bg-red-600 text-white text-[10px] font-bold uppercase tracking-widest rounded-sm hover:bg-red-700 transition-colors">Join the Fight</a></div> <div class="flex items-center"><button class="md:hidden text-red-500 focus:outline-none" aria-label="Toggle menu"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><!--[!--><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path><!--]--></svg></button></div></div></div> <!--[!--><!--]--></nav> <main class="flex-1"><!----><div class="home-bg"><section class="relative min-h-[90vh] md:min-h-[85vh] py-12 md:py-16 px-4 flex flex-col justify-center border-b border-crimson/20 overflow-hidden"><div class="hero-carousel  md:block md:w-auto! md:transform-none! relative z-10 w-full px-6 md:px-16 mt-auto"><div class="carousel-panel md:w-full!"><div class="w-full max-w-4xl text-left flex flex-col items-start"><h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-light text-bone tracking-normal mb-12 drop-shadow-xl space-y-2 md:space-y-3 leading-tight"><div class="fade-in-line">Georgia bears <span class="text-crimson">bloodguilt</span></div> <div class="fade-in-line">for the sin of abortion.</div> <div class="fade-in-line italic opacity-90">What can wash away that stain?</div> <div class="fade-in-line">Nothing but the <span class="text-crimson">blood</span> of <span class="text-gold font-medium inline-block text-[1.2em]">Jesus</span>.</div></h2> <p class="hidden md:block text-left text-lg font-sans text-bone/90 mb-12 max-w-2xl drop-shadow-lg fade-in-text leading-relaxed">In the post-Roe era, we will not overcome the sin of abortion (which the Scriptures call
+						child sacrifice) by "pro-life" gradualism. We must be pro-justice and pro-mercy, because
+						our God and Lord, Jesus Christ, is perfectly just and merciful. We demand equal
+						protection for the unborn, immediate and total abolition of abortion, and mobilization
+						of the Church in Georgia to accomplish the Great Commission.</p> <div class="flex justify-start gap-6 mt-4 fade-in-buttons"><a href="./join" class="px-10 py-4 bg-crimson text-bone font-bold rounded-lg hover:bg-ember transition-all duration-300 shadow-xl hover:shadow-crimson/40 hover:-translate-y-0.5 active:translate-y-0">Join Us</a> <a href="./support" class="px-10 py-4 border-2 border-crimson text-bone font-bold rounded-lg hover:bg-crimson/10 transition-all duration-300 shadow-xl hover:-translate-y-0.5 active:translate-y-0">Support</a></div> <button class="md:hidden mt-8 text-center fade-in-carousel-icon w-full" type="button"><div class="inline-flex items-center gap-2 text-bone/50 text-sm cursor-pointer justify-center"><span>Swipe for more</span> <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></div></button></div></div> <div class="carousel-panel md:hidden"><div class="w-full max-w-3xl mr-auto px-6"><h3 class="text-2xl font-serif font-bold text-bone mb-6">Our Mission</h3> <p class="text-left text-base font-sans text-bone mb-8 drop-shadow-lg leading-relaxed">In the post-Roe era, we will not overcome the sin of abortion (which the Scriptures call
+						child sacrifice) by "pro-life" gradualism. We must be pro-justice and pro-mercy, because
+						our God and Lord, Jesus Christ, is perfectly just and merciful. We demand equal
+						protection for the unborn, immediate and total abolition of abortion, and mobilization
+						of the Church in Georgia to accomplish the Great Commission.</p> <button class="text-center w-full" type="button"><div class="inline-flex items-center gap-2 text-bone/50 text-sm cursor-pointer justify-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg> <span>Swipe back</span></div></button></div></div></div> <div class="hidden md:block relative z-10 mt-auto mx-auto text-center text-bone/50 cursor-pointer fade-in-scroll"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"></path></svg></div></section> <section class="relative z-10 py-16 md:py-32 sm:md:py-40" style="background-color: rgba(2, 6, 23, 0); backdrop-filter: blur(4px);"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><h2 class="text-4xl font-serif font-bold text-bone tracking-tight mb-20 text-center">Our Focus</h2> <div class="grid md:grid-cols-3 gap-8"><a href="./georgia-battle" class="flex flex-col bg-panel/80 backdrop-blur-sm border border-white/10 p-8 rounded-xl hover:bg-panel hover:border-crimson/50 transition-all duration-300 group shadow-lg hover:shadow-crimson/10 hover:-translate-y-1"><div><div class="mb-6 inline-block p-3 rounded-lg bg-crimson/20 text-crimson group-hover:bg-crimson/30 group-hover:text-ember transition-colors"><svg class="w-8 h-8" fill="currentColor" viewBox="-2 0 19 19" xmlns="http://www.w3.org/2000/svg"><path d="M9.316 14.722a.477.477 0 0 1-.475.475H1.433a.477.477 0 0 1-.475-.475v-.863a.477.477 0 0 1 .475-.475h7.408a.476.476 0 0 1 .475.475zm-2.767-2.587a.552.552 0 0 1-.392-.163L2.96 8.776a.554.554 0 0 1 .784-.784L6.94 11.19a.554.554 0 0 1-.392.946zm7.33.992L9.435 8.682l1.085-1.084-3.173-3.173-2.97 2.97 3.173 3.172 1.102-1.101 4.445 4.445a.554.554 0 1 0 .784-.784zm-2.33-5.993a.552.552 0 0 1-.391-.162L7.96 3.775a.554.554 0 1 1 .784-.784l3.196 3.197a.554.554 0 0 1-.391.946z"></path></svg></div> <h3 class="text-2xl font-serif font-bold text-bone mb-4 group-hover:text-ember transition-colors">Legislative Discipleship</h3> <div class="space-y-4 text-bone/70 text-base leading-relaxed font-sans"><p>The unborn in Georgia need churches, pastors, citizens, and the magistrate to be
+								discipled in God's standard of justice until our laws call abortion what God says it
+								is: murder and child sacrifice.</p> <p>Walk through line-by-line analysis of an abolition bill, learn the principles of
+								abolition, and how to disciple and press your representatives with clear, Biblical
+								standards.</p></div></div> <div class="mt-auto pt-8 text-center"><div class="inline-block px-6 py-3 rounded-lg bg-teal/80 text-bone font-semibold hover:bg-linear-to-r from-teal to-cyan-600 transition-all duration-300 shadow-lg">Study the Battle</div></div></a> <a href="./abolition-basics" class="flex flex-col bg-panel/80 backdrop-blur-sm border border-white/10 p-8 rounded-xl hover:bg-panel hover:border-crimson/50 transition-all duration-300 group shadow-lg hover:shadow-crimson/10 hover:-translate-y-1"><div><div class="mb-6 inline-block p-3 rounded-lg bg-crimson/20 text-crimson group-hover:bg-crimson/30 group-hover:text-ember transition-colors"><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M5.979 10.974v5.021h7.041v11.99h5.042v-11.99h6.958v-5.021h-6.958v-6.958h-5.042v6.958h-7.041z"></path></svg></div> <h3 class="text-2xl font-serif font-bold text-bone mb-4 group-hover:text-ember transition-colors">Conflict Evangelism</h3> <div class="space-y-4 text-bone/70 text-base leading-relaxed font-sans"><p>Christians must bring both the Gospel and resistance to the place where the sin of
+								child sacrifice occurs—the hearts of pregnant mothers. We must be proactive in
+								proclaiming the law of God, that the grace of God might be witnessed all the more.</p> <p>Praying, donating, or joining helps further the cause in Georgia by providing
+								mothers and fathers who choose life with blessing bags, baby showers, adoptive
+								services and counseling.</p></div></div> <div class="mt-auto pt-8 text-center"><div class="inline-block px-6 py-3 rounded-lg bg-teal/80 text-bone font-semibold hover:bg-linear-to-r from-teal to-cyan-600 transition-all duration-300 shadow-lg">Join the Cause</div></div></a> <a href="./join" class="flex flex-col bg-panel/80 backdrop-blur-sm border border-white/10 p-8 rounded-xl hover:bg-panel hover:border-crimson/50 transition-all duration-300 group shadow-lg hover:shadow-crimson/10 hover:-translate-y-1"><div><div class="mb-6 inline-block p-3 rounded-lg bg-crimson/20 text-crimson group-hover:bg-crimson/30 group-hover:text-ember transition-colors"><svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C12.5523 2 13 2.44772 13 3V4H14C14.5523 4 15 4.44772 15 5C15 5.55228 14.5523 6 14 6H13V6.92805L21.007 11.6381C21.4831 11.9181 21.642 12.531 21.3619 13.007C21.0833 13.4807 20.475 13.6404 20 13.366V20C20 21.1046 19.1046 22 18 22H15H14H10H9H6C4.89543 22 4 21.1046 4 20V13.366C3.52498 13.6404 2.91671 13.4807 2.63807 13.007C2.35805 12.531 2.51695 11.9181 2.99298 11.6381L11 6.92806V6H10C9.44771 6 9 5.55228 9 5C9 4.44772 9.44771 4 10 4H11V3C11 2.44772 11.4477 2 12 2ZM11 20H13V17C13 16.4477 12.5523 16 12 16C11.4477 16 11 16.4477 11 17V20ZM15 20V17C15 15.3431 13.6569 14 12 14C10.3431 14 9 15.3431 9 17V20H6V12.1896L12 8.66018L18 12.1896V20H15Z"></path></svg></div> <h3 class="text-2xl font-serif font-bold text-bone mb-4 group-hover:text-ember transition-colors">Church Mobilization</h3> <div class="space-y-4 text-bone/70 text-base leading-relaxed font-sans"><p>Every church in Georgia has the opportunity to stand against abortion by preaching,
+								discipling, and organizing to protect their preborn neighbors.</p> <p>Access church kits, pastoral resources, and practical steps to start or strengthen
+								your churches ministry under the oversight of your divinely appointed leaders.</p> <p>Additionally, find other churches working hard to end child sacrifice in your area.</p></div></div> <div class="mt-auto pt-8 text-center"><div class="inline-block px-6 py-3 rounded-lg bg-teal/80 text-bone font-semibold hover:bg-linear-to-r from-teal to-cyan-600 transition-all duration-300 shadow-lg">Equip My Church</div></div></a></div></div></section></div><!----><!----></main> <footer class="bg-black text-neutral-400 py-24 border-t border-neutral-900"><div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12"><div class="space-y-6"><div class="text-white font-serif font-bold text-2xl md:text-3xl leading-tight"><p>"Open thy mouth for the dumb in the cause of all such as are appointed to destruction."</p> <p class="mt-4 text-white/90">"Open thy mouth, judge righteously, and plead the cause of the poor and needy."</p> <span class="block mt-6 text-red-600 text-sm font-sans uppercase tracking-widest">— Proverbs 31:8-9</span></div></div> <nav class="flex flex-wrap justify-center gap-x-8 gap-y-4"><!--[--><a href="./" class="text-[10px] font-bold tracking-widest uppercase hover:text-white transition-colors">Home</a><a href="./georgia-battle" class="text-[10px] font-bold tracking-widest uppercase hover:text-white transition-colors">Timeline</a><a href="./faqs" class="text-[10px] font-bold tracking-widest uppercase hover:text-white transition-colors">FAQs</a><!--]--></nav> <div class="pt-8 border-t border-neutral-900"><div class="text-[8px] text-neutral-600 uppercase font-bold tracking-[0.2em] space-y-2"><p>Establishing Justice for the Pre-born in Georgia</p> <p>© 2026 Abolition Georgia</p></div></div></div></footer></div><!----><!--]--> <!--[!--><!--]--><!--]-->
 			
 			<script>
 				{
-					__sveltekit_1ddt8jf = {
-=======
-		<link href="./_app/immutable/assets/0.BoHtGqw9.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.DGtIIIBg.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/Dvf9wC90.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/B4-q2MT9.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/DfeZTzx4.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/wZH7NXSe.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/Bpztm0b1.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.BogM3tDp.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/CePuO0Sg.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/D9qdeLB_.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/BDNzavzL.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/C2QSKqxN.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/DVC5kVrd.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/0.rAFBJ4BK.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/Bb-n1k8s.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/CtdFHFDC.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/B_AUCPIK.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/2.CFuzpgzw.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/nzJ0rasI.js"><!--12qhfyh--><link rel="icon" href="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='107'%20height='128'%20viewBox='0%200%20107%20128'%3e%3ctitle%3esvelte-logo%3c/title%3e%3cpath%20d='M94.157%2022.819c-10.4-14.885-30.94-19.297-45.792-9.835L22.282%2029.608A29.92%2029.92%200%200%200%208.764%2049.65a31.5%2031.5%200%200%200%203.108%2020.231%2030%2030%200%200%200-4.477%2011.183%2031.9%2031.9%200%200%200%205.448%2024.116c10.402%2014.887%2030.942%2019.297%2045.791%209.835l26.083-16.624A29.92%2029.92%200%200%200%2098.235%2078.35a31.53%2031.53%200%200%200-3.105-20.232%2030%2030%200%200%200%204.474-11.182%2031.88%2031.88%200%200%200-5.447-24.116'%20style='fill:%23ff3e00'/%3e%3cpath%20d='M45.817%20106.582a20.72%2020.72%200%200%201-22.237-8.243%2019.17%2019.17%200%200%201-3.277-14.503%2018%2018%200%200%201%20.624-2.435l.49-1.498%201.337.981a33.6%2033.6%200%200%200%2010.203%205.098l.97.294-.09.968a5.85%205.85%200%200%200%201.052%203.878%206.24%206.24%200%200%200%206.695%202.485%205.8%205.8%200%200%200%201.603-.704L69.27%2076.28a5.43%205.43%200%200%200%202.45-3.631%205.8%205.8%200%200%200-.987-4.371%206.24%206.24%200%200%200-6.698-2.487%205.7%205.7%200%200%200-1.6.704l-9.953%206.345a19%2019%200%200%201-5.296%202.326%2020.72%2020.72%200%200%201-22.237-8.243%2019.17%2019.17%200%200%201-3.277-14.502%2017.99%2017.99%200%200%201%208.13-12.052l26.081-16.623a19%2019%200%200%201%205.3-2.329%2020.72%2020.72%200%200%201%2022.237%208.243%2019.17%2019.17%200%200%201%203.277%2014.503%2018%2018%200%200%201-.624%202.435l-.49%201.498-1.337-.98a33.6%2033.6%200%200%200-10.203-5.1l-.97-.294.09-.968a5.86%205.86%200%200%200-1.052-3.878%206.24%206.24%200%200%200-6.696-2.485%205.8%205.8%200%200%200-1.602.704L37.73%2051.72a5.42%205.42%200%200%200-2.449%203.63%205.79%205.79%200%200%200%20.986%204.372%206.24%206.24%200%200%200%206.698%202.486%205.8%205.8%200%200%200%201.602-.704l9.952-6.342a19%2019%200%200%201%205.295-2.328%2020.72%2020.72%200%200%201%2022.237%208.242%2019.17%2019.17%200%200%201%203.277%2014.503%2018%2018%200%200%201-8.13%2012.053l-26.081%2016.622a19%2019%200%200%201-5.3%202.328'%20style='fill:%23fff'/%3e%3c/svg%3e"/><!----><!--1uha8ag--><!----><title>The Charge | Abolition Georgia</title>
-	</head>
-	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents"><!--[--><!--[--><!----><div class="min-h-screen flex flex-col bg-black text-white"><nav class="bg-black text-white shadow-lg sticky top-0 z-50 border-b border-neutral-900"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-16"><div class="flex items-center space-x-3"><div class="text-2xl text-red-600 font-bold"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1.323l3.954 1.582 1.599-.8a1 1 0 01.894 1.79l-1.233.616 1.738 5.42a1 1 0 01-.285 1.05A3.989 3.989 0 0115 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.738-5.42-1.233-.617a1 1 0 01.894-1.788l1.599.799L11 4.323V3a1 1 0 011-1zm-5 8.274l-.818 2.552c-.25.78-.03 1.661.58 2.173.609.512 1.456.56 2.116.116l.906-.605-.9-2.814a1 1 0 01-.084-.374 1.088 1.088 0 01.084-.374l.9-2.814-.906-.605c-.66-.444-1.507-.396-2.116.116a2.267 2.267 0 00-.58 2.173z" clip-rule="evenodd"></path></svg></div> <div><a href="./" class="text-xl md:text-2xl font-black tracking-tighter uppercase leading-none">Equal Protection</a> <p class="text-[10px] text-neutral-500 tracking-widest uppercase font-bold">The Road to Abolition</p></div></div> <div class="hidden md:flex md:items-center md:space-x-1"><!--[--><a href="./" class="hover:text-neutral-300 hover:bg-neutral-900 transition-all duration-200 px-3 py-3 text-[10px] font-bold tracking-wider uppercase rounded-sm text-neutral-500 border-l-2 border-transparent">The Charge</a><a href="./the-standard" class="hover:text-neutral-300 hover:bg-neutral-900 transition-all duration-200 px-3 py-3 text-[10px] font-bold tracking-wider uppercase rounded-sm text-neutral-500 border-l-2 border-transparent">The Standard</a><a href="./the-confession" class="hover:text-neutral-300 hover:bg-neutral-900 transition-all duration-200 px-3 py-3 text-[10px] font-bold tracking-wider uppercase rounded-sm text-neutral-500 border-l-2 border-transparent">The Confession</a><a href="./the-plea" class="hover:text-neutral-300 hover:bg-neutral-900 transition-all duration-200 px-3 py-3 text-[10px] font-bold tracking-wider uppercase rounded-sm text-neutral-500 border-l-2 border-transparent">The Plea</a><a href="./the-gathering" class="hover:text-neutral-300 hover:bg-neutral-900 transition-all duration-200 px-3 py-3 text-[10px] font-bold tracking-wider uppercase rounded-sm text-neutral-500 border-l-2 border-transparent">The Gathering</a><a href="./timeline" class="hover:text-neutral-300 hover:bg-neutral-900 transition-all duration-200 px-3 py-3 text-[10px] font-bold tracking-wider uppercase rounded-sm text-neutral-500 border-l-2 border-transparent">Timeline</a><!--]--></div> <div class="flex items-center"><button class="md:hidden text-red-500 focus:outline-none" aria-label="Toggle menu"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><!--[!--><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path><!--]--></svg></button></div></div></div> <!--[!--><!--]--></nav> <main class="flex-1"><!----><div class="bg-black text-white min-h-screen font-sans selection:bg-red-900 selection:text-white"><section class="relative min-h-screen flex flex-col justify-center items-center px-4 overflow-hidden"><div class="fixed inset-0 z-0 opacity-20 pointer-events-none select-none"><img src="./images/atlanta_skyline.png" alt="Atlanta Skyline" class="w-full h-full object-cover grayscale invert"/> <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div></div> <div class="relative z-10 max-w-4xl mx-auto text-center space-y-12 py-20"><div class="space-y-6"><div class="text-neutral-300 font-serif italic text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"><p>"The words of King Lemuel, the prophecy that his mother taught him.</p> <p>What, my son? and what, the son of my womb? and what, the son of my vows?</p> <p>Give not thy strength unto women, nor thy ways to that which destroyeth kings.</p> <p>It is not for kings, O Lemuel, it is not for kings to drink wine; nor for princes strong drink:</p> <p>Lest they drink, and forget the law, and pervert the judgment of any of the afflicted.</p> <p>Give strong drink unto him that is ready to perish, and wine unto those that be of heavy hearts.</p> <p>Let him drink, and forget his poverty, and remember his misery no more."</p></div> <div class="text-red-600 font-serif font-bold text-2xl md:text-3xl leading-relaxed max-w-3xl mx-auto border-l-4 border-red-900 pl-6 py-2"><p>"Open thy mouth for the dumb in the cause of all such as are appointed to destruction.</p> <p class="mt-4">Open thy mouth, judge righteously, and plead the cause of the poor and needy."</p></div></div> <div class="prose prose-invert prose-lg mx-auto text-neutral-300 leading-relaxed"><p>This was the warning given to a King by his mother. She did not tell him to negotiate the terms of destruction or to regulate the timing of oppression. She told him to <strong class="text-white">open his mouth</strong>.</p> <p>For fifty years, the pulpits of Georgia have been filled with a different kind of wisdom—a wisdom that suggests we must compromise with child sacrifice to achieve 'incremental' gains. We have ignored the Mother’s charge, and in doing so, we have ignored the King.</p></div> <div class="w-16 h-px bg-red-900 mx-auto"></div></div></section> <section class="relative py-24 px-4 bg-neutral-950 border-t border-neutral-900 z-10"><div class="max-w-3xl mx-auto text-center space-y-8"><h2 class="text-xs font-bold text-red-600 uppercase tracking-[0.3em] mb-2">The Identity</h2> <h3 class="text-3xl md:text-4xl font-black text-white uppercase tracking-tight">The Bride and the City</h3> <div class="prose prose-invert prose-lg mx-auto text-neutral-400"><p>The Proverbs 31 woman is more than a domestic ideal; she is the portrait of the Church as she ought to be—the Bride of Christ. She is clothed in strength and honor. She does not fear the future. Most importantly, she reaches out her hands to the needy and speaks for those who have no voice.</p> <p>In Georgia, we have a distorted reflection. Our skyline towers over the blood of the preborn, while our churches remain tethered to political strategies that treat our neighbors as 'biological material' until they reach a certain age or a certain heartbeat. We have allowed the world to define who is human, rather than the God who knits us together in the dark.</p> <p class="text-white font-medium">To be the Virtuous Bride is to reject this partiality and demand that the law of the land reflect the Law of our Lord.</p></div></div></section> <section class="relative py-24 px-4 bg-black border-t border-neutral-900 z-10"><div class="max-w-3xl mx-auto text-center space-y-8"><h2 class="text-xs font-bold text-red-600 uppercase tracking-[0.3em] mb-2">The Objective</h2> <h3 class="text-3xl md:text-4xl font-black text-white uppercase tracking-tight">The Standard of 2026</h3> <div class="prose prose-invert prose-lg mx-auto text-neutral-400"><p>This is why we stand for Equal Protection. We are not interested in the next 'pro-life' regulation that merely shifts the location of the slaughter. We are seeking a righteous standard for the 2026 Georgia Legislative session: the <strong class="text-white">total abolition of abortion</strong>.</p> <p>This means a law that recognizes the preborn as full image-bearers of God from the moment of fertilization, deserving of the same protection as any other Georgian. This is the standard of HB 441. It is the standard of justice. It is the only plea that does not require us to sin against our consciences or our God.</p></div> <div class="pt-8"><a href="./the-standard" class="text-red-500 font-bold uppercase tracking-widest text-sm border-b border-red-900 hover:text-red-400 hover:border-red-500 transition-all pb-1">Understand the Standard</a></div></div></section> <section class="relative py-24 px-4 bg-neutral-950 border-t border-neutral-900 z-10"><div class="max-w-3xl mx-auto text-center space-y-12"><div><h2 class="text-xs font-bold text-red-600 uppercase tracking-[0.3em] mb-2">The Response</h2> <h3 class="text-3xl md:text-4xl font-black text-white uppercase tracking-tight mb-8">A Call to Repentance</h3> <div class="prose prose-invert prose-lg mx-auto text-neutral-400 mb-8"><p>Understanding this requires a change of mind—a repentance from the apathy of the past few decades. If you are a member of Christ’s Church in Georgia, the blood in our streets is a matter for your closet and your pulpit.</p></div></div> <div class="grid gap-8 md:grid-cols-3 text-left max-w-4xl mx-auto border-t border-neutral-800 pt-12"><div class="space-y-4"><span class="text-red-600 font-bold text-xl">01</span> <h4 class="text-white font-bold uppercase tracking-wide">The Confession</h4> <p class="text-sm text-neutral-500">Understand why anything less than equal protection is an abomination to the Lord.</p> <a href="./the-confession" class="text-white text-xs uppercase font-bold tracking-widest hover:text-red-500 transition-colors">Read The Confession →</a></div> <div class="space-y-4"><span class="text-red-600 font-bold text-xl">02</span> <h4 class="text-white font-bold uppercase tracking-wide">The Gathering</h4> <p class="text-sm text-neutral-500">Join the faithful churches who have vowed to no longer remain silent.</p> <a href="./the-gathering" class="text-white text-xs uppercase font-bold tracking-widest hover:text-red-500 transition-colors">Find The Gathering →</a></div> <div class="space-y-4"><span class="text-red-600 font-bold text-xl">03</span> <h4 class="text-white font-bold uppercase tracking-wide">The Plea</h4> <p class="text-sm text-neutral-500">Take the Mother’s charge to the doors of the Capitol in 2026.</p> <a href="./the-plea" class="text-white text-xs uppercase font-bold tracking-widest hover:text-red-500 transition-colors">Make The Plea →</a></div></div></div></section></div><!----><!----></main> <footer class="bg-neutral-950 text-neutral-400 py-12 border-t border-neutral-900"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"><svg class="w-8 h-8 mx-auto mb-4 text-neutral-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z"></path></svg> <p class="mb-4 font-serif italic text-lg text-white">"Open your mouth for the mute, for the rights of all who are destitute."</p> <p class="text-sm mb-8 text-neutral-500">Proverbs 31:8</p> <div class="text-[8px] text-neutral-600 uppercase font-mono tracking-wide"><p>This timeline is an educational resource advocating for the equal protection of all human beings.</p> <p class="mt-2">© 2025 Abolition Georgia. All rights reserved.</p></div></div></footer></div><!----><!--]--> <!--[!--><!--]--><!--]-->
-			
-			<script>
-				{
-					__sveltekit_m64b13 = {
->>>>>>> Home-Page-Tweaks
+					__sveltekit_ak8tp0 = {
 						base: new URL(".", location).pathname.slice(0, -1),
 						assets: "/abolish_abortion_georgia"
 					};
@@ -70,13 +190,8 @@
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-<<<<<<< HEAD
-						import("./_app/immutable/entry/start.Dkg7h1ot.js"),
-						import("./_app/immutable/entry/app.D0DCMqjZ.js")
-=======
-						import("./_app/immutable/entry/start.DGtIIIBg.js"),
-						import("./_app/immutable/entry/app.BogM3tDp.js")
->>>>>>> Home-Page-Tweaks
+						import("./_app/immutable/entry/start.BgoTsgHh.js"),
+						import("./_app/immutable/entry/app.FADnTYxH.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 2],

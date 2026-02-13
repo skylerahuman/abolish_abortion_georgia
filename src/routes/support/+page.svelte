@@ -86,7 +86,7 @@
 	</section>
 
 	<!-- Column 2: GIVE -->
-	<section class="flex-1 px-6 py-8 md:px-10 md:py-8">
+	<section id="donation" class="flex-1 px-6 py-8 md:px-10 md:py-8">
 		<div class="max-w-2xl mx-auto w-full">
 			<h2
 				class="text-3xl md:text-4xl font-black uppercase tracking-tighter text-gold mb-4 leading-none"

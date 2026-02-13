@@ -1,1 +1,0 @@
-import{o,p as u,H as p,q as t,v as _,C as g,w as i,x as l,y as d,z as v}from"./B4-q2MT9.js";function E(n,r){let s=null,y=t;var a;if(t){s=v;for(var e=_(document.head);e!==null&&(e.nodeType!==g||e.data!==n);)e=i(e);if(e===null)l(!1);else{var f=i(e);e.remove(),d(f)}}t||(a=document.head.appendChild(o()));try{u(()=>r(a),p)}finally{y&&(l(!0),d(s))}}export{E as h};

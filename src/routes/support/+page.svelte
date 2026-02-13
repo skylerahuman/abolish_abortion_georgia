@@ -157,6 +157,7 @@
 								type="number"
 								placeholder="Custom Amount"
 								aria-label="Custom Donation Amount"
+								inputmode="decimal"
 								bind:value={customAmount}
 								oninput={() => donationAmount = 'custom'}
 								class="w-full bg-charcoal border border-neutral-700 p-4 pl-8 text-white rounded-sm focus:border-gold outline-none transition-colors"

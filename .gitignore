@@ -7,17 +7,7 @@ node_modules
 .wrangler
 /.svelte-kit
 /build
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 /docs
-=======
->>>>>>> Home-Page-Revisions
-=======
->>>>>>> Home-Page-Tweaks
-=======
-/docs
->>>>>>> Moving-Changes-Stashed
 
 # OS
 .DS_Store
@@ -32,10 +22,6 @@ Thumbs.db
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 # Testing
 /test-results
@@ -43,14 +29,3 @@ vite.config.ts.timestamp-*
 /coverage
 /vitest-report
 junit.xml
-=======
->>>>>>> Content-Changes-By-Skyler
-=======
->>>>>>> Home-Page-Revisions
-=======
-
-# Tests
-coverage/
->>>>>>> Home-Page-Tweaks
-=======
->>>>>>> Moving-Changes-Stashed

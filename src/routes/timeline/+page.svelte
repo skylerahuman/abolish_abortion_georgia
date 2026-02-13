@@ -1,9 +1,6 @@
 <script lang="ts">
-<<<<<<< HEAD
-=======
 	let selectedFilter = $state('campaign2026');
 
->>>>>>> Home-Page-Tweaks
 	const timelineEvents = [
 		{
 			year: 1973,
@@ -13,10 +10,6 @@
 			icon: 'gavel',
 			description: "The Supreme Court invents a 'right to privacy' that encompasses the right to kill a child. This unconstitutional decree stripped personhood from the unborn, leading to decades of bloodshed.",
 			impact: 'negative'
-<<<<<<< HEAD
-		}
-	];
-=======
 		},
 		{
 			year: 1973,
@@ -48,7 +41,7 @@
 		{
 			year: 2011,
 			month: 'Various',
-			title: 'Rise of the Abolition Movement',
+			title: 'Rise of the Abolition movement',
 			category: 'hope',
 			icon: 'fire',
 			description: "Small groups of Christians began rejecting the 'Pro-Life Industry' strategy of incremental regulation. They began demanding immediate abolition and equal protection, planting the seeds for bills like HB 441.",
@@ -142,79 +135,59 @@
 			? timelineEvents 
 			: timelineEvents.filter(e => e.category === selectedFilter)
 	);
->>>>>>> Home-Page-Tweaks
 </script>
 
 <div class="py-10 bg-stone-50">
 	<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="flex flex-col items-center mb-12">
 			<div class="h-1 w-20 bg-red-900 mb-4"></div>
-			<h1 class="text-3xl font-bold text-center uppercase tracking-widest">The Historical Record</h1>
+			<h1 class="text-3xl font-bold text-center uppercase tracking-widest text-black">The Historical Record</h1>
 			<p class="text-center text-stone-600 mt-2 max-w-2xl">
-<<<<<<< HEAD
-				The beginning of the end of justice in America.
-			</p>
-=======
 				Trace the legal history from the judicial fiat of 1973 to the legislative battles of today.
 			</p>
 			
 			<!-- Filters -->
 			<div class="flex flex-wrap justify-center gap-2 mt-8">
 				<button 
-					onclick={() => selectedFilter = 'campaign2026'}
+					onclick={() => (selectedFilter = 'campaign2026')}
 					class="px-6 py-2 rounded-full border-2 font-bold text-sm transition-all
 						{selectedFilter === 'campaign2026' ? 'border-red-600 bg-red-600 text-white' : 'border-red-600 text-red-600 hover:bg-red-50'}"
 				>
 					2026 Campaign
 				</button>
 				<button 
-					onclick={() => selectedFilter = 'all'}
+					onclick={() => (selectedFilter = 'all')}
 					class="px-6 py-2 rounded-full border-2 font-bold text-sm transition-all
 						{selectedFilter === 'all' ? 'border-black bg-black text-white' : 'border-black text-black hover:bg-red-900 hover:text-white hover:border-red-900'}"
 				>
 					Full History
 				</button>
 				<button 
-					onclick={() => selectedFilter = 'court'}
+					onclick={() => (selectedFilter = 'court')}
 					class="px-6 py-2 rounded-full border-2 font-bold text-sm transition-all
 						{selectedFilter === 'court' ? 'border-black bg-black text-white' : 'border-black text-black hover:bg-red-900 hover:text-white hover:border-red-900'}"
 				>
 					Court Rulings
 				</button>
 				<button 
-					onclick={() => selectedFilter = 'legislation'}
+					onclick={() => (selectedFilter = 'legislation')}
 					class="px-6 py-2 rounded-full border-2 font-bold text-sm transition-all
 						{selectedFilter === 'legislation' ? 'border-black bg-black text-white' : 'border-black text-black hover:bg-red-900 hover:text-white hover:border-red-900'}"
 				>
 					Legislation
 				</button>
 				<button 
-					onclick={() => selectedFilter = 'hope'}
+					onclick={() => (selectedFilter = 'hope')}
 					class="px-6 py-2 rounded-full border-2 font-bold text-sm transition-all
 						{selectedFilter === 'hope' ? 'border-black bg-black text-white' : 'border-black text-black hover:bg-red-900 hover:text-white hover:border-red-900'}"
 				>
 					Milestones
 				</button>
 			</div>
->>>>>>> Home-Page-Tweaks
 		</div>
 
 		<!-- Timeline Container -->
 		<section class="timeline">
-<<<<<<< HEAD
-			{#each timelineEvents as event}
-				{@const markerColor = event.impact === 'negative' ? 'text-black' : event.impact === 'positive' ? 'text-red-800' : 'text-stone-500'}
-				{@const titleColor = event.impact === 'positive' ? 'text-red-900' : 'text-black'}
-				
-				<div class="timeline-item">
-					<div class="timeline-marker {markerColor}">
-						<span class="timeline-year">{event.year}</span>
-					</div>
-					<div class="timeline-content">
-						<h3 class="{titleColor}">{event.title}</h3>
-						<p class="timeline-date">{event.month} {event.year}</p>
-						<p>{event.description}</p>
-=======
 			{#each filteredEvents as event}
 				{@const markerColor = event.category === 'campaign2026' ? 'text-red-600 border-red-600' : event.impact === 'negative' ? 'text-black' : event.impact === 'positive' ? 'text-red-800' : 'text-stone-500'}
 				{@const titleColor = event.category === 'campaign2026' ? 'text-red-600' : event.impact === 'positive' ? 'text-red-900' : 'text-black'}
@@ -227,19 +200,64 @@
 					<div class="timeline-content {isFuture ? 'border-l-4 border-red-600 bg-white shadow-lg p-4 rounded' : ''}">
 						<h3 class="{titleColor} {isFuture ? 'text-xl uppercase' : ''}">{event.title}</h3>
 						<p class="timeline-date font-bold text-stone-500">{event.month} {event.year}</p>
-						<p>{event.description}</p>
+						<p class="text-stone-700">{event.description}</p>
 						{#if event.category === 'hope'}
-							<div class="timeline-tag">
+							<div class="timeline-tag flex items-center gap-1 mt-2 text-red-800 font-bold text-xs uppercase">
 								<svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
 									<path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z"/>
 								</svg>
 								Gospel Hope
 							</div>
 						{/if}
->>>>>>> Home-Page-Tweaks
 					</div>
 				</div>
 			{/each}
 		</section>
 	</div>
 </div>
+
+<style>
+	.timeline {
+		position: relative;
+		padding: 2rem 0;
+	}
+	.timeline::before {
+		content: '';
+		position: absolute;
+		left: 2rem;
+		top: 0;
+		bottom: 0;
+		width: 2px;
+		background: #e5e7eb;
+	}
+	.timeline-item {
+		position: relative;
+		margin-bottom: 3rem;
+		padding-left: 5rem;
+	}
+	.timeline-marker {
+		position: absolute;
+		left: 0.5rem;
+		width: 3rem;
+		height: 3rem;
+		background: white;
+		border: 2px solid currentColor;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 10;
+	}
+	.timeline-year {
+		font-size: 0.75rem;
+		font-weight: 800;
+	}
+	.timeline-content h3 {
+		font-weight: 800;
+		margin-bottom: 0.25rem;
+	}
+	.timeline-date {
+		font-size: 0.875rem;
+		margin-bottom: 0.5rem;
+	}
+</style>

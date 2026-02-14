@@ -44,3 +44,28 @@ test('Georgia Battle Share Button Feedback', async ({ page }) => {
   // Also expect the aria-label to update
   await expect(page.getByLabel('Link copied')).toBeVisible();
 });
+
+test('Georgia Battle Timeline Rendering', async ({ page }) => {
+  await page.goto('/georgia-battle');
+
+  // Wait for hydration/mounting
+  await page.waitForLoadState('networkidle');
+
+  // Check if timeline cards are rendered
+  const cards = page.locator('.timeline-card');
+  await expect(cards).toHaveCount(4); // Based on the 4 items in timeline.json
+
+  // Scroll to the first card to trigger intersection observer
+  const firstCard = cards.first();
+  await firstCard.scrollIntoViewIfNeeded();
+
+  // Verify content of the first card (Roe v. Wade)
+  await expect(firstCard).toContainText('Roe v. Wade');
+  await expect(firstCard).toContainText('Jan 1973');
+
+  // Verify content of the last card (HB 441)
+  const lastCard = cards.last();
+  await lastCard.scrollIntoViewIfNeeded();
+  await expect(lastCard).toContainText('HB 441 Introduced');
+  await expect(lastCard).toContainText('2023');
+});

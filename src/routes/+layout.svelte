@@ -34,6 +34,14 @@
 </svelte:head>
 
 <div class="min-h-screen flex flex-col bg-black text-white">
+	<!-- Skip to Content Link -->
+	<a
+		href="#main-content"
+		class="absolute -top-96 left-4 z-[100] rounded-sm border border-white/20 bg-crimson px-6 py-3 font-bold uppercase tracking-widest text-white shadow-lg transition-all duration-300 focus:top-4"
+	>
+		Skip to Content
+	</a>
+
 	<!-- Navigation -->
 	<nav class="bg-black text-white shadow-lg sticky top-0 z-50 border-b border-neutral-900 nav-container">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -113,7 +121,7 @@
 	</nav>
 
 	<!-- Main Content -->
-	<main class="flex-1">
+	<main id="main-content" class="flex-1 focus:outline-none" tabindex="-1">
 		{@render children()}
 	</main>
 

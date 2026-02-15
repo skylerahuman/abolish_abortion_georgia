@@ -43,4 +43,17 @@ test('Georgia Battle Share Button Feedback', async ({ page }) => {
 
   // Also expect the aria-label to update
   await expect(page.getByLabel('Link copied')).toBeVisible();
+
+  // Verify timeline content
+  // Scroll to trigger IntersectionObserver
+  const roeCard = page.locator('.timeline-card[data-id="roe"]');
+  await roeCard.scrollIntoViewIfNeeded();
+  // Wait for animation/observer
+  await page.waitForTimeout(500);
+  await expect(page.getByText('Roe v. Wade')).toBeVisible();
+
+  const dobbsCard = page.locator('.timeline-card[data-id="dobbs"]');
+  await dobbsCard.scrollIntoViewIfNeeded();
+  await page.waitForTimeout(500);
+  await expect(page.getByText('Dobbs v. Jackson')).toBeVisible();
 });

@@ -8,12 +8,13 @@ test('Join Form UX improvements', async ({ page }) => {
 	await page.getByRole('button', { name: 'Find' }).click();
 
 	// Wait for result
-	await expect(page.getByText('Your Georgia House District is:')).toBeVisible();
+	await expect(page.getByText('Found District')).toBeVisible();
 
 	// CHECK 1: Focus Management on Result
-	// The focus should move to the result container or the "Not your district?" button
-	const resultContainer = page.locator('.text-center.bg-charcoal\\/50');
-	const notYourDistrictBtn = page.getByRole('button', { name: 'Not your district?' });
+	// The focus should move to the result container or the "Use a different ZIP?" button
+	// We target the container by its specific background class to be sure
+	const resultContainer = page.locator('div.bg-green-900\\/10');
+	const notYourDistrictBtn = page.getByRole('button', { name: 'Use a different ZIP?' });
 
 	// We expect one of them to be focused.
 	// Since .or() with toBeFocused might be tricky, let's check active element

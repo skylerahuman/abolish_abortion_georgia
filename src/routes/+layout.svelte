@@ -35,11 +35,13 @@
 
 <div class="min-h-screen flex flex-col bg-black text-white">
 	<!-- WIP Banner (Global) -->
-	<div class="bg-amber-500/10 border-b border-amber-500/20 py-2 px-4 text-center z-[60]">
-		<p class="text-[10px] font-black uppercase tracking-[0.2em] text-amber-500">
-			Main Site Work-In-Progress — Expected Completion: February 19, 2026
-		</p>
-	</div>
+	{#if !['/fill-the-steps', '/feb-20-2026', '/2-20-2026'].includes($page.url.pathname)}
+		<div class="bg-amber-500/10 border-b border-amber-500/20 py-2 px-4 text-center z-[60]">
+			<p class="text-[10px] font-black uppercase tracking-[0.2em] text-amber-500">
+				Main Site Work-In-Progress — Expected Completion: February 19, 2026
+			</p>
+		</div>
+	{/if}
 
 	<!-- Navigation -->
 	{#if !['/fill-the-steps', '/feb-20-2026', '/2-20-2026'].includes($page.url.pathname)}
@@ -155,27 +157,29 @@
 	</main>
 
 	<!-- Footer -->
-	<footer class="bg-black text-neutral-400 py-24 border-t border-neutral-900">
-		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
-			<!-- Simplified Links -->
-			<nav class="flex flex-wrap justify-center gap-x-8 gap-y-4">
-				{#each navItems as item}
-					<a
-						href={item.href}
-						class="text-[10px] font-bold tracking-widest uppercase hover:text-white transition-colors"
-					>
-						{item.label}
-					</a>
-				{/each}
-			</nav>
+	{#if !['/fill-the-steps', '/feb-20-2026', '/2-20-2026'].includes($page.url.pathname)}
+		<footer class="bg-black text-neutral-400 py-24 border-t border-neutral-900">
+			<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
+				<!-- Simplified Links -->
+				<nav class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+					{#each navItems as item}
+						<a
+							href={item.href}
+							class="text-[10px] font-bold tracking-widest uppercase hover:text-white transition-colors"
+						>
+							{item.label}
+						</a>
+					{/each}
+				</nav>
 
-			<!-- Minimalist Info -->
-			<div class="pt-8 border-t border-neutral-900">
-				<div class="text-[8px] text-neutral-600 uppercase font-bold tracking-[0.2em] space-y-2">
-					<p>Establishing Justice for the Pre-born in Georgia</p>
-					<p>© {new Date().getFullYear()} Abolition Georgia</p>
+				<!-- Minimalist Info -->
+				<div class="pt-8 border-t border-neutral-900">
+					<div class="text-[8px] text-neutral-600 uppercase font-bold tracking-[0.2em] space-y-2">
+						<p>Establishing Justice for the Pre-born in Georgia</p>
+						<p>© {new Date().getFullYear()} Abolition Georgia</p>
+					</div>
 				</div>
 			</div>
-		</div>
-	</footer>
+		</footer>
+	{/if}
 </div>

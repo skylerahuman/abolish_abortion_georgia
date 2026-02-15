@@ -33,3 +33,30 @@ https://svelte.dev/e/a11y_no_static_element_interactions
 3:13:15 AM [vite] (client) page reload playwright-report/index.html
 3:13:47 AM [vite] (client) hmr update /src/app.css
 3:13:47 AM [vite] (ssr) page reload tests/verify-skip-link.spec.ts
+3:20:26 AM [vite] (client) hmr update /src/app.css
+3:20:26 AM [vite] (ssr) page reload .github/workflows/tests.yml
+3:21:43 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:34:1 Visible, non-interactive elements with a click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as `<button type="button">` or `<a>` might be more appropriate
+https://svelte.dev/e/a11y_click_events_have_key_events
+3:21:43 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:43:2 Visible, non-interactive elements with a click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as `<button type="button">` or `<a>` might be more appropriate
+https://svelte.dev/e/a11y_click_events_have_key_events
+3:21:43 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:43:2 Non-interactive element `<div>` should not be assigned mouse or keyboard event listeners
+https://svelte.dev/e/a11y_no_noninteractive_element_interactions
+3:21:44 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:34:1 Visible, non-interactive elements with a click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as `<button type="button">` or `<a>` might be more appropriate
+https://svelte.dev/e/a11y_click_events_have_key_events
+3:21:44 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:43:2 Visible, non-interactive elements with a click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as `<button type="button">` or `<a>` might be more appropriate
+https://svelte.dev/e/a11y_click_events_have_key_events
+3:21:44 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:43:2 Non-interactive element `<div>` should not be assigned mouse or keyboard event listeners
+https://svelte.dev/e/a11y_no_noninteractive_element_interactions
+3:22:10 AM [vite] (client) page reload .svelte-kit/generated/client/nodes/0.js
+3:22:10 AM [vite] (client) page reload .svelte-kit/generated/client/nodes/1.js
+3:22:10 AM [vite] (client) page reload .svelte-kit/generated/client/nodes/2.js
+3:22:10 AM [vite] (client) page reload .svelte-kit/generated/client/nodes/5.js
+3:22:10 AM [vite] (client) page reload .svelte-kit/generated/client/nodes/7.js
+3:22:10 AM [vite] (client) page reload .svelte-kit/generated/client/nodes/8.js
+3:22:10 AM [vite] (client) page reload .svelte-kit/generated/client/nodes/10.js
+3:22:10 AM [vite] (client) page reload .svelte-kit/generated/client/app.js
+3:22:10 AM [vite] (client) page reload .svelte-kit/generated/client/matchers.js
+3:22:10 AM [vite] (ssr) page reload .svelte-kit/generated/server/internal.js
+3:22:10 AM [vite] (client) page reload .svelte-kit/generated/root.js
+3:22:10 AM [vite] (ssr) page reload .svelte-kit/generated/root.js
+3:22:10 AM [vite] (ssr) page reload .svelte-kit/generated/root.svelte

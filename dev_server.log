@@ -60,3 +60,7 @@ https://svelte.dev/e/a11y_no_noninteractive_element_interactions
 3:22:10 AM [vite] (client) page reload .svelte-kit/generated/root.js
 3:22:10 AM [vite] (ssr) page reload .svelte-kit/generated/root.js
 3:22:10 AM [vite] (ssr) page reload .svelte-kit/generated/root.svelte
+3:28:25 AM [vite] (client) hmr update /src/app.css
+3:28:25 AM [vite] (ssr) page reload .github/workflows/tests.yml
+3:29:46 AM [vite] (client) page reload playwright-report/index.html
+3:29:46 AM [vite] (client) page reload playwright-report/index.html

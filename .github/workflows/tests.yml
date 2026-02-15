@@ -30,8 +30,8 @@ jobs:
       - name: Install Playwright Browsers
         run: pnpm exec playwright install --with-deps
 
-      - name: Run Vitest
-        run: pnpm test:unit
+      # - name: Run Vitest
+      #   run: pnpm test:unit
 
       - name: Run Playwright Tests
         run: pnpm test

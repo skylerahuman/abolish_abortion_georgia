@@ -7,6 +7,8 @@ class RegistrationState {
 		lastName: '',
 		email: '',
 		phone: '',
+		address: '',
+		city: '',
 		district: null,
 		homeChurch: '',
 		interests: []
@@ -33,6 +35,8 @@ class RegistrationState {
 			lastName: '',
 			email: '',
 			phone: '',
+			address: '',
+			city: '',
 			district: null,
 			homeChurch: '',
 			interests: []

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte';
 	import { quintOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
 
@@ -33,17 +34,23 @@
 {#if showModal}
 	<div
 		class="fixed inset-0 bg-navy-deep/70 backdrop-blur-sm z-[100] flex items-center justify-center p-4 focus:outline-none"
-		role="dialog"
-		aria-modal="true"
-		aria-labelledby="modal-title"
-		tabindex="-1"
+		role="button"
+		aria-label="Close modal"
+		tabindex="0"
 		onclick={() => (showModal = false)}
+		onkeydown={(e) => {
+			if (e.key === 'Enter' || e.key === ' ') {
+				showModal = false;
+			}
+		}}
 		transition:fly={{ duration: 300, y: 20, opacity: 0, easing: quintOut }}
 	>
 		<div
 			class="bg-navy-light border border-gold/20 rounded-xl shadow-2xl max-w-2xl w-full max-h-[80vh] flex flex-col"
 			role="document"
+			tabindex="-1"
 			onclick={(e) => e.stopPropagation()}
+			onkeydown={(e) => e.stopPropagation()}
 		>
 			<header class="flex items-center justify-between p-6 border-b border-white/10">
 				<h2 id="modal-title" class="text-xl font-bold text-white">{title}</h2>

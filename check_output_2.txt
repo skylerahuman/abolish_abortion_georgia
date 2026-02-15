@@ -1,0 +1,256 @@
+
+> abolition-georgia@0.0.1 check
+> svelte-kit sync && svelte-check --tsconfig ./tsconfig.json
+
+Loading svelte-check in workspace: c:\Users\skyle\projects\abolish_abortion_georgia
+Getting Svelte diagnostics...
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32msrc\test-setup.ts[39m:1:35
+[31mError[39m: Cannot find module 'vitest' or its corresponding type declarations. 
+[36mimport { expect, afterEach } from [35m'vitest'[36m;
+import * as matchers from '@testing-library/jest-dom/matchers';[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32msrc\test-setup.ts[39m:2:27
+[31mError[39m: Cannot find module '@testing-library/jest-dom/matchers' or its corresponding type declarations. 
+[36mimport { expect, afterEach } from 'vitest';
+import * as matchers from [35m'@testing-library/jest-dom/matchers'[36m;
+import { cleanup } from '@testing-library/svelte';[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32msrc\test-setup.ts[39m:3:25
+[31mError[39m: Cannot find module '@testing-library/svelte' or its corresponding type declarations. 
+[36mimport * as matchers from '@testing-library/jest-dom/matchers';
+import { cleanup } from [35m'@testing-library/svelte'[36m;[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32msrc\lib\utils.test.ts[39m:1:38
+[31mError[39m: Cannot find module 'vitest' or its corresponding type declarations. 
+[36mimport { describe, it, expect } from [35m'vitest'[36m;
+import { generateRandomChurches } from './utils';[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32msrc\lib\components\DataCard.test.ts[39m:1:32
+[31mError[39m: Cannot find module '@testing-library/svelte' or its corresponding type declarations. 
+[36mimport { render, screen } from [35m'@testing-library/svelte'[36m;
+import { describe, it, expect } from 'vitest';[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32msrc\lib\components\DataCard.test.ts[39m:2:38
+[31mError[39m: Cannot find module 'vitest' or its corresponding type declarations. 
+[36mimport { render, screen } from '@testing-library/svelte';
+import { describe, it, expect } from [35m'vitest'[36m;
+import DataCard from './DataCard.svelte';[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32msrc\lib\components\ExegesisModal.svelte[39m:35:2
+[33mWarn[39m: Visible, non-interactive elements with a click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as `<button type="button">` or `<a>` might be more appropriate
+https://svelte.dev/e/a11y_click_events_have_key_events (svelte)
+[36m{#if showModal}
+	[35m<div
+		class="fixed inset-0 bg-navy-deep/70 backdrop-blur-sm z-[100] flex items-center justify-center p-4 focus:outline-none"
+		role="dialog"
+		aria-modal="true"
+		aria-labelledby="modal-title"
+		tabindex="-1"
+		onclick={() => (showModal = false)}
+		transition:fly={{ duration: 300, y: 20, opacity: 0, easing: quintOut }}
+	>
+		<div
+			class="bg-navy-light border border-gold/20 rounded-xl shadow-2xl max-w-2xl w-full max-h-[80vh] flex flex-col"
+			role="document"
+			onclick={(e) => e.stopPropagation()}
+		>
+			<header class="flex items-center justify-between p-6 border-b border-white/10">
+				<h2 id="modal-title" class="text-xl font-bold text-white">{title}</h2>
+				<button
+					onclick={() => (showModal = false)}
+					class="text-slate-400 hover:text-white transition-colors"
+					aria-label="Close modal"
+				>
+					<span class="material-symbols-outlined">close</span>
+				</button>
+			</header>
+			<main class="flex-1 overflow-y-auto p-8 prose prose-invert prose-lg text-slate-400">
+				{@render children()}
+			</main>
+		</div>
+	</div>[36m
+{/if}[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32msrc\lib\components\ExegesisModal.svelte[39m:44:3
+[33mWarn[39m: Visible, non-interactive elements with a click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as `<button type="button">` or `<a>` might be more appropriate
+https://svelte.dev/e/a11y_click_events_have_key_events (svelte)
+[36m	>
+		[35m<div
+			class="bg-navy-light border border-gold/20 rounded-xl shadow-2xl max-w-2xl w-full max-h-[80vh] flex flex-col"
+			role="document"
+			onclick={(e) => e.stopPropagation()}
+		>
+			<header class="flex items-center justify-between p-6 border-b border-white/10">
+				<h2 id="modal-title" class="text-xl font-bold text-white">{title}</h2>
+				<button
+					onclick={() => (showModal = false)}
+					class="text-slate-400 hover:text-white transition-colors"
+					aria-label="Close modal"
+				>
+					<span class="material-symbols-outlined">close</span>
+				</button>
+			</header>
+			<main class="flex-1 overflow-y-auto p-8 prose prose-invert prose-lg text-slate-400">
+				{@render children()}
+			</main>
+		</div>[36m
+	</div>[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32msrc\lib\components\ExegesisModal.svelte[39m:44:3
+[33mWarn[39m: Non-interactive element `<div>` should not be assigned mouse or keyboard event listeners
+https://svelte.dev/e/a11y_no_noninteractive_element_interactions (svelte)
+[36m	>
+		[35m<div
+			class="bg-navy-light border border-gold/20 rounded-xl shadow-2xl max-w-2xl w-full max-h-[80vh] flex flex-col"
+			role="document"
+			onclick={(e) => e.stopPropagation()}
+		>
+			<header class="flex items-center justify-between p-6 border-b border-white/10">
+				<h2 id="modal-title" class="text-xl font-bold text-white">{title}</h2>
+				<button
+					onclick={() => (showModal = false)}
+					class="text-slate-400 hover:text-white transition-colors"
+					aria-label="Close modal"
+				>
+					<span class="material-symbols-outlined">close</span>
+				</button>
+			</header>
+			<main class="flex-1 overflow-y-auto p-8 prose prose-invert prose-lg text-slate-400">
+				{@render children()}
+			</main>
+		</div>[36m
+	</div>[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32msrc\lib\components\ExegesisModal.test.ts[39m:1:52
+[31mError[39m: Cannot find module '@testing-library/svelte' or its corresponding type declarations. 
+[36mimport { render, screen, fireEvent, waitFor } from [35m'@testing-library/svelte'[36m;
+import { describe, it, expect, vi, beforeAll, afterAll } from 'vitest';[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32msrc\lib\components\ExegesisModal.test.ts[39m:2:63
+[31mError[39m: Cannot find module 'vitest' or its corresponding type declarations. 
+[36mimport { render, screen, fireEvent, waitFor } from '@testing-library/svelte';
+import { describe, it, expect, vi, beforeAll, afterAll } from [35m'vitest'[36m;
+import { createRawSnippet } from 'svelte';[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32msrc\lib\components\PastorCTA.test.ts[39m:1:32
+[31mError[39m: Cannot find module '@testing-library/svelte' or its corresponding type declarations. 
+[36mimport { render, screen } from [35m'@testing-library/svelte'[36m;
+import { describe, it, expect } from 'vitest';[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32msrc\lib\components\PastorCTA.test.ts[39m:2:38
+[31mError[39m: Cannot find module 'vitest' or its corresponding type declarations. 
+[36mimport { render, screen } from '@testing-library/svelte';
+import { describe, it, expect } from [35m'vitest'[36m;
+import PastorCTA from './PastorCTA.svelte';[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32msrc\lib\components\TwoColumnLayout.test.ts[39m:1:32
+[31mError[39m: Cannot find module '@testing-library/svelte' or its corresponding type declarations. 
+[36mimport { render, screen } from [35m'@testing-library/svelte'[36m;
+import { describe, it, expect } from 'vitest';[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32msrc\lib\components\TwoColumnLayout.test.ts[39m:2:38
+[31mError[39m: Cannot find module 'vitest' or its corresponding type declarations. 
+[36mimport { render, screen } from '@testing-library/svelte';
+import { describe, it, expect } from [35m'vitest'[36m;
+import TwoColumnLayout from './TwoColumnLayout.svelte';[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32msrc\routes\layout.test.ts[39m:1:32
+[31mError[39m: Cannot find module '@testing-library/svelte' or its corresponding type declarations. 
+[36mimport { render, screen } from [35m'@testing-library/svelte'[36m;
+import { describe, it, expect, vi } from 'vitest';[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32msrc\routes\layout.test.ts[39m:2:42
+[31mError[39m: Cannot find module 'vitest' or its corresponding type declarations. 
+[36mimport { render, screen } from '@testing-library/svelte';
+import { describe, it, expect, vi } from [35m'vitest'[36m;
+import Layout from './+layout.svelte';[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32msrc\routes\page.test.ts[39m:1:32
+[31mError[39m: Cannot find module '@testing-library/svelte' or its corresponding type declarations. 
+[36mimport { render, screen } from [35m'@testing-library/svelte'[36m;
+import { describe, it, expect } from 'vitest';[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32msrc\routes\page.test.ts[39m:2:38
+[31mError[39m: Cannot find module 'vitest' or its corresponding type declarations. 
+[36mimport { render, screen } from '@testing-library/svelte';
+import { describe, it, expect } from [35m'vitest'[36m;
+import Page from './+page.svelte';[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32mtests\for-pastors.spec.ts[39m:1:30
+[31mError[39m: Cannot find module '@playwright/test' or its corresponding type declarations. 
+[36mimport { test, expect } from [35m'@playwright/test'[36m;[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32mtests\for-pastors.spec.ts[39m:4:68
+[31mError[39m: Binding element 'page' implicitly has an 'any' type. 
+[36mtest.describe('For Pastors Page', () => {
+	test('should display pastor resources and key concepts', async ({ [35mpage[36m }) => {
+		// Navigate to page[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32mtests\georgia-battle.spec.ts[39m:1:30
+[31mError[39m: Cannot find module '@playwright/test' or its corresponding type declarations. 
+[36mimport { test, expect } from [35m'@playwright/test'[36m;[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32mtests\georgia-battle.spec.ts[39m:3:55
+[31mError[39m: Binding element 'page' implicitly has an 'any' type. 
+[36m
+test('Georgia Battle Share Button Feedback', async ({ [35mpage[36m }) => {
+  page.on('console', msg => console.log(`BROWSER LOG: ${msg.text()}`));[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32mtests\georgia-battle.spec.ts[39m:4:22
+[31mError[39m: Parameter 'msg' implicitly has an 'any' type. 
+[36mtest('Georgia Battle Share Button Feedback', async ({ page }) => {
+  page.on('console', [35mmsg[36m => console.log(`BROWSER LOG: ${msg.text()}`));
+  page.on('pageerror', exception => console.log(`BROWSER ERROR: "${exception}"`));[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32mtests\georgia-battle.spec.ts[39m:5:24
+[31mError[39m: Parameter 'exception' implicitly has an 'any' type. 
+[36m  page.on('console', msg => console.log(`BROWSER LOG: ${msg.text()}`));
+  page.on('pageerror', [35mexception[36m => console.log(`BROWSER ERROR: "${exception}"`));[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32mtests\join-form-ux.spec.ts[39m:1:30
+[31mError[39m: Cannot find module '@playwright/test' or its corresponding type declarations. 
+[36mimport { test, expect } from [35m'@playwright/test'[36m;[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32mtests\join-form-ux.spec.ts[39m:3:44
+[31mError[39m: Binding element 'page' implicitly has an 'any' type. 
+[36m
+test('Join Form UX improvements', async ({ [35mpage[36m }) => {
+	await page.goto('/join');[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32mtests\join-page.spec.ts[39m:1:30
+[31mError[39m: Cannot find module '@playwright/test' or its corresponding type declarations. 
+[36mimport { test, expect } from [35m'@playwright/test'[36m;[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32mtests\join-page.spec.ts[39m:4:69
+[31mError[39m: Binding element 'page' implicitly has an 'any' type. 
+[36mtest.describe('Join Page', () => {
+	test('should display join form with all 3 steps and map', async ({ [35mpage[36m }) => {
+		// Navigate to join page[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32mtests\join-page.spec.ts[39m:87:60
+[31mError[39m: Binding element 'page' implicitly has an 'any' type. 
+[36m
+	test('map should show Hampton GA church marker', async ({ [35mpage[36m }) => {
+		await page.goto('/join');[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32mtests\verify.spec.ts[39m:1:30
+[31mError[39m: Cannot find module '@playwright/test' or its corresponding type declarations. 
+[36mimport { test, expect } from [35m'@playwright/test'[36m;
+import path from 'path';[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32mtests\verify.spec.ts[39m:4:44
+[31mError[39m: Binding element 'page' implicitly has an 'any' type. 
+[36m
+test('verify bill analysis page', async ({ [35mpage[36m }, testInfo) => {
+  await page.goto('/bill-analysis');[39m
+
+c:\Users\skyle\projects\abolish_abortion_georgia\[32mtests\verify.spec.ts[39m:4:52
+[31mError[39m: Parameter 'testInfo' implicitly has an 'any' type. 
+[36m
+test('verify bill analysis page', async ({ page }, [35mtestInfo[36m) => {
+  await page.goto('/bill-analysis');[39m
+
+====================================
+[31msvelte-check found 30 errors and 3 warnings in 14 files
+[39m

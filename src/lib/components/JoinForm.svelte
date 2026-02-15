@@ -110,7 +110,7 @@
 	function toggleInterest(interest: string) {
 		if (registrationState.form.interests.includes(interest)) {
 			registrationState.form.interests = registrationState.form.interests.filter(
-				(i) => i !== interest
+				(i: string) => i !== interest
 			);
 		} else {
 			registrationState.form.interests = [...registrationState.form.interests, interest];
@@ -393,7 +393,9 @@
 
 					<div class="flex flex-col">
 						{#if step2Error}
-							<p id="step2-error" role="alert" class="text-ember text-sm mb-2 text-right">{step2Error}</p>
+							<p id="step2-error" role="alert" class="text-ember text-sm mb-2 text-right">
+								{step2Error}
+							</p>
 						{/if}
 						<div class="flex justify-between">
 							<button

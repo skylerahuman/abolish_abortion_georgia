@@ -39,3 +39,21 @@ export interface AdvocacyTarget {
     reason: string; // "Your Representative", "Speaker of the House", "Committee Member"
     callScriptCode: string; // e.g., "SCRIPT_SPEAKER", "SCRIPT_SPONSOR"
 }
+
+export interface Church {
+	name: string;
+	lat: number;
+	lng: number;
+}
+
+export interface ContactForm {
+	firstName: string;
+	lastName: string;
+	email: string;
+	phone: string;
+	address?: string;
+	city?: string;
+	district: string | null;
+	homeChurch: string;
+	interests: string[];
+}

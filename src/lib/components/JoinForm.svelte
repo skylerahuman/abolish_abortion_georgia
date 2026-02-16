@@ -226,11 +226,11 @@
 										onkeydown={handleKeyDown}
 										disabled={isLoading}
 									/>
-									{#if !showDistrict}
+									{#if !showDistrict && zipCode.length === 5}
 										<button
 											type="button"
 											onclick={handleZipLookup}
-											disabled={isLoading || zipCode.length !== 5}
+											disabled={isLoading}
 											class="bg-crimson hover:bg-ember text-bone px-6 py-2 rounded-md font-bold uppercase disabled:opacity-50 transition-colors"
 											aria-label={isLoading ? 'Searching for district...' : 'Find district'}
 										>

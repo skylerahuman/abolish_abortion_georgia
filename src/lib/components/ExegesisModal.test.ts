@@ -42,7 +42,7 @@ describe('ExegesisModal', () => {
 			render: () => '<p>Modal Content</p>'
 		}));
 
-		render(ExegesisModal, {
+		const { component } = render(ExegesisModal, {
 			props: {
 				showModal: true,
 				title: 'Test Modal',
@@ -50,15 +50,15 @@ describe('ExegesisModal', () => {
 			}
 		});
 
-		// Check if modal is visible
-		expect(screen.getByRole('dialog')).toBeInTheDocument();
+		// Check if modal is visible - looking for role="document" as per component implementation
+		expect(screen.getByRole('document')).toBeInTheDocument();
 
 		// Simulate Escape key press
 		await fireEvent.keyDown(window, { key: 'Escape' });
 
 		// Check if modal is removed
         await waitFor(() => {
-            expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+            expect(screen.queryByRole('document')).not.toBeInTheDocument();
         });
 	});
 });

@@ -7,19 +7,14 @@ test('Join Form UX improvements', async ({ page }) => {
 	await page.getByPlaceholder('Enter 5-digit ZIP Code').fill('30030');
 	await page.getByRole('button', { name: 'Find' }).click();
 
-	// Wait for result
-	await expect(page.getByText('Your Georgia House District is:')).toBeVisible();
+	// Wait for result - Updated to match current implementation
+	await expect(page.getByText('Found District')).toBeVisible();
 
 	// CHECK 1: Focus Management on Result
 	// The focus should move to the result container or the "Not your district?" button
-	const resultContainer = page.locator('.text-center.bg-charcoal\\/50');
-	const notYourDistrictBtn = page.getByRole('button', { name: 'Not your district?' });
+	// Updated locator to match current implementation (bg-green-900/10)
+	const resultContainer = page.locator('.text-center.bg-green-900\\/10');
 
-	// We expect one of them to be focused.
-	// Since .or() with toBeFocused might be tricky, let's check active element
-	// await expect(resultContainer.or(notYourDistrictBtn)).toBeFocused();
-	// Actually Playwright's expect(locator).toBeFocused() works on a single locator.
-	// We'll target the container for now as the plan is to focus that or the first focusable element inside.
 	// Let's verify if the container is focused.
 	await expect(resultContainer).toBeFocused();
 

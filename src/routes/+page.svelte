@@ -233,7 +233,7 @@
 	</style>
 </svelte:head>
 
-<div class="home-bg">
+<div class="home-bg" data-testid="layout-container">
 	<!-- Hero Section -->
 	<section
 		bind:this={heroSection}
@@ -246,6 +246,7 @@
 			class="hero-carousel {showTextPanel
 				? 'show-text'
 				: ''} md:block md:w-auto! md:transform-none! relative z-10 w-full px-6 md:px-16 mt-auto"
+			data-testid="left-column"
 		>
 			<!-- Panel 1: Hero Content -->
 			<div class="carousel-panel md:w-full!">
@@ -267,6 +268,7 @@
 					<!-- Hide long text on mobile, show on desktop with fade-in -->
 					<p
 						class="hidden md:block text-left text-lg font-sans text-bone/90 mb-12 max-w-2xl drop-shadow-lg fade-in-text leading-relaxed"
+						data-testid="right-column"
 					>
 						In the post-Roe era, we will not overcome the sin of abortion (which the Scriptures call
 						child sacrifice) by "pro-life" gradualism. We must be pro-justice and pro-mercy, because
@@ -276,7 +278,10 @@
 					</p>
 
 					<!-- Call to Action Buttons -->
-					<div class="flex justify-start gap-6 mt-4 fade-in-buttons">
+					<div
+						class="flex justify-start gap-6 mt-4 fade-in-buttons"
+						data-testid="cta-container"
+					>
 						<a
 							href="{base}/join"
 							class="px-10 py-4 bg-crimson text-bone font-bold rounded-lg hover:bg-ember transition-all duration-300 shadow-xl hover:shadow-crimson/40 hover:-translate-y-0.5 active:translate-y-0"

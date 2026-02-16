@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
+	import timelineData from '$lib/data/timeline.json';
 	
 	interface TimelineEvent {
 		id: string;
@@ -12,7 +13,7 @@
 		linkText?: string;
 	}
 	
-	let timeline = $state<TimelineEvent[]>([]);
+	let timeline = timelineData as TimelineEvent[];
 	let visibleCards = $state<Set<string>>(new Set());
 	let copied = $state(false);
 
@@ -31,31 +32,32 @@
 	onMount(() => {
 		let observer: IntersectionObserver;
 
-		const init = async () => {
-			const response = await fetch(`${base}/data/timeline.json`);
-			timeline = await response.json();
+		// Setup intersection observer for staggered animations
+		observer = new IntersectionObserver(
+			(entries) => {
+				let newVisible = new Set(visibleCards);
+				let hasChanges = false;
 
-			// Setup intersection observer for staggered animations
-			observer = new IntersectionObserver(
-				(entries) => {
-					entries.forEach(entry => {
-						if (entry.isIntersecting) {
-							const id = entry.target.getAttribute('data-id');
-							if (id) {
-								visibleCards = new Set([...visibleCards, id]);
-							}
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						const id = entry.target.getAttribute('data-id');
+						if (id && !newVisible.has(id)) {
+							newVisible.add(id);
+							hasChanges = true;
 						}
-					});
-				},
-				{ threshold: 0.2 }
-			);
+					}
+				});
 
-			document.querySelectorAll('.timeline-card').forEach(card => {
-				observer.observe(card);
-			});
-		};
-		
-		init();
+				if (hasChanges) {
+					visibleCards = newVisible;
+				}
+			},
+			{ threshold: 0.2 }
+		);
+
+		document.querySelectorAll('.timeline-card').forEach(card => {
+			observer.observe(card);
+		});
 		
 		return () => {
 			if (observer) observer.disconnect();
@@ -124,10 +126,9 @@
 				<div 
 					class="timeline-card border-l-4 pl-6 py-4 transition-all duration-500 {getTypeColor(event.type)}"
 					data-id={event.id}
-					style="animation-delay: {index * 100}ms"
 				>
 					{#if visibleCards.has(event.id)}
-						<div class="opacity-0 animate-fade-in-left" style="animation-delay: {index * 150}ms">
+						<div class="opacity-0 animate-fade-in-left" style="animation-delay: 100ms">
 							<div class="flex items-baseline gap-3 mb-2">
 								<span class="text-sm font-mono font-bold text-bone/50 tracking-wider">
 									{event.date}

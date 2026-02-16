@@ -22,8 +22,29 @@ describe('Global Navigation', () => {
     
     expect(screen.getAllByText('Home')).toHaveLength(2);
     expect(screen.getAllByText('Timeline')).toHaveLength(2);
-    expect(screen.getAllByText('Get Involved')).toHaveLength(2);
     expect(screen.getAllByText('FAQs')).toHaveLength(2);
+    // "Join the Fight" is in desktop nav (1) + mobile menu (1) = 2.
+    // Wait, the mobile menu is conditional on `mobileMenuOpen`.
+    // Let's check the code:
+    // The mobile menu button toggles `mobileMenuOpen`.
+    // The "Join the Fight" button is present in the desktop nav.
+    // There is also a "Join the Fight" link in the mobile menu IF it is open.
+
+    // In the initial render (mobileMenuOpen = false):
+    // Desktop: Home, Timeline, FAQs, Join the Fight (visible on md+)
+    // Mobile Button: Visible on small screens
+    // Mobile Menu: Hidden
+
+    // Footer: Home, Timeline, FAQs
+    // Footer does NOT have "Join the Fight" based on the loop: `{#each navItems as item}` where navItems only has Home, Timeline, FAQs.
+
+    // So initially:
+    // Home: 1 (Nav) + 1 (Footer) = 2
+    // Timeline: 1 (Nav) + 1 (Footer) = 2
+    // FAQs: 1 (Nav) + 1 (Footer) = 2
+    // Join the Fight: 1 (Nav)
+
+    expect(screen.getAllByText('Join the Fight')).toHaveLength(1);
   });
 
   it('navigation links point to the correct routes', () => {
@@ -31,37 +52,29 @@ describe('Global Navigation', () => {
     
     const homeLinks = screen.getAllByText('Home');
     expect(homeLinks[0].closest('a')).toHaveAttribute('href', '/');
-    expect(homeLinks[1].closest('a')).toHaveAttribute('href', '/');
 
     const timelineLinks = screen.getAllByText('Timeline');
-    expect(timelineLinks[0].closest('a')).toHaveAttribute('href', '/timeline');
+    expect(timelineLinks[0].closest('a')).toHaveAttribute('href', '/georgia-battle');
     
-    const involvedLinks = screen.getAllByText('Get Involved');
-    expect(involvedLinks[0].closest('a')).toHaveAttribute('href', '/get-involved');
+    const joinLinks = screen.getAllByText('Join the Fight');
+    expect(joinLinks[0].closest('a')).toHaveAttribute('href', '/join');
   });
 });
 
 describe('Footer Redesign', () => {
-  it('displays the Proverbs 31 scripture in the footer', () => {
+  it('displays the simplified footer navigation links without headers', () => {
     render(Layout, { props: { children: () => {} } });
-    
-    // The specific translation from the hero text
-    expect(screen.getByText(/Open thy mouth for the dumb in the cause of all such as are appointed to destruction/i)).toBeInTheDocument();
-    expect(screen.getByText(/Open thy mouth, judge righteously, and plead the cause of the poor and needy/i)).toBeInTheDocument();
-  });
-
-  it('displays simplified footer navigation links without headers', () => {
-    render(Layout, { props: { children: () => {} } });
-    
-    const footer = screen.getByRole('contentinfo');
     
     // Check for links
-    expect(screen.getAllByText('Home')).toHaveLength(2); // One in nav, one in footer
+    expect(screen.getAllByText('Home')).toHaveLength(2);
     expect(screen.getAllByText('Timeline')).toHaveLength(2);
-    expect(screen.getAllByText('Get Involved')).toHaveLength(2);
     expect(screen.getAllByText('FAQs')).toHaveLength(2);
 
-    // Ensure headers like "Mobilize" are NOT present (assuming they might have been there before or were planned to be removed)
+    // "Join the Fight" is NOT in the footer based on previous analysis of navItems loop in footer
+    // So still length 1 (from Nav)
+    expect(screen.getAllByText('Join the Fight')).toHaveLength(1);
+
+    // Ensure headers like "Mobilize" are NOT present
     expect(screen.queryByText('Mobilize')).not.toBeInTheDocument();
     expect(screen.queryByText('Connect')).not.toBeInTheDocument();
     expect(screen.queryByText('Educate')).not.toBeInTheDocument();

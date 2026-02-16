@@ -99,8 +99,10 @@
 					<div class="flex items-center">
 						<button
 							onclick={toggleMenu}
-							class="md:hidden text-red-500 focus:outline-none"
+							class="md:hidden text-red-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 rounded-sm"
 							aria-label="Toggle menu"
+							aria-expanded={mobileMenuOpen}
+							aria-controls="mobile-menu"
 						>
 							<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								{#if mobileMenuOpen}
@@ -126,7 +128,10 @@
 
 			<!-- Mobile Navigation -->
 			{#if mobileMenuOpen}
-				<div class="md:hidden bg-neutral-950 backdrop-blur-md border-t border-neutral-800 p-4">
+				<div
+					id="mobile-menu"
+					class="md:hidden bg-neutral-950 backdrop-blur-md border-t border-neutral-800 p-4"
+				>
 					{#each navItems as item}
 						<a
 							href={item.href}

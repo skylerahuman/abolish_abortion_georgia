@@ -55,3 +55,23 @@ https://svelte.dev/e/a11y_no_static_element_interactions
 3:17:21 AM [vite] (client) page reload .svelte-kit/generated/root.js
 3:17:21 AM [vite] (ssr) page reload .svelte-kit/generated/root.js
 3:17:22 AM [vite] (ssr) page reload .svelte-kit/generated/root.svelte
+3:22:02 AM [vite-plugin-svelte] src/routes/+page.svelte:238:1 `<section>` with a touchstart or touchend handler must have an ARIA role
+https://svelte.dev/e/a11y_no_static_element_interactions
+3:22:22 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:48:2 Non-interactive element `<div>` should not be assigned mouse or keyboard event listeners
+https://svelte.dev/e/a11y_no_noninteractive_element_interactions
+3:22:23 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:48:2 Non-interactive element `<div>` should not be assigned mouse or keyboard event listeners
+https://svelte.dev/e/a11y_no_noninteractive_element_interactions
+3:23:06 AM [vite] (client) hmr update /src/app.css
+3:23:06 AM [vite] (ssr) page reload tests/join-page.spec.ts
+3:23:24 AM [vite] (client) hmr update /src/app.css
+3:23:24 AM [vite] (ssr) page reload tests/join-form-ux.spec.ts
+3:26:50 AM [vite] (client) hmr update /src/app.css
+3:26:50 AM [vite] (ssr) page reload tests/join-page.spec.ts
+3:27:25 AM [vite] (client) hmr update /src/app.css
+3:27:25 AM [vite] (ssr) page reload tests/join-page.spec.ts
+3:27:58 AM [vite] (client) hmr update /src/app.css
+3:27:58 AM [vite] (ssr) page reload tests/join-page.spec.ts
+3:28:33 AM [vite] (client) hmr update /src/app.css
+3:28:33 AM [vite] (ssr) page reload tests/join-page.spec.ts
+3:29:49 AM [vite] (client) hmr update /src/lib/components/JoinForm.svelte, /src/app.css
+3:29:49 AM [vite] (ssr) page reload src/lib/components/JoinForm.svelte

@@ -8,38 +8,38 @@ test.describe('Join Page', () => {
 		// Wait for the page to load
 		await page.waitForLoadState('networkidle');
 
-		// Check that the form title is visible
-		await expect(page.getByText('Join the Fight')).toBeVisible();
-
-		// Take screenshot of Step 1 (District Finder)
-		await page.screenshot({
-			path: 'tests/screenshots/join-step-1.png',
-			fullPage: true
-		});
+		// Check that the form title is visible - specific heading locator
+		await expect(page.getByRole('heading', { name: 'Join the Fight' })).toBeVisible();
 
 		// Check that ZIP input is visible
 		const zipInput = page.locator('input[id="zip"]');
 		await expect(zipInput).toBeVisible();
 
-		// Fill in ZIP code and find district
-		await zipInput.fill('30228'); // Hampton, GA ZIP
-		await page.getByRole('button', { name: 'Find' }).click();
+		// Fill in ZIP code - Trigger input event manually if needed or type slowly
+		await zipInput.pressSequentially('30228', { delay: 100 });
+
+		// The button is conditionally rendered in Svelte: `{#if !showDistrict}`
+		// It might take a tick to update after input.
+
+		const findButton = page.getByRole('button', { name: 'Find' });
+
+		// Wait for it to be attached and visible
+		await expect(findButton).toBeVisible({ timeout: 10000 });
+
+		// Ensure it's enabled (might be disabled if zip length check fails)
+		await expect(findButton).toBeEnabled();
+
+		await findButton.click();
 
 		// Wait for district to load
 		await page.waitForTimeout(1500); // Wait for scramble animation
 
-		// Verify district is shown
-		await expect(page.getByText('Your Georgia House District is:')).toBeVisible();
+		// Verify district is shown - specific to current implementation
+		await expect(page.getByText('Found District')).toBeVisible();
 
 		// Click Next to go to Step 2
 		await page.getByRole('button', { name: 'Next' }).click();
 		await page.waitForTimeout(500);
-
-		// Take screenshot of Step 2 (Contact Info)
-		await page.screenshot({
-			path: 'tests/screenshots/join-step-2.png',
-			fullPage: true
-		});
 
 		// Verify Step 2 content
 		await expect(page.getByText('Step 2 of 3')).toBeVisible();
@@ -51,16 +51,12 @@ test.describe('Join Page', () => {
 		await page.getByLabel('First Name *').fill('Test');
 		await page.getByLabel('Last Name *').fill('User');
 		await page.getByLabel('Email *').fill('test@example.com');
+		await page.getByLabel('Physical Address *').fill('123 Test St');
+		await page.getByLabel('City *').fill('Test City');
 
 		// Click Next to go to Step 3
 		await page.getByRole('button', { name: 'Next' }).click();
 		await page.waitForTimeout(500);
-
-		// Take screenshot of Step 3 (Interests & Church)
-		await page.screenshot({
-			path: 'tests/screenshots/join-step-3.png',
-			fullPage: true
-		});
 
 		// Verify Step 3 content
 		await expect(page.getByText('Step 3 of 3')).toBeVisible();
@@ -106,11 +102,5 @@ test.describe('Join Page', () => {
 		// Verify popup content
 		await expect(page.getByText('3913 Jonesboro Rd Hampton, GA')).toBeVisible();
 		await expect(page.getByText('Pastor Wes Fuller')).toBeVisible();
-
-		// Take screenshot of map with popup
-		await page.screenshot({
-			path: 'tests/screenshots/join-map-popup.png',
-			fullPage: true
-		});
 	});
 });

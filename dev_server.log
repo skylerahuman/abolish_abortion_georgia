@@ -26,3 +26,5 @@ https://svelte.dev/e/a11y_no_static_element_interactions
 2:48:44 AM [vite] (client) page reload playwright-report/index.html
 2:51:58 AM [vite] (client) hmr update /src/app.css
 2:51:58 AM [vite] (ssr) page reload .github/workflows/tests.yml
+2:55:52 AM [vite] (client) hmr update /src/app.css
+2:55:52 AM [vite] (ssr) page reload .github/workflows/tests.yml

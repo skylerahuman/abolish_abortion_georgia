@@ -2,14 +2,14 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Join Page', () => {
 	test('should display join form with all 3 steps and map', async ({ page }) => {
+		// Increase timeout for this long test
+		test.setTimeout(60000);
+
 		// Navigate to join page
 		await page.goto('/join');
 
-		// Wait for the page to load
-		await page.waitForLoadState('networkidle');
-
 		// Check that the form title is visible
-		await expect(page.getByText('Join the Fight')).toBeVisible();
+		await expect(page.getByRole('heading', { name: 'Join the Fight' })).toBeVisible();
 
 		// Take screenshot of Step 1 (District Finder)
 		await page.screenshot({
@@ -18,18 +18,25 @@ test.describe('Join Page', () => {
 		});
 
 		// Check that ZIP input is visible
-		const zipInput = page.locator('input[id="zip"]');
+		const zipInput = page.getByPlaceholder('Enter 5-digit ZIP Code');
 		await expect(zipInput).toBeVisible();
+
+		// Ensure clean state (no previous results)
+		await page.evaluate(() => localStorage.clear());
 
 		// Fill in ZIP code and find district
 		await zipInput.fill('30228'); // Hampton, GA ZIP
-		await page.getByRole('button', { name: 'Find' }).click();
+
+		// Wait for button to be enabled (it is disabled until zip length is 5)
+		const findButton = page.getByRole('button', { name: 'Find' });
+		await expect(findButton).toBeEnabled();
+		await findButton.click();
 
 		// Wait for district to load
 		await page.waitForTimeout(1500); // Wait for scramble animation
 
 		// Verify district is shown
-		await expect(page.getByText('Your Georgia House District is:')).toBeVisible();
+		await expect(page.getByText('Found District')).toBeVisible();
 
 		// Click Next to go to Step 2
 		await page.getByRole('button', { name: 'Next' }).click();

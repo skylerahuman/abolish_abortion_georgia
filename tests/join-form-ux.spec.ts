@@ -8,12 +8,13 @@ test('Join Form UX improvements', async ({ page }) => {
 	await page.getByRole('button', { name: 'Find' }).click();
 
 	// Wait for result
-	await expect(page.getByText('Your Georgia House District is:')).toBeVisible();
+	await expect(page.getByText('Found District')).toBeVisible();
 
 	// CHECK 1: Focus Management on Result
-	// The focus should move to the result container or the "Not your district?" button
-	const resultContainer = page.locator('.text-center.bg-charcoal\\/50');
-	const notYourDistrictBtn = page.getByRole('button', { name: 'Not your district?' });
+	// The focus should move to the result container or the "Use a different ZIP?" button
+    // The container classes might have changed too. In JoinForm.svelte: "text-center bg-green-900/10 border border-green-500/20 rounded-md p-4 focus:outline-none focus:ring-2 focus:ring-crimson/50"
+	const resultContainer = page.locator('.text-center.bg-green-900\\/10');
+	const notYourDistrictBtn = page.getByRole('button', { name: 'Use a different ZIP?' });
 
 	// We expect one of them to be focused.
 	// Since .or() with toBeFocused might be tricky, let's check active element

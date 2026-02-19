@@ -217,6 +217,7 @@
 										bind:value={zipCode}
 										inputmode="numeric"
 										pattern="[0-9]*"
+										autocomplete="postal-code"
 										placeholder="Enter 5-digit ZIP Code"
 										class="flex-1 bg-charcoal border {showDistrict
 											? 'border-green-500/50'
@@ -316,6 +317,7 @@
 								id="firstName"
 								bind:this={firstNameInput}
 								bind:value={registrationState.form.firstName}
+								autocomplete="given-name"
 								required
 								aria-invalid={!!step2Error}
 								aria-describedby={step2Error ? 'step2-error' : undefined}
@@ -331,6 +333,7 @@
 								type="text"
 								id="lastName"
 								bind:value={registrationState.form.lastName}
+								autocomplete="family-name"
 								required
 								aria-invalid={!!step2Error}
 								aria-describedby={step2Error ? 'step2-error' : undefined}
@@ -346,6 +349,7 @@
 								type="email"
 								id="email"
 								bind:value={registrationState.form.email}
+								autocomplete="email"
 								required
 								aria-invalid={!!step2Error}
 								aria-describedby={step2Error ? 'step2-error' : undefined}
@@ -362,6 +366,7 @@
 								type="text"
 								id="address"
 								bind:value={registrationState.form.address}
+								autocomplete="street-address"
 								required
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
 							/>
@@ -373,6 +378,7 @@
 								type="text"
 								id="city"
 								bind:value={registrationState.form.city}
+								autocomplete="address-level2"
 								required
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
 							/>
@@ -386,6 +392,7 @@
 								type="tel"
 								id="phone"
 								bind:value={registrationState.form.phone}
+								autocomplete="tel"
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson focus-visible:ring-2 focus-visible:ring-crimson/50 transition-colors"
 							/>
 						</div>

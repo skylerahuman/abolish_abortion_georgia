@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
+	import timelineData from '$lib/data/timeline.json';
 	
 	interface TimelineEvent {
 		id: string;
@@ -12,7 +13,7 @@
 		linkText?: string;
 	}
 	
-	let timeline = $state<TimelineEvent[]>([]);
+	const timeline: TimelineEvent[] = timelineData as unknown as TimelineEvent[];
 	let visibleCards = $state<Set<string>>(new Set());
 	let copied = $state(false);
 
@@ -29,36 +30,27 @@
 	}
 	
 	onMount(() => {
-		let observer: IntersectionObserver;
-
-		const init = async () => {
-			const response = await fetch(`${base}/data/timeline.json`);
-			timeline = await response.json();
-
-			// Setup intersection observer for staggered animations
-			observer = new IntersectionObserver(
-				(entries) => {
-					entries.forEach(entry => {
-						if (entry.isIntersecting) {
-							const id = entry.target.getAttribute('data-id');
-							if (id) {
-								visibleCards = new Set([...visibleCards, id]);
-							}
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						const id = entry.target.getAttribute('data-id');
+						if (id && !visibleCards.has(id)) {
+							// Optimization: Create new Set only when adding a new item
+							visibleCards = new Set(visibleCards).add(id);
 						}
-					});
-				},
-				{ threshold: 0.2 }
-			);
+					}
+				});
+			},
+			{ threshold: 0.2 }
+		);
 
-			document.querySelectorAll('.timeline-card').forEach(card => {
-				observer.observe(card);
-			});
-		};
-		
-		init();
+		document.querySelectorAll('.timeline-card').forEach(card => {
+			observer.observe(card);
+		});
 		
 		return () => {
-			if (observer) observer.disconnect();
+			observer.disconnect();
 		};
 	});
 	

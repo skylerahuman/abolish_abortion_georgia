@@ -51,7 +51,7 @@ describe('ExegesisModal', () => {
 		});
 
 		// Check if modal is visible
-		expect(screen.getByRole('dialog')).toBeInTheDocument();
+		expect(screen.getByRole('document')).toBeInTheDocument();
 
 		// Simulate Escape key press
 		await fireEvent.keyDown(window, { key: 'Escape' });

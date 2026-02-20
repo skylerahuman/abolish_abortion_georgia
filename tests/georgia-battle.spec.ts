@@ -44,3 +44,9 @@ test('Georgia Battle Share Button Feedback', async ({ page }) => {
   // Also expect the aria-label to update
   await expect(page.getByLabel('Link copied')).toBeVisible();
 });
+
+test('Georgia Battle Timeline Renders', async ({ page }) => {
+  await page.goto('/georgia-battle');
+  await page.waitForLoadState('networkidle');
+  await expect(page.locator('.timeline-card')).toHaveCount(4);
+});

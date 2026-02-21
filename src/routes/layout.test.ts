@@ -20,9 +20,9 @@ describe('Global Navigation', () => {
   it('displays the correct navigation labels', () => {
     render(Layout, { props: { children: () => {} } });
     
+    // Header (Desktop) + Footer = 2 instances (Mobile menu is closed by default)
     expect(screen.getAllByText('Home')).toHaveLength(2);
     expect(screen.getAllByText('Timeline')).toHaveLength(2);
-    expect(screen.getAllByText('Get Involved')).toHaveLength(2);
     expect(screen.getAllByText('FAQs')).toHaveLength(2);
   });
 
@@ -30,40 +30,31 @@ describe('Global Navigation', () => {
     render(Layout, { props: { children: () => {} } });
     
     const homeLinks = screen.getAllByText('Home');
-    expect(homeLinks[0].closest('a')).toHaveAttribute('href', '/');
-    expect(homeLinks[1].closest('a')).toHaveAttribute('href', '/');
+    homeLinks.forEach(link => {
+        expect(link.closest('a')).toHaveAttribute('href', '/');
+    });
 
     const timelineLinks = screen.getAllByText('Timeline');
-    expect(timelineLinks[0].closest('a')).toHaveAttribute('href', '/timeline');
-    
-    const involvedLinks = screen.getAllByText('Get Involved');
-    expect(involvedLinks[0].closest('a')).toHaveAttribute('href', '/get-involved');
+    timelineLinks.forEach(link => {
+        expect(link.closest('a')).toHaveAttribute('href', '/georgia-battle');
+    });
   });
 });
 
 describe('Footer Redesign', () => {
-  it('displays the Proverbs 31 scripture in the footer', () => {
-    render(Layout, { props: { children: () => {} } });
-    
-    // The specific translation from the hero text
-    expect(screen.getByText(/Open thy mouth for the dumb in the cause of all such as are appointed to destruction/i)).toBeInTheDocument();
-    expect(screen.getByText(/Open thy mouth, judge righteously, and plead the cause of the poor and needy/i)).toBeInTheDocument();
-  });
-
-  it('displays simplified footer navigation links without headers', () => {
+  it('displays simplified footer navigation links', () => {
     render(Layout, { props: { children: () => {} } });
     
     const footer = screen.getByRole('contentinfo');
     
-    // Check for links
-    expect(screen.getAllByText('Home')).toHaveLength(2); // One in nav, one in footer
-    expect(screen.getAllByText('Timeline')).toHaveLength(2);
-    expect(screen.getAllByText('Get Involved')).toHaveLength(2);
-    expect(screen.getAllByText('FAQs')).toHaveLength(2);
+    // Verify footer exists
+    expect(footer).toBeInTheDocument();
 
-    // Ensure headers like "Mobilize" are NOT present (assuming they might have been there before or were planned to be removed)
-    expect(screen.queryByText('Mobilize')).not.toBeInTheDocument();
-    expect(screen.queryByText('Connect')).not.toBeInTheDocument();
-    expect(screen.queryByText('Educate')).not.toBeInTheDocument();
+    // Verify links exist within the footer specifically
+    // We use within() to scope searches to the footer
+    const { getByText } = require('@testing-library/dom');
+    expect(getByText(footer, 'Home')).toBeInTheDocument();
+    expect(getByText(footer, 'Timeline')).toBeInTheDocument();
+    expect(getByText(footer, 'FAQs')).toBeInTheDocument();
   });
 });

@@ -237,6 +237,7 @@
 	<!-- Hero Section -->
 	<section
 		bind:this={heroSection}
+		data-testid="layout-container"
 		class="relative min-h-[90vh] md:min-h-[85vh] py-12 md:py-16 px-4 flex flex-col justify-center border-b border-crimson/20 overflow-hidden"
 		ontouchstart={handleTouchStart}
 		ontouchend={handleTouchEnd}
@@ -276,7 +277,7 @@
 					</p>
 
 					<!-- Call to Action Buttons -->
-					<div class="flex justify-start gap-6 mt-4 fade-in-buttons">
+					<div class="flex justify-start gap-6 mt-4 fade-in-buttons" data-testid="cta-container">
 						<a
 							href="{base}/join"
 							class="px-10 py-4 bg-crimson text-bone font-bold rounded-lg hover:bg-ember transition-all duration-300 shadow-xl hover:shadow-crimson/40 hover:-translate-y-0.5 active:translate-y-0"

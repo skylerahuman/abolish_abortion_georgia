@@ -57,10 +57,13 @@
 		error = '';
 		isLoading = true;
 
-		// Scramble animation
-		scrambleInterval = window.setInterval(() => {
-			registrationState.form.district = Math.random().toString(36).substring(2, 5).toUpperCase();
-		}, 50);
+		// Scramble animation (respect reduced motion)
+		const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		if (!reducedMotion) {
+			scrambleInterval = window.setInterval(() => {
+				registrationState.form.district = Math.random().toString(36).substring(2, 5).toUpperCase();
+			}, 50);
+		}
 
 		try {
 			const { zipToDistrict } = await import('$lib/data/zip_to_district');
@@ -253,6 +256,8 @@
 									<div
 										bind:this={resultContainer}
 										tabindex="-1"
+										role="status"
+										aria-live="polite"
 										class="text-center bg-green-900/10 border border-green-500/20 rounded-md p-4 focus:outline-none focus:ring-2 focus:ring-crimson/50"
 									>
 										<p class="text-xs text-bone/60 uppercase tracking-widest mb-1">

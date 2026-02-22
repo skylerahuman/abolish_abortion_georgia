@@ -20,3 +20,12 @@ https://svelte.dev/e/a11y_no_static_element_interactions
 3:05:55 AM [vite] (client) page reload .svelte-kit/generated/root.js
 3:05:55 AM [vite] (ssr) page reload .svelte-kit/generated/root.js
 3:05:55 AM [vite] (ssr) page reload .svelte-kit/generated/root.svelte
+3:10:01 AM [vite] (client) page reload .svelte-kit/generated/client/nodes/0.js
+3:10:01 AM [vite] (client) page reload .svelte-kit/generated/client/nodes/1.js
+3:10:01 AM [vite] (client) page reload .svelte-kit/generated/client/nodes/2.js
+3:10:01 AM [vite] (client) page reload .svelte-kit/generated/client/app.js
+3:10:01 AM [vite] (client) page reload .svelte-kit/generated/client/matchers.js
+3:10:01 AM [vite] (ssr) page reload .svelte-kit/generated/server/internal.js
+3:10:01 AM [vite] (client) page reload .svelte-kit/generated/root.js
+3:10:01 AM [vite] (ssr) page reload .svelte-kit/generated/root.js
+3:10:01 AM [vite] (ssr) page reload .svelte-kit/generated/root.svelte

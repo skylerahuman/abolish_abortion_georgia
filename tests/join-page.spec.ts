@@ -9,7 +9,7 @@ test.describe('Join Page', () => {
 		await page.waitForLoadState('networkidle');
 
 		// Check that the form title is visible
-		await expect(page.getByText('Join the Fight')).toBeVisible();
+		await expect(page.getByRole('heading', { name: 'Join the Fight' })).toBeVisible();
 
 		// Take screenshot of Step 1 (District Finder)
 		await page.screenshot({

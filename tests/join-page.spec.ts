@@ -9,7 +9,7 @@ test.describe('Join Page', () => {
 		await page.waitForLoadState('networkidle');
 
 		// Check that the form title is visible
-		await expect(page.getByText('Join the Fight')).toBeVisible();
+		await expect(page.getByRole('heading', { name: 'Join the Fight' })).toBeVisible();
 
 		// Take screenshot of Step 1 (District Finder)
 		await page.screenshot({
@@ -22,14 +22,14 @@ test.describe('Join Page', () => {
 		await expect(zipInput).toBeVisible();
 
 		// Fill in ZIP code and find district
-		await zipInput.fill('30228'); // Hampton, GA ZIP
-		await page.getByRole('button', { name: 'Find' }).click();
+		await zipInput.pressSequentially('30228'); // Hampton, GA ZIP
 
+		// The form auto-submits on 5 digits, so we just wait for the result
 		// Wait for district to load
 		await page.waitForTimeout(1500); // Wait for scramble animation
 
 		// Verify district is shown
-		await expect(page.getByText('Your Georgia House District is:')).toBeVisible();
+		await expect(page.getByText('Found District')).toBeVisible();
 
 		// Click Next to go to Step 2
 		await page.getByRole('button', { name: 'Next' }).click();

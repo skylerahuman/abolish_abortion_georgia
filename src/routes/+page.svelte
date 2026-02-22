@@ -276,7 +276,7 @@
 					</p>
 
 					<!-- Call to Action Buttons -->
-					<div class="flex justify-start gap-6 mt-4 fade-in-buttons">
+					<div class="flex justify-start gap-6 mt-4 fade-in-buttons" data-testid="cta-container">
 						<a
 							href="{base}/join"
 							class="px-10 py-4 bg-crimson text-bone font-bold rounded-lg hover:bg-ember transition-all duration-300 shadow-xl hover:shadow-crimson/40 hover:-translate-y-0.5 active:translate-y-0"

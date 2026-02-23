@@ -11,8 +11,11 @@
 
 		const initMap = async () => {
 			try {
-				const L = await import('leaflet');
-				await import('leaflet/dist/leaflet.css');
+				// Optimization: Parallelize Leaflet and CSS imports to improve initialization speed
+				const [L] = await Promise.all([
+					import('leaflet'),
+					import('leaflet/dist/leaflet.css')
+				]);
 
 				if (!isMounted || !mapElement) return;
 

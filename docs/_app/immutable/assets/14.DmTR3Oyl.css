@@ -1,1 +1,13 @@
-.svelte-1j5tn20::-webkit-scrollbar{width:4px}.svelte-1j5tn20::-webkit-scrollbar-track{background:#0000000d}.svelte-1j5tn20::-webkit-scrollbar-thumb{background:#ffffff1a;border-radius:2px}.svelte-1j5tn20::-webkit-scrollbar-thumb:hover{background:#d4af374d}
+.svelte-1j5tn20::-webkit-scrollbar {
+	width: 4px;
+}
+.svelte-1j5tn20::-webkit-scrollbar-track {
+	background: #0000000d;
+}
+.svelte-1j5tn20::-webkit-scrollbar-thumb {
+	background: #ffffff1a;
+	border-radius: 2px;
+}
+.svelte-1j5tn20::-webkit-scrollbar-thumb:hover {
+	background: #d4af374d;
+}

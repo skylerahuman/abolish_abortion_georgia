@@ -13,8 +13,8 @@
 3. **Add to Fallback**: Edit `src/routes/who-do-i-call/+page.svelte` and add the ZIP to the `zipCodeFallback` object:
    ```javascript
    const zipCodeFallback = {
-     'XXXXX': { lat: XX.XXXX, lng: -XX.XXXX, city: 'City Name' },
-     // ... existing entries
+	XXXXX: { lat: XX.XXXX, lng: -XX.XXXX, city: 'City Name' }
+	// ... existing entries
    };
    ```
 4. **Check Rate Limiting**: Nominatim limits requests to 1 per second. Wait a moment and try again.
@@ -137,11 +137,13 @@
 ## Browser Compatibility
 
 ### Supported Browsers
+
 - Chrome/Edge 90+
 - Firefox 88+
 - Safari 14+
 
 ### Known Issues
+
 - Internet Explorer: Not supported (uses modern JavaScript)
 - Old Mobile Browsers: May have limited functionality
 
@@ -167,6 +169,7 @@ To enable detailed logging:
 ## Quick Checklist
 
 Before reporting an issue, verify:
+
 - [ ] Internet connection is working
 - [ ] Browser console has no JavaScript errors
 - [ ] Leaflet CSS is loaded (check Network tab)

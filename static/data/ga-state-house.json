@@ -1,95 +1,105 @@
 {
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "properties": {
-        "district": "HD-1",
-        "name": "State House District 1"
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [[
-          [-81.5, 32.0],
-          [-81.0, 32.0],
-          [-80.9, 31.5],
-          [-81.2, 31.3],
-          [-81.5, 31.5],
-          [-81.5, 32.0]
-        ]]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "district": "HD-45",
-        "name": "State House District 45"
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [[
-          [-84.4, 33.8],
-          [-84.2, 33.8],
-          [-84.2, 33.6],
-          [-84.3, 33.5],
-          [-84.4, 33.6],
-          [-84.4, 33.8]
-        ]]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "district": "HD-75",
-        "name": "State House District 75"
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [[
-          [-83.6, 32.6],
-          [-83.3, 32.6],
-          [-83.2, 32.3],
-          [-83.4, 32.2],
-          [-83.6, 32.3],
-          [-83.6, 32.6]
-        ]]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "district": "HD-100",
-        "name": "State House District 100"
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [[
-          [-82.3, 33.6],
-          [-82.0, 33.6],
-          [-81.9, 33.3],
-          [-82.1, 33.2],
-          [-82.3, 33.3],
-          [-82.3, 33.6]
-        ]]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "district": "HD-120",
-        "name": "State House District 120"
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [[
-          [-84.6, 32.5],
-          [-84.3, 32.5],
-          [-84.3, 32.2],
-          [-84.5, 32.0],
-          [-84.6, 32.2],
-          [-84.6, 32.5]
-        ]]
-      }
-    }
-  ]
+	"type": "FeatureCollection",
+	"features": [
+		{
+			"type": "Feature",
+			"properties": {
+				"district": "HD-1",
+				"name": "State House District 1"
+			},
+			"geometry": {
+				"type": "Polygon",
+				"coordinates": [
+					[
+						[-81.5, 32.0],
+						[-81.0, 32.0],
+						[-80.9, 31.5],
+						[-81.2, 31.3],
+						[-81.5, 31.5],
+						[-81.5, 32.0]
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"district": "HD-45",
+				"name": "State House District 45"
+			},
+			"geometry": {
+				"type": "Polygon",
+				"coordinates": [
+					[
+						[-84.4, 33.8],
+						[-84.2, 33.8],
+						[-84.2, 33.6],
+						[-84.3, 33.5],
+						[-84.4, 33.6],
+						[-84.4, 33.8]
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"district": "HD-75",
+				"name": "State House District 75"
+			},
+			"geometry": {
+				"type": "Polygon",
+				"coordinates": [
+					[
+						[-83.6, 32.6],
+						[-83.3, 32.6],
+						[-83.2, 32.3],
+						[-83.4, 32.2],
+						[-83.6, 32.3],
+						[-83.6, 32.6]
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"district": "HD-100",
+				"name": "State House District 100"
+			},
+			"geometry": {
+				"type": "Polygon",
+				"coordinates": [
+					[
+						[-82.3, 33.6],
+						[-82.0, 33.6],
+						[-81.9, 33.3],
+						[-82.1, 33.2],
+						[-82.3, 33.3],
+						[-82.3, 33.6]
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"district": "HD-120",
+				"name": "State House District 120"
+			},
+			"geometry": {
+				"type": "Polygon",
+				"coordinates": [
+					[
+						[-84.6, 32.5],
+						[-84.3, 32.5],
+						[-84.3, 32.2],
+						[-84.5, 32.0],
+						[-84.6, 32.2],
+						[-84.6, 32.5]
+					]
+				]
+			}
+		}
+	]
 }

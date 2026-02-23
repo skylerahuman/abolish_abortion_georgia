@@ -5,5 +5,5 @@ import { cleanup } from '@testing-library/svelte';
 expect.extend(matchers);
 
 afterEach(() => {
-  cleanup();
+	cleanup();
 });

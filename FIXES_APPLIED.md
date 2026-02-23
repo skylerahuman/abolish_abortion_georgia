@@ -1,6 +1,7 @@
 # Fixes Applied to "Who Do I Call" Feature
 
 ## Issue
+
 ZIP code 30309 (Atlanta) was showing the error: "Could not find this ZIP code in Georgia. Please try again."
 
 ## Root Causes Identified
@@ -17,17 +18,21 @@ ZIP code 30309 (Atlanta) was showing the error: "Could not find this ZIP code in
 Added a three-tier fallback system for geocoding:
 
 #### Tier 1: Primary Geocoding
+
 ```javascript
 https://nominatim.openstreetmap.org/search?postalcode=${zipCode}&country=US&state=Georgia
 ```
 
 #### Tier 2: Broader Search Fallback
+
 ```javascript
 https://nominatim.openstreetmap.org/search?q=${zipCode}+Georgia+USA
 ```
 
 #### Tier 3: Hardcoded ZIP Coordinates
+
 Added a fallback lookup table for common Georgia ZIP codes:
+
 - 30309 - Atlanta (Midtown)
 - 31419 - Savannah
 - 31210 - Macon
@@ -40,6 +45,7 @@ Added a fallback lookup table for common Georgia ZIP codes:
 **File**: `static/data/ga-congress.json`
 
 Expanded the GA-5 congressional district polygon to properly cover Atlanta:
+
 - Old boundary: Did not reliably cover 30309
 - New boundary: Expanded to [-84.55, 33.95] to [-84.10, 33.60] range
 - Now properly contains Atlanta coordinates [33.7847, -84.3747]
@@ -47,6 +53,7 @@ Expanded the GA-5 congressional district polygon to properly cover Atlanta:
 ### 3. Added Debug Logging
 
 Added console logging to help diagnose issues:
+
 - Logs the coordinates being looked up
 - Shows which districts were found
 - Helps troubleshoot point-in-polygon calculations
@@ -56,6 +63,7 @@ Added console logging to help diagnose issues:
 After these fixes, test with:
 
 ### Working ZIP Codes
+
 - **30309** - Atlanta, GA-5 ✓
 - **31419** - Savannah, GA-1 ✓
 - **31210** - Macon, GA-8 ✓
@@ -63,6 +71,7 @@ After these fixes, test with:
 - **31907** - Columbus, GA-3 ✓
 
 ### How to Test
+
 1. Start dev server: `npm run dev`
 2. Navigate to `/who-do-i-call`
 3. Enter a ZIP code
@@ -91,6 +100,7 @@ After these fixes, test with:
 ## Future Enhancements
 
 See `ENHANCEMENTS.md` for a comprehensive list of potential improvements including:
+
 - Address search (not just ZIP)
 - Multiple district overlays on map
 - Representative contact templates

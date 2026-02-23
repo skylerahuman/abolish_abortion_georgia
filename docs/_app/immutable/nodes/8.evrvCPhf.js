@@ -1,1 +1,220 @@
-import{f as b,a as n,t as L}from"../chunks/CY5M9QH9.js";import{o as st}from"../chunks/Bfh70wKf.js";import{p as it,d as j,k as M,s as o,t as w,a as rt,b as y,e as ot,c as i,g as e,$ as lt,r as s,n as nt}from"../chunks/rvO96ovo.js";import{s as _}from"../chunks/B7h0y9B8.js";import{i as k}from"../chunks/B2oiWCv6.js";import{e as dt,i as ct}from"../chunks/D5uLbxCV.js";import{h as pt}from"../chunks/Dyz6xL-l.js";import{s as m}from"../chunks/BIZQoEtA.js";import{s as O}from"../chunks/MLHHVL6O.js";import{d as xt}from"../chunks/BQJIW4hw.js";import{s as W}from"../chunks/DQ9wegHW.js";import{b as A}from"../chunks/BPeLQb6m.js";var mt=b('<span class="text-xs font-bold text-gold uppercase tracking-wider">⭐ Gospel Hope</span>'),bt=b('<a target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-teal hover:text-ember font-semibold transition-colors text-sm"> <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a>'),vt=b('<div class="opacity-0 animate-fade-in-left svelte-ptbu7i"><div class="flex items-baseline gap-3 mb-2"><span class="text-sm font-mono font-bold text-bone/50 tracking-wider"> </span> <!></div> <h3> </h3> <p class="text-base text-bone/70 leading-relaxed mb-3"> </p> <!></div>'),ft=b("<div><!></div>"),ht=b('<div class="min-h-screen bg-charcoal text-bone px-6 py-16"><div class="max-w-5xl mx-auto"><div class="text-center mb-16 relative"><h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-crimson mb-3 uppercase">The Current Battleground</h1> <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-6">Georgia HB 441: Equal Protection</h2> <p class="text-lg text-bone/70 max-w-3xl mx-auto leading-relaxed">Trace the legal history from the judicial fiat of 1973 to the legislative battles of today.</p> <p class="text-base text-bone/70 max-w-3xl mx-auto leading-relaxed mt-4">We have moved beyond the "Heartbeat Bills" that merely set a timing threshold for death. The Georgia Equal Protection Act (HB 441) represents the standard of justice required by God and the Constitution.</p> <button class="absolute top-4 right-4 text-bone/50 hover:text-bone transition-colors text-sm flex items-center gap-2"><!></button></div> <div class="bg-panel border border-white/10 p-6 rounded-sm mb-16 text-center"><h3 class="text-xl font-bold uppercase tracking-wide text-gold mb-4">HB 441 Status</h3> <p class="text-lg text-bone/90 mb-2">Currently in committee</p> <p class="text-base text-bone/70 mb-4">Next step: Floor vote expected Q2 2026</p> <a href="https://www.legis.ga.gov/legislation/64602" target="_blank" rel="noopener noreferrer" class="text-teal hover:text-ember underline">Track the bill →</a></div> <div class="space-y-8 mb-16"></div> <div class="grid md:grid-cols-2 gap-8 mb-16"><div class="bg-panel border border-white/10 p-6 rounded-sm"><h3 class="text-xl font-bold uppercase tracking-wide text-bone/70 mb-6 text-center">The Old Way: Regulation</h3> <ul class="space-y-3"><li class="flex items-start gap-3"><span class="text-crimson text-xl mt-1">❌</span> <div><div class="font-semibold text-bone/90">Arbitrary Lines</div> <div class="text-sm text-bone/50">Protects life only after heartbeat, 15 weeks, or viability</div></div></li> <li class="flex items-start gap-3"><span class="text-crimson text-xl mt-1">❌</span> <div><div class="font-semibold text-bone/90">Immunity</div> <div class="text-sm text-bone/50">Often gives immunity to mother or providers</div></div></li> <li class="flex items-start gap-3"><span class="text-crimson text-xl mt-1">❌</span> <div><div class="font-semibold text-bone/90">Subservient</div> <div class="text-sm text-bone/50">Bows to federal court opinions</div></div></li></ul></div> <div class="bg-gold/10 border border-gold p-6 rounded-sm"><h3 class="text-xl font-bold uppercase tracking-wide text-gold mb-6 text-center">The New Way: HB 441 ⭐ The Standard</h3> <ul class="space-y-3"><li class="flex items-start gap-3"><span class="text-teal text-xl mt-1">✅</span> <div><div class="font-semibold text-bone">Total Abolition</div> <div class="text-sm text-bone/70">Defines life from fertilization. No arbitrary limits.</div></div></li> <li class="flex items-start gap-3"><span class="text-teal text-xl mt-1">✅</span> <div><div class="font-semibold text-bone">Equal Protection</div> <div class="text-sm text-bone/70">Same laws protecting born people apply to pre-born</div></div></li> <li class="flex items-start gap-3"><span class="text-teal text-xl mt-1">✅</span> <div><div class="font-semibold text-bone">Interposition</div> <div class="text-sm text-bone/70">Asserts state sovereignty to protect life</div></div></li></ul></div></div> <div class="text-center mb-12"><p class="text-lg text-bone font-semibold">Abortion continues in Georgia today. Under current law, preborn neighbors are still being killed daily. HB 441 is the path to justice.</p></div> <div class="flex flex-col md:flex-row gap-4 items-center justify-center"><a class="w-full md:w-auto bg-crimson hover:bg-ember text-white font-bold text-lg px-10 py-4 rounded-sm uppercase tracking-wide transition-all duration-300 transform hover:scale-105 shadow-lg text-center">What can I do in my district?</a> <a class="w-full md:w-auto bg-transparent border border-white/20 hover:border-white/40 text-bone hover:text-white font-semibold px-10 py-4 rounded-sm uppercase tracking-wide transition-all duration-300 text-center">Pray. Fight. Give.</a></div></div></div>');function Ht(N,F){it(F,!0);let q=j(M([])),T=j(M(new Set)),c=j(!1);function z(){try{navigator.clipboard.writeText(window.location.href),y(c,!0),setTimeout(()=>{y(c,!1)},2e3)}catch(t){console.error("Share: Clipboard write failed",t)}}st(()=>{let t;return(async()=>{const v=await fetch(`${A}/data/timeline.json`);y(q,await v.json(),!0),t=new IntersectionObserver(r=>{r.forEach(f=>{if(f.isIntersecting){const h=f.target.getAttribute("data-id");h&&y(T,new Set([...e(T),h]),!0)}})},{threshold:.2}),document.querySelectorAll(".timeline-card").forEach(r=>{t.observe(r)})})(),()=>{t&&t.disconnect()}});function D(t){switch(t){case"hope":return"border-gold bg-gold/10";case"tragedy":return"border-white/10 bg-panel/50";case"mixed":return"border-white/20 bg-panel/50";default:return"border-white/10 bg-panel/50"}}var S=ht();pt("ptbu7i",t=>{ot(()=>{lt.title="Operation Gospel - Georgia Battle"})});var E=i(S),$=i(E),p=o(i($),8);p.__click=z;var Q=i(p);{var R=t=>{var a=L("Copied! ✓");n(t,a)},U=t=>{var a=L("Share →");n(t,a)};k(Q,t=>{e(c)?t(R):t(U,!1)})}s(p),s($);var B=o($,4);dt(B,21,()=>e(q),ct,(t,a,v)=>{var r=ft();W(r,`animation-delay: ${v*100}ms`);var f=i(r);{var h=x=>{var g=vt();W(g,`animation-delay: ${v*150}ms`);var C=i(g),G=i(C),K=i(G,!0);s(G);var V=o(G,2);{var X=l=>{var d=mt();n(l,d)};k(V,l=>{e(a).type==="hope"&&l(X)})}s(C);var u=o(C,2),Y=i(u,!0);s(u);var H=o(u,2),Z=i(H,!0);s(H);var tt=o(H,2);{var et=l=>{var d=bt(),at=i(d);nt(),s(d),w(()=>{m(d,"href",e(a).link),_(at,`${(e(a).linkText||"Learn More")??""} `)}),n(l,d)};k(tt,l=>{e(a).link&&l(et)})}s(g),w(()=>{_(K,e(a).date),O(u,1,`text-xl md:text-2xl font-bold mb-3 ${e(a).type==="hope"?"text-gold":"text-bone"}`),_(Y,e(a).title),_(Z,e(a).description)}),n(x,g)};k(f,x=>{e(T).has(e(a).id)&&x(h)})}s(r),w(x=>{O(r,1,`timeline-card border-l-4 pl-6 py-4 transition-all duration-500 ${x??""}`,"svelte-ptbu7i"),m(r,"data-id",e(a).id)},[()=>D(e(a).type)]),n(t,r)}),s(B);var I=o(B,6),P=i(I),J=o(P,2);s(I),s(E),s(S),w(()=>{m(p,"aria-label",e(c)?"Link copied":"Share this page"),p.disabled=e(c),m(P,"href",`${A??""}/near-me`),m(J,"href",`${A??""}/respond`)}),n(N,S),rt()}xt(["click"]);export{Ht as component};
+import { f as b, a as n, t as L } from '../chunks/CY5M9QH9.js';
+import { o as st } from '../chunks/Bfh70wKf.js';
+import {
+	p as it,
+	d as j,
+	k as M,
+	s as o,
+	t as w,
+	a as rt,
+	b as y,
+	e as ot,
+	c as i,
+	g as e,
+	$ as lt,
+	r as s,
+	n as nt
+} from '../chunks/rvO96ovo.js';
+import { s as _ } from '../chunks/B7h0y9B8.js';
+import { i as k } from '../chunks/B2oiWCv6.js';
+import { e as dt, i as ct } from '../chunks/D5uLbxCV.js';
+import { h as pt } from '../chunks/Dyz6xL-l.js';
+import { s as m } from '../chunks/BIZQoEtA.js';
+import { s as O } from '../chunks/MLHHVL6O.js';
+import { d as xt } from '../chunks/BQJIW4hw.js';
+import { s as W } from '../chunks/DQ9wegHW.js';
+import { b as A } from '../chunks/BPeLQb6m.js';
+var mt = b(
+		'<span class="text-xs font-bold text-gold uppercase tracking-wider">⭐ Gospel Hope</span>'
+	),
+	bt = b(
+		'<a target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-teal hover:text-ember font-semibold transition-colors text-sm"> <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a>'
+	),
+	vt = b(
+		'<div class="opacity-0 animate-fade-in-left svelte-ptbu7i"><div class="flex items-baseline gap-3 mb-2"><span class="text-sm font-mono font-bold text-bone/50 tracking-wider"> </span> <!></div> <h3> </h3> <p class="text-base text-bone/70 leading-relaxed mb-3"> </p> <!></div>'
+	),
+	ft = b('<div><!></div>'),
+	ht = b(
+		'<div class="min-h-screen bg-charcoal text-bone px-6 py-16"><div class="max-w-5xl mx-auto"><div class="text-center mb-16 relative"><h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-crimson mb-3 uppercase">The Current Battleground</h1> <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-6">Georgia HB 441: Equal Protection</h2> <p class="text-lg text-bone/70 max-w-3xl mx-auto leading-relaxed">Trace the legal history from the judicial fiat of 1973 to the legislative battles of today.</p> <p class="text-base text-bone/70 max-w-3xl mx-auto leading-relaxed mt-4">We have moved beyond the "Heartbeat Bills" that merely set a timing threshold for death. The Georgia Equal Protection Act (HB 441) represents the standard of justice required by God and the Constitution.</p> <button class="absolute top-4 right-4 text-bone/50 hover:text-bone transition-colors text-sm flex items-center gap-2"><!></button></div> <div class="bg-panel border border-white/10 p-6 rounded-sm mb-16 text-center"><h3 class="text-xl font-bold uppercase tracking-wide text-gold mb-4">HB 441 Status</h3> <p class="text-lg text-bone/90 mb-2">Currently in committee</p> <p class="text-base text-bone/70 mb-4">Next step: Floor vote expected Q2 2026</p> <a href="https://www.legis.ga.gov/legislation/64602" target="_blank" rel="noopener noreferrer" class="text-teal hover:text-ember underline">Track the bill →</a></div> <div class="space-y-8 mb-16"></div> <div class="grid md:grid-cols-2 gap-8 mb-16"><div class="bg-panel border border-white/10 p-6 rounded-sm"><h3 class="text-xl font-bold uppercase tracking-wide text-bone/70 mb-6 text-center">The Old Way: Regulation</h3> <ul class="space-y-3"><li class="flex items-start gap-3"><span class="text-crimson text-xl mt-1">❌</span> <div><div class="font-semibold text-bone/90">Arbitrary Lines</div> <div class="text-sm text-bone/50">Protects life only after heartbeat, 15 weeks, or viability</div></div></li> <li class="flex items-start gap-3"><span class="text-crimson text-xl mt-1">❌</span> <div><div class="font-semibold text-bone/90">Immunity</div> <div class="text-sm text-bone/50">Often gives immunity to mother or providers</div></div></li> <li class="flex items-start gap-3"><span class="text-crimson text-xl mt-1">❌</span> <div><div class="font-semibold text-bone/90">Subservient</div> <div class="text-sm text-bone/50">Bows to federal court opinions</div></div></li></ul></div> <div class="bg-gold/10 border border-gold p-6 rounded-sm"><h3 class="text-xl font-bold uppercase tracking-wide text-gold mb-6 text-center">The New Way: HB 441 ⭐ The Standard</h3> <ul class="space-y-3"><li class="flex items-start gap-3"><span class="text-teal text-xl mt-1">✅</span> <div><div class="font-semibold text-bone">Total Abolition</div> <div class="text-sm text-bone/70">Defines life from fertilization. No arbitrary limits.</div></div></li> <li class="flex items-start gap-3"><span class="text-teal text-xl mt-1">✅</span> <div><div class="font-semibold text-bone">Equal Protection</div> <div class="text-sm text-bone/70">Same laws protecting born people apply to pre-born</div></div></li> <li class="flex items-start gap-3"><span class="text-teal text-xl mt-1">✅</span> <div><div class="font-semibold text-bone">Interposition</div> <div class="text-sm text-bone/70">Asserts state sovereignty to protect life</div></div></li></ul></div></div> <div class="text-center mb-12"><p class="text-lg text-bone font-semibold">Abortion continues in Georgia today. Under current law, preborn neighbors are still being killed daily. HB 441 is the path to justice.</p></div> <div class="flex flex-col md:flex-row gap-4 items-center justify-center"><a class="w-full md:w-auto bg-crimson hover:bg-ember text-white font-bold text-lg px-10 py-4 rounded-sm uppercase tracking-wide transition-all duration-300 transform hover:scale-105 shadow-lg text-center">What can I do in my district?</a> <a class="w-full md:w-auto bg-transparent border border-white/20 hover:border-white/40 text-bone hover:text-white font-semibold px-10 py-4 rounded-sm uppercase tracking-wide transition-all duration-300 text-center">Pray. Fight. Give.</a></div></div></div>'
+	);
+function Ht(N, F) {
+	it(F, !0);
+	let q = j(M([])),
+		T = j(M(new Set())),
+		c = j(!1);
+	function z() {
+		try {
+			(navigator.clipboard.writeText(window.location.href),
+				y(c, !0),
+				setTimeout(() => {
+					y(c, !1);
+				}, 2e3));
+		} catch (t) {
+			console.error('Share: Clipboard write failed', t);
+		}
+	}
+	st(() => {
+		let t;
+		return (
+			(async () => {
+				const v = await fetch(`${A}/data/timeline.json`);
+				(y(q, await v.json(), !0),
+					(t = new IntersectionObserver(
+						(r) => {
+							r.forEach((f) => {
+								if (f.isIntersecting) {
+									const h = f.target.getAttribute('data-id');
+									h && y(T, new Set([...e(T), h]), !0);
+								}
+							});
+						},
+						{ threshold: 0.2 }
+					)),
+					document.querySelectorAll('.timeline-card').forEach((r) => {
+						t.observe(r);
+					}));
+			})(),
+			() => {
+				t && t.disconnect();
+			}
+		);
+	});
+	function D(t) {
+		switch (t) {
+			case 'hope':
+				return 'border-gold bg-gold/10';
+			case 'tragedy':
+				return 'border-white/10 bg-panel/50';
+			case 'mixed':
+				return 'border-white/20 bg-panel/50';
+			default:
+				return 'border-white/10 bg-panel/50';
+		}
+	}
+	var S = ht();
+	pt('ptbu7i', (t) => {
+		ot(() => {
+			lt.title = 'Operation Gospel - Georgia Battle';
+		});
+	});
+	var E = i(S),
+		$ = i(E),
+		p = o(i($), 8);
+	p.__click = z;
+	var Q = i(p);
+	{
+		var R = (t) => {
+				var a = L('Copied! ✓');
+				n(t, a);
+			},
+			U = (t) => {
+				var a = L('Share →');
+				n(t, a);
+			};
+		k(Q, (t) => {
+			e(c) ? t(R) : t(U, !1);
+		});
+	}
+	(s(p), s($));
+	var B = o($, 4);
+	(dt(
+		B,
+		21,
+		() => e(q),
+		ct,
+		(t, a, v) => {
+			var r = ft();
+			W(r, `animation-delay: ${v * 100}ms`);
+			var f = i(r);
+			{
+				var h = (x) => {
+					var g = vt();
+					W(g, `animation-delay: ${v * 150}ms`);
+					var C = i(g),
+						G = i(C),
+						K = i(G, !0);
+					s(G);
+					var V = o(G, 2);
+					{
+						var X = (l) => {
+							var d = mt();
+							n(l, d);
+						};
+						k(V, (l) => {
+							e(a).type === 'hope' && l(X);
+						});
+					}
+					s(C);
+					var u = o(C, 2),
+						Y = i(u, !0);
+					s(u);
+					var H = o(u, 2),
+						Z = i(H, !0);
+					s(H);
+					var tt = o(H, 2);
+					{
+						var et = (l) => {
+							var d = bt(),
+								at = i(d);
+							(nt(),
+								s(d),
+								w(() => {
+									(m(d, 'href', e(a).link), _(at, `${(e(a).linkText || 'Learn More') ?? ''} `));
+								}),
+								n(l, d));
+						};
+						k(tt, (l) => {
+							e(a).link && l(et);
+						});
+					}
+					(s(g),
+						w(() => {
+							(_(K, e(a).date),
+								O(
+									u,
+									1,
+									`text-xl md:text-2xl font-bold mb-3 ${e(a).type === 'hope' ? 'text-gold' : 'text-bone'}`
+								),
+								_(Y, e(a).title),
+								_(Z, e(a).description));
+						}),
+						n(x, g));
+				};
+				k(f, (x) => {
+					e(T).has(e(a).id) && x(h);
+				});
+			}
+			(s(r),
+				w(
+					(x) => {
+						(O(
+							r,
+							1,
+							`timeline-card border-l-4 pl-6 py-4 transition-all duration-500 ${x ?? ''}`,
+							'svelte-ptbu7i'
+						),
+							m(r, 'data-id', e(a).id));
+					},
+					[() => D(e(a).type)]
+				),
+				n(t, r));
+		}
+	),
+		s(B));
+	var I = o(B, 6),
+		P = i(I),
+		J = o(P, 2);
+	(s(I),
+		s(E),
+		s(S),
+		w(() => {
+			(m(p, 'aria-label', e(c) ? 'Link copied' : 'Share this page'),
+				(p.disabled = e(c)),
+				m(P, 'href', `${A ?? ''}/near-me`),
+				m(J, 'href', `${A ?? ''}/respond`));
+		}),
+		n(N, S),
+		rt());
+}
+xt(['click']);
+export { Ht as component };

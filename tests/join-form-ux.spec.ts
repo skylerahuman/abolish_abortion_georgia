@@ -2,18 +2,20 @@ import { test, expect } from '@playwright/test';
 
 test('Join Form UX improvements', async ({ page }) => {
 	await page.goto('/join');
+	await page.waitForLoadState('networkidle');
 
 	// STEP 1: District Finder
-	await page.getByPlaceholder('Enter 5-digit ZIP Code').fill('30030');
-	await page.getByRole('button', { name: 'Find' }).click();
+	const zipInput = page.locator('input[id="zip"]');
+	await zipInput.click();
+	await zipInput.pressSequentially('30228'); // Using 30228 for reliable district lookup
 
 	// Wait for result
-	await expect(page.getByText('Your Georgia House District is:')).toBeVisible();
+	await expect(page.getByText('Found District')).toBeVisible();
+	await expect(page.getByText('117')).toBeVisible();
 
 	// CHECK 1: Focus Management on Result
-	// The focus should move to the result container or the "Not your district?" button
-	const resultContainer = page.locator('.text-center.bg-charcoal\\/50');
-	const notYourDistrictBtn = page.getByRole('button', { name: 'Not your district?' });
+	// The focus should move to the result container
+	const resultContainer = page.locator('.text-center.bg-green-900\\/10');
 
 	// We expect one of them to be focused.
 	// Since .or() with toBeFocused might be tricky, let's check active element

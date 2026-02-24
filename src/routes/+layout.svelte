@@ -34,6 +34,14 @@
 </svelte:head>
 
 <div class="min-h-screen flex flex-col bg-black text-white">
+	<!-- Skip to Main Content Link -->
+	<a
+		href="#main-content"
+		class="absolute -top-96 left-4 z-[100] rounded-md border-2 border-red-600 bg-white px-4 py-2 font-bold text-black shadow-xl transition-all duration-200 focus:top-4"
+	>
+		Skip to Main Content
+	</a>
+
 	<!-- WIP Banner (Global) -->
 	{#if !['/fill-the-steps', '/feb-20-2026', '/2-20-2026'].includes($page.url.pathname)}
 		<div class="bg-amber-500/10 border-b border-amber-500/20 py-2 px-4 text-center z-[60]">
@@ -152,7 +160,7 @@
 	{/if}
 
 	<!-- Main Content -->
-	<main class="flex-1">
+	<main id="main-content" class="flex-1 focus:outline-none" tabindex="-1">
 		{@render children()}
 	</main>
 

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
+	import timelineData from '$lib/data/timeline.json';
 	
 	interface TimelineEvent {
 		id: string;
@@ -12,7 +13,8 @@
 		linkText?: string;
 	}
 	
-	let timeline = $state<TimelineEvent[]>([]);
+	// Optimization: Import data directly instead of fetching
+	let timeline = $state<TimelineEvent[]>(timelineData as TimelineEvent[]);
 	let visibleCards = $state<Set<string>>(new Set());
 	let copied = $state(false);
 
@@ -29,36 +31,35 @@
 	}
 	
 	onMount(() => {
-		let observer: IntersectionObserver;
+		// Optimization: Batch updates to avoid multiple re-renders
+		const observer = new IntersectionObserver(
+			(entries) => {
+				const newVisible = new Set(visibleCards);
+				let changed = false;
 
-		const init = async () => {
-			const response = await fetch(`${base}/data/timeline.json`);
-			timeline = await response.json();
-
-			// Setup intersection observer for staggered animations
-			observer = new IntersectionObserver(
-				(entries) => {
-					entries.forEach(entry => {
-						if (entry.isIntersecting) {
-							const id = entry.target.getAttribute('data-id');
-							if (id) {
-								visibleCards = new Set([...visibleCards, id]);
-							}
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						const id = entry.target.getAttribute('data-id');
+						if (id && !newVisible.has(id)) {
+							newVisible.add(id);
+							changed = true;
 						}
-					});
-				},
-				{ threshold: 0.2 }
-			);
+					}
+				});
 
-			document.querySelectorAll('.timeline-card').forEach(card => {
-				observer.observe(card);
-			});
-		};
-		
-		init();
+				if (changed) {
+					visibleCards = newVisible;
+				}
+			},
+			{ threshold: 0.2 }
+		);
+
+		document.querySelectorAll('.timeline-card').forEach(card => {
+			observer.observe(card);
+		});
 		
 		return () => {
-			if (observer) observer.disconnect();
+			observer.disconnect();
 		};
 	});
 	
@@ -120,7 +121,7 @@
 		
 		<!-- Timeline Cards -->
 		<div class="space-y-8 mb-16">
-			{#each timeline as event, index}
+			{#each timeline as event, index (event.id)}
 				<div 
 					class="timeline-card border-l-4 pl-6 py-4 transition-all duration-500 {getTypeColor(event.type)}"
 					data-id={event.id}

@@ -216,6 +216,7 @@
 										id="zip"
 										bind:value={zipCode}
 										inputmode="numeric"
+										autocomplete="postal-code"
 										pattern="[0-9]*"
 										placeholder="Enter 5-digit ZIP Code"
 										class="flex-1 bg-charcoal border {showDistrict
@@ -317,6 +318,7 @@
 								bind:this={firstNameInput}
 								bind:value={registrationState.form.firstName}
 								required
+								autocomplete="given-name"
 								aria-invalid={!!step2Error}
 								aria-describedby={step2Error ? 'step2-error' : undefined}
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson focus-visible:ring-2 focus-visible:ring-crimson/50 transition-colors"
@@ -332,6 +334,7 @@
 								id="lastName"
 								bind:value={registrationState.form.lastName}
 								required
+								autocomplete="family-name"
 								aria-invalid={!!step2Error}
 								aria-describedby={step2Error ? 'step2-error' : undefined}
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson focus-visible:ring-2 focus-visible:ring-crimson/50 transition-colors"
@@ -347,6 +350,7 @@
 								id="email"
 								bind:value={registrationState.form.email}
 								required
+								autocomplete="email"
 								aria-invalid={!!step2Error}
 								aria-describedby={step2Error ? 'step2-error' : undefined}
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson focus-visible:ring-2 focus-visible:ring-crimson/50 transition-colors"
@@ -363,6 +367,7 @@
 								id="address"
 								bind:value={registrationState.form.address}
 								required
+								autocomplete="street-address"
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
 							/>
 						</div>
@@ -374,6 +379,7 @@
 								id="city"
 								bind:value={registrationState.form.city}
 								required
+								autocomplete="address-level2"
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
 							/>
 						</div>
@@ -386,6 +392,7 @@
 								type="tel"
 								id="phone"
 								bind:value={registrationState.form.phone}
+								autocomplete="tel"
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson focus-visible:ring-2 focus-visible:ring-crimson/50 transition-colors"
 							/>
 						</div>

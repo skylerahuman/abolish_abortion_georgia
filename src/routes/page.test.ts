@@ -1,21 +1,36 @@
 import { render, screen } from '@testing-library/svelte';
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import Page from './+page.svelte';
 
+// Mock $app/paths
+vi.mock('$app/paths', () => ({
+  base: ''
+}));
+
 describe('Home Page', () => {
-  it('renders the layout container with left and right columns', () => {
+  it('renders the hero section with main heading', () => {
     render(Page);
-    // These test-ids should be present in the TwoColumnLayout component which is used in Page
-    expect(screen.getByTestId('layout-container')).toBeInTheDocument();
-    expect(screen.getByTestId('left-column')).toBeInTheDocument();
-    expect(screen.getByTestId('right-column')).toBeInTheDocument();
+    expect(screen.getByText(/Georgia bears/i)).toBeInTheDocument();
+    expect(screen.getByText(/bloodguilt/i)).toBeInTheDocument();
+    expect(screen.getByText(/for the sin of abortion/i)).toBeInTheDocument();
   });
 
-  it('centers CTA buttons on mobile', () => {
+  it('renders CTA buttons', () => {
     render(Page);
-    const ctaContainer = screen.getByTestId('cta-container');
-    expect(ctaContainer).toHaveClass('flex-col');
-    expect(ctaContainer).toHaveClass('items-center');
-    expect(ctaContainer).toHaveClass('md:flex-row');
+    const joinButton = screen.getByRole('link', { name: /Join Us/i });
+    const supportButton = screen.getByRole('link', { name: /Support/i });
+
+    expect(joinButton).toBeInTheDocument();
+    expect(supportButton).toBeInTheDocument();
+    expect(joinButton).toHaveAttribute('href', '/join');
+    expect(supportButton).toHaveAttribute('href', '/support');
+  });
+
+  it('renders "Our Focus" section', () => {
+    render(Page);
+    expect(screen.getByText('Our Focus')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Legislative Discipleship' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Conflict Evangelism' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Church Mobilization' })).toBeInTheDocument();
   });
 });

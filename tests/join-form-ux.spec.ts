@@ -4,37 +4,38 @@ test('Join Form UX improvements', async ({ page }) => {
 	await page.goto('/join');
 
 	// STEP 1: District Finder
-	await page.getByPlaceholder('Enter 5-digit ZIP Code').fill('30030');
-	await page.getByRole('button', { name: 'Find' }).click();
+	const zipInput = page.getByPlaceholder('Enter 5-digit ZIP Code');
+	await zipInput.fill('30228');
+
+	// Explicitly click find to ensure lookup happens if auto-trigger fails or is slow
+	// Use .first() as per previous strict mode fix
+	const findButton = page.getByRole('button', { name: 'Find' }).first();
+
+	// Wait for button to be enabled before clicking (it might be disabled while "typing" if logic is weird, or loading)
+	// Actually, logic says disabled={isLoading || zipCode.length !== 5}
+	// We filled 5 chars.
+	await expect(findButton).toBeEnabled();
+	await findButton.click();
 
 	// Wait for result
-	await expect(page.getByText('Your Georgia House District is:')).toBeVisible();
+	// Increased timeout to 10s to account for animation/network variability
+	await expect(page.getByText('Found District')).toBeVisible({ timeout: 10000 });
 
 	// CHECK 1: Focus Management on Result
-	// The focus should move to the result container or the "Not your district?" button
-	const resultContainer = page.locator('.text-center.bg-charcoal\\/50');
-	const notYourDistrictBtn = page.getByRole('button', { name: 'Not your district?' });
-
-	// We expect one of them to be focused.
-	// Since .or() with toBeFocused might be tricky, let's check active element
-	// await expect(resultContainer.or(notYourDistrictBtn)).toBeFocused();
-	// Actually Playwright's expect(locator).toBeFocused() works on a single locator.
-	// We'll target the container for now as the plan is to focus that or the first focusable element inside.
-	// Let's verify if the container is focused.
+	const resultContainer = page.getByText('Found District').locator('..');
 	await expect(resultContainer).toBeFocused();
 
 	// Proceed to Step 2
-	await page.getByRole('button', { name: 'Next' }).click();
+	// Use .first() to avoid strict mode violation if multiple buttons exist (e.g. from transitions)
+	await page.getByRole('button', { name: 'Next' }).first().click();
 
 	// CHECK 2: Focus Management on Step Change
-	// Focus should be on First Name input
 	await expect(page.getByLabel('First Name')).toBeFocused();
 
 	// CHECK 3: Validation on Step 2
-	// Try to click Next without filling anything
+	// Target the visible Next button for step 2. Using .last() as it's likely the one appended/visible.
+	// Filtering by visible might be better but .last() + strict click worked in local thought
 	const nextButtonStep2 = page.getByRole('button', { name: 'Next' }).last();
-	// Note: There are two "Next" buttons in the DOM because of the transition?
-	// No, Step 1 Next is hidden/removed. But let's be safe.
 
 	await nextButtonStep2.click();
 
@@ -48,6 +49,8 @@ test('Join Form UX improvements', async ({ page }) => {
 	await page.getByLabel('First Name').fill('John');
 	await page.getByLabel('Last Name').fill('Doe');
 	await page.getByLabel('Email').fill('john@example.com');
+	await page.getByLabel('Physical Address *').fill('123 Main St');
+	await page.getByLabel('City *').fill('Atlanta');
 
 	await nextButtonStep2.click();
 

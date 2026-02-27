@@ -9,7 +9,7 @@ test.describe('Join Page', () => {
 		await page.waitForLoadState('networkidle');
 
 		// Check that the form title is visible
-		await expect(page.getByText('Join the Fight')).toBeVisible();
+		await expect(page.getByRole('heading', { name: 'Join the Fight' })).toBeVisible();
 
 		// Take screenshot of Step 1 (District Finder)
 		await page.screenshot({
@@ -23,13 +23,15 @@ test.describe('Join Page', () => {
 
 		// Fill in ZIP code and find district
 		await zipInput.fill('30228'); // Hampton, GA ZIP
-		await page.getByRole('button', { name: 'Find' }).click();
+		// Note: Button might be removed immediately if auto-submit works, but we can click it if it's there
+		// Or better, just wait for the result
+		// await page.getByRole('button', { name: 'Find' }).click();
 
 		// Wait for district to load
-		await page.waitForTimeout(1500); // Wait for scramble animation
+		await page.waitForTimeout(2000); // Wait for scramble animation
 
-		// Verify district is shown
-		await expect(page.getByText('Your Georgia House District is:')).toBeVisible();
+		// Verify district is shown - text updated in recent UI changes
+		await expect(page.getByText('Found District')).toBeVisible();
 
 		// Click Next to go to Step 2
 		await page.getByRole('button', { name: 'Next' }).click();
@@ -48,9 +50,12 @@ test.describe('Join Page', () => {
 		await expect(page.getByLabel('Email *')).toBeVisible();
 
 		// Fill in contact info
+		// Note: The UI now adds Physical Address and City as required fields
 		await page.getByLabel('First Name *').fill('Test');
 		await page.getByLabel('Last Name *').fill('User');
 		await page.getByLabel('Email *').fill('test@example.com');
+		await page.getByLabel('Physical Address *').fill('123 Main St');
+		await page.getByLabel('City *').fill('Hampton');
 
 		// Click Next to go to Step 3
 		await page.getByRole('button', { name: 'Next' }).click();

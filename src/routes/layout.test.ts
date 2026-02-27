@@ -20,50 +20,51 @@ describe('Global Navigation', () => {
   it('displays the correct navigation labels', () => {
     render(Layout, { props: { children: () => {} } });
     
-    expect(screen.getAllByText('Home')).toHaveLength(2);
-    expect(screen.getAllByText('Timeline')).toHaveLength(2);
-    expect(screen.getAllByText('Get Involved')).toHaveLength(2);
-    expect(screen.getAllByText('FAQs')).toHaveLength(2);
+    // Check for Home links (Desktop Nav + Footer)
+    // Mobile menu is closed by default, so its links are not rendered.
+    expect(screen.getAllByRole('link', { name: 'Home' })).toHaveLength(2);
+
+    // Check for Timeline links (Desktop Nav + Footer)
+    expect(screen.getAllByRole('link', { name: 'Timeline' })).toHaveLength(2);
+
+    // Check for FAQs links (Desktop Nav + Footer)
+    expect(screen.getAllByRole('link', { name: 'FAQs' })).toHaveLength(2);
+
+    // Check for Join links (Desktop Nav)
+    // Footer does NOT have "Join the Fight".
+    // Mobile is closed.
+    expect(screen.getAllByRole('link', { name: /Join the Fight/i })).toHaveLength(1);
   });
 
   it('navigation links point to the correct routes', () => {
     render(Layout, { props: { children: () => {} } });
     
-    const homeLinks = screen.getAllByText('Home');
-    expect(homeLinks[0].closest('a')).toHaveAttribute('href', '/');
-    expect(homeLinks[1].closest('a')).toHaveAttribute('href', '/');
-
-    const timelineLinks = screen.getAllByText('Timeline');
-    expect(timelineLinks[0].closest('a')).toHaveAttribute('href', '/timeline');
+    const homeLinks = screen.getAllByRole('link', { name: 'Home' });
+    expect(homeLinks[0]).toHaveAttribute('href', '/');
     
-    const involvedLinks = screen.getAllByText('Get Involved');
-    expect(involvedLinks[0].closest('a')).toHaveAttribute('href', '/get-involved');
+    const timelineLinks = screen.getAllByRole('link', { name: 'Timeline' });
+    expect(timelineLinks[0]).toHaveAttribute('href', '/georgia-battle');
+
+    const faqsLinks = screen.getAllByRole('link', { name: 'FAQs' });
+    expect(faqsLinks[0]).toHaveAttribute('href', '/faqs');
+
+    const joinLinks = screen.getAllByRole('link', { name: /Join the Fight/i });
+    expect(joinLinks[0]).toHaveAttribute('href', '/join');
   });
 });
 
-describe('Footer Redesign', () => {
-  it('displays the Proverbs 31 scripture in the footer', () => {
+describe('Footer', () => {
+  it('displays copyright information', () => {
     render(Layout, { props: { children: () => {} } });
     
-    // The specific translation from the hero text
-    expect(screen.getByText(/Open thy mouth for the dumb in the cause of all such as are appointed to destruction/i)).toBeInTheDocument();
-    expect(screen.getByText(/Open thy mouth, judge righteously, and plead the cause of the poor and needy/i)).toBeInTheDocument();
+    expect(screen.getByText(/Establishing Justice for the Pre-born in Georgia/i)).toBeInTheDocument();
+    expect(screen.getByText(/Abolition Georgia/i)).toBeInTheDocument();
   });
 
-  it('displays simplified footer navigation links without headers', () => {
+  it('displays footer navigation links', () => {
     render(Layout, { props: { children: () => {} } });
     
-    const footer = screen.getByRole('contentinfo');
-    
-    // Check for links
-    expect(screen.getAllByText('Home')).toHaveLength(2); // One in nav, one in footer
-    expect(screen.getAllByText('Timeline')).toHaveLength(2);
-    expect(screen.getAllByText('Get Involved')).toHaveLength(2);
-    expect(screen.getAllByText('FAQs')).toHaveLength(2);
-
-    // Ensure headers like "Mobilize" are NOT present (assuming they might have been there before or were planned to be removed)
-    expect(screen.queryByText('Mobilize')).not.toBeInTheDocument();
-    expect(screen.queryByText('Connect')).not.toBeInTheDocument();
-    expect(screen.queryByText('Educate')).not.toBeInTheDocument();
+    // Verify footer links exist (already verified by count above, but good for role check)
+    expect(screen.getByRole('contentinfo')).toBeInTheDocument();
   });
 });

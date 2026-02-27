@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
+	import timelineData from '$lib/data/timeline.json';
 	
 	interface TimelineEvent {
 		id: string;
@@ -12,8 +13,10 @@
 		linkText?: string;
 	}
 	
-	let timeline = $state<TimelineEvent[]>([]);
-	let visibleCards = $state<Set<string>>(new Set());
+	// Create a stable copy of the data
+	const timeline = $state<TimelineEvent[]>(timelineData as TimelineEvent[]);
+
+	let visibleCards = $state(new Set<string>());
 	let copied = $state(false);
 
 	function handleShare() {
@@ -31,31 +34,32 @@
 	onMount(() => {
 		let observer: IntersectionObserver;
 
-		const init = async () => {
-			const response = await fetch(`${base}/data/timeline.json`);
-			timeline = await response.json();
+		observer = new IntersectionObserver(
+			(entries) => {
+				const current = new Set(visibleCards);
+				let changed = false;
 
-			// Setup intersection observer for staggered animations
-			observer = new IntersectionObserver(
-				(entries) => {
-					entries.forEach(entry => {
-						if (entry.isIntersecting) {
-							const id = entry.target.getAttribute('data-id');
-							if (id) {
-								visibleCards = new Set([...visibleCards, id]);
-							}
+				for (const entry of entries) {
+					if (entry.isIntersecting) {
+						const id = entry.target.getAttribute('data-id');
+						if (id && !current.has(id)) {
+							current.add(id);
+							changed = true;
 						}
-					});
-				},
-				{ threshold: 0.2 }
-			);
+					}
+				}
 
-			document.querySelectorAll('.timeline-card').forEach(card => {
-				observer.observe(card);
-			});
-		};
-		
-		init();
+				if (changed) {
+					visibleCards = current;
+				}
+			},
+			{ threshold: 0.1 }
+		);
+
+		const cards = document.querySelectorAll('.timeline-card');
+		cards.forEach(card => {
+			observer.observe(card);
+		});
 		
 		return () => {
 			if (observer) observer.disconnect();
@@ -120,43 +124,46 @@
 		
 		<!-- Timeline Cards -->
 		<div class="space-y-8 mb-16">
+            <!-- FALLBACK: If array is somehow broken, this text won't show -->
 			{#each timeline as event, index}
 				<div 
 					class="timeline-card border-l-4 pl-6 py-4 transition-all duration-500 {getTypeColor(event.type)}"
 					data-id={event.id}
 					style="animation-delay: {index * 100}ms"
 				>
-					{#if visibleCards.has(event.id)}
-						<div class="opacity-0 animate-fade-in-left" style="animation-delay: {index * 150}ms">
-							<div class="flex items-baseline gap-3 mb-2">
-								<span class="text-sm font-mono font-bold text-bone/50 tracking-wider">
-									{event.date}
-								</span>
-								{#if event.type === 'hope'}
-									<span class="text-xs font-bold text-gold uppercase tracking-wider">⭐ Gospel Hope</span>
-								{/if}
-							</div>
-							<h3 class="text-xl md:text-2xl font-bold mb-3 {event.type === 'hope' ? 'text-gold' : 'text-bone'}">
-								{event.title}
-							</h3>
-							<p class="text-base text-bone/70 leading-relaxed mb-3">
-								{event.description}
-							</p>
-							{#if event.link}
-								<a 
-									href={event.link} 
-									target="_blank" 
-									rel="noopener noreferrer"
-									class="inline-flex items-center text-teal hover:text-ember font-semibold transition-colors text-sm"
-								>
-									{event.linkText || 'Learn More'}
-									<svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-									</svg>
-								</a>
-							{/if}
-						</div>
-					{/if}
+					<!-- Always render content but control opacity with CSS class -->
+					<div
+                        class="transition-opacity duration-500 {visibleCards.has(event.id) ? 'opacity-100 animate-fade-in-left' : 'opacity-0'}"
+                        style="animation-delay: {index * 150}ms"
+                    >
+                        <div class="flex items-baseline gap-3 mb-2">
+                            <span class="text-sm font-mono font-bold text-bone/50 tracking-wider">
+                                {event.date}
+                            </span>
+                            {#if event.type === 'hope'}
+                                <span class="text-xs font-bold text-gold uppercase tracking-wider">⭐ Gospel Hope</span>
+                            {/if}
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 {event.type === 'hope' ? 'text-gold' : 'text-bone'}">
+                            {event.title}
+                        </h3>
+                        <p class="text-base text-bone/70 leading-relaxed mb-3">
+                            {event.description}
+                        </p>
+                        {#if event.link}
+                            <a
+                                href={event.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center text-teal hover:text-ember font-semibold transition-colors text-sm"
+                            >
+                                {event.linkText || 'Learn More'}
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                </svg>
+                            </a>
+                        {/if}
+                    </div>
 				</div>
 			{/each}
 		</div>

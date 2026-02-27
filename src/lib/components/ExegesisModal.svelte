@@ -47,7 +47,9 @@
 	>
 		<div
 			class="bg-navy-light border border-gold/20 rounded-xl shadow-2xl max-w-2xl w-full max-h-[80vh] flex flex-col"
-			role="document"
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="modal-title"
 			tabindex="-1"
 			onclick={(e) => e.stopPropagation()}
 			onkeydown={(e) => e.stopPropagation()}

@@ -34,9 +34,10 @@
 {#if showModal}
 	<div
 		class="fixed inset-0 bg-navy-deep/70 backdrop-blur-sm z-[100] flex items-center justify-center p-4 focus:outline-none"
-		role="button"
-		aria-label="Close modal"
-		tabindex="0"
+		role="dialog"
+		aria-modal="true"
+		aria-label={title}
+		tabindex="-1"
 		onclick={() => (showModal = false)}
 		onkeydown={(e) => {
 			if (e.key === 'Enter' || e.key === ' ') {

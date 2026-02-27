@@ -35,3 +35,19 @@ https://svelte.dev/e/a11y_no_static_element_interactions
 https://svelte.dev/e/a11y_no_noninteractive_element_interactions
 3:08:15 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:48:2 Non-interactive element `<div>` should not be assigned mouse or keyboard event listeners
 https://svelte.dev/e/a11y_no_noninteractive_element_interactions
+3:22:05 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:49:2 Non-interactive element `<div>` should not be assigned mouse or keyboard event listeners
+https://svelte.dev/e/a11y_no_noninteractive_element_interactions
+3:22:05 AM [vite] (client) hmr update /src/lib/components/ExegesisModal.svelte, /src/app.css
+3:22:05 AM [vite] (ssr) page reload src/lib/components/ExegesisModal.svelte
+3:22:31 AM [vite] (client) page reload .svelte-kit/generated/client/nodes/0.js
+3:22:31 AM [vite] (client) page reload .svelte-kit/generated/client/nodes/1.js
+3:22:31 AM [vite] (client) page reload .svelte-kit/generated/client/nodes/6.js
+3:22:31 AM [vite] (client) page reload .svelte-kit/generated/client/nodes/10.js
+3:22:31 AM [vite] (client) page reload .svelte-kit/generated/client/nodes/11.js
+3:22:31 AM [vite] (client) page reload .svelte-kit/generated/client/nodes/13.js
+3:22:31 AM [vite] (client) page reload .svelte-kit/generated/client/app.js
+3:22:31 AM [vite] (client) page reload .svelte-kit/generated/client/matchers.js
+3:22:31 AM [vite] (ssr) page reload .svelte-kit/generated/server/internal.js
+3:22:31 AM [vite] (client) page reload .svelte-kit/generated/root.js
+3:22:31 AM [vite] (ssr) page reload .svelte-kit/generated/root.js
+3:22:31 AM [vite] (ssr) page reload .svelte-kit/generated/root.svelte

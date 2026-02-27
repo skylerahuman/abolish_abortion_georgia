@@ -3,18 +3,51 @@
 > vite dev
 
 
-  VITE v7.3.1  ready in 1465 ms
+  VITE v7.3.1  ready in 1459 ms
 
   ➜  Local:   http://localhost:5173/
   ➜  Network: use --host to expose
-3:07:44 AM [vite] (client) hmr update /src/app.css
-3:07:44 AM [vite] (ssr) page reload verification/verify_join.py
-3:10:36 AM [vite] (client) hmr update /src/app.css
-3:10:36 AM [vite] (ssr) page reload verification/verify_join.py
-3:10:36 AM [vite] (client) hmr update /src/app.css
-3:10:36 AM [vite] (ssr) page reload verification/verify_optimizations.py
-3:16:01 AM [vite] (client) hmr update /src/app.css
-3:16:01 AM [vite] (ssr) page reload tests/verify.spec.ts
-3:16:49 AM [vite-plugin-svelte] src/routes/+page.svelte:223:1 `<section>` with a touchstart or touchend handler must have an ARIA role
+2:52:02 AM [vite-plugin-svelte] src/routes/+page.svelte:238:1 `<section>` with a touchstart or touchend handler must have an ARIA role
 https://svelte.dev/e/a11y_no_static_element_interactions
-3:17:05 AM [vite] (client) page reload playwright-report/index.html
+2:52:11 AM [vite] (client) page reload playwright-report/index.html
+2:53:38 AM [vite] (client) hmr update /src/routes/georgia-battle/+page.svelte, /src/app.css
+2:53:38 AM [vite] (ssr) page reload src/routes/georgia-battle/+page.svelte
+2:54:23 AM [vite] (client) hmr update /src/routes/georgia-battle/+page.svelte, /src/app.css
+2:54:23 AM [vite] (ssr) page reload src/routes/georgia-battle/+page.svelte
+2:55:08 AM [vite] (client) hmr update /src/routes/georgia-battle/+page.svelte, /src/app.css
+2:55:08 AM [vite] (ssr) page reload src/routes/georgia-battle/+page.svelte
+2:55:50 AM [vite] (client) hmr update /src/routes/georgia-battle/+page.svelte, /src/app.css
+2:55:50 AM [vite] (ssr) page reload src/routes/georgia-battle/+page.svelte
+2:56:44 AM [vite] (client) hmr update /src/routes/georgia-battle/+page.svelte, /src/app.css
+2:56:44 AM [vite] (ssr) page reload src/routes/georgia-battle/+page.svelte
+2:57:38 AM [vite] (client) hmr update /src/routes/georgia-battle/+page.svelte, /src/app.css
+2:57:38 AM [vite] (ssr) page reload src/routes/georgia-battle/+page.svelte
+2:57:54 AM [vite] (client) page reload playwright-report/index.html
+2:57:54 AM [vite] (client) page reload playwright-report/index.html
+2:58:25 AM [vite] (client) hmr update /src/routes/georgia-battle/+page.svelte, /src/app.css
+2:58:25 AM [vite] (ssr) page reload src/routes/georgia-battle/+page.svelte
+2:58:41 AM [vite] (client) page reload playwright-report/index.html
+2:59:20 AM [vite] (client) hmr update /src/routes/georgia-battle/+page.svelte, /src/app.css
+2:59:20 AM [vite] (ssr) page reload src/routes/georgia-battle/+page.svelte
+3:00:07 AM [vite] (client) hmr update /src/routes/georgia-battle/+page.svelte, /src/app.css
+3:00:07 AM [vite] (ssr) page reload src/routes/georgia-battle/+page.svelte
+3:08:15 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:48:2 Non-interactive element `<div>` should not be assigned mouse or keyboard event listeners
+https://svelte.dev/e/a11y_no_noninteractive_element_interactions
+3:08:15 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:48:2 Non-interactive element `<div>` should not be assigned mouse or keyboard event listeners
+https://svelte.dev/e/a11y_no_noninteractive_element_interactions
+3:22:05 AM [vite-plugin-svelte] src/lib/components/ExegesisModal.svelte:49:2 Non-interactive element `<div>` should not be assigned mouse or keyboard event listeners
+https://svelte.dev/e/a11y_no_noninteractive_element_interactions
+3:22:05 AM [vite] (client) hmr update /src/lib/components/ExegesisModal.svelte, /src/app.css
+3:22:05 AM [vite] (ssr) page reload src/lib/components/ExegesisModal.svelte
+3:22:31 AM [vite] (client) page reload .svelte-kit/generated/client/nodes/0.js
+3:22:31 AM [vite] (client) page reload .svelte-kit/generated/client/nodes/1.js
+3:22:31 AM [vite] (client) page reload .svelte-kit/generated/client/nodes/6.js
+3:22:31 AM [vite] (client) page reload .svelte-kit/generated/client/nodes/10.js
+3:22:31 AM [vite] (client) page reload .svelte-kit/generated/client/nodes/11.js
+3:22:31 AM [vite] (client) page reload .svelte-kit/generated/client/nodes/13.js
+3:22:31 AM [vite] (client) page reload .svelte-kit/generated/client/app.js
+3:22:31 AM [vite] (client) page reload .svelte-kit/generated/client/matchers.js
+3:22:31 AM [vite] (ssr) page reload .svelte-kit/generated/server/internal.js
+3:22:31 AM [vite] (client) page reload .svelte-kit/generated/root.js
+3:22:31 AM [vite] (ssr) page reload .svelte-kit/generated/root.js
+3:22:31 AM [vite] (ssr) page reload .svelte-kit/generated/root.svelte

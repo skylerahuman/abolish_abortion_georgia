@@ -1,0 +1,3 @@
+## 2024-05-24 - SvelteKit Main Element Focus Management
+**Learning:** In SvelteKit layouts (`+layout.svelte`), providing an accessible "Skip to Main Content" link requires explicitly ensuring the `<main>` wrapper can receive programmatic focus via `id="main-content"` and `tabindex="-1"`. Attempting to link to it without `tabindex="-1"` fails to transfer keyboard focus properly on some browsers, stranding screen reader users in the navigation area despite clicking the skip link.
+**Action:** Always pair `#main-content` anchor links with a `<main id="main-content" tabindex="-1">` wrapper in core layout templates.

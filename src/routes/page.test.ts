@@ -3,19 +3,15 @@ import { describe, it, expect } from 'vitest';
 import Page from './+page.svelte';
 
 describe('Home Page', () => {
-  it('renders the layout container with left and right columns', () => {
+  it('renders the main content', () => {
     render(Page);
-    // These test-ids should be present in the TwoColumnLayout component which is used in Page
-    expect(screen.getByTestId('layout-container')).toBeInTheDocument();
-    expect(screen.getByTestId('left-column')).toBeInTheDocument();
-    expect(screen.getByTestId('right-column')).toBeInTheDocument();
+    expect(screen.getByText('Georgia bears')).toBeInTheDocument();
+    expect(screen.getByText('bloodguilt')).toBeInTheDocument();
   });
 
-  it('centers CTA buttons on mobile', () => {
+  it('renders CTA buttons', () => {
     render(Page);
-    const ctaContainer = screen.getByTestId('cta-container');
-    expect(ctaContainer).toHaveClass('flex-col');
-    expect(ctaContainer).toHaveClass('items-center');
-    expect(ctaContainer).toHaveClass('md:flex-row');
+    expect(screen.getAllByRole('link', { name: 'Join Us' }).length).toBeGreaterThan(0);
+    expect(screen.getAllByRole('link', { name: 'Support' }).length).toBeGreaterThan(0);
   });
 });

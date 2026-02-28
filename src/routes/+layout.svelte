@@ -34,6 +34,14 @@
 </svelte:head>
 
 <div class="min-h-screen flex flex-col bg-black text-white">
+	<!-- Accessibility: Skip to Main Content -->
+	<a
+		href="#main-content"
+		class="absolute -top-96 left-4 z-[100] bg-red-600 text-white px-4 py-2 font-bold uppercase tracking-widest focus:top-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-white transition-all rounded-sm"
+	>
+		Skip to Main Content
+	</a>
+
 	<!-- WIP Banner (Global) -->
 	{#if !['/fill-the-steps', '/feb-20-2026', '/2-20-2026'].includes($page.url.pathname)}
 		<div class="bg-amber-500/10 border-b border-amber-500/20 py-2 px-4 text-center z-[60]">
@@ -99,8 +107,10 @@
 					<div class="flex items-center">
 						<button
 							onclick={toggleMenu}
-							class="md:hidden text-red-500 focus:outline-none"
+							class="md:hidden text-red-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 rounded-sm"
 							aria-label="Toggle menu"
+							aria-expanded={mobileMenuOpen}
+							aria-controls="mobile-menu"
 						>
 							<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								{#if mobileMenuOpen}
@@ -126,7 +136,10 @@
 
 			<!-- Mobile Navigation -->
 			{#if mobileMenuOpen}
-				<div class="md:hidden bg-neutral-950 backdrop-blur-md border-t border-neutral-800 p-4">
+				<div
+					id="mobile-menu"
+					class="md:hidden bg-neutral-950 backdrop-blur-md border-t border-neutral-800 p-4"
+				>
 					{#each navItems as item}
 						<a
 							href={item.href}
@@ -152,7 +165,7 @@
 	{/if}
 
 	<!-- Main Content -->
-	<main class="flex-1">
+	<main id="main-content" class="flex-1" tabindex="-1">
 		{@render children()}
 	</main>
 

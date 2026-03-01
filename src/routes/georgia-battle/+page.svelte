@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
+	import timelineData from '$lib/data/timeline.json';
 	
 	interface TimelineEvent {
 		id: string;
@@ -12,7 +13,8 @@
 		linkText?: string;
 	}
 	
-	let timeline = $state<TimelineEvent[]>([]);
+	// Initialize with static data immediately
+	let timeline = $state<TimelineEvent[]>(timelineData as TimelineEvent[]);
 	let visibleCards = $state<Set<string>>(new Set());
 	let copied = $state(false);
 
@@ -31,21 +33,28 @@
 	onMount(() => {
 		let observer: IntersectionObserver;
 
-		const init = async () => {
-			const response = await fetch(`${base}/data/timeline.json`);
-			timeline = await response.json();
-
+		const init = () => {
 			// Setup intersection observer for staggered animations
 			observer = new IntersectionObserver(
 				(entries) => {
+					// Optimization: Batch set updates to prevent layout thrashing
+					let newVisible = new Set(visibleCards);
+					let changed = false;
+
 					entries.forEach(entry => {
-						if (entry.isIntersecting) {
+						// Show if intersecting, OR if the user has already scrolled past it (top < 0)
+						if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
 							const id = entry.target.getAttribute('data-id');
-							if (id) {
-								visibleCards = new Set([...visibleCards, id]);
+							if (id && !newVisible.has(id)) {
+								newVisible.add(id);
+								changed = true;
 							}
 						}
 					});
+
+					if (changed) {
+						visibleCards = newVisible;
+					}
 				},
 				{ threshold: 0.2 }
 			);

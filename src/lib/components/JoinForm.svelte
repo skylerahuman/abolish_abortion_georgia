@@ -314,6 +314,7 @@
 							<input
 								type="text"
 								id="firstName"
+								autocomplete="given-name"
 								bind:this={firstNameInput}
 								bind:value={registrationState.form.firstName}
 								required
@@ -330,6 +331,7 @@
 							<input
 								type="text"
 								id="lastName"
+								autocomplete="family-name"
 								bind:value={registrationState.form.lastName}
 								required
 								aria-invalid={!!step2Error}
@@ -345,6 +347,7 @@
 							<input
 								type="email"
 								id="email"
+								autocomplete="email"
 								bind:value={registrationState.form.email}
 								required
 								aria-invalid={!!step2Error}
@@ -361,6 +364,7 @@
 							<input
 								type="text"
 								id="address"
+								autocomplete="street-address"
 								bind:value={registrationState.form.address}
 								required
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
@@ -372,6 +376,7 @@
 							<input
 								type="text"
 								id="city"
+								autocomplete="address-level2"
 								bind:value={registrationState.form.city}
 								required
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
@@ -385,6 +390,7 @@
 							<input
 								type="tel"
 								id="phone"
+								autocomplete="tel"
 								bind:value={registrationState.form.phone}
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson focus-visible:ring-2 focus-visible:ring-crimson/50 transition-colors"
 							/>

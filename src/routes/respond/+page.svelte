@@ -11,27 +11,6 @@
 	let lookupLoading = $state(false);
 	let lookupError = $state('');
 
-	let zipToDistrictMap: Record<string, string> | null = null;
-
-	async function loadZipData() {
-		if (zipToDistrictMap) return;
-		try {
-			const response = await fetch('/data/zip_to_district.csv');
-			const csvText = await response.text();
-			const lines = csvText.split('\n');
-			const map: Record<string, string> = {};
-			for (let i = 1; i < lines.length; i++) {
-				const [zip, dist] = lines[i].split(',');
-				if (zip && dist) {
-					map[zip.trim()] = dist.trim();
-				}
-			}
-			zipToDistrictMap = map;
-		} catch (error) {
-			lookupError = 'Could not load district data.';
-		}
-	}
-
 	async function handleDistrictLookup() {
 		if (isOutOfState) return;
 		if (!zipCode || zipCode.length !== 5) {
@@ -40,23 +19,24 @@
 		}
 		lookupLoading = true;
 		lookupError = '';
-		
-		await loadZipData();
-		
-		if (!zipToDistrictMap) {
-			lookupError = 'District data not loaded.';
+
+		try {
+			// Optimization: Dynamically import static TS data instead of fetching and parsing CSV
+			// This eliminates a network request and avoids client-side parsing overhead.
+			const { zipToDistrict } = await import('$lib/data/zip_to_district');
+
+			const foundDistrict = zipToDistrict[zipCode];
+			if (foundDistrict) {
+				district = foundDistrict;
+			} else {
+				lookupError = 'District not found. Are you in Georgia?';
+			}
+		} catch (error) {
+			lookupError = 'Could not load district data.';
+			console.error(error);
+		} finally {
 			lookupLoading = false;
-			return;
 		}
-		
-		const foundDistrict = zipToDistrictMap[zipCode];
-		if (foundDistrict) {
-			district = foundDistrict;
-		} else {
-			lookupError = 'District not found. Are you in Georgia?';
-		}
-		
-		lookupLoading = false;
 	}
 
 	function handleSubmit() {

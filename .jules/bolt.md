@@ -19,3 +19,8 @@
 
 2. `background-attachment: fixed` causes constant repaints on mobile during scroll.
    **Action:** Use a fixed-position pseudo-element (`position: fixed; z-index: -1`) with `will-change: transform` to achieve the same visual effect while keeping the layer on the compositor.
+
+## 2025-03-02 - Redundant Client-Side Fetching & Parsing of Static Data
+
+**Learning:** The `respond` and `near-me` pages were fetching a static CSV file (`zip_to_district.csv`) via the network and manually parsing it on the client side during a lookup operation. This created an unnecessary network request overhead and wasted client CPU cycles, given that the exact same dataset was already available in the codebase as a pre-compiled TypeScript module (`src/lib/data/zip_to_district.ts`) used by other components.
+**Action:** Replaced the `fetch()` and CSV parsing logic with a dynamic import (`await import('$lib/data/zip_to_district')`). This completely eliminates the network request for the CSV, removes the parsing overhead, leverages code-splitting (so the data is only loaded if the user performs a lookup), and unifies data sources across the application.

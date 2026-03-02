@@ -27,7 +27,6 @@
 	let lookupZip = $state('');
 	let lookupError = $state('');
 	let lookupLoading = $state(false);
-	let zipToDistrictMap: Record<string, string> | null = null;
 
 	// Form State
 	let showForm = $state(false);
@@ -91,54 +90,38 @@
         });
 	});
 
-	async function loadZipData() {
-		if (zipToDistrictMap) return;
-		lookupLoading = true;
-		try {
-			const response = await fetch(`${base}/data/zip_to_district.csv`);
-			const csvText = await response.text();
-			const lines = csvText.split('\n');
-			const mapData: Record<string, string> = {};
-			for (let i = 1; i < lines.length; i++) {
-				const [zip, dist] = lines[i].split(',');
-				if (zip && dist) {
-					mapData[zip.trim()] = dist.trim();
-				}
-			}
-			zipToDistrictMap = mapData;
-		} catch (error) {
-			lookupError = 'Could not load district data.';
-		} finally {
-			lookupLoading = false;
-		}
-	}
-
 	async function handleZipLookup() {
         if (lookupZip.length < 5) {
             lookupError = "Please enter a valid 5-digit ZIP.";
             return;
         }
-		await loadZipData();
 
-		if (!zipToDistrictMap) {
-			lookupError = 'District data is not loaded.';
-			return;
-		}
+		lookupLoading = true;
+		lookupError = '';
 
-        lookupError = '';
-		const foundDistrict = zipToDistrictMap[lookupZip];
+		try {
+			// Optimization: Dynamically import static TS data instead of fetching and parsing CSV
+			// This eliminates a network request and avoids client-side parsing overhead.
+			const { zipToDistrict } = await import('$lib/data/zip_to_district');
+			const foundDistrict = zipToDistrict[lookupZip];
 
-		if (foundDistrict) {
-            // Format to 3 digits (e.g. "1" -> "001")
-            const padded = foundDistrict.padStart(3, '0');
-            districtDigit1 = padded[0];
-            districtDigit2 = padded[1];
-            districtDigit3 = padded[2];
+			if (foundDistrict) {
+				// Format to 3 digits (e.g. "1" -> "001")
+				const padded = foundDistrict.padStart(3, '0');
+				districtDigit1 = padded[0];
+				districtDigit2 = padded[1];
+				districtDigit3 = padded[2];
 
-            localStorage.setItem('userDistrict', padded);
-            showLookupModal = false;
-		} else {
-			lookupError = 'District not found for this ZIP code.';
+				localStorage.setItem('userDistrict', padded);
+				showLookupModal = false;
+			} else {
+				lookupError = 'District not found for this ZIP code.';
+			}
+		} catch (error) {
+			lookupError = 'Could not load district data.';
+			console.error(error);
+		} finally {
+			lookupLoading = false;
 		}
 	}
 	

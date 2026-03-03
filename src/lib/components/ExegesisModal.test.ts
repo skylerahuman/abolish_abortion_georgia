@@ -51,14 +51,14 @@ describe('ExegesisModal', () => {
 		});
 
 		// Check if modal is visible
-		expect(screen.getByRole('dialog')).toBeInTheDocument();
+		expect(screen.getByRole('document')).toBeInTheDocument();
 
 		// Simulate Escape key press
 		await fireEvent.keyDown(window, { key: 'Escape' });
 
 		// Check if modal is removed
         await waitFor(() => {
-            expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+            expect(screen.queryByRole('document')).not.toBeInTheDocument();
         });
 	});
 });

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
+	import timelineData from '$lib/data/timeline.json';
 	
 	interface TimelineEvent {
 		id: string;
@@ -12,7 +13,9 @@
 		linkText?: string;
 	}
 	
-	let timeline = $state<TimelineEvent[]>([]);
+	// Optimization: Import static JSON data instead of fetching on mount
+	// This makes data available for SSR and avoids client-side fetch waterfalls
+	let timeline = $state<TimelineEvent[]>(timelineData as TimelineEvent[]);
 	let visibleCards = $state<Set<string>>(new Set());
 	let copied = $state(false);
 
@@ -31,31 +34,34 @@
 	onMount(() => {
 		let observer: IntersectionObserver;
 
-		const init = async () => {
-			const response = await fetch(`${base}/data/timeline.json`);
-			timeline = await response.json();
+		// Setup intersection observer for staggered animations
+		observer = new IntersectionObserver(
+			(entries) => {
+				// Optimization: Batch state updates for intersecting elements
+				// Prevents multiple reactive re-renders when several cards enter the viewport simultaneously
+				const newVisibleCards = new Set(visibleCards);
+				let hasChanges = false;
 
-			// Setup intersection observer for staggered animations
-			observer = new IntersectionObserver(
-				(entries) => {
-					entries.forEach(entry => {
-						if (entry.isIntersecting) {
-							const id = entry.target.getAttribute('data-id');
-							if (id) {
-								visibleCards = new Set([...visibleCards, id]);
-							}
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						const id = entry.target.getAttribute('data-id');
+						if (id && !newVisibleCards.has(id)) {
+							newVisibleCards.add(id);
+							hasChanges = true;
 						}
-					});
-				},
-				{ threshold: 0.2 }
-			);
+					}
+				});
 
-			document.querySelectorAll('.timeline-card').forEach(card => {
-				observer.observe(card);
-			});
-		};
-		
-		init();
+				if (hasChanges) {
+					visibleCards = newVisibleCards;
+				}
+			},
+			{ threshold: 0.2 }
+		);
+
+		document.querySelectorAll('.timeline-card').forEach(card => {
+			observer.observe(card);
+		});
 		
 		return () => {
 			if (observer) observer.disconnect();

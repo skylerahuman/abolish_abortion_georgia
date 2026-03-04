@@ -19,3 +19,11 @@
 
 2. `background-attachment: fixed` causes constant repaints on mobile during scroll.
    **Action:** Use a fixed-position pseudo-element (`position: fixed; z-index: -1`) with `will-change: transform` to achieve the same visual effect while keeping the layer on the compositor.
+
+## 2025-02-18 - Static Data Fetching vs Import
+**Learning:** `timeline.json` was being fetched via `fetch()` in `onMount` inside `src/routes/georgia-battle/+page.svelte`, causing a network request and layout shift (LCP) for data that is static.
+**Action:** Imported `timeline.json` directly from `$lib/data` using Vite's bundling to make data available immediately and avoid client-side fetch waterfalls.
+
+## 2025-02-18 - IntersectionObserver State Batching
+**Learning:** Inside `src/routes/georgia-battle/+page.svelte`, the `IntersectionObserver` updated a Svelte `$state` Set inside a `forEach` loop. This triggers Svelte's reactivity for *every* element intersecting simultaneously, leading to layout thrashing.
+**Action:** Always buffer state updates inside `IntersectionObserver` callbacks into local variables, then apply a single assignment to the `$state` variable after the loop finishes if there are changes.

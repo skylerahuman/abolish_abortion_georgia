@@ -233,6 +233,7 @@
 											disabled={isLoading || zipCode.length !== 5}
 											class="bg-crimson hover:bg-ember text-bone px-6 py-2 rounded-md font-bold uppercase disabled:opacity-50 transition-colors"
 											aria-label={isLoading ? 'Searching for district...' : 'Find district'}
+											aria-busy={isLoading}
 										>
 											{#if isLoading}
 												<div
@@ -471,6 +472,7 @@
 							type="submit"
 							disabled={isSubmitting}
 							class="w-1/2 bg-crimson hover:bg-ember text-bone font-bold py-2 rounded-md uppercase tracking-wide transition-colors shadow-lg hover:shadow-crimson/30 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 focus-visible:ring-2 focus-visible:ring-crimson/50 outline-none"
+							aria-busy={isSubmitting}
 						>
 							{#if isSubmitting}
 								<div

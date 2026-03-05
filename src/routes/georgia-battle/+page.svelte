@@ -38,14 +38,23 @@
 			// Setup intersection observer for staggered animations
 			observer = new IntersectionObserver(
 				(entries) => {
+					let hasUpdates = false;
+					const newVisibleCards = new Set(visibleCards);
+
 					entries.forEach(entry => {
 						if (entry.isIntersecting) {
 							const id = entry.target.getAttribute('data-id');
-							if (id) {
-								visibleCards = new Set([...visibleCards, id]);
+							if (id && !newVisibleCards.has(id)) {
+								newVisibleCards.add(id);
+								hasUpdates = true;
+								observer.unobserve(entry.target); // Optimization: Stop observing once visible
 							}
 						}
 					});
+
+					if (hasUpdates) {
+						visibleCards = newVisibleCards; // Single reactivity trigger
+					}
 				},
 				{ threshold: 0.2 }
 			);

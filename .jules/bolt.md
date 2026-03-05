@@ -19,3 +19,8 @@
 
 2. `background-attachment: fixed` causes constant repaints on mobile during scroll.
    **Action:** Use a fixed-position pseudo-element (`position: fixed; z-index: -1`) with `will-change: transform` to achieve the same visual effect while keeping the layer on the compositor.
+
+## 2025-02-18 - IntersectionObserver Persistent Watching
+
+**Learning:** `IntersectionObserver` elements continue to fire intersection events even after they have appeared on screen, adding unnecessary overhead on scroll if only a one-time animation was needed.
+**Action:** When using `IntersectionObserver` for one-time effects like fade-ins, always call `observer.unobserve(entry.target)` once the condition is met to remove it from the watch list.

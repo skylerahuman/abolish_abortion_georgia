@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
+	import timelineData from '$lib/data/timeline.json';
 	
 	interface TimelineEvent {
 		id: string;
@@ -12,7 +13,7 @@
 		linkText?: string;
 	}
 	
-	let timeline = $state<TimelineEvent[]>([]);
+	let timeline = $state<TimelineEvent[]>(timelineData as TimelineEvent[]);
 	let visibleCards = $state<Set<string>>(new Set());
 	let copied = $state(false);
 
@@ -31,21 +32,32 @@
 	onMount(() => {
 		let observer: IntersectionObserver;
 
-		const init = async () => {
-			const response = await fetch(`${base}/data/timeline.json`);
-			timeline = await response.json();
-
+		const init = () => {
 			// Setup intersection observer for staggered animations
 			observer = new IntersectionObserver(
 				(entries) => {
+					// ⚡ Bolt: Batch Set updates outside the loop to prevent triggering
+					// Svelte reactivity for every single intersecting element.
+					let newVisible = new Set(visibleCards);
+					let hasUpdates = false;
+
 					entries.forEach(entry => {
 						if (entry.isIntersecting) {
 							const id = entry.target.getAttribute('data-id');
-							if (id) {
-								visibleCards = new Set([...visibleCards, id]);
+							if (id && !newVisible.has(id)) {
+								newVisible.add(id);
+								hasUpdates = true;
+								// ⚡ Bolt: Stop observing elements once they are visible
+								// to reduce ongoing IntersectionObserver overhead.
+								observer.unobserve(entry.target);
 							}
 						}
 					});
+
+					// Reassign only once per intersection batch
+					if (hasUpdates) {
+						visibleCards = newVisible;
+					}
 				},
 				{ threshold: 0.2 }
 			);
@@ -120,7 +132,7 @@
 		
 		<!-- Timeline Cards -->
 		<div class="space-y-8 mb-16">
-			{#each timeline as event, index}
+			{#each timeline as event, index (event.id)}
 				<div 
 					class="timeline-card border-l-4 pl-6 py-4 transition-all duration-500 {getTypeColor(event.type)}"
 					data-id={event.id}

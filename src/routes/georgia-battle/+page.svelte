@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
+	import timelineData from '$lib/data/timeline.json';
 	
 	interface TimelineEvent {
 		id: string;
@@ -12,7 +13,7 @@
 		linkText?: string;
 	}
 	
-	let timeline = $state<TimelineEvent[]>([]);
+	let timeline = $state<TimelineEvent[]>(timelineData as TimelineEvent[]);
 	let visibleCards = $state<Set<string>>(new Set());
 	let copied = $state(false);
 
@@ -32,20 +33,26 @@
 		let observer: IntersectionObserver;
 
 		const init = async () => {
-			const response = await fetch(`${base}/data/timeline.json`);
-			timeline = await response.json();
-
 			// Setup intersection observer for staggered animations
 			observer = new IntersectionObserver(
 				(entries) => {
+					let newVisible = new Set(visibleCards);
+					let changed = false;
+
 					entries.forEach(entry => {
 						if (entry.isIntersecting) {
 							const id = entry.target.getAttribute('data-id');
-							if (id) {
-								visibleCards = new Set([...visibleCards, id]);
+							if (id && !newVisible.has(id)) {
+								newVisible.add(id);
+								changed = true;
+								observer.unobserve(entry.target);
 							}
 						}
 					});
+
+					if (changed) {
+						visibleCards = newVisible;
+					}
 				},
 				{ threshold: 0.2 }
 			);

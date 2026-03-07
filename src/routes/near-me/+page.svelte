@@ -27,7 +27,6 @@
 	let lookupZip = $state('');
 	let lookupError = $state('');
 	let lookupLoading = $state(false);
-	let zipToDistrictMap: Record<string, string> | null = null;
 
 	// Form State
 	let showForm = $state(false);
@@ -91,42 +90,26 @@
         });
 	});
 
-	async function loadZipData() {
-		if (zipToDistrictMap) return;
-		lookupLoading = true;
-		try {
-			const response = await fetch(`${base}/data/zip_to_district.csv`);
-			const csvText = await response.text();
-			const lines = csvText.split('\n');
-			const mapData: Record<string, string> = {};
-			for (let i = 1; i < lines.length; i++) {
-				const [zip, dist] = lines[i].split(',');
-				if (zip && dist) {
-					mapData[zip.trim()] = dist.trim();
-				}
-			}
-			zipToDistrictMap = mapData;
-		} catch (error) {
-			lookupError = 'Could not load district data.';
-		} finally {
-			lookupLoading = false;
-		}
-	}
-
 	async function handleZipLookup() {
         if (lookupZip.length < 5) {
             lookupError = "Please enter a valid 5-digit ZIP.";
             return;
         }
-		await loadZipData();
 
-		if (!zipToDistrictMap) {
-			lookupError = 'District data is not loaded.';
+		lookupLoading = true;
+		lookupError = '';
+		let zipToDistrict;
+		try {
+			const module = await import('$lib/data/zip_to_district');
+			zipToDistrict = module.zipToDistrict;
+		} catch (error) {
+			lookupError = 'Could not load district data.';
+			lookupLoading = false;
 			return;
 		}
 
-        lookupError = '';
-		const foundDistrict = zipToDistrictMap[lookupZip];
+		lookupLoading = false;
+		const foundDistrict = zipToDistrict[lookupZip];
 
 		if (foundDistrict) {
             // Format to 3 digits (e.g. "1" -> "001")

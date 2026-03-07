@@ -847,5 +847,5 @@ export const zipToDistrict: Record<string, string> = {
 	'29927': '166',
 	'29664': '010',
 	'37350': '001',
-	'37421': '003'
+	'37421': '003',
 };

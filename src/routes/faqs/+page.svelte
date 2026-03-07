@@ -125,7 +125,9 @@
 			<div class="bg-panel rounded-lg shadow-md overflow-hidden border border-white/10">
 				<button
 					onclick={() => toggleFaq(i)}
-					class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-white/5 transition-colors duration-200"
+					aria-expanded={openFaq === i}
+					aria-controls="faq-content-{i}"
+					class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-white/5 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-crimson/50"
 				>
 					<span class="text-lg font-semibold text-bone pr-4">
 						{faq.question}
@@ -146,7 +148,7 @@
 				</button>
 
 				{#if openFaq === i}
-					<div class="px-6 pb-4">
+					<div id="faq-content-{i}" class="px-6 pb-4">
 						<div class="text-bone/70 whitespace-pre-line mb-4">
 							{faq.answer}
 						</div>

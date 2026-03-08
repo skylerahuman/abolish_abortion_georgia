@@ -38,21 +38,35 @@
 			// Setup intersection observer for staggered animations
 			observer = new IntersectionObserver(
 				(entries) => {
+					// Optimization: Batch state updates to avoid layout thrashing
+					let hasUpdates = false;
+					const newVisibleCards = new Set(visibleCards);
+
 					entries.forEach(entry => {
 						if (entry.isIntersecting) {
 							const id = entry.target.getAttribute('data-id');
 							if (id) {
-								visibleCards = new Set([...visibleCards, id]);
+								newVisibleCards.add(id);
+								hasUpdates = true;
+								// Optimization: Stop observing once visible to save CPU cycles
+								observer.unobserve(entry.target);
 							}
 						}
 					});
+
+					if (hasUpdates) {
+						visibleCards = newVisibleCards;
+					}
 				},
 				{ threshold: 0.2 }
 			);
 
-			document.querySelectorAll('.timeline-card').forEach(card => {
-				observer.observe(card);
-			});
+			// Need to wait for Svelte to render the fetched timeline items
+			setTimeout(() => {
+				document.querySelectorAll('.timeline-card').forEach(card => {
+					observer.observe(card);
+				});
+			}, 0);
 		};
 		
 		init();
@@ -120,7 +134,7 @@
 		
 		<!-- Timeline Cards -->
 		<div class="space-y-8 mb-16">
-			{#each timeline as event, index}
+			{#each timeline as event, index (event.id)}
 				<div 
 					class="timeline-card border-l-4 pl-6 py-4 transition-all duration-500 {getTypeColor(event.type)}"
 					data-id={event.id}

@@ -3,6 +3,7 @@
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
+	import logo from '$lib/assets/logo_basic.png';
 
 	let { children } = $props();
 	let mobileMenuOpen = $state(false);
@@ -30,7 +31,8 @@
 </script>
 
 <svelte:head>
-	<title>Abolish Abortion Georgia</title>
+	<title>Operation Gospel</title>
+	<link rel="icon" href={logo} />
 </svelte:head>
 
 <div class="min-h-screen flex flex-col bg-black text-white">
@@ -59,24 +61,18 @@
 				<div class="flex justify-between items-center h-16">
 					<!-- Logo/Brand -->
 					<div class="flex items-center space-x-3">
-						<div class="text-2xl text-red-600 font-bold">
-							<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-								<path
-									fill-rule="evenodd"
-									d="M10 2a1 1 0 011 1v1.323l3.954 1.582 1.599-.8a1 1 0 01.894 1.79l-1.233.616 1.738 5.42a1 1 0 01-.285 1.05A3.989 3.989 0 0115 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.738-5.42-1.233-.617a1 1 0 01.894-1.788l1.599.799L11 4.323V3a1 1 0 011-1zm-5 8.274l-.818 2.552c-.25.78-.03 1.661.58 2.173.609.512 1.456.56 2.116.116l.906-.605-.9-2.814a1 1 0 01-.084-.374 1.088 1.088 0 01.084-.374l.9-2.814-.906-.605c-.66-.444-1.507-.396-2.116.116a2.267 2.267 0 00-.58 2.173z"
-									clip-rule="evenodd"
-								/>
-							</svg>
+						<div>
+							<img src={logo} alt="Operation Gospel Logo" class="h-12 w-auto">
 						</div>
 						<div>
 							<a
 								href="{base}/"
 								class="text-xl md:text-2xl font-black tracking-tighter uppercase leading-none"
 							>
-								Abolish Abortion
+								Operation Gospel
 							</a>
 							<p class="text-[10px] text-neutral-500 tracking-widest uppercase font-bold">
-								Georgia
+								The Road to Abolition
 							</p>
 						</div>
 					</div>
@@ -165,7 +161,7 @@
 
 	<!-- Footer -->
 	{#if !['/fill-the-steps', '/feb-20-2026', '/2-20-2026'].includes($page.url.pathname)}
-		<footer class="bg-black text-neutral-400 py-24 border-t border-neutral-900">
+	<footer class="relative z-10 bg-black text-neutral-400 py-24 border-t border-neutral-900">
 			<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
 				<!-- Simplified Links -->
 				<nav class="flex flex-wrap justify-center gap-x-8 gap-y-4">

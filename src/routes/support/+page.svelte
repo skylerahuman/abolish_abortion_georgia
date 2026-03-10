@@ -1,14 +1,5 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-
-	let donationAmount = $state('25');
-	let customAmount = $state('');
-
-	function handleDonate() {
-		const amount = donationAmount === 'custom' ? customAmount : donationAmount;
-		console.log(`Donation attempt: $${amount}`);
-		window.open('https://donorbox.org/regular-donations-15', '_blank');
-	}
 </script>
 
 <svelte:head>
@@ -100,90 +91,14 @@
 				achieving this task.
 			</p>
 
-			<div
-				class="bg-panel p-6 border border-gold/20 rounded-sm shadow-2xl relative overflow-hidden"
+		<a
+				href="https://donorbox.org/regular-donations-15"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="inline-block w-full bg-gold hover:bg-yellow-600 text-charcoal font-black uppercase tracking-widest py-4 text-sm rounded-sm transition-all duration-300 shadow-lg text-center"
 			>
-				<div class="absolute top-0 right-0 w-16 h-16 bg-gold/5 rounded-bl-full -mr-8 -mt-8"></div>
-
-				<div class="space-y-3">
-					<div class="grid grid-cols-3 gap-3">
-						<button
-							type="button"
-							class="border border-neutral-700 py-3 rounded-sm font-bold text-sm transition-all cursor-pointer {donationAmount ===
-							'25'
-								? 'bg-gold text-charcoal border-gold'
-								: 'bg-charcoal text-neutral-400 hover:border-gold/50'}"
-							aria-pressed={donationAmount === '25'}
-							onclick={() => {
-								donationAmount = '25';
-								customAmount = '';
-							}}
-						>
-							$25
-						</button>
-						<button
-							type="button"
-							class="border border-neutral-700 py-3 rounded-sm font-bold text-sm transition-all cursor-pointer {donationAmount ===
-							'100'
-								? 'bg-gold text-charcoal border-gold'
-								: 'bg-charcoal text-neutral-400 hover:border-gold/50'}"
-							aria-pressed={donationAmount === '100'}
-							onclick={() => {
-								donationAmount = '100';
-								customAmount = '';
-							}}
-						>
-							$100
-						</button>
-						<button
-							type="button"
-							class="border border-neutral-700 py-3 rounded-sm font-bold text-sm transition-all cursor-pointer {donationAmount ===
-							'500'
-								? 'bg-gold text-charcoal border-gold'
-								: 'bg-gold/10 text-gold border-gold/30 hover:bg-gold/20'}"
-							aria-pressed={donationAmount === '500'}
-							onclick={() => {
-								donationAmount = '500';
-								customAmount = '';
-							}}
-						>
-							$500
-						</button>
-					</div>
-
-					<div class="relative">
-						<span
-							class="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500 font-bold text-sm"
-							>$</span
-						>
-						<input
-							type="number"
-							placeholder="Custom Amount"
-							aria-label="Custom Donation Amount"
-							bind:value={customAmount}
-							oninput={() => (donationAmount = 'custom')}
-							class="w-full bg-charcoal border border-neutral-700 p-3 pl-8 text-sm text-white rounded-sm focus:border-gold outline-none transition-colors font-mono"
-						/>
-					</div>
-
-					<button
-						onclick={handleDonate}
-						class="w-full bg-gold hover:bg-yellow-600 text-charcoal font-black uppercase tracking-widest py-4 text-sm rounded-sm transition-all duration-300 shadow-lg cursor-pointer"
-					>
-						Donate Securely
-					</button>
-
-					<p class="text-[10px] text-center text-neutral-500 leading-relaxed">
-						Transactions are processed securely. <br />
-						<a
-							href="https://donorbox.org/regular-donations-15"
-							target="_blank"
-							class="text-gold/60 hover:text-gold underline decoration-1 underline-offset-2"
-							>Click here to donate directly via Donorbox</a
-						>
-					</p>
-				</div>
-			</div>
+				Donate Securely
+			</a>
 		</div>
 	</section>
 </div>

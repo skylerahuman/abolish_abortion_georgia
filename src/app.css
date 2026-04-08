@@ -4,84 +4,187 @@
 	--font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
 	--font-serif: 'Libre Baskerville', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
 
-	/* Core Palette */
-	--color-charcoal: #080a0f;
-	--color-panel: #151820;
-	--color-crimson: #b20e26;
-	--color-ember: #e5484d;
-	--color-bone: #f4f0e6;
-	--color-gold: #cda763;
-	--color-teal: #2e6a73;
+	/* Federal Palette - Desaturated for long reading sessions */
+	--color-obsidian: #1A1A1B;
+	--color-paper: #F9F9F9;
+	--color-panel: #252528;
+	--color-crimson: #9B1C1C; /* Muted crimson - only for alerts/urgent */
+	--color-ember: #DC2626; /* Brighter red for hover state only */
+	--color-gold: #B8860B; /* Darker gold for accents */
 
-	/* Slate palette (Cooler, more alive neutrals) */
-	--color-neutral-50: #f8fafc;
-	--color-neutral-100: #f1f5f9;
-	--color-neutral-200: #e2e8f0;
-	--color-neutral-300: #cbd5e1;
-	--color-neutral-400: #94a3b8;
-	--color-neutral-500: #64748b;
-	--color-neutral-600: #475569;
-	--color-neutral-700: #334155;
-	--color-neutral-800: #1e293b;
-	--color-neutral-900: #0f172a;
-	--color-neutral-950: #020617;
+	/* Slate palette (for legibility) */
+	--color-neutral-50: #f8f9fa;
+	--color-neutral-100: #f1f3f4;
+	--color-neutral-200: #e8eaed;
+	--color-neutral-300: #dadce0;
+	--color-neutral-400: #9aa0a6;
+	--color-neutral-500: #5f6368;
+	--color-neutral-600: #3c4043;
+	--color-neutral-700: #202124;
+	--color-neutral-800: #1a1a1b;
+	--color-neutral-900: #0f0f10;
+	--color-neutral-950: #080809;
 
-	/* Stone palette (retained but slightly tuned if needed, keeping standard for now) */
-	--color-stone-50: #fafaf9;
-	--color-stone-100: #f5f5f4;
-	--color-stone-200: #e7e5e4;
-	--color-stone-300: #d6d3d1;
-	--color-stone-400: #a8a29e;
-	--color-stone-500: #78716c;
-	--color-stone-600: #57534e;
-	--color-stone-700: #44403c;
-	--color-stone-800: #292524;
-	--color-stone-900: #1c1917;
-	--color-stone-950: #0c0a09;
-
-	/* Vibrant Red/Crimson palette - More life */
-	--color-red-50: #fef2f2;
-	--color-red-100: #fee2e2;
-	--color-red-200: #fecaca;
-	--color-red-300: #fca5a5;
-	--color-red-400: #f87171;
-	--color-red-500: #ef4444;
-	--color-red-600: #dc2626;
-	--color-red-700: #b91c1c;
-	--color-red-800: #991b1b;
-	--color-red-900: #7f1d1d;
-	--color-red-950: #450a0a;
-
-	/* Muted Green for success states */
-	--color-green-500: #22c55e;
-	--color-green-600: #16a34a;
-
-	/* Deep Rich Black (mapped to Charcoal) */
-	--color-black: #080a0f;
+	/* Aliases for existing components */
+	--color-charcoal: var(--color-obsidian);
+	--color-bone: var(--color-paper);
 }
 
 @layer base {
-	body {
-		@apply bg-charcoal text-bone font-sans antialiased;
+	/* Modular Scale: 1.250 (Major Third) - 8px base */
+	:root {
+		--text-xs: 0.64rem;    /* 10.24px */
+		--text-sm: 0.8rem;     /* 12.8px */
+		--text-base: 1rem;    /* 16px */
+		--text-lg: 1.25rem;   /* 20px */
+		--text-xl: 1.563rem;  /* 25px */
+		--text-2xl: 1.953rem;  /* 31.25px */
+		--text-3xl: 2.441rem;  /* 39px */
+		--text-4xl: 3.052rem;  /* 48.8px */
+		--text-5xl: 3.815rem;  /* 61px */
 	}
 
-	/* Custom Scrollbar */
+	html {
+		font-size: 16px;
+		scroll-behavior: smooth;
+	}
+
+	body {
+		@apply bg-obsidian text-paper font-sans antialiased;
+		line-height: 1.5; /* 24px baseline */
+	}
+
+	/* Typography Hierarchy */
+	h1, h2, h3, h4, h5, h6 {
+		@apply font-serif tracking-tight leading-tight;
+	}
+
+	h1 { @apply text-4xl md:text-5xl font-bold; }
+	h2 { @apply text-3xl font-bold; }
+	h3 { @apply text-2xl font-semibold; }
+	h4 { @apply text-xl font-semibold; }
+
+	p {
+		@apply leading-relaxed;
+	}
+
+	/* Serif for theological/important text */
+	.serif {
+		@apply font-serif;
+	}
+
+	/* Sans for data/UI */
+	.sans {
+		@apply font-sans;
+	}
+
+	/* Legislative/Monospace for code/dates */
+	.mono {
+		font-family: ui-monospace, 'SF Mono', Monaco, 'Cascadia Code', monospace;
+		@apply text-sm tracking-tight;
+	}
+
+	/* Custom Scrollbar - Subtle */
 	::-webkit-scrollbar {
-		width: 8px;
+		width: 6px;
 	}
 	::-webkit-scrollbar-track {
-		background: var(--color-charcoal);
+		background: var(--color-obsidian);
 	}
 	::-webkit-scrollbar-thumb {
-		background: var(--color-panel);
-		border-radius: 4px;
+		background: var(--color-neutral-600);
+		border-radius: 3px;
 	}
 	::-webkit-scrollbar-thumb:hover {
-		background: var(--color-ember);
+		background: var(--color-neutral-500);
 	}
 
 	/* Selection */
 	::selection {
-		@apply bg-crimson text-white;
+		background: var(--color-crimson);
+		color: var(--color-paper);
+	}
+
+	/* Focus states */
+	:focus-visible {
+		outline: 2px solid var(--color-crimson);
+		outline-offset: 2px;
+	}
+}
+
+@layer components {
+	/* Button - 150ms transitions, subtle state changes */
+	.btn {
+		@apply inline-flex items-center justify-center px-6 py-3 font-sans font-semibold text-sm uppercase tracking-wider rounded transition-all duration-150;
+	}
+
+	.btn-primary {
+		@apply btn bg-crimson text-paper hover:bg-ember;
+	}
+
+	.btn-secondary {
+		@apply btn border border-crimson text-crimson hover:bg-crimson hover:text-paper;
+	}
+
+	.btn-ghost {
+		@apply btn text-paper/70 hover:text-paper hover:bg-neutral-800;
+	}
+
+	/* Links - 150ms color transitions */
+	.link {
+		@apply text-crimson hover:text-ember transition-colors duration-150;
+	}
+
+	/* Cards */
+	.card {
+		@apply bg-panel border border-neutral-800 rounded p-6;
+	}
+
+	/* Status Badge */
+	.badge {
+		@apply inline-flex items-center px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-sm;
+	}
+
+	.badge-alert {
+		@apply badge bg-crimson/20 text-crimson border border-crimson/30;
+	}
+
+	.badge-success {
+		@apply badge bg-green-600/20 text-green-500 border border-green-600/30;
+	}
+
+	.badge-pending {
+		@apply badge bg-neutral-700 text-neutral-300 border border-neutral-600;
+	}
+
+	/* Document/PDF icon styling */
+	.doc-link {
+		@apply flex items-center gap-3 p-3 rounded bg-neutral-800/50 hover:bg-neutral-800 transition-colors duration-150 border border-transparent hover:border-neutral-700;
+	}
+
+	/* Legislative stepper */
+	.stepper {
+		@apply flex items-center gap-2;
+	}
+
+	.stepper-step {
+		@apply flex items-center gap-2 px-4 py-2 rounded-sm text-sm font-medium transition-all duration-150;
+	}
+
+	.stepper-step.completed {
+		@apply bg-green-600/20 text-green-500;
+	}
+
+	.stepper-step.current {
+		@apply bg-crimson/20 text-crimson border border-crimson/30;
+	}
+
+	.stepper-step.pending {
+		@apply bg-neutral-800 text-neutral-500;
+	}
+
+	/* Baseline grid helper */
+	.baseline > * {
+		margin-bottom: 0.5rem; /* 8px */
 	}
 }

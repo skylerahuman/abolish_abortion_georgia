@@ -249,11 +249,11 @@
                         </div>
                         <h3 class="text-3xl font-bold text-white mb-4">Join the Movement</h3>
                         <p class="text-slate-400 mb-10 leading-relaxed">
-                            This analysis is provided to equip the church. Help us continue this work and push this bill to the floor.
+                            This analysis is provided to equip the church. HB 441 was killed in committee. We demand accountability and prepare for the next phase of abolition.
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                            <a href="{base}/join" class="bg-gold hover:bg-yellow-500 text-navy-dark font-bold py-3 px-8 rounded transition-all shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]">
-                                Contact Legislators
+                            <a href="{base}/burns-accountability" class="bg-crimson hover:bg-red-700 text-white font-bold py-3 px-8 rounded transition-all shadow-[0_0_20px_rgba(220,38,38,0.2)]">
+                                Hold Burns Accountable
                             </a>
                             <a href="{base}/support#donation" class="bg-transparent border border-white/20 hover:bg-white/5 text-white font-bold py-3 px-8 rounded transition-all">
                                 Donate

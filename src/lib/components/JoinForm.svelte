@@ -209,10 +209,9 @@
 							>
 						</div>
 						<p class="text-sm text-bone/60 mb-4">
-							Our primary objective is to pass a bill in the Georgia House. Please enter your ZIP
-							code to identify your representative.
-						</p>
-
+				<p class="text-sm text-bone/60 mb-4">
+						Our objective is to hold leadership accountable and advance the next phase of abolition in Georgia. Please enter your ZIP code to identify your representative.
+					</p>
 						{#if !notInGeorgia}
 							<div class="space-y-4">
 								<div class="flex gap-2">
@@ -446,7 +445,7 @@
 						<div>
 							<p class="text-sm font-semibold text-bone/80 mb-2">I'm interested in...</p>
 							<div class="space-y-2">
-								{#each [{ value: 'find-church', label: 'I want to find an abolitionist church' }, { value: 'help-bill', label: 'I want to help pass an abolition bill' }, { value: 'evangelism', label: 'I want to be involved with evangelistically' }, { value: 'pastor-elder', label: "I'm a pastor/elder interested in abolitionism" }, { value: 'prayer', label: 'I want to support with prayer' }] as interest}
+								{#each [{ value: 'find-church', label: 'I want to find an abolitionist church' }, { value: 'accountability', label: 'I want to hold my representatives accountable' }, { value: 'next-phase', label: 'I want to help advance the next phase of abolition' }, { value: 'pastor-elder', label: "I'm a pastor/elder interested in abolitionism" }, { value: 'prayer', label: 'I want to support with prayer' }] as interest}
 									<label
 										class="flex items-center gap-3 cursor-pointer p-2 bg-charcoal/50 border border-transparent rounded-md hover:border-white/20 transition-colors"
 									>

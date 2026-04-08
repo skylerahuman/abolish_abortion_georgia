@@ -126,10 +126,12 @@
 
 		<!-- Progress Tracker -->
 		<div class="bg-panel border border-white/10 p-6 rounded-sm mb-16 text-center">
-			<h3 class="text-xl font-bold uppercase tracking-wide text-gold mb-4">HB 441 Status</h3>
-			<p class="text-lg text-bone/90 mb-2">Currently in committee</p>
-			<p class="text-base text-bone/70 mb-4">Next step: Floor vote expected Q2 2026</p>
-			<a href="https://www.legis.ga.gov/legislation/64602" target="_blank" rel="noopener noreferrer" class="text-teal hover:text-ember underline">Track the bill →</a>
+			<h3 class="text-xl font-bold uppercase tracking-wide text-crimson mb-4">HB 441 Status</h3>
+			<p class="text-lg text-bone/90 mb-2">KILLED IN COMMITTEE</p>
+			<p class="text-base text-bone/70 mb-4">Speaker Jon Burns blocked the bill to protect vulnerable Republicans</p>
+			<a href="{base}/burns-accountability" class="inline-block px-6 py-3 bg-crimson hover:bg-ember text-white font-bold text-sm uppercase tracking-wider transition-colors">
+				Demand Accountability &rarr;
+			</a>
 		</div>
 		
 		<!-- Timeline Cards -->
@@ -241,17 +243,17 @@
 		<!-- Bottom Copy -->
 		<div class="text-center mb-12">
 			<p class="text-lg text-bone font-semibold">
-				Abortion continues in Georgia today. Under current law, preborn neighbors are still being killed daily. HB 441 is the path to justice.
+				HB 441 was killed in committee by Speaker Jon Burns. The path to justice was blocked by Republican leadership. We demand accountability.
 			</p>
 		</div>
 		
 		<!-- CTAs -->
 		<div class="flex flex-col md:flex-row gap-4 items-center justify-center">
 			<a 
-				href="{base}/near-me"
+				href="{base}/burns-accountability"
 				class="w-full md:w-auto bg-crimson hover:bg-ember text-white font-bold text-lg px-10 py-4 rounded-sm uppercase tracking-wide transition-all duration-300 transform hover:scale-105 shadow-lg text-center"
 			>
-				What can I do in my district?
+				Hold Burns Accountable
 			</a>
 			<a 
 				href="{base}/respond"

@@ -52,9 +52,7 @@
 					<li class="flex items-start">
 						<span class="text-crimson mr-3 font-bold text-lg leading-none">▪</span>
 						<span class="text-sm md:text-base text-neutral-400 leading-relaxed"
-							>For courage among Georgia legislators to sponsor the active bill of equal protection: <strong
-								class="text-bone">HB441</strong
-							>.</span
+							>For bold repentance among those who sacrificed the preborn for political safety and for courage to hold them accountable.</span
 						>
 					</li>
 					<li class="flex items-start">

@@ -103,29 +103,20 @@
 		},
 		{
 			year: 2026,
-			month: 'Mar',
-			title: 'Crossover Deadline',
+			month: 'Apr',
+			title: 'HB 441 Killed by Speaker Jon Burns',
 			category: 'campaign2026',
-			icon: 'hourglass-half',
-			description: 'The critical deadline for the bill to pass the House and move to the Senate. This is the peak of the legislative battle.',
-			impact: 'positive'
-		},
-		{
-			year: 2026,
-			month: 'Mar',
-			title: 'Senate Judiciary Phase',
-			category: 'campaign2026',
-			icon: 'landmark',
-			description: 'The battle moves to the Senate Judiciary Committee. Pressure focuses on ensuring the bill is not buried or gutted.',
-			impact: 'positive'
+			icon: 'skull',
+			description: 'Speaker Jon Burns personally intervened to prevent HB 441, the Equal Protection for the Preborn Act, from advancing out of committee. Citing concerns over vulnerable Republican seats, Burns chose to sacrifice the bill, denying a vote and betraying the cause of equal protection in Georgia. This marks a critical turning point in the fight for abolition, shifting focus to accountability for legislative leadership.',
+			impact: 'negative'
 		},
 		{
 			year: 2026,
 			month: 'Apr',
-			title: 'Final Push',
+			title: 'Accountability Campaign Begins',
 			category: 'campaign2026',
-			icon: 'check-double',
-			description: 'Floor votes in both chambers. Every legislator is on record. We demand Equal Protection without exception.',
+			icon: 'bullhorn',
+			description: 'The fight for abolition shifts focus to holding Speaker Burns and Republican leadership accountable for killing HB 441. Georgians demand to know why their representatives were denied the chance to vote on equal protection.',
 			impact: 'positive'
 		}
 	];
@@ -143,9 +134,9 @@
 			<div class="h-1 w-20 bg-red-900 mb-4"></div>
 			<h1 class="text-3xl font-bold text-center uppercase tracking-widest text-black">The Historical Record</h1>
 			<p class="text-center text-stone-600 mt-2 max-w-2xl">
-				Trace the legal history from the judicial fiat of 1973 to the legislative battles of today.
-			</p>
-			
+		<p class="text-center text-stone-600 mt-2 max-w-2xl">
+					Trace the legal history from the judicial fiat of 1973 to the legislative battles of today. HB 441 was killed in committee by Speaker Jon Burns in 2026.
+				</p>
 			<!-- Filters -->
 			<div class="flex flex-wrap justify-center gap-2 mt-8">
 				<button 

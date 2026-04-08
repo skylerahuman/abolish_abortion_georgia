@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { PagesWithHiddenNav, NavCategories, Routes } from '$lib/config/navigation';
 
-	const isHidden = $derived(PagesWithHiddenNav.includes($page.url.pathname));
+	const isHidden = $derived(PagesWithHiddenNav.includes(page.url.pathname));
 </script>
 
 {#if !isHidden}

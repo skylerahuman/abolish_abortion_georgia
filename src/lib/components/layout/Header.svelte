@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/state';
 	import { PagesWithHiddenNav } from '$lib/config/navigation';
 	import logo from '$lib/assets/logo_basic.png';
 
@@ -9,7 +10,7 @@
 
 	let { onMenuToggle, menuOpen }: Props = $props();
 
-	const isHidden = $derived(PagesWithHiddenNav.includes($page.url.pathname));
+	const isHidden = $derived(PagesWithHiddenNav.includes(page.url.pathname));
 </script>
 
 {#if !isHidden}

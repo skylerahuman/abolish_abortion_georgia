@@ -15,13 +15,13 @@ export const load: PageLoad = async ({ fetch }) => {
 			.trim();
 
 		const billStatuses = [
-			{ name: 'In Committee', color: 'bg-gold/5 text-gold', icon: 'circle' },
+			{ name: 'Killed in Committee', color: 'bg-crimson/10 text-crimson', icon: 'gavel' },
 			{ name: 'On Floor', color: 'bg-blue-500/10 text-blue-400', icon: 'gavel' },
 			{ name: 'Passed House', color: 'bg-green-500/10 text-green-400', icon: 'check_circle' },
 			{ name: 'Passed Senate', color: 'bg-green-500/10 text-green-400', icon: 'check_circle' },
 			{ name: 'To Governor', color: 'bg-purple-500/10 text-purple-400', icon: 'edit' },
 			{ name: 'Signed into Law', color: 'bg-green-700/20 text-green-500', icon: 'verified' },
-			{ name: 'Vetoed', color: 'bg-primary/10 text-primary', icon: 'cancel' }
+			{ name: 'Vetoed', color: 'bg-crimson/10 text-crimson', icon: 'cancel' }
 		];
 
 		return {

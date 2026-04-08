@@ -19,7 +19,7 @@
 			<div class="flex justify-between items-center h-16">
 				<!-- Logo -->
 				<a href="/" class="flex items-center space-x-3 hover:opacity-90 transition-opacity">
-					<img src={logo} alt="Operation Gospel Logo" class="h-10 w-auto" />
+					<img src={logo} alt="" class="h-10 w-auto" />
 					<span class="text-lg font-black tracking-tight uppercase leading-none">
 						Operation Gospel
 					</span>

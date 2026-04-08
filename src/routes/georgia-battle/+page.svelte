@@ -126,9 +126,9 @@
 
 		<!-- Progress Tracker -->
 		<div class="bg-panel border border-white/10 p-6 rounded-sm mb-16 text-center">
-			<h3 class="text-xl font-bold uppercase tracking-wide text-gold mb-4">HB 441 Status</h3>
-			<p class="text-lg text-bone/90 mb-2">Currently in committee</p>
-			<p class="text-base text-bone/70 mb-4">Next step: Floor vote expected Q2 2026</p>
+			<h3 class="text-xl font-bold uppercase tracking-wide text-crimson mb-4">HB 441 Status</h3>
+			<p class="text-lg text-bone/90 mb-2">Killed in Committee</p>
+			<p class="text-base text-bone/70 mb-4">Speaker Jon Burns refused to allow a vote. April 2026.</p>
 			<a href="https://www.legis.ga.gov/legislation/64602" target="_blank" rel="noopener noreferrer" class="text-teal hover:text-ember underline">Track the bill →</a>
 		</div>
 		
@@ -241,23 +241,23 @@
 		<!-- Bottom Copy -->
 		<div class="text-center mb-12">
 			<p class="text-lg text-bone font-semibold">
-				Abortion continues in Georgia today. Under current law, preborn neighbors are still being killed daily. HB 441 is the path to justice.
+				HB 441 was killed in committee. Speaker Burns chose political calculation over the lives of the preborn. The fight for accountability continues.
 			</p>
 		</div>
 		
 		<!-- CTAs -->
 		<div class="flex flex-col md:flex-row gap-4 items-center justify-center">
 			<a 
-				href="{base}/near-me"
+				href="{base}/join"
 				class="w-full md:w-auto bg-crimson hover:bg-ember text-white font-bold text-lg px-10 py-4 rounded-sm uppercase tracking-wide transition-all duration-300 transform hover:scale-105 shadow-lg text-center"
 			>
-				What can I do in my district?
+				Join the Fight
 			</a>
 			<a 
-				href="{base}/respond"
+				href="{base}/support"
 				class="w-full md:w-auto bg-transparent border border-white/20 hover:border-white/40 text-bone hover:text-white font-semibold px-10 py-4 rounded-sm uppercase tracking-wide transition-all duration-300 text-center"
 			>
-				Pray. Fight. Give.
+				Support the Cause
 			</a>
 		</div>
 	</div>

@@ -34,11 +34,11 @@ export const ExternalLinks = {
 	EMAIL_INFO: 'mailto:info@operationgospel.com'
 } as const;
 
-export const PagesWithHiddenNav = [
+export const PagesWithHiddenNav: string[] = [
 	`${B}/fill-the-steps`,
 	`${B}/feb-20-2026`,
 	`${B}/2-20-2026`
-] as const;
+];
 
 export interface NavCategory {
 	name: string;

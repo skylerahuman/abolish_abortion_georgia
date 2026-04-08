@@ -11,12 +11,8 @@ export const Routes = {
 	BILL_ANALYSIS: `${base}/bill-analysis`,
 	BURNS_ACCOUNTABILITY: `${base}/burns-accountability`,
 	REP_CALLS: `${base}/rep-calls`,
-	THE_STANDARD: `${base}/the-standard`,
-	THE_CONFESSION: `${base}/the-confession`,
-	THE_GATHERING: `${base}/the-gathering`,
 	NEAR_ME: `${base}/near-me`,
 	GET_INVOLVED: `${base}/get-involved`,
-	WHO_ARE_YOU: `${base}/who-are-you`,
 	ABOLITION_BASICS: `${base}/abolition-basics`,
 	FOR_PASTORS: `${base}/for-pastors`,
 	RESPOND: `${base}/respond`,
@@ -51,36 +47,27 @@ export const NavCategories: NavCategory[] = [
 	{
 		name: 'Learn',
 		links: [
-			{ label: 'Abolition Basics', href: Routes.ABOLITION_BASICS, description: 'Foundational principles of abolition' },
-			{ label: 'Bill Analysis', href: Routes.BILL_ANALYSIS, description: 'Line-by-line breakdown of HB 441' },
-			{ label: 'FAQs', href: Routes.FAQS, description: 'Common questions answered' },
-			{ label: 'The Standard', href: Routes.THE_STANDARD, description: 'Our guiding principles' },
-			{ label: 'The Confession', href: Routes.THE_CONFESSION, description: 'Statement of faith and purpose' }
+			{ label: 'Abolition Basics', href: Routes.ABOLITION_BASICS },
+			{ label: 'HB 441 Analysis', href: Routes.BILL_ANALYSIS },
+			{ label: 'FAQs', href: Routes.FAQS }
 		]
 	},
 	{
 		name: 'Take Action',
 		links: [
-			{ label: 'Join the Fight', href: Routes.JOIN, description: 'Sign up to get involved' },
-			{ label: 'Rep Calls', href: Routes.REP_CALLS, description: 'Contact your representatives' },
-			{ label: 'Burns Accountability', href: Routes.BURNS_ACCOUNTABILITY, description: 'Hold leadership accountable' },
-			{ label: 'Support', href: Routes.SUPPORT, description: 'Pray and give' },
-			{ label: 'For Pastors', href: Routes.FOR_PASTORS, description: 'Resources for church leaders' }
+			{ label: 'Burns Accountability', href: Routes.BURNS_ACCOUNTABILITY },
+			{ label: 'Primary Burns', href: Routes.BURNS_ACCOUNTABILITY },
+			{ label: 'Call Your Rep', href: Routes.REP_CALLS },
+			{ label: 'Join the Fight', href: Routes.JOIN },
+			{ label: 'Support Us', href: Routes.SUPPORT }
 		]
 	},
 	{
 		name: 'About',
 		links: [
-			{ label: 'Georgia Battle', href: Routes.GEORGIA_BATTLE, description: 'The current legislative fight' },
-			{ label: 'Timeline', href: Routes.TIMELINE, description: 'Historical record and campaign' },
-			{ label: 'The Gathering', href: Routes.THE_GATHERING, description: 'Our community events' },
-			{ label: 'About Us', href: Routes.ABOUT, description: 'Who we are' }
+			{ label: 'About Us', href: Routes.ABOUT },
+			{ label: 'For Pastors', href: Routes.FOR_PASTORS },
+			{ label: 'Timeline', href: Routes.TIMELINE }
 		]
 	}
-];
-
-export const PrimaryNavItems = [
-	{ href: Routes.HOME, label: 'Home' },
-	{ href: Routes.GEORGIA_BATTLE, label: 'Timeline' },
-	{ href: Routes.FAQS, label: 'FAQs' }
 ];

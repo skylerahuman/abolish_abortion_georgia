@@ -94,45 +94,38 @@
 	<title>Operation Gospel - Georgia Battle</title>
 </svelte:head>
 
-<div class="min-h-screen bg-charcoal text-bone px-6 py-16">
+<div class="min-h-screen bg-black text-white">
 	<div class="max-w-5xl mx-auto">
 		<!-- Header -->
-		<div class="text-center mb-16 relative">
-			<h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-crimson mb-3 uppercase">
-				The Current Battleground
+		<div class="text-center mb-16">
+			<h1 class="text-4xl md:text-6xl font-black tracking-tight mb-6 uppercase">
+				HB 441 Is Dead. <span class="text-red-600">Burns Must Go.</span>
 			</h1>
-			<h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-6">
-				Georgia HB 441: Equal Protection
-			</h2>
-			<p class="text-lg text-bone/70 max-w-3xl mx-auto leading-relaxed">
-				Trace the legal history from the judicial fiat of 1973 to the legislative battles of today.
+			<p class="text-xl text-neutral-400 max-w-2xl mx-auto leading-relaxed">
+				Speaker Jon Burns killed the Equal Protection Act to protect his political career. The only path forward is to remove him from office.
 			</p>
-			<p class="text-base text-bone/70 max-w-3xl mx-auto leading-relaxed mt-4">
-				We have moved beyond the "Heartbeat Bills" that merely set a timing threshold for death. The Georgia Equal Protection Act (HB 441) represents the standard of justice required by God and the Constitution.
-			</p>
-			<button
-				onclick={handleShare}
-				class="absolute top-4 right-4 text-bone/50 hover:text-bone transition-colors text-sm flex items-center gap-2"
-				aria-label={copied ? "Link copied" : "Share this page"}
-				disabled={copied}
-			>
-				{#if copied}
-					Copied! ✓
-				{:else}
-					Share →
-				{/if}
-			</button>
+			<div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+				<a
+					href="/burns-accountability"
+					class="px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-bold text-lg uppercase tracking-wide rounded transition-colors"
+				>
+					Primary Jon Burns
+				</a>
+				<a
+					href="/support"
+					class="px-8 py-4 border border-neutral-600 hover:border-neutral-400 text-neutral-300 font-semibold text-lg uppercase tracking-wide rounded transition-colors"
+				>
+					Support the Fight
+				</a>
+			</div>
 		</div>
 
-		<!-- Progress Tracker -->
-		<div class="bg-panel border border-white/10 p-6 rounded-sm mb-16 text-center">
-			<h3 class="text-xl font-bold uppercase tracking-wide text-crimson mb-4">HB 441 Status</h3>
-			<p class="text-lg text-bone/90 mb-2">KILLED IN COMMITTEE</p>
-			<p class="text-base text-bone/70 mb-4">Speaker Jon Burns blocked the bill to protect vulnerable Republicans</p>
-			<a href="{base}/burns-accountability" class="inline-block px-6 py-3 bg-crimson hover:bg-ember text-white font-bold text-sm uppercase tracking-wider transition-colors">
-				Demand Accountability &rarr;
-			</a>
-		</div>
+		<!-- Status Banner -->
+		<div class="bg-red-900/30 border border-red-800 p-8 rounded-lg mb-16 text-center">
+			<h3 class="text-2xl font-bold uppercase tracking-wide text-red-500 mb-4">HB 441 Status</h3>
+			<p class="text-3xl font-black text-white mb-4">KILLED IN COMMITTEE</p>
+			<p class="text-neutral-400 max-w-xl mx-auto">
+				Speaker Burns sacrificed equal protection for preborn children to protect vulnerable Republicans from a difficult vote.</p>
 		
 		<!-- Timeline Cards -->
 		<div class="space-y-8 mb-16">
@@ -247,20 +240,26 @@
 			</p>
 		</div>
 		
-		<!-- CTAs -->
-		<div class="flex flex-col md:flex-row gap-4 items-center justify-center">
-			<a 
-				href="{base}/burns-accountability"
-				class="w-full md:w-auto bg-crimson hover:bg-ember text-white font-bold text-lg px-10 py-4 rounded-sm uppercase tracking-wide transition-all duration-300 transform hover:scale-105 shadow-lg text-center"
-			>
-				Hold Burns Accountable
-			</a>
-			<a 
-				href="{base}/respond"
-				class="w-full md:w-auto bg-transparent border border-white/20 hover:border-white/40 text-bone hover:text-white font-semibold px-10 py-4 rounded-sm uppercase tracking-wide transition-all duration-300 text-center"
-			>
-				Pray. Fight. Give.
-			</a>
+		<!-- Final CTA -->
+		<div class="bg-neutral-900 border border-neutral-800 p-12 rounded-lg text-center">
+			<h2 class="text-2xl font-bold mb-4">The Only Path Forward</h2>
+			<p class="text-neutral-400 max-w-xl mx-auto mb-8">
+				As long as Jon Burns is Speaker, no equal protection bill will reach the floor. We must primary him and replace him with someone who will fight.
+			</p>
+			<div class="flex flex-col sm:flex-row gap-4 justify-center">
+				<a 
+					href="/burns-accountability"
+					class="px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-bold text-lg uppercase tracking-wide rounded transition-colors"
+				>
+					Primary Jon Burns
+				</a>
+				<a 
+					href="/join"
+					class="px-8 py-4 border border-neutral-600 hover:border-neutral-400 text-neutral-300 font-semibold text-lg uppercase tracking-wide rounded transition-colors"
+				>
+					Join the Campaign
+				</a>
+			</div>
 		</div>
 	</div>
 </div>

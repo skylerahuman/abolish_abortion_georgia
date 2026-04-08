@@ -56,6 +56,10 @@
 
 		error = '';
 		isLoading = true;
+		
+		// Reset previous state
+		showDistrict = false;
+		registrationState.form.district = null;
 
 		// Scramble animation
 		scrambleInterval = window.setInterval(() => {
@@ -137,6 +141,7 @@
 		showDistrict = false;
 		zipCode = '';
 		error = '';
+		localStorage.removeItem('userDistrict');
 	}
 
 	async function handleNextStep() {

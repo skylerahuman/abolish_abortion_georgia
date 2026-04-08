@@ -122,13 +122,8 @@
 			width: 100%;
 			height: 100%;
 			z-index: -1;
-			background-image: linear-gradient(
-					to bottom,
-					rgba(2, 6, 23, 0.1),
-					rgba(2, 6, 23, 0.4),
-					rgba(2, 6, 23, 1)
-				),
-				url('/images/backdrop.png');
+			background-color: #0C1626;
+			background-image: url('/images/backdrop.png');
 			background-position: center top;
 			background-size: cover;
 			background-repeat: no-repeat;

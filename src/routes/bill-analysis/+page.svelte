@@ -22,7 +22,7 @@
 
 <main class="flex flex-col w-full pt-20">
 	<section
-		class="relative py-16 px-6 border-b border-gold/10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-navy-light/40 to-navy-dark"
+		class="relative py-16 px-6 border-b border-gold/10 bg-[#0C1626]"
 	>
 		<div class="max-w-7xl mx-auto">
 			<div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
@@ -244,7 +244,7 @@
 				</div>
                 <div class="pt-16 pb-32 border-t border-gold/10">
                     <div class="text-center max-w-lg mx-auto">
-                        <div class="w-20 h-20 bg-gradient-to-br from-navy-light to-navy-dark border border-gold/20 rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl">
+                        <div class="w-20 h-20 bg-navy-light border border-gold/20 rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl">
                             <span class="material-symbols-outlined text-4xl text-gold">campaign</span>
                         </div>
                         <h3 class="text-3xl font-bold text-white mb-4">Join the Movement</h3>

@@ -43,15 +43,15 @@
                 <h3 class="text-xl font-bold uppercase tracking-widest mb-4 text-red-700">Man's Law (Regulation)</h3>
                 <ul class="space-y-4 text-sm text-neutral-400">
                     <li class="flex gap-3">
-                        <span class="text-red-700 font-bold">✗</span>
+                        <span class="text-red-700 font-bold">X</span>
                         <span><strong>Arbitrary Lines:</strong> Protects life only after a "heartbeat" is detected.</span>
                     </li>
                     <li class="flex gap-3">
-                        <span class="text-red-700 font-bold">✗</span>
+                        <span class="text-red-700 font-bold">X</span>
                         <span><strong>Discrimination:</strong> Allows killing based on age (pre-heartbeat) or method.</span>
                     </li>
                     <li class="flex gap-3">
-                        <span class="text-red-700 font-bold">✗</span>
+                        <span class="text-red-700 font-bold">X</span>
                         <span><strong>Immunity:</strong> Often grants immunity to those who solicit or perform the killing.</span>
                     </li>
                 </ul>
@@ -61,15 +61,15 @@
                 <h3 class="text-xl font-bold uppercase tracking-widest mb-4 text-green-600">God's Law (Equal Protection)</h3>
                 <ul class="space-y-4 text-sm text-neutral-300">
                     <li class="flex gap-3">
-                        <span class="text-green-600 font-bold">✓</span>
+                        <span class="text-green-600 font-bold">V</span>
                         <span><strong>Total Protection:</strong> Protects life from the moment of fertilization.</span>
                     </li>
                     <li class="flex gap-3">
-                        <span class="text-green-600 font-bold">✓</span>
+                        <span class="text-green-600 font-bold">V</span>
                         <span><strong>Equal Justice:</strong> The penalty for killing a pre-born child is the same as killing a born child.</span>
                     </li>
                     <li class="flex gap-3">
-                        <span class="text-green-600 font-bold">✓</span>
+                        <span class="text-green-600 font-bold">V</span>
                         <span><strong>No Compromise:</strong> Rejects the idea that abortion is ever "healthcare."</span>
                     </li>
                 </ul>

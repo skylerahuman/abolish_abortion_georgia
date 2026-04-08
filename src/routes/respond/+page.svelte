@@ -77,7 +77,7 @@ I want to be involved with Operation Gospel.`;
 	<title>Operation Gospel - Pray. Fight. Give.</title>
 </svelte:head>
 
-<div class="min-h-screen bg-gradient-to-b from-black via-neutral-950 to-neutral-900 text-neutral-100 px-6 py-16">
+<div class="min-h-screen bg-[#0C1626] text-neutral-100 px-6 py-16">
 	<div class="max-w-6xl mx-auto">
 		<!-- Header -->
 		<div class="text-center mb-12 relative">

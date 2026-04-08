@@ -147,7 +147,7 @@
 									{event.date}
 								</span>
 								{#if event.type === 'hope'}
-									<span class="text-xs font-bold text-gold uppercase tracking-wider">⭐ Gospel Hope</span>
+									<span class="text-xs font-bold text-gold uppercase tracking-wider">* Gospel Hope</span>
 								{/if}
 							</div>
 							<h3 class="text-xl md:text-2xl font-bold mb-3 {event.type === 'hope' ? 'text-gold' : 'text-bone'}">
@@ -184,21 +184,21 @@
 				</h3>
 				<ul class="space-y-3">
 					<li class="flex items-start gap-3">
-						<span class="text-crimson text-xl mt-1">❌</span>
+						<span class="text-crimson text-xl mt-1">X</span>
 						<div>
 							<div class="font-semibold text-bone/90">Arbitrary Lines</div>
 							<div class="text-sm text-bone/50">Protects life only after heartbeat, 15 weeks, or viability</div>
 						</div>
 					</li>
 					<li class="flex items-start gap-3">
-						<span class="text-crimson text-xl mt-1">❌</span>
+						<span class="text-crimson text-xl mt-1">X</span>
 						<div>
 							<div class="font-semibold text-bone/90">Immunity</div>
 							<div class="text-sm text-bone/50">Often gives immunity to mother or providers</div>
 						</div>
 					</li>
 					<li class="flex items-start gap-3">
-						<span class="text-crimson text-xl mt-1">❌</span>
+						<span class="text-crimson text-xl mt-1">X</span>
 						<div>
 							<div class="font-semibold text-bone/90">Subservient</div>
 							<div class="text-sm text-bone/50">Bows to federal court opinions</div>
@@ -210,25 +210,25 @@
 			<!-- New Way: HB 441 -->
 			<div class="bg-gold/10 border border-gold p-6 rounded-sm">
 				<h3 class="text-xl font-bold uppercase tracking-wide text-gold mb-6 text-center">
-					The New Way: HB 441 ⭐ The Standard
+					The New Way: HB 441 * The Standard
 				</h3>
 				<ul class="space-y-3">
 					<li class="flex items-start gap-3">
-						<span class="text-teal text-xl mt-1">✅</span>
+						<span class="text-teal text-xl mt-1">✓</span>
 						<div>
 							<div class="font-semibold text-bone">Total Abolition</div>
 							<div class="text-sm text-bone/70">Defines life from fertilization. No arbitrary limits.</div>
 						</div>
 					</li>
 					<li class="flex items-start gap-3">
-						<span class="text-teal text-xl mt-1">✅</span>
+						<span class="text-teal text-xl mt-1">✓</span>
 						<div>
 							<div class="font-semibold text-bone">Equal Protection</div>
 							<div class="text-sm text-bone/70">Same laws protecting born people apply to pre-born</div>
 						</div>
 					</li>
 					<li class="flex items-start gap-3">
-						<span class="text-teal text-xl mt-1">✅</span>
+						<span class="text-teal text-xl mt-1">✓</span>
 						<div>
 							<div class="font-semibold text-bone">Interposition</div>
 							<div class="text-sm text-bone/70">Asserts state sovereignty to protect life</div>

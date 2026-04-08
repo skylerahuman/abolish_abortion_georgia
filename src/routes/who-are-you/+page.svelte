@@ -51,7 +51,7 @@
 	<title>Operation Gospel - Who Are You?</title>
 </svelte:head>
 
-<div class="min-h-screen bg-gradient-to-b from-black via-neutral-950 to-neutral-900 text-neutral-100 flex flex-col justify-center px-6 py-12">
+<div class="min-h-screen bg-[#0C1626] text-neutral-100 flex flex-col justify-center px-6 py-12">
 	<div class="max-w-6xl mx-auto w-full">
 		<!-- Title -->
 		<div class="text-center mb-12">

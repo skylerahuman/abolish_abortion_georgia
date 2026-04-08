@@ -21,7 +21,8 @@
 	}
 
 	function handleLinkClick() {
-		onClose();
+		// Small delay to let navigation start before closing
+		setTimeout(onClose, 50);
 	}
 </script>
 

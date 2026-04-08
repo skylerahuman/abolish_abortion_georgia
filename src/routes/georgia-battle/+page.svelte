@@ -94,38 +94,43 @@
 	<title>Operation Gospel - Georgia Battle</title>
 </svelte:head>
 
-<div class="min-h-screen bg-black text-white">
+<div class="min-h-screen bg-charcoal text-bone px-6 py-16">
 	<div class="max-w-5xl mx-auto">
 		<!-- Header -->
-		<div class="text-center mb-16">
-			<h1 class="text-4xl md:text-6xl font-black tracking-tight mb-6 uppercase">
-				HB 441 Is Dead. <span class="text-red-600">Burns Must Go.</span>
+		<div class="text-center mb-16 relative">
+			<h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-crimson mb-3 uppercase">
+				The Current Battleground
 			</h1>
-			<p class="text-xl text-neutral-400 max-w-2xl mx-auto leading-relaxed">
-				Speaker Jon Burns killed the Equal Protection Act to protect his political career. The only path forward is to remove him from office.
+			<h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-6">
+				Georgia HB 441: Equal Protection
+			</h2>
+			<p class="text-lg text-bone/70 max-w-3xl mx-auto leading-relaxed">
+				Trace the legal history from the judicial fiat of 1973 to the legislative battles of today.
 			</p>
-			<div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-				<a
-					href="/burns-accountability"
-					class="px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-bold text-lg uppercase tracking-wide rounded transition-colors"
-				>
-					Primary Jon Burns
-				</a>
-				<a
-					href="/support"
-					class="px-8 py-4 border border-neutral-600 hover:border-neutral-400 text-neutral-300 font-semibold text-lg uppercase tracking-wide rounded transition-colors"
-				>
-					Support the Fight
-				</a>
-			</div>
+			<p class="text-base text-bone/70 max-w-3xl mx-auto leading-relaxed mt-4">
+				We have moved beyond the "Heartbeat Bills" that merely set a timing threshold for death. The Georgia Equal Protection Act (HB 441) represents the standard of justice required by God and the Constitution.
+			</p>
+			<button
+				onclick={handleShare}
+				class="absolute top-4 right-4 text-bone/50 hover:text-bone transition-colors text-sm flex items-center gap-2"
+				aria-label={copied ? "Link copied" : "Share this page"}
+				disabled={copied}
+			>
+				{#if copied}
+					Copied! ✓
+				{:else}
+					Share →
+				{/if}
+			</button>
 		</div>
 
-		<!-- Status Banner -->
-		<div class="bg-red-900/30 border border-red-800 p-8 rounded-lg mb-16 text-center">
-			<h3 class="text-2xl font-bold uppercase tracking-wide text-red-500 mb-4">HB 441 Status</h3>
-			<p class="text-3xl font-black text-white mb-4">KILLED IN COMMITTEE</p>
-			<p class="text-neutral-400 max-w-xl mx-auto">
-				Speaker Burns sacrificed equal protection for preborn children to protect vulnerable Republicans from a difficult vote.</p>
+		<!-- Progress Tracker -->
+		<div class="bg-panel border border-white/10 p-6 rounded-sm mb-16 text-center">
+			<h3 class="text-xl font-bold uppercase tracking-wide text-gold mb-4">HB 441 Status</h3>
+			<p class="text-lg text-bone/90 mb-2">Currently in committee</p>
+			<p class="text-base text-bone/70 mb-4">Next step: Floor vote expected Q2 2026</p>
+			<a href="https://www.legis.ga.gov/legislation/64602" target="_blank" rel="noopener noreferrer" class="text-teal hover:text-ember underline">Track the bill →</a>
+		</div>
 		
 		<!-- Timeline Cards -->
 		<div class="space-y-8 mb-16">
@@ -142,7 +147,7 @@
 									{event.date}
 								</span>
 								{#if event.type === 'hope'}
-									<span class="text-xs font-bold text-gold uppercase tracking-wider">* Gospel Hope</span>
+									<span class="text-xs font-bold text-gold uppercase tracking-wider">⭐ Gospel Hope</span>
 								{/if}
 							</div>
 							<h3 class="text-xl md:text-2xl font-bold mb-3 {event.type === 'hope' ? 'text-gold' : 'text-bone'}">
@@ -179,21 +184,21 @@
 				</h3>
 				<ul class="space-y-3">
 					<li class="flex items-start gap-3">
-						<span class="text-crimson text-xl mt-1">X</span>
+						<span class="text-crimson text-xl mt-1">❌</span>
 						<div>
 							<div class="font-semibold text-bone/90">Arbitrary Lines</div>
 							<div class="text-sm text-bone/50">Protects life only after heartbeat, 15 weeks, or viability</div>
 						</div>
 					</li>
 					<li class="flex items-start gap-3">
-						<span class="text-crimson text-xl mt-1">X</span>
+						<span class="text-crimson text-xl mt-1">❌</span>
 						<div>
 							<div class="font-semibold text-bone/90">Immunity</div>
 							<div class="text-sm text-bone/50">Often gives immunity to mother or providers</div>
 						</div>
 					</li>
 					<li class="flex items-start gap-3">
-						<span class="text-crimson text-xl mt-1">X</span>
+						<span class="text-crimson text-xl mt-1">❌</span>
 						<div>
 							<div class="font-semibold text-bone/90">Subservient</div>
 							<div class="text-sm text-bone/50">Bows to federal court opinions</div>
@@ -205,25 +210,25 @@
 			<!-- New Way: HB 441 -->
 			<div class="bg-gold/10 border border-gold p-6 rounded-sm">
 				<h3 class="text-xl font-bold uppercase tracking-wide text-gold mb-6 text-center">
-					The New Way: HB 441 * The Standard
+					The New Way: HB 441 ⭐ The Standard
 				</h3>
 				<ul class="space-y-3">
 					<li class="flex items-start gap-3">
-						<span class="text-teal text-xl mt-1">✓</span>
+						<span class="text-teal text-xl mt-1">✅</span>
 						<div>
 							<div class="font-semibold text-bone">Total Abolition</div>
 							<div class="text-sm text-bone/70">Defines life from fertilization. No arbitrary limits.</div>
 						</div>
 					</li>
 					<li class="flex items-start gap-3">
-						<span class="text-teal text-xl mt-1">✓</span>
+						<span class="text-teal text-xl mt-1">✅</span>
 						<div>
 							<div class="font-semibold text-bone">Equal Protection</div>
 							<div class="text-sm text-bone/70">Same laws protecting born people apply to pre-born</div>
 						</div>
 					</li>
 					<li class="flex items-start gap-3">
-						<span class="text-teal text-xl mt-1">✓</span>
+						<span class="text-teal text-xl mt-1">✅</span>
 						<div>
 							<div class="font-semibold text-bone">Interposition</div>
 							<div class="text-sm text-bone/70">Asserts state sovereignty to protect life</div>
@@ -236,30 +241,24 @@
 		<!-- Bottom Copy -->
 		<div class="text-center mb-12">
 			<p class="text-lg text-bone font-semibold">
-				HB 441 was killed in committee by Speaker Jon Burns. The path to justice was blocked by Republican leadership. We demand accountability.
+				Abortion continues in Georgia today. Under current law, preborn neighbors are still being killed daily. HB 441 is the path to justice.
 			</p>
 		</div>
 		
-		<!-- Final CTA -->
-		<div class="bg-neutral-900 border border-neutral-800 p-12 rounded-lg text-center">
-			<h2 class="text-2xl font-bold mb-4">The Only Path Forward</h2>
-			<p class="text-neutral-400 max-w-xl mx-auto mb-8">
-				As long as Jon Burns is Speaker, no equal protection bill will reach the floor. We must primary him and replace him with someone who will fight.
-			</p>
-			<div class="flex flex-col sm:flex-row gap-4 justify-center">
-				<a 
-					href="/burns-accountability"
-					class="px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-bold text-lg uppercase tracking-wide rounded transition-colors"
-				>
-					Primary Jon Burns
-				</a>
-				<a 
-					href="/join"
-					class="px-8 py-4 border border-neutral-600 hover:border-neutral-400 text-neutral-300 font-semibold text-lg uppercase tracking-wide rounded transition-colors"
-				>
-					Join the Campaign
-				</a>
-			</div>
+		<!-- CTAs -->
+		<div class="flex flex-col md:flex-row gap-4 items-center justify-center">
+			<a 
+				href="{base}/near-me"
+				class="w-full md:w-auto bg-crimson hover:bg-ember text-white font-bold text-lg px-10 py-4 rounded-sm uppercase tracking-wide transition-all duration-300 transform hover:scale-105 shadow-lg text-center"
+			>
+				What can I do in my district?
+			</a>
+			<a 
+				href="{base}/respond"
+				class="w-full md:w-auto bg-transparent border border-white/20 hover:border-white/40 text-bone hover:text-white font-semibold px-10 py-4 rounded-sm uppercase tracking-wide transition-all duration-300 text-center"
+			>
+				Pray. Fight. Give.
+			</a>
 		</div>
 	</div>
 </div>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { fade, fly } from 'svelte/transition';
 	import { NavCategories, Routes } from '$lib/config/navigation';
 
@@ -11,7 +11,7 @@
 	let { open, onClose }: Props = $props();
 
 	function isActive(href: string) {
-		return $page.url.pathname === href;
+		return page.url.pathname === href;
 	}
 
 	function handleKeydown(e: KeyboardEvent) {

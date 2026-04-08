@@ -56,7 +56,6 @@ export const NavCategories: NavCategory[] = [
 		name: 'Take Action',
 		links: [
 			{ label: 'Burns Accountability', href: Routes.BURNS_ACCOUNTABILITY },
-			{ label: 'Primary Burns', href: Routes.BURNS_ACCOUNTABILITY },
 			{ label: 'Call Your Rep', href: Routes.REP_CALLS },
 			{ label: 'Join the Fight', href: Routes.JOIN },
 			{ label: 'Support Us', href: Routes.SUPPORT }

@@ -1,25 +1,27 @@
 import { base } from '$app/paths';
 
+const B = base || '';
+
 export const Routes = {
-	HOME: `${base}/`,
-	GEORGIA_BATTLE: `${base}/georgia-battle`,
-	TIMELINE: `${base}/timeline`,
-	FAQS: `${base}/faqs`,
-	JOIN: `${base}/join`,
-	SUPPORT: `${base}/support`,
-	ABOUT: `${base}/about`,
-	BILL_ANALYSIS: `${base}/bill-analysis`,
-	BURNS_ACCOUNTABILITY: `${base}/burns-accountability`,
-	REP_CALLS: `${base}/rep-calls`,
-	NEAR_ME: `${base}/near-me`,
-	GET_INVOLVED: `${base}/get-involved`,
-	ABOLITION_BASICS: `${base}/abolition-basics`,
-	FOR_PASTORS: `${base}/for-pastors`,
-	RESPOND: `${base}/respond`,
-	START: `${base}/start`,
-	FILL_THE_STEPS: `${base}/fill-the-steps`,
-	FEB_20_2026: `${base}/feb-20-2026`,
-	TWO_20_2026: `${base}/2-20-2026`
+	HOME: `${B}/`,
+	GEORGIA_BATTLE: `${B}/georgia-battle`,
+	TIMELINE: `${B}/timeline`,
+	FAQS: `${B}/faqs`,
+	JOIN: `${B}/join`,
+	SUPPORT: `${B}/support`,
+	ABOUT: `${B}/about`,
+	BILL_ANALYSIS: `${B}/bill-analysis`,
+	BURNS_ACCOUNTABILITY: `${B}/burns-accountability`,
+	REP_CALLS: `${B}/rep-calls`,
+	NEAR_ME: `${B}/near-me`,
+	GET_INVOLVED: `${B}/get-involved`,
+	ABOLITION_BASICS: `${B}/abolition-basics`,
+	FOR_PASTORS: `${B}/for-pastors`,
+	RESPOND: `${B}/respond`,
+	START: `${B}/start`,
+	FILL_THE_STEPS: `${B}/fill-the-steps`,
+	FEB_20_2026: `${B}/feb-20-2026`,
+	TWO_20_2026: `${B}/2-20-2026`
 } as const;
 
 export const ExternalLinks = {
@@ -33,9 +35,9 @@ export const ExternalLinks = {
 } as const;
 
 export const PagesWithHiddenNav = [
-	`${base}/fill-the-steps`,
-	`${base}/feb-20-2026`,
-	`${base}/2-20-2026`
+	`${B}/fill-the-steps`,
+	`${B}/feb-20-2026`,
+	`${B}/2-20-2026`
 ] as const;
 
 export interface NavCategory {

@@ -61,7 +61,7 @@
 				<div class="text-[8px] text-neutral-600 uppercase font-bold tracking-[0.2em] space-y-2">
 					<p>Establishing Justice for the Pre-born in Georgia</p>
 					<p>HB 441 was killed in committee by Speaker Jon Burns. The fight for accountability continues.</p>
-					<p>&copy; {new Date().getFullYear()} Abolition Georgia</p>
+					<p>&copy; {new Date().getFullYear()} Operation Gospel</p>
 				</div>
 			</div>
 		</div>

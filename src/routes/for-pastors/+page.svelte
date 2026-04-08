@@ -41,19 +41,19 @@
 				<h2 class="text-3xl font-serif font-bold mb-6 text-white">Equipping the Saints</h2>
 				<ul class="space-y-4 text-lg text-neutral-300">
 					<li class="flex items-start">
-						<span class="text-gold mr-3 mt-1">❖</span>
+						<span class="text-gold mr-3 mt-1">•</span>
 						<span><strong>Biblical Abolitionism:</strong> Teaching resources to distinguish the Gospel demand for immediate justice from the worldly strategy of incremental regulation.</span>
 					</li>
 					<li class="flex items-start">
-						<span class="text-gold mr-3 mt-1">❖</span>
+						<span class="text-gold mr-3 mt-1">•</span>
 						<span><strong>Equal Protection:</strong> Detailed analysis of HB 441 and how to explain the need for equal protection laws to your congregation.</span>
 					</li>
 					<li class="flex items-start">
-						<span class="text-gold mr-3 mt-1">❖</span>
+						<span class="text-gold mr-3 mt-1">•</span>
 						<span><strong>Mercy Ministries:</strong> Guidance for establishing ministries that support mothers and children without compromising on justice.</span>
 					</li>
 					<li class="flex items-start">
-						<span class="text-gold mr-3 mt-1">❖</span>
+						<span class="text-gold mr-3 mt-1">•</span>
 						<span><strong>Public Witness:</strong> Strategies for organizing prayer vigils, evangelism at abortion clinics, and meetings with legislators.</span>
 					</li>
 				</ul>
@@ -67,14 +67,14 @@
 				</p>
 				<div class="relative w-full aspect-video rounded-sm overflow-hidden shadow-2xl border border-neutral-800">
 					<iframe
-						title="The Fatal Flaw Documentary"
-						src="https://www.youtube.com/embed/k33epqzJIlM"
-						frameborder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-						allowfullscreen
-						class="absolute top-0 left-0 w-full h-full"
-					></iframe>
-				</div>
+<iframe
+					title="The Fatal Flaw Documentary"
+					src="https://www.youtube-nocookie.com/embed/k33epqzJIlM"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen
+					loading="lazy"
+					class="absolute top-0 left-0 w-full h-full"
+				></iframe>
 			</div>
 		</div>
 

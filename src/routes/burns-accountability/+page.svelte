@@ -10,7 +10,7 @@
 		{ id: 'INTRO', label: 'Introduced', date: 'Jan 2026', description: 'Filed in House' },
 		{ id: 'SPONSOR', label: 'Co-Sponsors', date: 'Jan-Feb 2026', description: '20+ legislators signed on' },
 		{ id: 'HEAR', label: 'Committee Hearing', date: 'Feb 2026', description: 'Public testimony heard' },
-		{ id: 'VOTE', label: 'Committee Vote', date: 'Feb 20, 2026', description: 'Killed by Speaker Burns' },
+		{ id: 'VOTE', label: 'Committee Vote', date: 'Apr 2026', description: 'Killed by Speaker Burns' },
 		{ id: 'FLOOR', label: 'Floor Vote', date: '—', description: 'Never reached' },
 		{ id: 'LAW', label: 'Signed into Law', date: '—', description: 'Never signed' }
 	];
@@ -50,7 +50,7 @@
 					currentStep={3}
 					steps={billSteps}
 					lastAction="Killed in Committee by Speaker Jon Burns"
-					lastActionDate="February 20, 2026"
+					lastActionDate="April 2026"
 				/>
 
 				<!-- What Happened -->
@@ -63,9 +63,7 @@
 						</p>
 						<p>
 							Speaker Jon Burns refused to let it reach the floor for a vote. His reasoning, reportedly:
-							Some Republican representatives might lose their seats if forced to go on record. He chose
-							their political survival over the lives of the innocent.
-						</p>
+Speaker Jon Burns refused to let it reach the floor for a vote.
 					</div>
 				</section>
 

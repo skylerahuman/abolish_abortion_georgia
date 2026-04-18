@@ -12,19 +12,22 @@ vi.mock('$app/paths', () => ({
 	base: ''
 }));
 
+// Helper to create valid snippet for testing
+const createSnippet = (): Snippet<[]> => {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	return (() => {}) as any;
+};
+
 describe('Global Navigation', () => {
 	it('displays the correct navigation labels', () => {
-		// Svelte 5 requires Snippet type for children
-		const mockChildren: Snippet<[]> = () => {};
-		render(Layout, { props: { children: mockChildren } });
+		render(Layout, { props: { children: createSnippet() } });
 
 		// Nav items appear in footer
 		expect(screen.getAllByText('Join the Fight').length).toBeGreaterThanOrEqual(1);
 	});
 
 	it('navigation links point to the correct routes', () => {
-		const mockChildren: Snippet<[]> = () => {};
-		render(Layout, { props: { children: mockChildren } });
+		render(Layout, { props: { children: createSnippet() } });
 
 		const footer = screen.getByRole('contentinfo');
 		const links = footer.querySelectorAll('a');
@@ -37,15 +40,13 @@ describe('Global Navigation', () => {
 
 describe('Footer Redesign', () => {
 	it('displays the generic copyright text', () => {
-		const mockChildren: Snippet<[]> = () => {};
-		render(Layout, { props: { children: mockChildren } });
+		render(Layout, { props: { children: createSnippet() } });
 
 		expect(screen.getByText(/Establishing Justice for the Pre-born in Georgia/i)).toBeInTheDocument();
 	});
 
 	it('displays simplified footer navigation links', () => {
-		const mockChildren: Snippet<[]> = () => {};
-		render(Layout, { props: { children: mockChildren } });
+		render(Layout, { props: { children: createSnippet() } });
 
 		const footer = screen.getByRole('contentinfo');
 

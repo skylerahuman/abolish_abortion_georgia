@@ -67,14 +67,14 @@
 				</p>
 				<div class="relative w-full aspect-video rounded-sm overflow-hidden shadow-2xl border border-neutral-800">
 					<iframe
-<iframe
-					title="The Fatal Flaw Documentary"
-					src="https://www.youtube-nocookie.com/embed/k33epqzJIlM"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-					allowfullscreen
-					loading="lazy"
-					class="absolute top-0 left-0 w-full h-full"
-				></iframe>
+						title="The Fatal Flaw Documentary"
+						src="https://www.youtube-nocookie.com/embed/k33epqzJIlM"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						allowfullscreen
+						loading="lazy"
+						class="absolute top-0 left-0 w-full h-full"
+					></iframe>
+				</div>
 			</div>
 		</div>
 

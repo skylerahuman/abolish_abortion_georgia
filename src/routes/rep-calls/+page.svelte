@@ -2,6 +2,10 @@
 	<title>Call Your Representatives - Operation Gospel</title>
 </svelte:head>
 
+<script lang="ts">
+	import { Routes } from '$lib/config/navigation';
+</script>
+
 <div class="min-h-screen bg-charcoal text-bone px-6 py-16">
 	<div class="max-w-4xl mx-auto">
 		<div class="mb-12">
@@ -94,7 +98,7 @@
 		</section>
 
 		<div class="mt-8 text-center">
-			<a href="/burns-accountability" class="text-crimson hover:underline">Learn more about the accountability campaign →</a>
+			<a href={Routes.BURNS_ACCOUNTABILITY} class="text-crimson hover:underline">Learn more about the accountability campaign →</a>
 		</div>
 	</div>
 </div>

@@ -50,6 +50,7 @@ export const NavCategories: NavCategory[] = [
 		name: 'Learn',
 		links: [
 			{ label: 'Abolition Basics', href: Routes.ABOLITION_BASICS },
+			{ label: 'Georgia Battle', href: Routes.GEORGIA_BATTLE },
 			{ label: 'HB 441 Analysis', href: Routes.BILL_ANALYSIS },
 			{ label: 'FAQs', href: Routes.FAQS }
 		]
@@ -59,6 +60,7 @@ export const NavCategories: NavCategory[] = [
 		links: [
 			{ label: 'Burns Accountability', href: Routes.BURNS_ACCOUNTABILITY },
 			{ label: 'Call Your Rep', href: Routes.REP_CALLS },
+			{ label: 'Near Me', href: Routes.NEAR_ME },
 			{ label: 'Join the Fight', href: Routes.JOIN },
 			{ label: 'Support Us', href: Routes.SUPPORT }
 		]
@@ -68,6 +70,7 @@ export const NavCategories: NavCategory[] = [
 		links: [
 			{ label: 'About Us', href: Routes.ABOUT },
 			{ label: 'For Pastors', href: Routes.FOR_PASTORS },
+			{ label: 'Get Involved', href: Routes.GET_INVOLVED },
 			{ label: 'Timeline', href: Routes.TIMELINE }
 		]
 	}

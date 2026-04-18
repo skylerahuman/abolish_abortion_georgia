@@ -3,8 +3,10 @@
 </svelte:head>
 
 <script lang="ts">
+	import { base } from '$app/paths';
 	import BillTracker from '$lib/components/BillTracker.svelte';
 	import SidebarNav from '$lib/components/SidebarNav.svelte';
+	import { Routes } from '$lib/config/navigation';
 
 	const billSteps = [
 		{ id: 'INTRO', label: 'Introduced', date: 'Jan 2026', description: 'Filed in House' },
@@ -16,10 +18,10 @@
 	];
 
 	const actionNavItems = [
-		{ label: 'Accountability Overview', href: '/burns-accountability' },
-		{ label: 'View Bill Analysis', href: '/bill-analysis' },
-		{ label: 'Call Your Representative', href: '/rep-calls' },
-		{ label: 'Join the Movement', href: '/join' }
+		{ label: 'Burns Accountability', href: Routes.BURNS_ACCOUNTABILITY },
+		{ label: 'View Bill Analysis', href: Routes.BILL_ANALYSIS },
+		{ label: 'Call Your Representative', href: Routes.REP_CALLS },
+		{ label: 'Join the Movement', href: Routes.JOIN }
 	];
 </script>
 
@@ -111,7 +113,7 @@ Speaker Jon Burns refused to let it reach the floor for a vote.
 							<p class="text-sm text-neutral-400 mb-4">
 								If Burns won't lead, maybe others will push back. Call your representative.
 							</p>
-							<a href="/rep-calls" class="btn btn-secondary text-sm">
+							<a href={Routes.REP_CALLS} class="btn btn-secondary text-sm">
 								Get Call Scripts
 							</a>
 						</div>
@@ -126,7 +128,7 @@ Speaker Jon Burns refused to let it reach the floor for a vote.
 								building support, and sustained effort through the election cycle.
 							</p>
 							<p class="text-xs text-neutral-500">
-								Interested? <a href="/join" class="link">Get in touch.</a>
+								Interested? <a href={Routes.JOIN} class="link">Get in touch.</a>
 							</p>
 						</div>
 
@@ -138,7 +140,7 @@ Speaker Jon Burns refused to let it reach the floor for a vote.
 							<p class="text-sm text-neutral-400 mb-4">
 								Whatever path we take, resources matter. Consider supporting organizations working on this issue.
 							</p>
-							<a href="/support" class="btn btn-ghost text-sm">
+							<a href={Routes.SUPPORT} class="btn btn-ghost text-sm">
 								Support the Cause
 							</a>
 						</div>
@@ -158,11 +160,11 @@ Speaker Jon Burns refused to let it reach the floor for a vote.
 
 				<!-- Bottom Navigation -->
 				<div class="pt-8 border-t border-neutral-800 flex flex-wrap gap-4 text-sm">
-					<a href="/join" class="link">Join the effort</a>
+					<a href={Routes.JOIN} class="link">Join the effort</a>
 					<span class="text-neutral-600">|</span>
-					<a href="/timeline" class="link">See the timeline</a>
+					<a href={Routes.TIMELINE} class="link">See the timeline</a>
 					<span class="text-neutral-600">|</span>
-					<a href="/bill-analysis" class="link">Read the bill</a>
+					<a href={Routes.BILL_ANALYSIS} class="link">Read the bill</a>
 				</div>
 			</main>
 		</div>

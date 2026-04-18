@@ -40,22 +40,22 @@
 		}
 		lookupLoading = true;
 		lookupError = '';
-		
+
 		await loadZipData();
-		
+
 		if (!zipToDistrictMap) {
 			lookupError = 'District data not loaded.';
 			lookupLoading = false;
 			return;
 		}
-		
+
 		const foundDistrict = zipToDistrictMap[zipCode];
 		if (foundDistrict) {
 			district = foundDistrict;
 		} else {
 			lookupError = 'District not found. Are you in Georgia?';
 		}
-		
+
 		lookupLoading = false;
 	}
 
@@ -77,102 +77,113 @@ I want to be involved with Operation Gospel.`;
 	<title>Operation Gospel - Pray. Fight. Give.</title>
 </svelte:head>
 
-<div class="min-h-screen bg-[#0C1626] text-neutral-100 px-6 py-16">
+<div class="min-h-screen bg-void text-parchment px-6 py-16 md:py-24">
 	<div class="max-w-6xl mx-auto">
 		<!-- Header -->
-		<div class="text-center mb-12 relative">
-			<h1 class="text-4xl md:text-6xl font-extrabold tracking-tight uppercase mb-4">
-				<span class="text-red-600">Pray.</span> <span class="text-red-600">Fight.</span> <span class="text-red-600">Give.</span>
+		<div class="text-center mb-16 relative">
+			<h1 class="font-display text-4xl md:text-6xl font-bold tracking-tight uppercase mb-6">
+				<span class="text-burgundy">Pray.</span> <span class="text-burgundy">Fight.</span> <span class="text-burgundy">Give.</span>
 			</h1>
-			<h2 class="text-xl md:text-2xl font-bold text-neutral-400 mb-6">
-				50 Fights in 50 States – Georgia is Ours
+			<h2 class="text-xl md:text-2xl font-display font-semibold text-parchment-muted mb-6">
+				50 Fights in 50 States - Georgia is Ours
 			</h2>
-			<p class="text-lg text-neutral-400 max-w-3xl mx-auto leading-relaxed">
+			<p class="text-lg text-parchment-muted max-w-3xl mx-auto leading-relaxed">
 				For nearly a decade, Operation Gospel has been preaching the Gospel faithfully to mothers heading into abortion clinics. We are now seeking to bring the Gospel to the voters of Georgia.
 			</p>
-			<p class="text-base text-neutral-500 mt-4">
+			<p class="text-base text-parchment-dark mt-4 font-body">
 				You've seen the problem. You understand the solution. Now is the time to act.
 			</p>
+
+			<!-- Ornamental divider -->
+			<div class="divider-ornate text-gold-muted max-w-xs mx-auto mt-12">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+					<path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2z"/>
+				</svg>
+			</div>
 		</div>
 
 		<!-- Join Form Section -->
-		<div class="max-w-3xl mx-auto bg-neutral-900 border border-neutral-800 p-8 rounded-sm mb-16 shadow-2xl relative overflow-hidden">
-			<div class="absolute top-0 left-0 w-1 h-full bg-red-600"></div>
-			<h2 class="text-3xl font-bold text-white mb-2 text-center uppercase tracking-wide">Join the Movement</h2>
-			<p class="text-neutral-400 text-center mb-8 text-sm">
+		<div class="max-w-3xl mx-auto bg-panel border border-charcoal p-8 md:p-12 rounded-sm shadow-xl relative overflow-hidden">
+			<!-- Left accent bar -->
+			<div class="absolute top-0 left-0 w-1 h-full bg-burgundy"></div>
+
+			<h2 class="font-display text-3xl font-semibold text-parchment mb-2 text-center uppercase tracking-wide">Join the Movement</h2>
+			<p class="text-parchment-muted text-center mb-10 text-sm font-ui">
 				Join our prayer list and get connected with abolitionists in your area.
 			</p>
 
-			<div class="space-y-4">
-				<div class="grid md:grid-cols-2 gap-4">
+			<div class="space-y-6">
+				<div class="grid md:grid-cols-2 gap-6">
 					<div>
-						<label for="name" class="block text-xs font-bold uppercase text-neutral-500 mb-1">Name</label>
-						<input id="name" type="text" bind:value={name} class="w-full bg-black border border-neutral-700 p-3 text-white rounded-sm focus:border-red-600 outline-none transition-colors" placeholder="Your Name" />
+						<label for="name" class="block font-ui text-xs font-semibold uppercase tracking-wider text-gold mb-2">Name</label>
+						<input id="name" type="text" bind:value={name} class="w-full bg-charcoal border border-charcoal p-4 text-parchment rounded-sm focus:border-gold focus:outline-none transition-colors font-ui" placeholder="Your Name" />
 					</div>
 					<div>
-						<label for="email" class="block text-xs font-bold uppercase text-neutral-500 mb-1">Email</label>
-						<input id="email" type="email" bind:value={email} class="w-full bg-black border border-neutral-700 p-3 text-white rounded-sm focus:border-red-600 outline-none transition-colors" placeholder="email@example.com" />
-					</div>
-				</div>
-
-				<div class="grid md:grid-cols-2 gap-4">
-					<div>
-						<label for="phone" class="block text-xs font-bold uppercase text-neutral-500 mb-1">Phone (Optional)</label>
-						<input id="phone" type="tel" bind:value={phone} class="w-full bg-black border border-neutral-700 p-3 text-white rounded-sm focus:border-red-600 outline-none transition-colors" placeholder="(555) 555-5555" />
-					</div>
-					<div>
-						<label for="church" class="block text-xs font-bold uppercase text-neutral-500 mb-1">Church (Optional)</label>
-						<input id="church" type="text" bind:value={church} class="w-full bg-black border border-neutral-700 p-3 text-white rounded-sm focus:border-red-600 outline-none transition-colors" placeholder="Your Church Name" />
+						<label for="email" class="block font-ui text-xs font-semibold uppercase tracking-wider text-gold mb-2">Email</label>
+						<input id="email" type="email" bind:value={email} class="w-full bg-charcoal border border-charcoal p-4 text-parchment rounded-sm focus:border-gold focus:outline-none transition-colors font-ui" placeholder="email@example.com" />
 					</div>
 				</div>
 
-				<div class="border-t border-neutral-800 pt-4 mt-4">
-					 <label class="flex items-center space-x-2 mb-4 cursor-pointer">
-						<input type="checkbox" bind:checked={isOutOfState} class="w-4 h-4 text-red-600 bg-black border-neutral-700 rounded focus:ring-red-500 focus:ring-2" />
-						<span class="text-sm text-neutral-400">I live outside of Georgia</span>
+				<div class="grid md:grid-cols-2 gap-6">
+					<div>
+						<label for="phone" class="block font-ui text-xs font-semibold uppercase tracking-wider text-gold mb-2">Phone (Optional)</label>
+						<input id="phone" type="tel" bind:value={phone} class="w-full bg-charcoal border border-charcoal p-4 text-parchment rounded-sm focus:border-gold focus:outline-none transition-colors font-ui" placeholder="(555) 555-5555" />
+					</div>
+					<div>
+						<label for="church" class="block font-ui text-xs font-semibold uppercase tracking-wider text-gold mb-2">Church (Optional)</label>
+						<input id="church" type="text" bind:value={church} class="w-full bg-charcoal border border-charcoal p-4 text-parchment rounded-sm focus:border-gold focus:outline-none transition-colors font-ui" placeholder="Your Church Name" />
+					</div>
+				</div>
+
+				<div class="border-t border-charcoal pt-6 mt-6">
+					<label class="flex items-center space-x-3 mb-6 cursor-pointer group">
+						<input type="checkbox" bind:checked={isOutOfState} class="w-4 h-4 text-burgundy bg-charcoal border-charcoal rounded focus:ring-gold focus:ring-2" />
+						<span class="text-sm text-parchment-muted font-ui group-hover:text-parchment transition-colors">I live outside of Georgia</span>
 					</label>
 
 					{#if !isOutOfState}
-						<div class="grid md:grid-cols-2 gap-4 items-end">
+						<div class="grid md:grid-cols-2 gap-6 items-end">
 							<div>
-								<label for="zip" class="block text-xs font-bold uppercase text-neutral-500 mb-1">Zip Code</label>
+								<label for="zip" class="block font-ui text-xs font-semibold uppercase tracking-wider text-gold mb-2">Zip Code</label>
 								<div class="flex">
-									<input id="zip" type="text" bind:value={zipCode} class="w-full bg-black border border-neutral-700 p-3 text-white rounded-l-sm focus:border-red-600 outline-none transition-colors" placeholder="30303" maxlength="5" />
-									<button onclick={handleDistrictLookup} class="bg-neutral-700 hover:bg-neutral-600 text-white px-4 rounded-r-sm font-bold text-xs uppercase transition-colors" disabled={lookupLoading}>
+									<input id="zip" type="text" bind:value={zipCode} class="w-full bg-charcoal border border-charcoal p-4 text-parchment rounded-l-sm focus:border-gold focus:outline-none transition-colors font-mono" placeholder="30303" maxlength="5" />
+									<button onclick={handleDistrictLookup} class="bg-burgundy hover:bg-burgundy-dark text-parchment px-6 font-ui font-semibold text-sm uppercase tracking-wider rounded-r-sm transition-colors" disabled={lookupLoading}>
 										{lookupLoading ? '...' : 'Find'}
 									</button>
 								</div>
-								 {#if lookupError}
-									<p class="text-red-500 text-xs mt-1">{lookupError}</p>
+								{#if lookupError}
+									<p class="text-burgundy text-xs mt-2 font-ui">{lookupError}</p>
 								{/if}
 							</div>
 							<div>
-								<label for="district" class="block text-xs font-bold uppercase text-neutral-500 mb-1">GA House District</label>
-								<input id="district" type="text" bind:value={district} readonly class="w-full bg-neutral-900 border border-neutral-800 p-3 text-neutral-400 rounded-sm cursor-not-allowed" placeholder="District will appear here" />
+								<label for="district" class="block font-ui text-xs font-semibold uppercase tracking-wider text-gold mb-2">GA House District</label>
+								<input id="district" type="text" bind:value={district} readonly class="w-full bg-panel-elevated border border-charcoal p-4 text-parchment-dark rounded-sm cursor-not-allowed font-mono" placeholder="District will appear here" />
 							</div>
 						</div>
 					{/if}
 				</div>
 
-				<button onclick={handleSubmit} class="w-full bg-red-700 hover:bg-red-800 text-white font-black uppercase tracking-widest py-4 rounded-sm transition-all duration-300 mt-6 shadow-lg hover:shadow-red-900/20">
+				<button onclick={handleSubmit} class="w-full bg-burgundy hover:bg-burgundy-dark text-parchment font-ui font-semibold uppercase tracking-widest py-4 rounded-sm transition-all duration-300 mt-8 shadow-lg hover:shadow-burgundy/20">
 					Join the Fight
 				</button>
-				<p class="text-xs text-center text-neutral-600 mt-4">
+				<p class="text-xs text-center text-parchment-dark mt-4 font-ui">
 					Submitting will open your email client to send your information to us.
 				</p>
 			</div>
 		</div>
-		
+
 		<!-- Three CTA Cards -->
-		<div class="grid md:grid-cols-3 gap-8 mb-16">
+		<div class="grid md:grid-cols-3 gap-8 mt-16">
 			<!-- PRAY -->
-			<div class="bg-neutral-900 border border-neutral-800 hover:border-red-600 p-8 rounded-sm transition-all duration-300">
-				<h3 class="text-2xl font-black uppercase tracking-wide text-red-600 mb-4 text-center border-b-2 border-red-900 pb-4">Pray</h3>
-				<p class="text-sm text-neutral-400 leading-relaxed mb-6">
-					<strong class="text-neutral-300 block mb-2">Pray for the Abolition of Abortion in Georgia</strong>
+			<div class="bg-panel border border-charcoal hover:border-gold-muted p-8 md:p-10 rounded-sm transition-all duration-300">
+				<h3 class="font-display text-2xl font-semibold uppercase tracking-wide text-burgundy mb-6 text-center pb-4 border-b-2 border-burgundy/30">
+					Pray
+				</h3>
+				<p class="text-sm text-parchment-muted leading-relaxed mb-6 font-body">
+					<strong class="text-parchment block mb-2">Pray for the Abolition of Abortion in Georgia</strong>
 					Intercessory prayer is spiritual warfare. Pray for:
 				</p>
-				<ul class="text-sm text-neutral-400 space-y-2 mb-6 list-disc list-inside">
+				<ul class="text-sm text-parchment-muted space-y-2 mb-6 list-disc list-inside font-body">
 					<li>Georgia legislators to embrace HB 441</li>
 					<li>Pastors and churches to boldly proclaim truth</li>
 					<li>The salvation of mothers, fathers, and abortion workers</li>
@@ -180,85 +191,89 @@ I want to be involved with Operation Gospel.`;
 					<li>Revival and repentance across Georgia</li>
 				</ul>
 			</div>
-			
+
 			<!-- FIGHT -->
-			<div class="bg-neutral-900 border border-neutral-800 hover:border-red-600 p-8 rounded-sm transition-all duration-300">
-				<h3 class="text-2xl font-black uppercase tracking-wide text-red-600 mb-4 text-center border-b-2 border-red-900 pb-4">Fight</h3>
-				<p class="text-sm text-neutral-400 leading-relaxed mb-6">
-					<strong class="text-neutral-300 block mb-2">Fight for Equal Protection</strong>
+			<div class="bg-panel border border-charcoal hover:border-gold-muted p-8 md:p-10 rounded-sm transition-all duration-300">
+				<h3 class="font-display text-2xl font-semibold uppercase tracking-wide text-burgundy mb-6 text-center pb-4 border-b-2 border-burgundy/30">
+					Fight
+				</h3>
+				<p class="text-sm text-parchment-muted leading-relaxed mb-6 font-body">
+					<strong class="text-parchment block mb-2">Fight for Equal Protection</strong>
 					Take action today:
 				</p>
-				<div class="space-y-2">
+				<div class="space-y-3">
 					<a
 						href="https://www.youtube.com/watch?v=k33epqzJIlM"
 						target="_blank"
 						rel="noopener noreferrer"
-						class="block w-full text-center bg-red-700 hover:bg-red-800 text-white font-semibold py-2 px-4 rounded-sm text-sm transition-colors"
+						class="block w-full text-center bg-burgundy hover:bg-burgundy-dark text-parchment font-ui font-semibold py-3 px-4 rounded-sm text-sm transition-colors"
 					>
 						Watch The Fatal Flaw
 					</a>
 				</div>
-				<div class="aspect-w-16 aspect-h-9 mt-4">
+				<div class="aspect-video mt-4 rounded-sm overflow-hidden">
 					<iframe
 						title="The Fatal Flaw Documentary"
 						src="https://www.youtube.com/embed/k33epqzJIlM"
 						frameborder="0"
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 						allowfullscreen
-						class="w-full h-full rounded-sm"
+						class="w-full h-full"
 					></iframe>
 				</div>
 			</div>
-			
+
 			<!-- GIVE -->
-			<div class="bg-neutral-900 border border-neutral-800 hover:border-red-600 p-8 rounded-sm transition-all duration-300">
-				<h3 class="text-2xl font-black uppercase tracking-wide text-red-600 mb-4 text-center border-b-2 border-red-900 pb-4">Give</h3>
-				<p class="text-sm text-neutral-400 leading-relaxed mb-6">
-					<strong class="text-neutral-300 block mb-2">What Your Gift Supports</strong>
+			<div class="bg-panel border border-charcoal hover:border-gold-muted p-8 md:p-10 rounded-sm transition-all duration-300">
+				<h3 class="font-display text-2xl font-semibold uppercase tracking-wide text-burgundy mb-6 text-center pb-4 border-b-2 border-burgundy/30">
+					Give
+				</h3>
+				<p class="text-sm text-parchment-muted leading-relaxed mb-6 font-body">
+					<strong class="text-parchment block mb-2">What Your Gift Supports</strong>
 					Every dollar you give to Operation Gospel funds:
 				</p>
 
 				<div>
-					<h4 class="text-lg font-bold text-center mb-4">Suggested Giving Levels</h4>
-					<div class="space-y-2">
-						<a href="https://donorbox.org/regular-donations-15" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-red-700 hover:bg-red-800 text-white font-bold py-3 px-4 rounded-sm text-sm transition-colors">
-							$25/month – Supplies materials for church training
+					<h4 class="font-display text-lg font-semibold text-parchment text-center mb-4">Suggested Giving Levels</h4>
+					<div class="space-y-3">
+						<a href="https://donorbox.org/regular-donations-15" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-burgundy hover:bg-burgundy-dark text-parchment font-ui font-semibold py-3 px-4 rounded-sm text-sm transition-colors">
+							$25/month - Supplies materials for church training
 						</a>
-						<a href="https://donorbox.org/regular-donations-15" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-red-700 hover:bg-red-800 text-white font-bold py-3 px-4 rounded-sm text-sm transition-colors">
-							$100/month – Funds one day of clinic evangelism
+						<a href="https://donorbox.org/regular-donations-15" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-burgundy hover:bg-burgundy-dark text-parchment font-ui font-semibold py-3 px-4 rounded-sm text-sm transition-colors">
+							$100/month - Funds one day of clinic evangelism
 						</a>
-						<a href="https://donorbox.org/regular-donations-15" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-red-700 hover:bg-red-800 text-white font-bold py-3 px-4 rounded-sm text-sm transition-colors">
-							$500/month – Supports full-time evangelist salary
+						<a href="https://donorbox.org/regular-donations-15" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-burgundy hover:bg-burgundy-dark text-parchment font-ui font-semibold py-3 px-4 rounded-sm text-sm transition-colors">
+							$500/month - Supports full-time evangelist salary
 						</a>
-						<a href="https://donorbox.org/regular-donations-15" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-transparent border border-red-700 hover:bg-red-900/20 text-red-600 font-semibold py-2 px-4 rounded-sm text-sm transition-colors">
+						<a href="https://donorbox.org/regular-donations-15" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-transparent border border-burgundy hover:bg-burgundy/20 text-burgundy font-ui font-semibold py-2 px-4 rounded-sm text-sm transition-colors">
 							Custom Amount
 						</a>
 					</div>
 				</div>
 			</div>
 		</div>
-		
+
 		<!-- Bottom Copy -->
-		<div class="text-center max-w-2xl mx-auto mb-12">
-			<p class="text-sm text-neutral-500 mb-2">
+		<div class="text-center max-w-2xl mx-auto mt-16">
+			<p class="text-sm text-parchment-dark mb-2 font-body">
 				For tax-deductible giving, you may donate through our fiscal sponsor.
 			</p>
-			<p class="text-sm text-neutral-500">
-				For questions about giving or partnership, contact: <a href="mailto:info@operationgospel.com" class="text-red-500 hover:text-red-400 underline">info@operationgospel.com</a>
+			<p class="text-sm text-parchment-dark font-body">
+				For questions about giving or partnership, contact: <a href="mailto:info@operationgospel.com" class="text-gold hover:text-gold-light transition-colors">info@operationgospel.com</a>
 			</p>
 		</div>
-		
+
 		<!-- Back Navigation -->
-		<div class="flex flex-col md:flex-row gap-4 items-center justify-center">
-			<a 
+		<div class="flex flex-col md:flex-row gap-4 items-center justify-center mt-16">
+			<a
 				href="{base}/near-me"
-				class="w-full md:w-auto bg-transparent border border-neutral-700 hover:border-neutral-500 text-neutral-300 hover:text-neutral-100 font-semibold px-10 py-4 rounded-sm uppercase tracking-wide transition-all duration-300 text-center"
+				class="w-full md:w-auto bg-transparent border border-charcoal hover:border-gold-muted text-parchment-muted hover:text-parchment font-ui font-semibold px-10 py-4 rounded-sm uppercase tracking-wide transition-all duration-300 text-center"
 			>
 				Find People Near Me
 			</a>
-			<a 
+			<a
 				href="{base}/"
-				class="w-full md:w-auto bg-transparent border border-neutral-700 hover:border-neutral-500 text-neutral-300 hover:text-neutral-100 font-semibold px-10 py-4 rounded-sm uppercase tracking-wide transition-all duration-300 text-center"
+				class="w-full md:w-auto bg-transparent border border-charcoal hover:border-gold-muted text-parchment-muted hover:text-parchment font-ui font-semibold px-10 py-4 rounded-sm uppercase tracking-wide transition-all duration-300 text-center"
 			>
 				Back to Home
 			</a>

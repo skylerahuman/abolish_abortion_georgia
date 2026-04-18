@@ -1,46 +1,82 @@
 @import 'tailwindcss';
 
 @theme {
-	--font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
-	--font-serif: 'Libre Baskerville', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+	/* Typography System */
+	--font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+	--font-body: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+	--font-ui: 'Outfit', system-ui, sans-serif;
+	--font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Monaco, monospace;
 
-	/* Federal Palette - Desaturated for long reading sessions */
-	--color-obsidian: #1A1A1B;
-	--color-paper: #F9F9F9;
-	--color-panel: #252528;
-	--color-crimson: #9B1C1C;
-	--color-ember: #DC2626;
+	/* Legacy font aliases for compatibility */
+	--font-sans: var(--font-ui);
+	--font-serif: var(--font-display);
+
+	/* ============================================
+	 * LITURGICAL WARMTH PALETTE
+	 * "The Sanctuary & The Court"
+	 * ============================================ */
+
+	/* Core Colors - Deep Foundations */
+	--color-void: #0A0908;
+	--color-parchment: #F5F1E6;
+	--color-parchment-muted: #D4CFC3;
+	--color-parchment-dark: #A89F91;
+
+	/* Accent Colors - Sacred & Urgent */
+	--color-burgundy: #722F37;
+	--color-burgundy-dark: #4A1C21;
+	--color-burgundy-light: #8B3A3A;
 	--color-gold: #B8860B;
+	--color-gold-muted: #8B7355;
+	--color-gold-light: #D4A84B;
 
-	/* Slate palette (for legibility) */
-	--color-neutral-50: #f8f9fa;
-	--color-neutral-100: #f1f3f4;
-	--color-neutral-200: #e8eaed;
-	--color-neutral-300: #dadce0;
-	--color-neutral-400: #9aa0a6;
-	--color-neutral-500: #5f6368;
-	--color-neutral-600: #3c4043;
-	--color-neutral-700: #202124;
-	--color-neutral-800: #1a1a1b;
-	--color-neutral-900: #0f0f10;
-	--color-neutral-950: #080809;
+	/* Surface Colors - Warm Panels */
+	--color-charcoal: #2C2926;
+	--color-panel: #1E1B18;
+	--color-panel-elevated: #252220;
 
-	/* Aliases for existing components */
-	--color-charcoal: var(--color-obsidian);
-	--color-bone: var(--color-paper);
+	/* Legacy Aliases (for backward compatibility) */
+	--color-obsidian: var(--color-void);
+	--color-paper: var(--color-parchment);
+	--color-crimson: var(--color-burgundy);
+	--color-ember: var(--color-burgundy-light);
+	--color-bone: var(--color-parchment);
+
+	/* Slate Palette (repurposed with warm tones) */
+	--color-neutral-50: #f8f7f4;
+	--color-neutral-100: #e8e6e1;
+	--color-neutral-200: #d4d0c9;
+	--color-neutral-300: #b5b0a6;
+	--color-neutral-400: #8a847a;
+	--color-neutral-500: #5f5a52;
+	--color-neutral-600: #3d3932;
+	--color-neutral-700: #2c2926;
+	--color-neutral-800: #1a1715;
+	--color-neutral-900: #0f0d0b;
+	--color-neutral-950: #0a0908;
 }
 
 @layer base {
 	:root {
-		--text-xs: 0.64rem;
-		--text-sm: 0.8rem;
-		--text-base: 1rem;
+		/* Typography Scale - Dramatic Sizing */
+		--text-xs: 0.75rem;
+		--text-sm: 0.875rem;
+		--text-base: 1.0625rem;
 		--text-lg: 1.25rem;
-		--text-xl: 1.563rem;
-		--text-2xl: 1.953rem;
-		--text-3xl: 2.441rem;
-		--text-4xl: 3.052rem;
-		--text-5xl: 3.815rem;
+		--text-xl: 1.5rem;
+		--text-2xl: 1.875rem;
+		--text-3xl: 2.5rem;
+		--text-4xl: 3.5rem;
+		--text-5xl: 4.5rem;
+		--text-6xl: 6rem;
+
+		/* Animation Timing - "The Gavel" */
+		--ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
+		--ease-affirm: cubic-bezier(0.33, 1, 0.68, 1);
+		--duration-fast: 150ms;
+		--duration-normal: 250ms;
+		--duration-slow: 400ms;
+		--duration-reveal: 600ms;
 	}
 
 	html {
@@ -49,70 +85,448 @@
 	}
 
 	body {
-		@apply bg-obsidian text-paper font-sans antialiased;
-		line-height: 1.5;
+		background-color: var(--color-void);
+		color: var(--color-parchment);
+		font-family: var(--font-body);
+		font-size: var(--text-base);
+		line-height: 1.7;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
 	}
 
+	/* Display Typography - Commanding Headlines */
 	h1,
 	h2,
 	h3,
 	h4,
 	h5,
 	h6 {
-		@apply font-serif tracking-tight leading-tight;
+		font-family: var(--font-display);
+		font-weight: 600;
+		line-height: 1.15;
+		letter-spacing: -0.01em;
+		color: var(--color-parchment);
 	}
 
 	h1 {
-		@apply text-4xl md:text-5xl font-bold;
+		font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+		font-weight: 700;
+		letter-spacing: -0.02em;
 	}
+
 	h2 {
-		@apply text-3xl font-bold;
+		font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+		font-weight: 600;
 	}
+
 	h3 {
-		@apply text-2xl font-semibold;
+		font-size: clamp(var(--text-xl), 3vw, var(--text-3xl));
+		font-weight: 600;
 	}
+
 	h4 {
-		@apply text-xl font-semibold;
+		font-size: var(--text-xl);
+		font-weight: 600;
 	}
 
+	h5 {
+		font-size: var(--text-lg);
+		font-weight: 600;
+	}
+
+	h6 {
+		font-size: var(--text-base);
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		font-family: var(--font-ui);
+	}
+
+	/* Body Text */
 	p {
-		@apply leading-relaxed;
+		line-height: 1.75;
+		margin-bottom: 1.25em;
 	}
 
-	.serif {
-		font-family: var(--font-serif);
+	p:last-child {
+		margin-bottom: 0;
 	}
 
-	.sans {
-		font-family: var(--font-sans);
+	/* UI Elements */
+	button,
+	a,
+	input,
+	select,
+	textarea,
+	label {
+		font-family: var(--font-ui);
 	}
 
-	.mono {
-		font-family: ui-monospace, 'SF Mono', Monaco, 'Cascadia Code', monospace;
-		@apply text-sm tracking-tight;
+	/* Utility Classes */
+	.font-display {
+		font-family: var(--font-display);
 	}
 
+	.font-body {
+		font-family: var(--font-body);
+	}
+
+	.font-ui {
+		font-family: var(--font-ui);
+	}
+
+	.font-mono {
+		font-family: var(--font-mono);
+	}
+
+	/* ============================================
+	 * SCROLLBAR STYLING
+	 * Warm, refined appearance
+	 * ============================================ */
 	::-webkit-scrollbar {
-		width: 6px;
+		width: 8px;
+		height: 8px;
 	}
+
 	::-webkit-scrollbar-track {
-		background: var(--color-obsidian);
+		background: var(--color-void);
+		border-left: 1px solid var(--color-charcoal);
 	}
+
 	::-webkit-scrollbar-thumb {
-		background: var(--color-neutral-600);
-		border-radius: 3px;
+		background: var(--color-gold-muted);
+		border-radius: 4px;
+		border: 2px solid var(--color-void);
 	}
+
 	::-webkit-scrollbar-thumb:hover {
-		background: var(--color-neutral-500);
+		background: var(--color-gold);
 	}
 
+	/* ============================================
+	 * SELECTION STYLING
+	 * Burgundy with warm contrast
+	 * ============================================ */
 	::selection {
-		background: var(--color-crimson);
-		color: var(--color-paper);
+		background-color: var(--color-burgundy);
+		color: var(--color-parchment);
 	}
 
-	:focus-visible {
-		outline: 2px solid var(--color-crimson);
-		outline-offset: 2px;
+	::-moz-selection {
+		background-color: var(--color-burgundy);
+		color: var(--color-parchment);
 	}
+
+	/* ============================================
+	 * FOCUS STATES
+	 * Sharp, decisive outlines
+	 * ============================================ */
+	:focus-visible {
+		outline: 2px solid var(--color-gold);
+		outline-offset: 3px;
+	}
+
+	/* ============================================
+	 * LINKS
+	 * Underline on hover with gold accent
+	 * ============================================ */
+	a {
+		color: inherit;
+		text-decoration: none;
+		transition: color var(--duration-fast) var(--ease-affirm);
+	}
+
+	a:hover {
+		color: var(--color-gold-light);
+	}
+
+	/* ============================================
+	 * ANIMATION KEYFRAMES
+	 * "The Gavel" - Sharp, decisive reveals
+	 * ============================================ */
+
+	/* Primary content reveal */
+	@keyframes reveal-up {
+		from {
+			opacity: 0;
+			transform: translateY(24px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	/* Fade in for backgrounds/overlays */
+	@keyframes reveal-fade {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	/* Scale reveal for emphasis */
+	@keyframes reveal-scale {
+		from {
+			opacity: 0;
+			transform: scale(0.96);
+		}
+		to {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+
+	/* Slide from left for lists */
+	@keyframes reveal-left {
+		from {
+			opacity: 0;
+			transform: translateX(-16px);
+		}
+		to {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
+	/* Staggered children reveal */
+	@keyframes stagger-reveal {
+		from {
+			opacity: 0;
+			transform: translateY(16px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	/* Subtle gold glow pulse */
+	@keyframes gold-glow {
+		0%,
+		100% {
+			box-shadow: 0 0 0 0 rgba(184, 134, 11, 0);
+		}
+		50% {
+			box-shadow: 0 0 20px 2px rgba(184, 134, 11, 0.15);
+		}
+	}
+
+	/* ============================================
+	 * ANIMATION UTILITY CLASSES
+	 * ============================================ */
+	.animate-reveal-up {
+		animation: reveal-up var(--duration-reveal) var(--ease-reveal) forwards;
+	}
+
+	.animate-reveal-fade {
+		animation: reveal-fade var(--duration-slow) ease-out forwards;
+	}
+
+	.animate-reveal-scale {
+		animation: reveal-scale var(--duration-reveal) var(--ease-reveal) forwards;
+	}
+
+	.animate-stagger {
+		animation: stagger-reveal var(--duration-reveal) var(--ease-reveal) forwards;
+		opacity: 0;
+	}
+
+	/* Stagger delays */
+	.stagger-1 {
+		animation-delay: 100ms;
+	}
+	.stagger-2 {
+		animation-delay: 200ms;
+	}
+	.stagger-3 {
+		animation-delay: 300ms;
+	}
+	.stagger-4 {
+		animation-delay: 400ms;
+	}
+	.stagger-5 {
+		animation-delay: 500ms;
+	}
+
+	/* ============================================
+	 * DECORATIVE DIVIDERS
+	 * Ornamental separators
+	 * ============================================ */
+	.divider-ornate {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		color: var(--color-gold-muted);
+	}
+
+	.divider-ornate::before,
+	.divider-ornate::after {
+		content: '';
+		flex: 1;
+		height: 1px;
+		background: linear-gradient(
+			90deg,
+			transparent,
+			var(--color-gold-muted) 20%,
+			var(--color-gold-muted) 80%,
+			transparent
+		);
+	}
+
+	.divider-simple {
+		height: 1px;
+		background: linear-gradient(
+			90deg,
+			transparent,
+			var(--color-gold-muted),
+			transparent
+		);
+	}
+
+	/* ============================================
+	 * GRAIN TEXTURE OVERLAY
+	 * Subtle atmospheric effect
+	 * ============================================ */
+	.grain-overlay::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+		opacity: 0.03;
+		pointer-events: none;
+		mix-blend-mode: overlay;
+	}
+}
+
+/* ============================================
+ * COMPONENT BASE STYLES
+ * Reusable patterns
+ * ============================================ */
+
+/* Card Surfaces */
+.card {
+	background-color: var(--color-panel);
+	border: 1px solid var(--color-charcoal);
+	border-radius: 4px;
+	padding: 2rem;
+	transition:
+		border-color var(--duration-normal) var(--ease-affirm),
+		transform var(--duration-normal) var(--ease-affirm),
+		box-shadow var(--duration-normal) var(--ease-affirm);
+}
+
+.card:hover {
+	border-color: var(--color-gold-muted);
+}
+
+.card-elevated {
+	background-color: var(--color-panel-elevated);
+}
+
+/* Button Base */
+.btn {
+	font-family: var(--font-ui);
+	font-weight: 600;
+	font-size: var(--text-sm);
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	padding: 0.875rem 1.75rem;
+	border-radius: 2px;
+	transition:
+		background-color var(--duration-fast) var(--ease-affirm),
+		transform var(--duration-fast) var(--ease-affirm),
+		box-shadow var(--duration-fast) var(--ease-affirm);
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+}
+
+.btn:active {
+	transform: translateY(1px);
+}
+
+/* Primary Button - Burgundy */
+.btn-primary {
+	background-color: var(--color-burgundy);
+	color: var(--color-parchment);
+	border: 1px solid var(--color-burgundy);
+}
+
+.btn-primary:hover {
+	background-color: var(--color-burgundy-dark);
+	border-color: var(--color-burgundy-dark);
+	color: var(--color-parchment);
+	box-shadow: 0 4px 12px rgba(114, 47, 55, 0.3);
+}
+
+/* Secondary Button - Gold */
+.btn-secondary {
+	background-color: transparent;
+	color: var(--color-gold);
+	border: 1px solid var(--color-gold);
+}
+
+.btn-secondary:hover {
+	background-color: var(--color-gold);
+	color: var(--color-void);
+}
+
+/* Ghost Button - Subtle */
+.btn-ghost {
+	background-color: transparent;
+	color: var(--color-parchment);
+	border: 1px solid var(--color-charcoal);
+}
+
+.btn-ghost:hover {
+	border-color: var(--color-parchment-muted);
+	color: var(--color-parchment);
+}
+
+/* ============================================
+ * SCROLL ANIMATION CLASSES
+ * Apply via Intersection Observer
+ * ============================================ */
+.scroll-reveal {
+	opacity: 0;
+	transform: translateY(20px);
+	transition:
+		opacity var(--duration-reveal) var(--ease-reveal),
+		transform var(--duration-reveal) var(--ease-reveal);
+}
+
+.scroll-reveal.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.scroll-reveal-left {
+	opacity: 0;
+	transform: translateX(-20px);
+	transition:
+		opacity var(--duration-reveal) var(--ease-reveal),
+		transform var(--duration-reveal) var(--ease-reveal);
+}
+
+.scroll-reveal-left.is-visible {
+	opacity: 1;
+	transform: translateX(0);
+}
+
+.scroll-reveal-scale {
+	opacity: 0;
+	transform: scale(0.98);
+	transition:
+		opacity var(--duration-reveal) var(--ease-reveal),
+		transform var(--duration-reveal) var(--ease-reveal);
+}
+
+.scroll-reveal-scale.is-visible {
+	opacity: 1;
+	transform: scale(1);
 }

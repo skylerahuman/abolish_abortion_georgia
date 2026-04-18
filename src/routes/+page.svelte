@@ -268,7 +268,7 @@
 						<div class="fade-in-line italic opacity-90">What can wash away that stain?</div>
 						<div class="fade-in-line">
 							Nothing but the <span class="text-burgundy">blood</span> of
-							<span class="text-gold font-semibold inline-block text-[1.2em]">Jesus</span>.
+							<span class="text-gold font-semibold inline-block text-[1.2em]">Jesus</span>
 						</div>
 					</h2>
 

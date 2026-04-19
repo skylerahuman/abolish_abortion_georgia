@@ -74,7 +74,7 @@ I want to be involved with Operation Gospel.`;
 </script>
 
 <svelte:head>
-	<title>Operation Gospel - Pray. Fight. Give.</title>
+	<title>Operation Gospel - Take Action</title>
 </svelte:head>
 
 <div class="min-h-screen bg-void text-parchment px-6 py-16 md:py-24">
@@ -82,16 +82,13 @@ I want to be involved with Operation Gospel.`;
 		<!-- Header -->
 		<div class="text-center mb-16 relative">
 			<h1 class="font-display text-4xl md:text-6xl font-bold tracking-tight uppercase mb-6">
-				<span class="text-burgundy">Pray.</span> <span class="text-burgundy">Fight.</span> <span class="text-burgundy">Give.</span>
+				Take Action
 			</h1>
 			<h2 class="text-xl md:text-2xl font-display font-semibold text-parchment-muted mb-6">
-				50 Fights in 50 States - Georgia is Ours
+				Three ways to get involved
 			</h2>
 			<p class="text-lg text-parchment-muted max-w-3xl mx-auto leading-relaxed">
-				For nearly a decade, Operation Gospel has been preaching the Gospel faithfully to mothers heading into abortion clinics. We are now seeking to bring the Gospel to the voters of Georgia.
-			</p>
-			<p class="text-base text-parchment-dark mt-4 font-body">
-				You've seen the problem. You understand the solution. Now is the time to act.
+				Whether you want to pray, give, or advocate directly, there's a place for you. Choose what fits.
 			</p>
 
 			<!-- Ornamental divider -->
@@ -107,9 +104,9 @@ I want to be involved with Operation Gospel.`;
 			<!-- Left accent bar -->
 			<div class="absolute top-0 left-0 w-1 h-full bg-burgundy"></div>
 
-			<h2 class="font-display text-3xl font-semibold text-parchment mb-2 text-center uppercase tracking-wide">Join the Movement</h2>
+			<h2 class="font-display text-3xl font-semibold text-parchment mb-2 text-center uppercase tracking-wide">Join Our Email List</h2>
 			<p class="text-parchment-muted text-center mb-10 text-sm font-ui">
-				Join our prayer list and get connected with abolitionists in your area.
+				Get updates and opportunities to take action.
 			</p>
 
 			<div class="space-y-6">
@@ -164,7 +161,7 @@ I want to be involved with Operation Gospel.`;
 				</div>
 
 				<button onclick={handleSubmit} class="w-full bg-burgundy hover:bg-burgundy-dark text-parchment font-ui font-semibold uppercase tracking-widest py-4 rounded-sm transition-all duration-300 mt-8 shadow-lg hover:shadow-burgundy/20">
-					Join the Fight
+					Sign Up
 				</button>
 				<p class="text-xs text-center text-parchment-dark mt-4 font-ui">
 					Submitting will open your email client to send your information to us.
@@ -180,47 +177,44 @@ I want to be involved with Operation Gospel.`;
 					Pray
 				</h3>
 				<p class="text-sm text-parchment-muted leading-relaxed mb-6 font-body">
-					<strong class="text-parchment block mb-2">Pray for the Abolition of Abortion in Georgia</strong>
-					Intercessory prayer is spiritual warfare. Pray for:
+					<strong class="text-parchment block mb-2">Prayer Requests</strong>
+					Intercessory prayer is part of the work. Pray for:
 				</p>
 				<ul class="text-sm text-parchment-muted space-y-2 mb-6 list-disc list-inside font-body">
-					<li>Georgia legislators to embrace HB 441</li>
-					<li>Pastors and churches to boldly proclaim truth</li>
+					<li>Georgia legislators to support equal protection</li>
+					<li>Pastors and churches to take up this cause</li>
 					<li>The salvation of mothers, fathers, and abortion workers</li>
-					<li>Operation Gospel's ministry at abortion clinics</li>
+					<li>Operation Gospel's ongoing ministry</li>
 					<li>Revival and repentance across Georgia</li>
 				</ul>
 			</div>
 
-			<!-- FIGHT -->
+			<!-- ADVOCATE -->
 			<div class="bg-panel border border-charcoal hover:border-gold-muted p-8 md:p-10 rounded-sm transition-all duration-300">
 				<h3 class="font-display text-2xl font-semibold uppercase tracking-wide text-burgundy mb-6 text-center pb-4 border-b-2 border-burgundy/30">
-					Fight
+					Advocate
 				</h3>
 				<p class="text-sm text-parchment-muted leading-relaxed mb-6 font-body">
-					<strong class="text-parchment block mb-2">Fight for Equal Protection</strong>
-					Take action today:
+					<strong class="text-parchment block mb-2">Contact Your Representatives</strong>
+					Phone calls are one of the most effective ways to reach legislators. Scripts and contact info:
 				</p>
 				<div class="space-y-3">
 					<a
-						href="https://www.youtube.com/watch?v=k33epqzJIlM"
-						target="_blank"
-						rel="noopener noreferrer"
+						href="{base}/rep-calls"
 						class="block w-full text-center bg-burgundy hover:bg-burgundy-dark text-parchment font-ui font-semibold py-3 px-4 rounded-sm text-sm transition-colors"
 					>
-						Watch The Fatal Flaw
+						Call Your Representative
+					</a>
+					<a
+						href="{base}/burns-accountability"
+						class="block w-full text-center bg-burgundy hover:bg-burgundy-dark text-parchment font-ui font-semibold py-3 px-4 rounded-sm text-sm transition-colors"
+					>
+						Hold Speaker Burns Accountable
 					</a>
 				</div>
-				<div class="aspect-video mt-4 rounded-sm overflow-hidden">
-					<iframe
-						title="The Fatal Flaw Documentary"
-						src="https://www.youtube.com/embed/k33epqzJIlM"
-						frameborder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-						allowfullscreen
-						class="w-full h-full"
-					></iframe>
-				</div>
+				<p class="text-sm text-parchment-muted leading-relaxed mt-4">
+					<a href="{base}/get-involved" class="text-gold hover:text-gold-light">Find your district representative →</a>
+				</p>
 			</div>
 
 			<!-- GIVE -->
@@ -229,21 +223,21 @@ I want to be involved with Operation Gospel.`;
 					Give
 				</h3>
 				<p class="text-sm text-parchment-muted leading-relaxed mb-6 font-body">
-					<strong class="text-parchment block mb-2">What Your Gift Supports</strong>
-					Every dollar you give to Operation Gospel funds:
+					<strong class="text-parchment block mb-2">Support the Work</strong>
+					Every dollar funds:
 				</p>
 
 				<div>
-					<h4 class="font-display text-lg font-semibold text-parchment text-center mb-4">Suggested Giving Levels</h4>
+					<h4 class="font-display text-lg font-semibold text-parchment text-center mb-4">Suggested Levels</h4>
 					<div class="space-y-3">
 						<a href="https://donorbox.org/regular-donations-15" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-burgundy hover:bg-burgundy-dark text-parchment font-ui font-semibold py-3 px-4 rounded-sm text-sm transition-colors">
-							$25/month - Supplies materials for church training
+							$25/month — Church training materials
 						</a>
 						<a href="https://donorbox.org/regular-donations-15" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-burgundy hover:bg-burgundy-dark text-parchment font-ui font-semibold py-3 px-4 rounded-sm text-sm transition-colors">
-							$100/month - Funds one day of clinic evangelism
+							$100/month — One day of clinic evangelism
 						</a>
 						<a href="https://donorbox.org/regular-donations-15" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-burgundy hover:bg-burgundy-dark text-parchment font-ui font-semibold py-3 px-4 rounded-sm text-sm transition-colors">
-							$500/month - Supports full-time evangelist salary
+							$500/month — Full-time evangelist support
 						</a>
 						<a href="https://donorbox.org/regular-donations-15" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-transparent border border-burgundy hover:bg-burgundy/20 text-burgundy font-ui font-semibold py-2 px-4 rounded-sm text-sm transition-colors">
 							Custom Amount
@@ -253,23 +247,41 @@ I want to be involved with Operation Gospel.`;
 			</div>
 		</div>
 
+		<!-- Documentary Section -->
+		<div class="mt-16 max-w-3xl mx-auto">
+			<h3 class="font-display text-2xl font-semibold text-parchment mb-6 text-center">Watch: The Fatal Flaw</h3>
+			<p class="text-parchment-muted text-center mb-6">
+				This documentary explains why traditional pro-life strategies have failed and what abolition looks like.
+			</p>
+			<div class="aspect-video rounded-sm overflow-hidden">
+				<iframe
+					title="The Fatal Flaw Documentary"
+					src="https://www.youtube-nocookie.com/embed/k33epqzJIlM"
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen
+					class="w-full h-full"
+				></iframe>
+			</div>
+		</div>
+
 		<!-- Bottom Copy -->
 		<div class="text-center max-w-2xl mx-auto mt-16">
 			<p class="text-sm text-parchment-dark mb-2 font-body">
 				For tax-deductible giving, you may donate through our fiscal sponsor.
 			</p>
 			<p class="text-sm text-parchment-dark font-body">
-				For questions about giving or partnership, contact: <a href="mailto:info@operationgospel.com" class="text-gold hover:text-gold-light transition-colors">info@operationgospel.com</a>
+				Questions? Email <a href="mailto:info@operationgospel.com" class="text-gold hover:text-gold-light">info@operationgospel.com</a>
 			</p>
 		</div>
 
 		<!-- Back Navigation -->
 		<div class="flex flex-col md:flex-row gap-4 items-center justify-center mt-16">
 			<a
-				href="{base}/near-me"
+				href="{base}/join"
 				class="w-full md:w-auto bg-transparent border border-charcoal hover:border-gold-muted text-parchment-muted hover:text-parchment font-ui font-semibold px-10 py-4 rounded-sm uppercase tracking-wide transition-all duration-300 text-center"
 			>
-				Find People Near Me
+				Join the Network
 			</a>
 			<a
 				href="{base}/"

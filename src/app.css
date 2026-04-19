@@ -17,22 +17,22 @@
 	 * ============================================ */
 
 	/* Core Colors - Deep Foundations */
-	--color-void: #0A0908;
-	--color-parchment: #F5F1E6;
-	--color-parchment-muted: #D4CFC3;
-	--color-parchment-dark: #A89F91;
+	--color-void: #0a0908;
+	--color-parchment: #f5f1e6;
+	--color-parchment-muted: #d4cfc3;
+	--color-parchment-dark: #a89f91;
 
 	/* Accent Colors - Sacred & Urgent */
-	--color-burgundy: #722F37;
-	--color-burgundy-dark: #4A1C21;
-	--color-burgundy-light: #8B3A3A;
-	--color-gold: #B8860B;
-	--color-gold-muted: #8B7355;
-	--color-gold-light: #D4A84B;
+	--color-burgundy: #722f37;
+	--color-burgundy-dark: #4a1c21;
+	--color-burgundy-light: #8b3a3a;
+	--color-gold: #b8860b;
+	--color-gold-muted: #8b7355;
+	--color-gold-light: #d4a84b;
 
 	/* Surface Colors - Warm Panels */
-	--color-charcoal: #2C2926;
-	--color-panel: #1E1B18;
+	--color-charcoal: #2c2926;
+	--color-panel: #1e1b18;
 	--color-panel-elevated: #252220;
 
 	/* Legacy Aliases (for backward compatibility) */
@@ -378,12 +378,7 @@
 
 	.divider-simple {
 		height: 1px;
-		background: linear-gradient(
-			90deg,
-			transparent,
-			var(--color-gold-muted),
-			transparent
-		);
+		background: linear-gradient(90deg, transparent, var(--color-gold-muted), transparent);
 	}
 
 	/* ============================================

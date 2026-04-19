@@ -124,16 +124,35 @@
 	async function handleSubmit(e: Event) {
 		e.preventDefault();
 		isSubmitting = true;
-		// Simulate network request
-		await new Promise((resolve) => setTimeout(resolve, 1500));
-		console.log('Form Submitted (Void)', $state.snapshot(registrationState.form));
+		error = '';
 
-		// Optimization: Clear local persistence on successful submission
-		// to allow immediate second entries for other people/districts
-		localStorage.removeItem('userDistrict');
+		try {
+			const snapshot = $state.snapshot(registrationState.form);
+			
+			const subject = encodeURIComponent('New Abolition Volunteer Signup');
+			const body = encodeURIComponent(
+				`New Volunteer Signup\n\n` +
+				`District: ${snapshot.district || 'N/A (Not in Georgia)'}\n` +
+				`Name: ${snapshot.firstName} ${snapshot.lastName}\n` +
+				`Email: ${snapshot.email}\n` +
+				`Address: ${snapshot.address}\n` +
+				`City: ${snapshot.city}\n` +
+				`Phone: ${snapshot.phone || 'Not provided'}\n` +
+				`Home Church: ${snapshot.homeChurch || 'Not provided'}\n` +
+				`Interests: ${snapshot.interests.join(', ')}`
+			);
 
-		registrationState.submitted = true;
-		isSubmitting = false;
+			window.location.href = `mailto:Wes@OperationGospel.life?subject=${subject}&body=${body}`;
+
+			// Optimization: Clear local persistence on successful submission
+			localStorage.removeItem('userDistrict');
+			registrationState.submitted = true;
+		} catch (err) {
+			console.error(err);
+			error = 'There was an error opening your email client. Please try again.';
+		} finally {
+			isSubmitting = false;
+		}
 	}
 
 	function handleAddAnother() {
@@ -209,9 +228,8 @@
 							>
 						</div>
 						<p class="text-sm text-bone/60 mb-4">
-				<p class="text-sm text-bone/60 mb-4">
-						Our objective is to hold leadership accountable and advance the next phase of abolition in Georgia. Please enter your ZIP code to identify your representative.
-					</p>
+							Our objective is to hold leadership accountable and advance the next phase of abolition in Georgia. Please enter your ZIP code to identify your representative.
+						</p>
 						{#if !notInGeorgia}
 							<div class="space-y-4">
 								<div class="flex gap-2">

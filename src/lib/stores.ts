@@ -7,3 +7,8 @@ import { writable } from 'svelte/store';
  * 3: Interests & Church
  */
 export const formStep = writable(1);
+
+/**
+ * Tracks whether the mobile overlay menu is open.
+ */
+export const mobileMenuOpen = writable(false);

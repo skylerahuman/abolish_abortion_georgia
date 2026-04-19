@@ -34,7 +34,9 @@ describe('Global Navigation', () => {
 
 		// Check for expected routes in footer
 		const hrefs = Array.from(links).map((l) => l.getAttribute('href'));
-		expect(hrefs.some((h) => h?.includes('/georgia-battle') || h === '/georgia-battle')).toBeTruthy();
+		expect(
+			hrefs.some((h) => h?.includes('/georgia-battle') || h === '/georgia-battle')
+		).toBeTruthy();
 	});
 });
 
@@ -42,7 +44,9 @@ describe('Footer Redesign', () => {
 	it('displays the generic copyright text', () => {
 		render(Layout, { props: { children: createSnippet() } });
 
-		expect(screen.getByText(/Establishing Justice for the Pre-born in Georgia/i)).toBeInTheDocument();
+		expect(
+			screen.getByText(/Establishing Justice for the Pre-born in Georgia/i)
+		).toBeInTheDocument();
 	});
 
 	it('displays simplified footer navigation links', () => {

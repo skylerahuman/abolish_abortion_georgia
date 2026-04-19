@@ -7,19 +7,21 @@
 	import Header from '$lib/components/layout/Header.svelte';
 	import Footer from '$lib/components/layout/Footer.svelte';
 	import OverlayMenu from '$lib/components/layout/OverlayMenu.svelte';
+	import { mobileMenuOpen } from '$lib/stores';
 
 	let { children } = $props();
-	let mobileMenuOpen = $state(false);
 
-	function toggleMenu() {
-		mobileMenuOpen = !mobileMenuOpen;
+	function closeMenu() {
+		mobileMenuOpen.set(false);
 	}
 
 	onMount(() => {
 		const handleClickOutside = (event: MouseEvent) => {
 			const target = event.target as HTMLElement;
-			if (mobileMenuOpen && !target.closest('.nav-container') && !target.closest('.overlay-menu')) {
-				mobileMenuOpen = false;
+			let isOpen = false;
+			mobileMenuOpen.subscribe((v) => (isOpen = v))();
+			if (isOpen && !target.closest('.nav-container') && !target.closest('.overlay-menu')) {
+				mobileMenuOpen.set(false);
 			}
 		};
 		document.addEventListener('mousedown', handleClickOutside);
@@ -42,10 +44,10 @@
 	</a>
 
 	<!-- Header with Menu Toggle -->
-	<Header onMenuToggle={toggleMenu} menuOpen={mobileMenuOpen} />
+	<Header />
 
 	<!-- Full-Screen Overlay Menu -->
-	<OverlayMenu open={mobileMenuOpen} onClose={() => (mobileMenuOpen = false)} />
+	<OverlayMenu onClose={closeMenu} />
 
 	<!-- Main Content -->
 	<main id="main-content" tabindex="-1" class="flex-1 focus:outline-none">

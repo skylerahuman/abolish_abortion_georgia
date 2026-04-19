@@ -5,36 +5,36 @@ import ExegesisModal from './ExegesisModal.svelte';
 
 // Mock svelte/transition to avoid waiting for animations
 vi.mock('svelte/transition', async () => {
-    const actual = await vi.importActual('svelte/transition');
-    return {
-        ...actual,
-        fly: () => ({ duration: 0 })
-    };
+	const actual = await vi.importActual('svelte/transition');
+	return {
+		...actual,
+		fly: () => ({ duration: 0 })
+	};
 });
 
 describe('ExegesisModal', () => {
-    const originalAnimate = Element.prototype.animate;
-    const originalScrollIntoView = Element.prototype.scrollIntoView;
+	const originalAnimate = Element.prototype.animate;
+	const originalScrollIntoView = Element.prototype.scrollIntoView;
 
-    beforeAll(() => {
-        // Polyfill Web Animations API for JSDOM
-        Element.prototype.animate = vi.fn().mockImplementation(() => ({
-            finished: Promise.resolve(),
-            cancel: vi.fn(),
-            play: vi.fn(),
-            pause: vi.fn(),
-            reverse: vi.fn(),
-            onfinish: null
-        }));
+	beforeAll(() => {
+		// Polyfill Web Animations API for JSDOM
+		Element.prototype.animate = vi.fn().mockImplementation(() => ({
+			finished: Promise.resolve(),
+			cancel: vi.fn(),
+			play: vi.fn(),
+			pause: vi.fn(),
+			reverse: vi.fn(),
+			onfinish: null
+		}));
 
-        // Mock scrollIntoView
-        Element.prototype.scrollIntoView = vi.fn();
-    });
+		// Mock scrollIntoView
+		Element.prototype.scrollIntoView = vi.fn();
+	});
 
-    afterAll(() => {
-        Element.prototype.animate = originalAnimate;
-        Element.prototype.scrollIntoView = originalScrollIntoView;
-    });
+	afterAll(() => {
+		Element.prototype.animate = originalAnimate;
+		Element.prototype.scrollIntoView = originalScrollIntoView;
+	});
 
 	it('should close when Escape key is pressed', async () => {
 		// Mock snippet for children
@@ -57,8 +57,8 @@ describe('ExegesisModal', () => {
 		await fireEvent.keyDown(window, { key: 'Escape' });
 
 		// Check if modal is removed
-        await waitFor(() => {
-            expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
-        });
+		await waitFor(() => {
+			expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+		});
 	});
 });

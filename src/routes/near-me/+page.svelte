@@ -340,27 +340,27 @@
 									<span class="text-sm text-neutral-300">I want to find an abolitionist church</span>
 								</label>
 								<label class="flex items-center gap-2 cursor-pointer">
-					<label class="flex items-center gap-2 cursor-pointer">
-							<input 
-								type="checkbox" 
-								value="accountability"
-								checked={interests.includes('accountability')}
-								onchange={() => toggleInterest('accountability')}
-								class="w-4 h-4"
-							/>
-							<span class="text-sm text-neutral-300">I want to hold my representatives accountable</span>
-						</label>
-						<label class="flex items-center gap-2 cursor-pointer">
-							<input 
-								type="checkbox" 
-								value="next-phase"
-								checked={interests.includes('next-phase')}
-								onchange={() => toggleInterest('next-phase')}
-								class="w-4 h-4"
-							/>
-							<span class="text-sm text-neutral-300">I want to help advance the next phase of abolition</span>
-						</label>
-						<label class="flex items-center gap-2 cursor-pointer">
+									<input 
+										type="checkbox" 
+										value="accountability"
+										checked={interests.includes('accountability')}
+										onchange={() => toggleInterest('accountability')}
+										class="w-4 h-4"
+									/>
+									<span class="text-sm text-neutral-300">I want to hold my representatives accountable</span>
+								</label>
+								<label class="flex items-center gap-2 cursor-pointer">
+									<input 
+										type="checkbox" 
+										value="next-phase"
+										checked={interests.includes('next-phase')}
+										onchange={() => toggleInterest('next-phase')}
+										class="w-4 h-4"
+									/>
+									<span class="text-sm text-neutral-300">I want to help advance the next phase of abolition</span>
+								</label>
+								<label class="flex items-center gap-2 cursor-pointer">
+									<input 
 										type="checkbox" 
 										value="pastor-elder"
 										checked={interests.includes('pastor-elder')}

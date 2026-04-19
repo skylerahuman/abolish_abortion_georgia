@@ -66,8 +66,8 @@
                 HB 441 is the test: Do we really believe abortion is murder? Or is it just a bad choice that should be regulated?
             </p>
 
-            <a href="{base}/the-gathering" class="text-red-500 font-bold uppercase tracking-widest text-sm border-b border-red-900 hover:text-red-400 hover:border-red-500 transition-all pb-1">
-                Join The Gathering &rarr;
+            <a href="{base}/join" class="text-red-500 font-bold uppercase tracking-widest text-sm border-b border-red-900 hover:text-red-400 hover:border-red-500 transition-all pb-1">
+                Join the Fight &rarr;
             </a>
         </div>
     </div>

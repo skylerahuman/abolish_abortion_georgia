@@ -15,23 +15,23 @@
             </h1>
             <div class="h-1 w-24 bg-red-600 mx-auto"></div>
             <p class="mt-6 text-xl text-neutral-400 max-w-2xl mx-auto">
-                HB 441 is not just another pro-life regulation. It is the application of God's Law to man's law.
+                HB 441 applies existing Georgia homicide law to the unborn. No exceptions, no arbitrary timelines.
             </p>
         </div>
 
         <!-- Core Concept -->
         <div class="bg-neutral-900/50 rounded-lg border border-neutral-800 mb-12">
             <div class="p-8 md:p-12">
-                <h2 class="text-2xl font-bold text-red-600 uppercase tracking-widest mb-6">The Core Doctrine</h2>
+                <h2 class="text-2xl font-bold text-red-600 uppercase tracking-widest mb-6">What HB 441 Does</h2>
                 <div class="prose prose-invert prose-lg text-neutral-300">
                     <p class="mb-4">
-                        The <strong>Georgia Equal Protection Act (HB 441)</strong> seeks to do one simple thing: apply the existing laws against homicide to the unborn, without exception.
+                        Current Georgia law: If you kill a born person, it is murder. Kill an unborn person? Often treated as a legal non-event.
                     </p>
                     <p class="mb-4">
-                        Under current Georgia law, if you kill a born person, it is murder. If you kill an unborn person, it is often treated as "healthcare" or a "choice," regulated by arbitrary timelines (heartbeat, 20 weeks, etc.).
+                        HB 441 removes that distinction. It asserts that from fertilization, a human being exists and deserves the same legal protection as any other person.
                     </p>
                     <p>
-                        HB 441 removes the loopholes. It asserts that from the moment of fertilization, a human being is a person made in the image of God, deserving of the exact same legal protection as you or I.
+                        This is not new law. It is the application of existing law to a class of persons currently excluded.
                     </p>
                 </div>
             </div>
@@ -40,47 +40,48 @@
         <!-- Comparison Grid -->
         <div class="grid md:grid-cols-2 gap-8 mb-16">
             <div class="bg-neutral-950 p-8 rounded-lg border-l-4 border-red-900">
-                <h3 class="text-xl font-bold uppercase tracking-widest mb-4 text-red-700">Man's Law (Regulation)</h3>
+                <h3 class="text-xl font-bold uppercase tracking-widest mb-4 text-red-700">Current Law (Heartbeat)</h3>
                 <ul class="space-y-4 text-sm text-neutral-400">
                     <li class="flex gap-3">
                         <span class="text-red-700 font-bold">X</span>
-                        <span><strong>Arbitrary Lines:</strong> Protects life only after a "heartbeat" is detected.</span>
+                        <span>Protects only after a "heartbeat" is detected.</span>
                     </li>
                     <li class="flex gap-3">
                         <span class="text-red-700 font-bold">X</span>
-                        <span><strong>Discrimination:</strong> Allows killing based on age (pre-heartbeat) or method.</span>
+                        <span>Allows killing based on age or circumstances.</span>
                     </li>
                     <li class="flex gap-3">
                         <span class="text-red-700 font-bold">X</span>
-                        <span><strong>Immunity:</strong> Often grants immunity to those who solicit or perform the killing.</span>
+                        <span>Grants immunity to those who perform abortions.</span>
                     </li>
                 </ul>
             </div>
-            
+
             <div class="bg-neutral-900 p-8 rounded-lg border-l-4 border-green-800">
-                <h3 class="text-xl font-bold uppercase tracking-widest mb-4 text-green-600">God's Law (Equal Protection)</h3>
+                <h3 class="text-xl font-bold uppercase tracking-widest mb-4 text-green-600">HB 441 (Equal Protection)</h3>
                 <ul class="space-y-4 text-sm text-neutral-300">
                     <li class="flex gap-3">
                         <span class="text-green-600 font-bold">V</span>
-                        <span><strong>Total Protection:</strong> Protects life from the moment of fertilization.</span>
+                        <span>Protects from the moment of fertilization.</span>
                     </li>
                     <li class="flex gap-3">
                         <span class="text-green-600 font-bold">V</span>
-                        <span><strong>Equal Justice:</strong> The penalty for killing a pre-born child is the same as killing a born child.</span>
+                        <span>The penalty for killing a preborn child matches the penalty for killing a born child.</span>
                     </li>
                     <li class="flex gap-3">
                         <span class="text-green-600 font-bold">V</span>
-                        <span><strong>No Compromise:</strong> Rejects the idea that abortion is ever "healthcare."</span>
+                        <span>No exceptions based on circumstances of conception.</span>
                     </li>
                 </ul>
             </div>
         </div>
 
         <!-- CTA -->
-        			<div class="text-center">
-        				<h3 class="text-2xl font-bold text-white mb-6">Does your Representative support The Standard?</h3>
-        				<a href="{base}/get-involved" class="text-red-500 font-bold uppercase tracking-widest text-sm border-b border-red-900 hover:text-red-400 hover:border-red-500 transition-all pb-1">
-        					Make The Plea &rarr;
-        				</a>
-        			</div>    </div>
+        <div class="text-center">
+            <h3 class="text-2xl font-bold text-white mb-6">Does your Representative support equal protection?</h3>
+            <a href="{base}/get-involved" class="text-red-500 font-bold uppercase tracking-widest text-sm border-b border-red-900 hover:text-red-400 hover:border-red-500 transition-all pb-1">
+                Find Your Rep &rarr;
+            </a>
+        </div>
+    </div>
 </div>

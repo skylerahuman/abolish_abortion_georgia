@@ -61,8 +61,8 @@ export const NavCategories: NavCategory[] = [
 			{ label: 'Join Us', href: Routes.JOIN },
 			{ label: 'For Pastors', href: Routes.FOR_PASTORS },
 			{ label: 'Call Your Rep', href: Routes.REP_CALLS },
-			{ label: 'Support - Prayer', href: `${Routes.SUPPORT}#prayer` },
-			{ label: 'Support - Donations', href: `${Routes.SUPPORT}#donations` }
+			{ label: 'Support - Prayer', href: '#support-prayer' },
+			{ label: 'Support - Donate', href: '#support-donate' }
 		]
 	}
 ];

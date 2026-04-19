@@ -7,6 +7,7 @@
 	import Header from '$lib/components/layout/Header.svelte';
 	import Footer from '$lib/components/layout/Footer.svelte';
 	import OverlayMenu from '$lib/components/layout/OverlayMenu.svelte';
+	import SupportModal from '$lib/components/support/SupportModal.svelte';
 	import { mobileMenuOpen } from '$lib/stores';
 
 	let { children } = $props();
@@ -48,6 +49,9 @@
 
 	<!-- Full-Screen Overlay Menu -->
 	<OverlayMenu onClose={closeMenu} />
+
+	<!-- Support Modal -->
+	<SupportModal />
 
 	<!-- Main Content -->
 	<main id="main-content" tabindex="-1" class="flex-1 focus:outline-none">

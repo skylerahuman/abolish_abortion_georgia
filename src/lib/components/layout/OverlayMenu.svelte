@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { fade, fly } from 'svelte/transition';
-	import { NavCategories, Routes } from '$lib/config/navigation';
-	import { mobileMenuOpen } from '$lib/stores';
+	import { NavCategories } from '$lib/config/navigation';
+	import { mobileMenuOpen, supportModalOpen, supportModalType } from '$lib/stores';
 
 	interface Props {
 		onClose: () => void;
@@ -26,9 +26,17 @@
 		}
 	}
 
-	function handleLinkClick() {
-		// Small delay to let navigation start before closing
-		setTimeout(onClose, 50);
+	function handleLinkClick(href: string) {
+		if (href.startsWith('#support-')) {
+			// Handle support modal links
+			const type = href.replace('#support-', '') as 'prayer' | 'donate';
+			supportModalOpen.set(true);
+			supportModalType.set(type);
+			onClose();
+		} else {
+			// Small delay to let navigation start before closing
+			setTimeout(onClose, 50);
+		}
 	}
 </script>
 
@@ -82,7 +90,7 @@
 								<li>
 									<a
 										href={link.href}
-										onclick={handleLinkClick}
+										onclick={() => handleLinkClick(link.href)}
 										class="block py-3 px-3 transition-all duration-200 rounded-sm
 											{isActive(link.href)
 											? 'bg-burgundy/20 text-gold border-l-2 border-gold -ml-px'

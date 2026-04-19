@@ -5,7 +5,8 @@
 	import logo from '$lib/assets/logo_basic.png';
 
 	const isHidden = PagesWithHiddenNav.includes(page.url.pathname);
-	const showJoinCta = page.url.pathname !== '/' && page.url.pathname !== '/join';
+	const hideOnRoutes = ['/', '/join', '/support'];
+	const showJoinCta = $derived(!hideOnRoutes.includes(page.url.pathname));
 
 	// Simple toggle function
 	function toggleMenu() {

@@ -24,11 +24,11 @@
 			}
 
 			const scrollY = window.scrollY;
-			const startFade = heroHeight * 0.1; // Start fade slightly into the scroll
-			const endFade = heroHeight * 0.6; // Fully faded by 60% of hero height
+			const startFade = heroHeight * 0.1;
+			const endFade = heroHeight * 0.6;
 			if (scrollY > startFade) {
 				const progress = Math.min((scrollY - startFade) / (endFade - startFade), 1);
-				backgroundOpacity = progress * 0.5; // Max opacity 0.5
+				backgroundOpacity = progress * 0.5;
 			} else {
 				backgroundOpacity = 0;
 			}
@@ -53,10 +53,8 @@
 
 		if (Math.abs(diff) > swipeThreshold) {
 			if (diff > 0) {
-				// Swipe left - show text
 				showTextPanel = true;
 			} else {
-				// Swipe right - show hero
 				showTextPanel = false;
 			}
 		}
@@ -69,7 +67,6 @@
 	}
 
 	onMount(() => {
-		// Check if mobile and update hero dimensions
 		const updateDimensions = () => {
 			isMobile = window.innerWidth <= 768;
 			if (heroSection) {
@@ -77,18 +74,34 @@
 			}
 		};
 
-		// Optimization: Debounce resize event
 		const handleResize = () => {
 			clearTimeout(resizeTimeout);
 			resizeTimeout = window.setTimeout(updateDimensions, 200);
 		};
 
+		// Scroll reveal observer
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('is-visible');
+					}
+				});
+			},
+			{ threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+		);
+
 		updateDimensions();
 		window.addEventListener('resize', handleResize);
-
 		window.addEventListener('scroll', handleScroll, { passive: true });
 
-		// A gentle nudge to encourage scrolling, kept for UX
+		// Observe scroll reveal elements
+		setTimeout(() => {
+			document.querySelectorAll('.scroll-reveal, .focus-card').forEach((el) => {
+				observer.observe(el);
+			});
+		}, 100);
+
 		setTimeout(() => {
 			const currentScroll = window.scrollY;
 			if (currentScroll === 0) {
@@ -101,6 +114,7 @@
 			window.removeEventListener('resize', handleResize);
 			if (rafId) cancelAnimationFrame(rafId);
 			if (resizeTimeout) clearTimeout(resizeTimeout);
+			observer.disconnect();
 		};
 	});
 </script>
@@ -113,7 +127,6 @@
 			isolation: isolate;
 		}
 
-		/* Optimization: Use fixed pseudo-element instead of background-attachment: fixed for better mobile performance */
 		.home-bg::before {
 			content: '';
 			position: fixed;
@@ -124,9 +137,9 @@
 			z-index: -1;
 			background-image: linear-gradient(
 					to bottom,
-					rgba(2, 6, 23, 0.1),
-					rgba(2, 6, 23, 0.4),
-					rgba(2, 6, 23, 1)
+					rgba(10, 9, 8, 0.15),
+					rgba(10, 9, 8, 0.5),
+					rgba(10, 9, 8, 1)
 				),
 				url('/images/backdrop.png');
 			background-position: center top;
@@ -135,7 +148,6 @@
 			will-change: transform;
 		}
 
-		/* Fix background positioning on smaller screens */
 		@media (max-width: 1450px) {
 			.home-bg::before {
 				background-position: center 0%;
@@ -143,51 +155,40 @@
 			}
 		}
 
-		/* Cinematic fade-in animations - all screens */
+		/* Cinematic fade-in animations - The Gavel timing */
 		.fade-in-line {
 			opacity: 0;
-			animation: fadeInCinematic 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+			animation: reveal-up 800ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 			will-change: transform, opacity;
 		}
 
-		/* Four lines at 0.6s intervals, 1s duration each */
-		.fade-in-line:nth-child(1) {
-			animation-delay: 0s;
-		}
-		.fade-in-line:nth-child(2) {
-			animation-delay: 0.6s;
-		}
-		.fade-in-line:nth-child(3) {
-			animation-delay: 1s;
-		}
-		.fade-in-line:nth-child(4) {
-			animation-delay: 1.4s;
-		}
+		.fade-in-line:nth-child(1) { animation-delay: 0s; }
+		.fade-in-line:nth-child(2) { animation-delay: 600ms; }
+		.fade-in-line:nth-child(3) { animation-delay: 1s; }
+		.fade-in-line:nth-child(4) { animation-delay: 1.4s; }
 
-		/* Desktop paragraph - starts at 2.4s */
 		.fade-in-text {
 			opacity: 0;
-			animation: fadeInCinematic 0.5s cubic-bezier(0.16, 1, 0.3, 1) 2.4s forwards;
+			animation: reveal-up 600ms cubic-bezier(0.16, 1, 0.3, 1) 2.4s forwards;
 			will-change: transform, opacity;
 		}
 
-		/* Buttons start at 2.6s */
 		.fade-in-buttons {
 			opacity: 0;
-			animation: fadeInCinematic 0.5s cubic-bezier(0.16, 1, 0.3, 1) 2.6s forwards;
+			animation: reveal-up 600ms cubic-bezier(0.16, 1, 0.3, 1) 2.6s forwards;
 		}
 
 		.fade-in-scroll {
 			opacity: 0;
-			animation: fadeInBounce 0.8s ease-out 3.2s forwards;
+			animation: reveal-fade 800ms ease-out 3.2s forwards;
 		}
 
 		.fade-in-carousel-icon {
 			opacity: 0;
-			animation: fadeInBounce 0.8s ease-out 2.8s forwards;
+			animation: reveal-fade 800ms ease-out 2.8s forwards;
 		}
 
-		@keyframes fadeInCinematic {
+		@keyframes reveal-up {
 			from {
 				opacity: 0;
 				transform: translateY(30px);
@@ -198,26 +199,16 @@
 			}
 		}
 
-		@keyframes fadeInBounce {
-			0% {
-				opacity: 0;
-				transform: translateY(-10px);
-			}
-			50% {
-				opacity: 1;
-				transform: translateY(5px);
-			}
-			100% {
-				opacity: 1;
-				transform: translateY(0);
-			}
+		@keyframes reveal-fade {
+			from { opacity: 0; }
+			to { opacity: 1; }
 		}
 
 		/* Mobile carousel */
 		@media (max-width: 768px) {
 			.hero-carousel {
 				display: flex;
-				transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+				transition: transform 0.5s cubic-bezier(0.33, 1, 0.68, 1);
 				width: 200%;
 			}
 
@@ -230,6 +221,25 @@
 				flex-shrink: 0;
 			}
 		}
+
+		/* Focus card animations */
+		.focus-card {
+			opacity: 0;
+			transform: translateY(24px);
+			transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
+				transform 600ms cubic-bezier(0.16, 1, 0.3, 1),
+				border-color 250ms ease,
+				box-shadow 250ms ease;
+		}
+
+		.focus-card.is-visible {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		.focus-card:hover {
+			border-color: var(--color-gold-muted);
+		}
 	</style>
 </svelte:head>
 
@@ -237,36 +247,33 @@
 	<!-- Hero Section -->
 	<section
 		bind:this={heroSection}
-		class="relative min-h-[90vh] md:min-h-[85vh] py-12 md:py-16 px-4 flex flex-col justify-center border-b border-crimson/20 overflow-hidden"
+		class="relative min-h-[90vh] md:min-h-[85vh] py-12 md:py-16 px-4 flex flex-col justify-center border-b border-charcoal overflow-hidden"
 		ontouchstart={handleTouchStart}
 		ontouchend={handleTouchEnd}
 	>
 		<!-- Mobile Carousel Wrapper -->
 		<div
-			class="hero-carousel {showTextPanel
-				? 'show-text'
-				: ''} md:block md:w-auto! md:transform-none! relative z-10 w-full px-6 md:px-16 mt-auto"
+			class="hero-carousel {showTextPanel ? 'show-text' : ''} md:block md:w-auto! md:transform-none! relative z-10 w-full px-6 md:px-16 mt-auto"
 		>
 			<!-- Panel 1: Hero Content -->
 			<div class="carousel-panel md:w-full!">
 				<div class="w-full max-w-4xl text-left flex flex-col items-start">
 					<h2
-						class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-light text-bone tracking-normal mb-12 drop-shadow-xl space-y-2 md:space-y-3 leading-tight"
+						class="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-parchment tracking-normal mb-12 space-y-2 md:space-y-3 leading-tight"
 					>
 						<div class="fade-in-line">
-							Georgia bears <span class="text-crimson">bloodguilt</span>
+							Georgia bears <span class="text-burgundy">bloodguilt</span>
 						</div>
 						<div class="fade-in-line">for the sin of abortion.</div>
 						<div class="fade-in-line italic opacity-90">What can wash away that stain?</div>
 						<div class="fade-in-line">
-							Nothing but the <span class="text-crimson">blood</span> of
-							<span class="text-gold font-medium inline-block text-[1.2em]">Jesus</span>.
+							Nothing but the <span class="text-burgundy">blood</span> of
+							<span class="text-gold font-semibold inline-block text-[1.2em]">Jesus</span>
 						</div>
 					</h2>
 
-					<!-- Hide long text on mobile, show on desktop with fade-in -->
 					<p
-						class="hidden md:block text-left text-lg font-sans text-bone/90 mb-12 max-w-2xl drop-shadow-lg fade-in-text leading-relaxed"
+						class="hidden md:block text-left text-lg font-body text-parchment/90 mb-12 max-w-2xl leading-relaxed fade-in-text"
 					>
 						In the post-Roe era, we will not overcome the sin of abortion (which the Scriptures call
 						child sacrifice) by "pro-life" gradualism. We must be pro-justice and pro-mercy, because
@@ -279,13 +286,13 @@
 					<div class="flex justify-start gap-6 mt-4 fade-in-buttons">
 						<a
 							href="{base}/join"
-							class="px-10 py-4 bg-crimson text-bone font-bold rounded-lg hover:bg-ember transition-all duration-300 shadow-xl hover:shadow-crimson/40 hover:-translate-y-0.5 active:translate-y-0"
+							class="btn btn-primary text-sm tracking-widest"
 						>
 							Join Us
 						</a>
 						<a
 							href="{base}/support"
-							class="px-10 py-4 border-2 border-crimson text-bone font-bold rounded-lg hover:bg-crimson/10 transition-all duration-300 shadow-xl hover:-translate-y-0.5 active:translate-y-0"
+							class="btn btn-secondary text-sm tracking-widest"
 						>
 							Support
 						</a>
@@ -297,23 +304,10 @@
 						onclick={togglePanel}
 						type="button"
 					>
-						<div
-							class="inline-flex items-center gap-2 text-bone/50 text-sm cursor-pointer justify-center"
-						>
+						<div class="inline-flex items-center gap-2 text-parchment/50 text-sm cursor-pointer justify-center font-ui">
 							<span>Swipe for more</span>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								class="h-5 w-5 animate-pulse"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M9 5l7 7-7 7"
-								/>
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
 							</svg>
 						</div>
 					</button>
@@ -323,8 +317,8 @@
 			<!-- Panel 2: Long Text - Mobile only -->
 			<div class="carousel-panel md:hidden">
 				<div class="w-full max-w-3xl mr-auto px-6">
-					<h3 class="text-2xl font-serif font-bold text-bone mb-6">Our Mission</h3>
-					<p class="text-left text-base font-sans text-bone mb-8 drop-shadow-lg leading-relaxed">
+					<h3 class="text-2xl font-display font-semibold text-parchment mb-6">Our Mission</h3>
+					<p class="text-left text-base font-body text-parchment mb-8 leading-relaxed">
 						In the post-Roe era, we will not overcome the sin of abortion (which the Scriptures call
 						child sacrifice) by "pro-life" gradualism. We must be pro-justice and pro-mercy, because
 						our God and Lord, Jesus Christ, is perfectly just and merciful. We demand equal
@@ -332,24 +326,10 @@
 						of the Church in Georgia to accomplish the Great Commission.
 					</p>
 
-					<!-- Back Indicator -->
 					<button class="text-center w-full" onclick={togglePanel} type="button">
-						<div
-							class="inline-flex items-center gap-2 text-bone/50 text-sm cursor-pointer justify-center"
-						>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								class="h-5 w-5"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M15 19l-7-7 7-7"
-								/>
+						<div class="inline-flex items-center gap-2 text-parchment/50 text-sm cursor-pointer justify-center font-ui">
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
 							</svg>
 							<span>Swipe back</span>
 						</div>
@@ -359,62 +339,49 @@
 		</div>
 
 		<!-- Scroll Down Indicator - Desktop only -->
-		<div
-			class="hidden md:block relative z-10 mt-auto mx-auto text-center text-bone/50 cursor-pointer fade-in-scroll"
-		>
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				class="h-6 w-6"
-				fill="none"
-				viewBox="0 0 24 24"
-				stroke="currentColor"
-			>
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="1.5"
-					d="M19 9l-7 7-7-7"
-				/>
+		<div class="hidden md:block relative z-10 mt-auto mx-auto text-center text-parchment/40 cursor-pointer fade-in-scroll">
+			<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
 			</svg>
 		</div>
 	</section>
 
 	<!-- Our Focus Section -->
 	<section
-		class="relative z-10 py-16 md:py-32 sm:md:py-40"
-		style="background-color: rgba(2, 6, 23, {backgroundOpacity}); backdrop-filter: blur(4px);"
+		class="relative z-10 py-16 md:py-32"
+		style="background-color: rgba(10, 9, 8, {backgroundOpacity}); backdrop-filter: blur(4px);"
 	>
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<h2 class="text-4xl font-serif font-bold text-bone tracking-tight mb-20 text-center">
-				Our Focus
-			</h2>
+			<!-- Section Header -->
+			<div class="text-center mb-20 scroll-reveal">
+				<h2 class="font-display text-4xl md:text-5xl font-semibold text-parchment tracking-tight mb-6">
+					Our Focus
+				</h2>
+				<div class="divider-ornate text-gold-muted max-w-xs mx-auto">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+						<path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2z"/>
+					</svg>
+				</div>
+			</div>
+
 			<div class="grid md:grid-cols-3 gap-8">
 				<!-- Legislative Discipleship -->
 				<a
 					href="{base}/georgia-battle"
-					class="flex flex-col bg-panel/80 backdrop-blur-sm border border-white/10 p-8 rounded-xl hover:bg-panel hover:border-crimson/50 transition-all duration-300 group shadow-lg hover:shadow-crimson/10 hover:-translate-y-1"
+					class="focus-card flex flex-col bg-panel border border-charcoal p-8 md:p-10 rounded-sm hover:shadow-lg"
 				>
 					<div>
-						<div
-							class="mb-6 inline-block p-3 rounded-lg bg-crimson/20 text-crimson group-hover:bg-crimson/30 group-hover:text-ember transition-colors"
-						>
-							<svg
-								class="w-8 h-8"
-								fill="currentColor"
-								viewBox="-2 0 19 19"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									d="M9.316 14.722a.477.477 0 0 1-.475.475H1.433a.477.477 0 0 1-.475-.475v-.863a.477.477 0 0 1 .475-.475h7.408a.476.476 0 0 1 .475.475zm-2.767-2.587a.552.552 0 0 1-.392-.163L2.96 8.776a.554.554 0 0 1 .784-.784L6.94 11.19a.554.554 0 0 1-.392.946zm7.33.992L9.435 8.682l1.085-1.084-3.173-3.173-2.97 2.97 3.173 3.172 1.102-1.101 4.445 4.445a.554.554 0 1 0 .784-.784zm-2.33-5.993a.552.552 0 0 1-.391-.162L7.96 3.775a.554.554 0 1 1 .784-.784l3.196 3.197a.554.554 0 0 1-.391.946z"
-								/>
-							</svg>
+						<div class="mb-6">
+							<div class="inline-flex items-center justify-center w-14 h-14 rounded-sm bg-burgundy/20 text-burgundy group-hover:bg-burgundy/30 group-hover:text-burgundy-light transition-colors">
+								<svg class="w-7 h-7" fill="currentColor" viewBox="-2 0 19 19" xmlns="http://www.w3.org/2000/svg">
+									<path d="M9.316 14.722a.477.477 0 0 1-.475.475H1.433a.477.477 0 0 1-.475-.475v-.863a.477.477 0 0 1 .475-.475h7.408a.476.476 0 0 1 .475.475zm-2.767-2.587a.552.552 0 0 1-.392-.163L2.96 8.776a.554.554 0 0 1 .784-.784L6.94 11.19a.554.554 0 0 1-.392.946zm7.33.992L9.435 8.682l1.085-1.084-3.173-3.173-2.97 2.97 3.173 3.172 1.102-1.101 4.445 4.445a.554.554 0 1 0 .784-.784zm-2.33-5.993a.552.552 0 0 1-.391-.162L7.96 3.775a.554.554 0 1 1 .784-.784l3.196 3.197a.554.554 0 0 1-.391.946z" />
+								</svg>
+							</div>
 						</div>
-						<h3
-							class="text-2xl font-serif font-bold text-bone mb-4 group-hover:text-ember transition-colors"
-						>
+						<h3 class="text-2xl font-display font-semibold text-parchment mb-4 group-hover:text-gold transition-colors">
 							Legislative Discipleship
 						</h3>
-						<div class="space-y-4 text-bone/70 text-base leading-relaxed font-sans">
+						<div class="space-y-4 text-parchment-muted text-base leading-relaxed font-body">
 							<p>
 								The unborn in Georgia need churches, pastors, citizens, and the magistrate to be
 								discipled in God's standard of justice until our laws call abortion what God says it
@@ -428,41 +395,29 @@
 						</div>
 					</div>
 					<div class="mt-auto pt-8 text-center">
-						<div
-							class="inline-block px-6 py-3 rounded-lg bg-teal/80 text-bone font-semibold hover:bg-linear-to-r from-teal to-cyan-600 transition-all duration-300 shadow-lg"
-						>
+						<span class="btn btn-ghost text-xs tracking-wider">
 							Study the Battle
-						</div>
+						</span>
 					</div>
 				</a>
 
 				<!-- Conflict Evangelism -->
 				<a
-					href="{base}/abolition-basics"
-					class="flex flex-col bg-panel/80 backdrop-blur-sm border border-white/10 p-8 rounded-xl hover:bg-panel hover:border-crimson/50 transition-all duration-300 group shadow-lg hover:shadow-crimson/10 hover:-translate-y-1"
+					href="{base}/join"
+					class="focus-card flex flex-col bg-panel border border-charcoal p-8 md:p-10 rounded-sm hover:shadow-lg"
 				>
 					<div>
-						<div
-							class="mb-6 inline-block p-3 rounded-lg bg-crimson/20 text-crimson group-hover:bg-crimson/30 group-hover:text-ember transition-colors"
-						>
-							<svg
-								class="w-8 h-8"
-								fill="currentColor"
-								viewBox="0 0 32 32"
-								version="1.1"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									d="M5.979 10.974v5.021h7.041v11.99h5.042v-11.99h6.958v-5.021h-6.958v-6.958h-5.042v6.958h-7.041z"
-								></path>
-							</svg>
+						<div class="mb-6">
+							<div class="inline-flex items-center justify-center w-14 h-14 rounded-sm bg-burgundy/20 text-burgundy group-hover:bg-burgundy/30 group-hover:text-burgundy-light transition-colors">
+								<svg class="w-7 h-7" fill="currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+									<path d="M5.979 10.974v5.021h7.041v11.99h5.042v-11.99h6.958v-5.021h-6.958v-6.958h-5.042v6.958h-7.041z"></path>
+								</svg>
+							</div>
 						</div>
-						<h3
-							class="text-2xl font-serif font-bold text-bone mb-4 group-hover:text-ember transition-colors"
-						>
+						<h3 class="text-2xl font-display font-semibold text-parchment mb-4 group-hover:text-gold transition-colors">
 							Conflict Evangelism
 						</h3>
-						<div class="space-y-4 text-bone/70 text-base leading-relaxed font-sans">
+						<div class="space-y-4 text-parchment-muted text-base leading-relaxed font-body">
 							<p>
 								Christians must bring both the Gospel and resistance to the place where the sin of
 								child sacrifice occurs—the hearts of pregnant mothers. We must be proactive in
@@ -476,42 +431,29 @@
 						</div>
 					</div>
 					<div class="mt-auto pt-8 text-center">
-						<div
-							class="inline-block px-6 py-3 rounded-lg bg-teal/80 text-bone font-semibold hover:bg-linear-to-r from-teal to-cyan-600 transition-all duration-300 shadow-lg"
-						>
+						<span class="btn btn-ghost text-xs tracking-wider">
 							Join the Cause
-						</div>
+						</span>
 					</div>
 				</a>
 
 				<!-- Church Mobilization -->
 				<a
-					href="{base}/join"
-					class="flex flex-col bg-panel/80 backdrop-blur-sm border border-white/10 p-8 rounded-xl hover:bg-panel hover:border-crimson/50 transition-all duration-300 group shadow-lg hover:shadow-crimson/10 hover:-translate-y-1"
+					href="{base}/for-pastors"
+					class="focus-card flex flex-col bg-panel border border-charcoal p-8 md:p-10 rounded-sm hover:shadow-lg"
 				>
 					<div>
-						<div
-							class="mb-6 inline-block p-3 rounded-lg bg-crimson/20 text-crimson group-hover:bg-crimson/30 group-hover:text-ember transition-colors"
-						>
-							<svg
-								class="w-8 h-8"
-								viewBox="0 0 24 24"
-								fill="currentColor"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									fill-rule="evenodd"
-									clip-rule="evenodd"
-									d="M12 2C12.5523 2 13 2.44772 13 3V4H14C14.5523 4 15 4.44772 15 5C15 5.55228 14.5523 6 14 6H13V6.92805L21.007 11.6381C21.4831 11.9181 21.642 12.531 21.3619 13.007C21.0833 13.4807 20.475 13.6404 20 13.366V20C20 21.1046 19.1046 22 18 22H15H14H10H9H6C4.89543 22 4 21.1046 4 20V13.366C3.52498 13.6404 2.91671 13.4807 2.63807 13.007C2.35805 12.531 2.51695 11.9181 2.99298 11.6381L11 6.92806V6H10C9.44771 6 9 5.55228 9 5C9 4.44772 9.44771 4 10 4H11V3C11 2.44772 11.4477 2 12 2ZM11 20H13V17C13 16.4477 12.5523 16 12 16C11.4477 16 11 16.4477 11 17V20ZM15 20V17C15 15.3431 13.6569 14 12 14C10.3431 14 9 15.3431 9 17V20H6V12.1896L12 8.66018L18 12.1896V20H15Z"
-								/>
-							</svg>
+						<div class="mb-6">
+							<div class="inline-flex items-center justify-center w-14 h-14 rounded-sm bg-burgundy/20 text-burgundy group-hover:bg-burgundy/30 group-hover:text-burgundy-light transition-colors">
+								<svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C12.5523 2 13 2.44772 13 3V4H14C14.5523 4 15 4.44772 15 5C15 5.55228 14.5523 6 14 6H13V6.92805L21.007 11.6381C21.4831 11.9181 21.642 12.531 21.3619 13.007C21.0833 13.4807 20.475 13.6404 20 13.366V20C20 21.1046 19.1046 22 18 22H15H14H10H9H6C4.89543 22 4 21.1046 4 20V13.366C3.52498 13.6404 2.91671 13.4807 2.63807 13.007C2.35805 12.531 2.51695 11.9181 2.99298 11.6381L11 6.92806V6H10C9.44771 6 9 5.55228 9 5C9 4.44772 9.44771 4 10 4H11V3C11 2.44772 11.4477 2 12 2ZM11 20H13V17C13 16.4477 12.5523 16 12 16C11.4477 16 11 16.4477 11 17V20ZM15 20V17C15 15.3431 13.6569 14 12 14C10.3431 14 9 15.3431 9 17V20H6V12.1896L12 8.66018L18 12.1896V20H15Z" />
+								</svg>
+							</div>
 						</div>
-						<h3
-							class="text-2xl font-serif font-bold text-bone mb-4 group-hover:text-ember transition-colors"
-						>
+						<h3 class="text-2xl font-display font-semibold text-parchment mb-4 group-hover:text-gold transition-colors">
 							Church Mobilization
 						</h3>
-						<div class="space-y-4 text-bone/70 text-base leading-relaxed font-sans">
+						<div class="space-y-4 text-parchment-muted text-base leading-relaxed font-body">
 							<p>
 								Every church in Georgia has the opportunity to stand against abortion by preaching,
 								discipling, and organizing to protect their preborn neighbors.
@@ -526,11 +468,9 @@
 						</div>
 					</div>
 					<div class="mt-auto pt-8 text-center">
-						<div
-							class="inline-block px-6 py-3 rounded-lg bg-teal/80 text-bone font-semibold hover:bg-linear-to-r from-teal to-cyan-600 transition-all duration-300 shadow-lg"
-						>
+						<span class="btn btn-ghost text-xs tracking-wider">
 							Equip My Church
-						</div>
+						</span>
 					</div>
 				</a>
 			</div>

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import { fade, fly } from 'svelte/transition';
-	import { goto } from '$app/navigation';
+	import { fly } from 'svelte/transition';
 	
 	type UserType = 'new' | 'prolife' | 'pastor' | 'abolitionist' | null;
 	
@@ -10,31 +9,31 @@
 	const cards = [
 		{
 			id: 'new' as const,
-			title: "I'm new to Operation Gospel and abolitionism",
-			audience: 'First-time visitors seeking to understand',
+			title: "I'm new to Operation Gospel",
+			audience: 'Just learning what abolition means',
 			primary: { text: 'Learn about HB 441', href: `${base}/georgia-battle` },
-			secondary: { text: 'See the legislative battle', href: `${base}/georgia-battle` }
+			secondary: { text: 'See the timeline', href: `${base}/timeline` }
 		},
 		{
 			id: 'prolife' as const,
-			title: "I'm pro-life, but unfamiliar with equal protection",
-			audience: 'Pro-life advocates seeking biblical justice',
-			primary: { text: 'Understand equal protection', href: `${base}/georgia-battle` },
-			secondary: { text: 'View Georgia\'s timeline', href: `${base}/georgia-battle` }
+			title: "I'm pro-life but unfamiliar with equal protection",
+			audience: 'Wondering why HB 441 is different',
+			primary: { text: 'Understand equal protection', href: `${base}/abolition-basics` },
+			secondary: { text: 'See FAQs', href: `${base}/faqs` }
 		},
 		{
 			id: 'pastor' as const,
 			title: "I'm a pastor or church leader",
-			audience: 'Shepherds called to defend the defenseless',
-			primary: { text: 'See why your voice matters', href: `${base}/for-pastors` },
-			secondary: { text: 'Connect with abolitionists', href: `${base}/near-me` }
+			audience: 'Looking for resources to equip your congregation',
+			primary: { text: 'Get pastoral resources', href: `${base}/for-pastors` },
+			secondary: { text: 'Join church network', href: `${base}/join` }
 		},
 		{
 			id: 'abolitionist' as const,
-			title: "I already support HB 441",
-			audience: 'Abolitionists ready to take action',
-			primary: { text: 'Find allies in my district', href: `${base}/near-me` },
-			secondary: { text: 'Take action now', href: `${base}/respond` }
+			title: "I already support equal protection",
+			audience: 'Ready to take action',
+			primary: { text: 'Find your district', href: `${base}/join` },
+			secondary: { text: 'Contact your rep', href: `${base}/rep-calls` }
 		}
 	];
 	
@@ -48,18 +47,18 @@
 </script>
 
 <svelte:head>
-	<title>Operation Gospel - Who Are You?</title>
+	<title>Operation Gospel - Find Your Place</title>
 </svelte:head>
 
-<div class="min-h-screen bg-gradient-to-b from-black via-neutral-950 to-neutral-900 text-neutral-100 flex flex-col justify-center px-6 py-12">
+<div class="min-h-screen bg-[#0C1626] text-neutral-100 flex flex-col justify-center px-6 py-12">
 	<div class="max-w-6xl mx-auto w-full">
 		<!-- Title -->
 		<div class="text-center mb-12">
 			<h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
-				Where are you coming from today?
+				Where are you coming from?
 			</h1>
 			<p class="text-lg text-neutral-400">
-				Answer honestly. This will help guide you to what you need most.
+				We'll point you to what fits.
 			</p>
 		</div>
 		
@@ -68,11 +67,11 @@
 			{#each cards as card}
 				<button
 					onclick={() => selectCard(card.id)}
-					class="group relative bg-neutral-900 border p-8 rounded-sm text-left transition-all duration-300 hover:scale-105 hover:shadow-xl
+					class="group relative bg-neutral-900 border p-8 rounded-sm text-left transition-all duration-300 hover:scale-[1.02] hover:shadow-xl
 						{selected === card.id ? 'border-red-600 bg-neutral-800' : 'border-neutral-800 hover:border-neutral-700'}"
 					aria-pressed={selected === card.id}
 				>
-					<h3 class="text-xl font-bold mb-3 text-neutral-100 group-hover:text-red-500 transition-colors">
+					<h3 class="text-xl font-bold mb-3 text-neutral-100 group-hover:text-red-400 transition-colors">
 						{card.title}
 					</h3>
 					<p class="text-sm text-neutral-400 leading-relaxed">

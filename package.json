@@ -42,12 +42,15 @@
 		"svelte-check": "^4.3.4",
 		"tailwindcss": "^4.1.18",
 		"typescript": "^5.9.3",
-		"vite": "^7.2.6",
+		"vite": "^7.3.2",
 		"vitest": "^4.0.17"
 	},
 	"dependencies": {
 		"@turf/turf": "^7.3.1",
 		"@types/leaflet": "^1.9.21",
 		"leaflet": "^1.9.4"
+	},
+	"overrides": {
+		"cookie": "^0.7.0"
 	}
 }

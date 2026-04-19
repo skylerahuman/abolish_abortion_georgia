@@ -1,87 +1,527 @@
 @import 'tailwindcss';
 
 @theme {
-	--font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
-	--font-serif: 'Libre Baskerville', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+	/* Typography System */
+	--font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+	--font-body: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+	--font-ui: 'Outfit', system-ui, sans-serif;
+	--font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Monaco, monospace;
 
-	/* Core Palette */
-	--color-charcoal: #080a0f;
-	--color-panel: #151820;
-	--color-crimson: #b20e26;
-	--color-ember: #e5484d;
-	--color-bone: #f4f0e6;
-	--color-gold: #cda763;
-	--color-teal: #2e6a73;
+	/* Legacy font aliases for compatibility */
+	--font-sans: var(--font-ui);
+	--font-serif: var(--font-display);
 
-	/* Slate palette (Cooler, more alive neutrals) */
-	--color-neutral-50: #f8fafc;
-	--color-neutral-100: #f1f5f9;
-	--color-neutral-200: #e2e8f0;
-	--color-neutral-300: #cbd5e1;
-	--color-neutral-400: #94a3b8;
-	--color-neutral-500: #64748b;
-	--color-neutral-600: #475569;
-	--color-neutral-700: #334155;
-	--color-neutral-800: #1e293b;
-	--color-neutral-900: #0f172a;
-	--color-neutral-950: #020617;
+	/* ============================================
+	 * LITURGICAL WARMTH PALETTE
+	 * "The Sanctuary & The Court"
+	 * ============================================ */
 
-	/* Stone palette (retained but slightly tuned if needed, keeping standard for now) */
-	--color-stone-50: #fafaf9;
-	--color-stone-100: #f5f5f4;
-	--color-stone-200: #e7e5e4;
-	--color-stone-300: #d6d3d1;
-	--color-stone-400: #a8a29e;
-	--color-stone-500: #78716c;
-	--color-stone-600: #57534e;
-	--color-stone-700: #44403c;
-	--color-stone-800: #292524;
-	--color-stone-900: #1c1917;
-	--color-stone-950: #0c0a09;
+	/* Core Colors - Deep Foundations */
+	--color-void: #0a0908;
+	--color-parchment: #f5f1e6;
+	--color-parchment-muted: #d4cfc3;
+	--color-parchment-dark: #a89f91;
 
-	/* Vibrant Red/Crimson palette - More life */
-	--color-red-50: #fef2f2;
-	--color-red-100: #fee2e2;
-	--color-red-200: #fecaca;
-	--color-red-300: #fca5a5;
-	--color-red-400: #f87171;
-	--color-red-500: #ef4444;
-	--color-red-600: #dc2626;
-	--color-red-700: #b91c1c;
-	--color-red-800: #991b1b;
-	--color-red-900: #7f1d1d;
-	--color-red-950: #450a0a;
+	/* Accent Colors - Sacred & Urgent */
+	--color-burgundy: #722f37;
+	--color-burgundy-dark: #4a1c21;
+	--color-burgundy-light: #8b3a3a;
+	--color-gold: #b8860b;
+	--color-gold-muted: #8b7355;
+	--color-gold-light: #d4a84b;
 
-	/* Muted Green for success states */
-	--color-green-500: #22c55e;
-	--color-green-600: #16a34a;
+	/* Surface Colors - Warm Panels */
+	--color-charcoal: #2c2926;
+	--color-panel: #1e1b18;
+	--color-panel-elevated: #252220;
 
-	/* Deep Rich Black (mapped to Charcoal) */
-	--color-black: #080a0f;
+	/* Legacy Aliases (for backward compatibility) */
+	--color-obsidian: var(--color-void);
+	--color-paper: var(--color-parchment);
+	--color-crimson: var(--color-burgundy);
+	--color-ember: var(--color-burgundy-light);
+	--color-bone: var(--color-parchment);
+
+	/* Slate Palette (repurposed with warm tones) */
+	--color-neutral-50: #f8f7f4;
+	--color-neutral-100: #e8e6e1;
+	--color-neutral-200: #d4d0c9;
+	--color-neutral-300: #b5b0a6;
+	--color-neutral-400: #8a847a;
+	--color-neutral-500: #5f5a52;
+	--color-neutral-600: #3d3932;
+	--color-neutral-700: #2c2926;
+	--color-neutral-800: #1a1715;
+	--color-neutral-900: #0f0d0b;
+	--color-neutral-950: #0a0908;
 }
 
 @layer base {
-	body {
-		@apply bg-charcoal text-bone font-sans antialiased;
+	:root {
+		/* Typography Scale - Dramatic Sizing */
+		--text-xs: 0.75rem;
+		--text-sm: 0.875rem;
+		--text-base: 1.0625rem;
+		--text-lg: 1.25rem;
+		--text-xl: 1.5rem;
+		--text-2xl: 1.875rem;
+		--text-3xl: 2.5rem;
+		--text-4xl: 3.5rem;
+		--text-5xl: 4.5rem;
+		--text-6xl: 6rem;
+
+		/* Animation Timing - "The Gavel" */
+		--ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
+		--ease-affirm: cubic-bezier(0.33, 1, 0.68, 1);
+		--duration-fast: 150ms;
+		--duration-normal: 250ms;
+		--duration-slow: 400ms;
+		--duration-reveal: 600ms;
 	}
 
-	/* Custom Scrollbar */
+	html {
+		font-size: 16px;
+		scroll-behavior: smooth;
+	}
+
+	body {
+		background-color: var(--color-void);
+		color: var(--color-parchment);
+		font-family: var(--font-body);
+		font-size: var(--text-base);
+		line-height: 1.7;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	/* Display Typography - Commanding Headlines */
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: var(--font-display);
+		font-weight: 600;
+		line-height: 1.15;
+		letter-spacing: -0.01em;
+		color: var(--color-parchment);
+	}
+
+	h1 {
+		font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+		font-weight: 700;
+		letter-spacing: -0.02em;
+	}
+
+	h2 {
+		font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+		font-weight: 600;
+	}
+
+	h3 {
+		font-size: clamp(var(--text-xl), 3vw, var(--text-3xl));
+		font-weight: 600;
+	}
+
+	h4 {
+		font-size: var(--text-xl);
+		font-weight: 600;
+	}
+
+	h5 {
+		font-size: var(--text-lg);
+		font-weight: 600;
+	}
+
+	h6 {
+		font-size: var(--text-base);
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		font-family: var(--font-ui);
+	}
+
+	/* Body Text */
+	p {
+		line-height: 1.75;
+		margin-bottom: 1.25em;
+	}
+
+	p:last-child {
+		margin-bottom: 0;
+	}
+
+	/* UI Elements */
+	button,
+	a,
+	input,
+	select,
+	textarea,
+	label {
+		font-family: var(--font-ui);
+	}
+
+	/* Utility Classes */
+	.font-display {
+		font-family: var(--font-display);
+	}
+
+	.font-body {
+		font-family: var(--font-body);
+	}
+
+	.font-ui {
+		font-family: var(--font-ui);
+	}
+
+	.font-mono {
+		font-family: var(--font-mono);
+	}
+
+	/* ============================================
+	 * SCROLLBAR STYLING
+	 * Warm, refined appearance
+	 * ============================================ */
 	::-webkit-scrollbar {
 		width: 8px;
-	}
-	::-webkit-scrollbar-track {
-		background: var(--color-charcoal);
-	}
-	::-webkit-scrollbar-thumb {
-		background: var(--color-panel);
-		border-radius: 4px;
-	}
-	::-webkit-scrollbar-thumb:hover {
-		background: var(--color-ember);
+		height: 8px;
 	}
 
-	/* Selection */
-	::selection {
-		@apply bg-crimson text-white;
+	::-webkit-scrollbar-track {
+		background: var(--color-void);
+		border-left: 1px solid var(--color-charcoal);
 	}
+
+	::-webkit-scrollbar-thumb {
+		background: var(--color-gold-muted);
+		border-radius: 4px;
+		border: 2px solid var(--color-void);
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background: var(--color-gold);
+	}
+
+	/* ============================================
+	 * SELECTION STYLING
+	 * Burgundy with warm contrast
+	 * ============================================ */
+	::selection {
+		background-color: var(--color-burgundy);
+		color: var(--color-parchment);
+	}
+
+	::-moz-selection {
+		background-color: var(--color-burgundy);
+		color: var(--color-parchment);
+	}
+
+	/* ============================================
+	 * FOCUS STATES
+	 * Sharp, decisive outlines
+	 * ============================================ */
+	:focus-visible {
+		outline: 2px solid var(--color-gold);
+		outline-offset: 3px;
+	}
+
+	/* ============================================
+	 * LINKS
+	 * Underline on hover with gold accent
+	 * ============================================ */
+	a {
+		color: inherit;
+		text-decoration: none;
+		transition: color var(--duration-fast) var(--ease-affirm);
+	}
+
+	a:hover {
+		color: var(--color-gold-light);
+	}
+
+	/* ============================================
+	 * ANIMATION KEYFRAMES
+	 * "The Gavel" - Sharp, decisive reveals
+	 * ============================================ */
+
+	/* Primary content reveal */
+	@keyframes reveal-up {
+		from {
+			opacity: 0;
+			transform: translateY(24px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	/* Fade in for backgrounds/overlays */
+	@keyframes reveal-fade {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	/* Scale reveal for emphasis */
+	@keyframes reveal-scale {
+		from {
+			opacity: 0;
+			transform: scale(0.96);
+		}
+		to {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+
+	/* Slide from left for lists */
+	@keyframes reveal-left {
+		from {
+			opacity: 0;
+			transform: translateX(-16px);
+		}
+		to {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
+	/* Staggered children reveal */
+	@keyframes stagger-reveal {
+		from {
+			opacity: 0;
+			transform: translateY(16px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	/* Subtle gold glow pulse */
+	@keyframes gold-glow {
+		0%,
+		100% {
+			box-shadow: 0 0 0 0 rgba(184, 134, 11, 0);
+		}
+		50% {
+			box-shadow: 0 0 20px 2px rgba(184, 134, 11, 0.15);
+		}
+	}
+
+	/* ============================================
+	 * ANIMATION UTILITY CLASSES
+	 * ============================================ */
+	.animate-reveal-up {
+		animation: reveal-up var(--duration-reveal) var(--ease-reveal) forwards;
+	}
+
+	.animate-reveal-fade {
+		animation: reveal-fade var(--duration-slow) ease-out forwards;
+	}
+
+	.animate-reveal-scale {
+		animation: reveal-scale var(--duration-reveal) var(--ease-reveal) forwards;
+	}
+
+	.animate-stagger {
+		animation: stagger-reveal var(--duration-reveal) var(--ease-reveal) forwards;
+		opacity: 0;
+	}
+
+	/* Stagger delays */
+	.stagger-1 {
+		animation-delay: 100ms;
+	}
+	.stagger-2 {
+		animation-delay: 200ms;
+	}
+	.stagger-3 {
+		animation-delay: 300ms;
+	}
+	.stagger-4 {
+		animation-delay: 400ms;
+	}
+	.stagger-5 {
+		animation-delay: 500ms;
+	}
+
+	/* ============================================
+	 * DECORATIVE DIVIDERS
+	 * Ornamental separators
+	 * ============================================ */
+	.divider-ornate {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		color: var(--color-gold-muted);
+	}
+
+	.divider-ornate::before,
+	.divider-ornate::after {
+		content: '';
+		flex: 1;
+		height: 1px;
+		background: linear-gradient(
+			90deg,
+			transparent,
+			var(--color-gold-muted) 20%,
+			var(--color-gold-muted) 80%,
+			transparent
+		);
+	}
+
+	.divider-simple {
+		height: 1px;
+		background: linear-gradient(90deg, transparent, var(--color-gold-muted), transparent);
+	}
+
+	/* ============================================
+	 * GRAIN TEXTURE OVERLAY
+	 * Subtle atmospheric effect
+	 * ============================================ */
+	.grain-overlay::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+		opacity: 0.03;
+		pointer-events: none;
+		mix-blend-mode: overlay;
+	}
+}
+
+/* ============================================
+ * COMPONENT BASE STYLES
+ * Reusable patterns
+ * ============================================ */
+
+/* Card Surfaces */
+.card {
+	background-color: var(--color-panel);
+	border: 1px solid var(--color-charcoal);
+	border-radius: 4px;
+	padding: 2rem;
+	transition:
+		border-color var(--duration-normal) var(--ease-affirm),
+		transform var(--duration-normal) var(--ease-affirm),
+		box-shadow var(--duration-normal) var(--ease-affirm);
+}
+
+.card:hover {
+	border-color: var(--color-gold-muted);
+}
+
+.card-elevated {
+	background-color: var(--color-panel-elevated);
+}
+
+/* Button Base */
+.btn {
+	font-family: var(--font-ui);
+	font-weight: 600;
+	font-size: var(--text-sm);
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	padding: 0.875rem 1.75rem;
+	border-radius: 2px;
+	transition:
+		background-color var(--duration-fast) var(--ease-affirm),
+		transform var(--duration-fast) var(--ease-affirm),
+		box-shadow var(--duration-fast) var(--ease-affirm);
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+}
+
+.btn:active {
+	transform: translateY(1px);
+}
+
+/* Primary Button - Burgundy */
+.btn-primary {
+	background-color: var(--color-burgundy);
+	color: var(--color-parchment);
+	border: 1px solid var(--color-burgundy);
+}
+
+.btn-primary:hover {
+	background-color: var(--color-burgundy-dark);
+	border-color: var(--color-burgundy-dark);
+	color: var(--color-parchment);
+	box-shadow: 0 4px 12px rgba(114, 47, 55, 0.3);
+}
+
+/* Secondary Button - Gold */
+.btn-secondary {
+	background-color: transparent;
+	color: var(--color-gold);
+	border: 1px solid var(--color-gold);
+}
+
+.btn-secondary:hover {
+	background-color: var(--color-gold);
+	color: var(--color-void);
+}
+
+/* Ghost Button - Subtle */
+.btn-ghost {
+	background-color: transparent;
+	color: var(--color-parchment);
+	border: 1px solid var(--color-charcoal);
+}
+
+.btn-ghost:hover {
+	border-color: var(--color-parchment-muted);
+	color: var(--color-parchment);
+}
+
+/* ============================================
+ * SCROLL ANIMATION CLASSES
+ * Apply via Intersection Observer
+ * ============================================ */
+.scroll-reveal {
+	opacity: 0;
+	transform: translateY(20px);
+	transition:
+		opacity var(--duration-reveal) var(--ease-reveal),
+		transform var(--duration-reveal) var(--ease-reveal);
+}
+
+.scroll-reveal.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.scroll-reveal-left {
+	opacity: 0;
+	transform: translateX(-20px);
+	transition:
+		opacity var(--duration-reveal) var(--ease-reveal),
+		transform var(--duration-reveal) var(--ease-reveal);
+}
+
+.scroll-reveal-left.is-visible {
+	opacity: 1;
+	transform: translateX(0);
+}
+
+.scroll-reveal-scale {
+	opacity: 0;
+	transform: scale(0.98);
+	transition:
+		opacity var(--duration-reveal) var(--ease-reveal),
+		transform var(--duration-reveal) var(--ease-reveal);
+}
+
+.scroll-reveal-scale.is-visible {
+	opacity: 1;
+	transform: scale(1);
 }

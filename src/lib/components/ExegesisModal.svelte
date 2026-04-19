@@ -33,16 +33,8 @@
 
 {#if showModal}
 	<div
-		class="fixed inset-0 bg-navy-deep/70 backdrop-blur-sm z-[100] flex items-center justify-center p-4 focus:outline-none"
-		role="button"
-		aria-label="Close modal"
-		tabindex="0"
+		class="fixed inset-0 bg-navy-deep/70 backdrop-blur-sm z-[100] flex items-center justify-center p-4"
 		onclick={() => (showModal = false)}
-		onkeydown={(e) => {
-			if (e.key === 'Enter' || e.key === ' ') {
-				showModal = false;
-			}
-		}}
 		transition:fly={{ duration: 300, y: 20, opacity: 0, easing: quintOut }}
 	>
 		<div

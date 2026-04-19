@@ -1,30 +1,44 @@
 [
-  {
-    "id": "roe",
-    "date": "Jan 1973",
-    "title": "Roe v. Wade",
-    "description": "The Supreme Court invents a 'right to privacy' that encompasses the right to kill a child. This unconstitutional decree stripped personhood from the unborn.",
-    "type": "tragedy"
-  },
-  {
-    "id": "heartbeat",
-    "date": "2019",
-    "title": "Heartbeat Bill (HB 481)",
-    "description": "Georgia passes the LIFE Act, banning abortion after a heartbeat is detected (approx 6 weeks). While a step forward, it still allows abortion before 6 weeks and contains exceptions.",
-    "type": "mixed"
-  },
-  {
-    "id": "dobbs",
-    "date": "Jun 2022",
-    "title": "Dobbs v. Jackson",
-    "description": "Roe v. Wade is overturned. The authority to protect life is returned to the states. The excuse of 'federal tyranny' is removed.",
-    "type": "hope"
-  },
-  {
-    "id": "hb441",
-    "date": "2023",
-    "title": "HB 441 Introduced",
-    "description": "The Georgia Equal Protection Act is introduced. It provides equal protection for the preborn from the moment of fertilization.",
-    "type": "hope"
-  }
+	{
+		"id": "roe",
+		"date": "Jan 1973",
+		"title": "Roe v. Wade",
+		"description": "The Supreme Court invents a 'right to privacy' that encompasses the right to kill a child. This unconstitutional decree stripped personhood from the pre-born.",
+		"type": "tragedy"
+	},
+	{
+		"id": "doe",
+		"date": "Jan 1973",
+		"title": "Doe v. Bolton",
+		"description": "Released alongside Roe, this Georgia case defined 'health of the mother' so broadly that abortion was effectively allowed on demand through all nine months.",
+		"type": "tragedy"
+	},
+	{
+		"id": "casey",
+		"date": "Jun 1992",
+		"title": "Planned Parenthood v. Casey",
+		"description": "The Court upheld Roe and established the 'Undue Burden' standard, ensuring abortion remained protected and allowing states only minimal regulations.",
+		"type": "tragedy"
+	},
+	{
+		"id": "heartbeat",
+		"date": "May 2019",
+		"title": "Georgia's Heartbeat Bill (HB 481)",
+		"description": "Georgia bans abortion after a detectable heartbeat. Still allows abortion before 6 weeks. Exceptions remain. Children before this threshold have no protection.",
+		"type": "mixed"
+	},
+	{
+		"id": "dobbs",
+		"date": "Jun 2022",
+		"title": "Dobbs v. Jackson",
+		"description": "Roe v. Wade overturned. Authority to protect life returns to the states. The excuse of 'federal tyranny' is removed.",
+		"type": "hope"
+	},
+	{
+		"id": "hb441",
+		"date": "2023",
+		"title": "HB 441 Introduced",
+		"description": "Georgia Equal Protection Act introduced. Life from fertilization. No exceptions. Speaker Burns killed it in committee—April 2026.",
+		"type": "hope"
+	}
 ]

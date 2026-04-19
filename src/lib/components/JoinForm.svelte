@@ -56,6 +56,10 @@
 
 		error = '';
 		isLoading = true;
+		
+		// Reset previous state
+		showDistrict = false;
+		registrationState.form.district = null;
 
 		// Scramble animation
 		scrambleInterval = window.setInterval(() => {
@@ -120,16 +124,35 @@
 	async function handleSubmit(e: Event) {
 		e.preventDefault();
 		isSubmitting = true;
-		// Simulate network request
-		await new Promise((resolve) => setTimeout(resolve, 1500));
-		console.log('Form Submitted (Void)', $state.snapshot(registrationState.form));
+		error = '';
 
-		// Optimization: Clear local persistence on successful submission
-		// to allow immediate second entries for other people/districts
-		localStorage.removeItem('userDistrict');
+		try {
+			const snapshot = $state.snapshot(registrationState.form);
+			
+			const subject = encodeURIComponent('New Abolition Volunteer Signup');
+			const body = encodeURIComponent(
+				`New Volunteer Signup\n\n` +
+				`District: ${snapshot.district || 'N/A (Not in Georgia)'}\n` +
+				`Name: ${snapshot.firstName} ${snapshot.lastName}\n` +
+				`Email: ${snapshot.email}\n` +
+				`Address: ${snapshot.address}\n` +
+				`City: ${snapshot.city}\n` +
+				`Phone: ${snapshot.phone || 'Not provided'}\n` +
+				`Home Church: ${snapshot.homeChurch || 'Not provided'}\n` +
+				`Interests: ${snapshot.interests.join(', ')}`
+			);
 
-		registrationState.submitted = true;
-		isSubmitting = false;
+			window.location.href = `mailto:Wes@OperationGospel.life?subject=${subject}&body=${body}`;
+
+			// Optimization: Clear local persistence on successful submission
+			localStorage.removeItem('userDistrict');
+			registrationState.submitted = true;
+		} catch (err) {
+			console.error(err);
+			error = 'There was an error opening your email client. Please try again.';
+		} finally {
+			isSubmitting = false;
+		}
 	}
 
 	function handleAddAnother() {
@@ -137,6 +160,7 @@
 		showDistrict = false;
 		zipCode = '';
 		error = '';
+		localStorage.removeItem('userDistrict');
 	}
 
 	async function handleNextStep() {
@@ -204,10 +228,8 @@
 							>
 						</div>
 						<p class="text-sm text-bone/60 mb-4">
-							Our primary objective is to pass a bill in the Georgia House. Please enter your ZIP
-							code to identify your representative.
+							Our objective is to hold leadership accountable and advance the next phase of abolition in Georgia. Please enter your ZIP code to identify your representative.
 						</p>
-
 						{#if !notInGeorgia}
 							<div class="space-y-4">
 								<div class="flex gap-2">
@@ -441,7 +463,7 @@
 						<div>
 							<p class="text-sm font-semibold text-bone/80 mb-2">I'm interested in...</p>
 							<div class="space-y-2">
-								{#each [{ value: 'find-church', label: 'I want to find an abolitionist church' }, { value: 'help-bill', label: 'I want to help pass an abolition bill' }, { value: 'evangelism', label: 'I want to be involved with evangelistically' }, { value: 'pastor-elder', label: "I'm a pastor/elder interested in abolitionism" }, { value: 'prayer', label: 'I want to support with prayer' }] as interest}
+								{#each [{ value: 'find-church', label: 'I want to find an abolitionist church' }, { value: 'accountability', label: 'I want to hold my representatives accountable' }, { value: 'next-phase', label: 'I want to help advance the next phase of abolition' }, { value: 'pastor-elder', label: "I'm a pastor/elder interested in abolitionism" }, { value: 'prayer', label: 'I want to support with prayer' }] as interest}
 									<label
 										class="flex items-center gap-3 cursor-pointer p-2 bg-charcoal/50 border border-transparent rounded-md hover:border-white/20 transition-colors"
 									>

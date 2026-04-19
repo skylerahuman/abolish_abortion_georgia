@@ -3,84 +3,60 @@
 </script>
 
 <svelte:head>
-	<title>For Pastors | Operation Gospel</title>
-	<meta name="description" content="Equipping pastors to lead their congregations in repentance and the biblical abolition of abortion." />
+	<title>For Pastors and Churches | Operation Gospel</title>
+	<meta name="description" content="Equipping churches for abolition." />
 </svelte:head>
 
-<div class="min-h-screen bg-charcoal text-bone px-6 py-16">
-	<div class="max-w-4xl mx-auto space-y-20">
+<div class="min-h-screen bg-void text-parchment px-4 sm:px-6 py-12 lg:py-16">
+	<div class="max-w-3xl mx-auto space-y-10">
+
 		<!-- Hero Section -->
-		<div class="text-center space-y-6">
-			<h1 class="text-4xl md:text-5xl font-serif font-bold tracking-tight text-white uppercase">
-				For Pastors and Church Leaders
+		<div class="text-center">
+			<h1 class="text-2xl sm:text-3xl lg:text-4xl font-display font-bold tracking-tight text-parchment uppercase">
+				For Pastors and Churches
 			</h1>
-			<p class="text-xl text-neutral-300 max-w-2xl mx-auto leading-relaxed">
-				Equipping the Church to stand for justice, preach the Gospel of the Kingdom, and call the civil magistrate to repentance.
-			</p>
 		</div>
 
-		<!-- The Turned Over Hypothesis -->
-		<div class="bg-panel p-8 md:p-12 rounded-sm border-l-4 border-crimson shadow-lg">
-			<h2 class="text-3xl font-serif font-bold mb-6 text-crimson">The Turned Over Hypothesis</h2>
-			<div class="space-y-4 text-lg text-neutral-200 leading-relaxed">
-				<p>
-					Why is our culture spiraling into insanity? Romans 1 gives us the diagnosis: when a people refuse to honor God and give Him thanks, He "turns them over" to a debased mind.
-				</p>
-				<p>
-					Abortion is not merely a political issue or a policy failure. It is the blood-guilt of a nation under the active judgment of God. The slaughter of the pre-born is the visible fruit of a society that has rejected the Lordship of Christ.
-				</p>
-				<p class="font-semibold text-white">
-					The remedy is not "culture war" or "conservative values." The only remedy is Gospel repentance. Pastors must lead the way in calling both the Church and the State to kiss the Son, lest they perish.
-				</p>
-			</div>
+		<!-- Documentary Embed -->
+		<div class="relative w-full aspect-video rounded-sm overflow-hidden shadow-2xl border border-charcoal">
+			<iframe
+				title="The Fatal Flaw Documentary"
+				src="https://www.youtube-nocookie.com/embed/k33epqzJIlM"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+				allowfullscreen
+				loading="lazy"
+				class="absolute top-0 left-0 w-full h-full"
+			></iframe>
 		</div>
 
-		<!-- What We Offer -->
-		<div class="space-y-12">
-			<div>
-				<h2 class="text-3xl font-serif font-bold mb-6 text-white">Equipping the Saints</h2>
-				<ul class="space-y-4 text-lg text-neutral-300">
-					<li class="flex items-start">
-						<span class="text-gold mr-3 mt-1">❖</span>
-						<span><strong>Biblical Abolitionism:</strong> Teaching resources to distinguish the Gospel demand for immediate justice from the worldly strategy of incremental regulation.</span>
-					</li>
-					<li class="flex items-start">
-						<span class="text-gold mr-3 mt-1">❖</span>
-						<span><strong>Equal Protection:</strong> Detailed analysis of HB 441 and how to explain the need for equal protection laws to your congregation.</span>
-					</li>
-					<li class="flex items-start">
-						<span class="text-gold mr-3 mt-1">❖</span>
-						<span><strong>Mercy Ministries:</strong> Guidance for establishing ministries that support mothers and children without compromising on justice.</span>
-					</li>
-					<li class="flex items-start">
-						<span class="text-gold mr-3 mt-1">❖</span>
-						<span><strong>Public Witness:</strong> Strategies for organizing prayer vigils, evangelism at abortion clinics, and meetings with legislators.</span>
-					</li>
-				</ul>
+		<!-- Combined Content Card -->
+		<div class="bg-panel p-5 sm:p-6 md:p-8 rounded-sm border-l-4 border-burgundy">
+			<h2 class="text-lg sm:text-xl font-display font-bold mb-4 text-burgundy">The Turned Over Hypothesis</h2>
+			<div class="space-y-4 text-parchment/80 text-sm sm:text-base leading-relaxed mb-8">
+				<p>
+					Romans 1 gives the diagnosis: when a people refuse to honor God and give Him thanks, He gives them over to a debased mind. This is not a political problem. It is a judgment.
+				</p>
+				<p>
+					Abortion is the visible fruit. The slaughter of the pre-born is what happens when a society rejects the Lordship of Christ. We see it in Georgia. We see it everywhere.
+				</p>
+				<p>
+					The remedy is not "culture war" or "conservative values." The only remedy is repentance. Pastors must lead the way in calling both the Church and the State to submit to King Jesus.
+				</p>
 			</div>
 
-			<!-- Documentary Embed -->
-			<div>
-				<h2 class="text-3xl font-serif font-bold mb-6 text-white">Essential Viewing: The Fatal Flaw</h2>
-				<p class="text-lg text-neutral-300 mb-6">
-					This documentary exposes the strategic failures of the traditional pro-life movement and lays out the biblical case for abolition. We recommend screening this for your leadership team.
+			<h2 class="text-lg sm:text-xl font-display font-bold mb-4 text-parchment">Church Kits</h2>
+			<div class="space-y-4 text-parchment/80 text-sm sm:text-base leading-relaxed">
+				<p>
+					We are preparing church kits to help your congregation engage in abolition work. Each kit will include teaching resources, analysis of equal protection laws, guidance for mercy ministries, and strategies for public witness.
 				</p>
-				<div class="relative w-full aspect-video rounded-sm overflow-hidden shadow-2xl border border-neutral-800">
-					<iframe
-						title="The Fatal Flaw Documentary"
-						src="https://www.youtube.com/embed/k33epqzJIlM"
-						frameborder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-						allowfullscreen
-						class="absolute top-0 left-0 w-full h-full"
-					></iframe>
-				</div>
+				<p>
+					The kits are still in development. If you want to be notified when they're ready, or if you want to help us develop them, reach out.
+				</p>
 			</div>
 		</div>
 
 		<!-- CTA Section -->
-		<div class="pt-8">
-			<PastorCTA />
-		</div>
+		<PastorCTA />
+
 	</div>
 </div>

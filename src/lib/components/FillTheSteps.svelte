@@ -167,10 +167,10 @@
 						class="w-full h-full object-cover object-center opacity-80 mix-blend-multiply grayscale brightness-125 contrast-125"
 					/>
 					<div
-						class="absolute inset-0 bg-gradient-to-t from-[#07090D] via-[#07090D]/50 to-transparent"
+						class="absolute inset-0 bg-black/60"
 					></div>
 					<div
-						class="absolute inset-0 bg-gradient-to-b from-[#07090D]/60 via-transparent to-transparent"
+						class="absolute inset-0 bg-black/40"
 					></div>
 				</div>
 
@@ -238,7 +238,7 @@
 						class="w-full h-full object-cover opacity-70 grayscale blend-overlay"
 					/>
 					<div
-						class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/5"
+						class="absolute inset-0 bg-black/40"
 					></div>
 				</div>
 
@@ -324,9 +324,9 @@
 					alt=""
 					class="w-full h-full object-cover object-center opacity-70 mix-blend-multiply grayscale brightness-150 contrast-125"
 				/>
-				<div
-					class="absolute inset-0 bg-gradient-to-t from-[#07090D] via-[#07090D]/50 to-transparent"
-				></div>
+<div
+						class="absolute inset-0 bg-black/60"
+					></div>
 			</div>
 
 			<div class="relative z-10 space-y-8">
@@ -485,7 +485,7 @@
 					alt=""
 					class="w-full h-full object-cover opacity-60 grayscale"
 				/>
-				<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/10"></div>
+				<div class="absolute inset-0 bg-black/60"></div>
 			</div>
 
 			<div class="relative z-10 text-center px-4">

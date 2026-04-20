@@ -95,10 +95,19 @@
 	function handleKeyDown(e: KeyboardEvent) {
 		if (e.key === 'Enter') {
 			e.preventDefault();
-			if (showDistrict || notInGeorgia) {
-				registrationState.nextStep();
-			} else if (zipCode.length === 5) {
-				handleZipLookup();
+			if (registrationState.step === 1) {
+				if (showDistrict || notInGeorgia) {
+					handleNextStep();
+				} else if (zipCode.length === 5) {
+					handleZipLookup();
+				}
+			} else if (registrationState.step === 2) {
+				handleNextStep();
+			} else if (registrationState.step === 3) {
+				const form = (e.target as HTMLElement).closest('form');
+				if (form) {
+					form.requestSubmit();
+				}
 			}
 		}
 	}
@@ -128,28 +137,37 @@
 
 		try {
 			const snapshot = $state.snapshot(registrationState.form);
-			
-			const subject = encodeURIComponent('New Abolition Volunteer Signup');
-			const body = encodeURIComponent(
-				`New Volunteer Signup\n\n` +
-				`District: ${snapshot.district || 'N/A (Not in Georgia)'}\n` +
-				`Name: ${snapshot.firstName} ${snapshot.lastName}\n` +
-				`Email: ${snapshot.email}\n` +
-				`Address: ${snapshot.address}\n` +
-				`City: ${snapshot.city}\n` +
-				`Phone: ${snapshot.phone || 'Not provided'}\n` +
-				`Home Church: ${snapshot.homeChurch || 'Not provided'}\n` +
-				`Interests: ${snapshot.interests.join(', ')}`
-			);
+			console.log('Submitting form data:', snapshot);
 
-			window.location.href = `mailto:Wes@OperationGospel.life?subject=${subject}&body=${body}`;
+			const response = await fetch('/api/volunteers', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					firstName: snapshot.firstName,
+					lastName: snapshot.lastName,
+					email: snapshot.email,
+					phone: snapshot.phone || null,
+					city: snapshot.city,
+					district: snapshot.district || null,
+					homeChurch: snapshot.homeChurch || null,
+					interests: snapshot.interests,
+					outOfState: !snapshot.district
+				})
+			});
 
-			// Optimization: Clear local persistence on successful submission
+			console.log('Response status:', response.status);
+			const data = await response.json();
+			console.log('Response data:', data);
+
+			if (!response.ok) {
+				throw new Error(data.error || 'Submission failed');
+			}
+
 			localStorage.removeItem('userDistrict');
 			registrationState.submitted = true;
 		} catch (err) {
-			console.error(err);
-			error = 'There was an error opening your email client. Please try again.';
+			console.error('Submit error:', err);
+			error = err instanceof Error ? err.message : 'There was an error submitting your registration. Please try again.';
 		} finally {
 			isSubmitting = false;
 		}
@@ -172,9 +190,14 @@
 			if (
 				!registrationState.form.firstName.trim() ||
 				!registrationState.form.lastName.trim() ||
-				!registrationState.form.email.trim()
+				!registrationState.form.email.trim() ||
+				!registrationState.form.city.trim()
 			) {
 				step2Error = 'Please fill in all required fields.';
+				return;
+			}
+			if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(registrationState.form.email)) {
+				step2Error = 'Please enter a valid email address.';
 				return;
 			}
 			step2Error = '';
@@ -296,7 +319,7 @@
 						{/if}
 
 						<label
-							class="flex items-center gap-2 text-sm text-bone/60 cursor-pointer p-3 bg-charcoal/40 border border-white/10 rounded-md hover:bg-charcoal/80 transition-colors"
+							class="flex items-center gap-2 text-sm text-bone/60 cursor-pointer p-3 bg-charcoal/40 border border-white/10 rounded-md hover:bg-charcoal/80 transition-colors mb-6"
 						>
 							<input
 								type="checkbox"
@@ -343,6 +366,7 @@
 								aria-describedby={step2Error ? 'step2-error' : undefined}
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson focus-visible:ring-2 focus-visible:ring-crimson/50 transition-colors"
 								oninput={() => (step2Error = '')}
+								onkeydown={handleKeyDown}
 							/>
 						</div>
 						<div>
@@ -358,6 +382,7 @@
 								aria-describedby={step2Error ? 'step2-error' : undefined}
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson focus-visible:ring-2 focus-visible:ring-crimson/50 transition-colors"
 								oninput={() => (step2Error = '')}
+								onkeydown={handleKeyDown}
 							/>
 						</div>
 						<div>
@@ -373,19 +398,7 @@
 								aria-describedby={step2Error ? 'step2-error' : undefined}
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson focus-visible:ring-2 focus-visible:ring-crimson/50 transition-colors"
 								oninput={() => (step2Error = '')}
-							/>
-						</div>
-
-						<div>
-							<label for="address" class="block text-sm font-semibold text-bone/80 mb-1"
-								>Physical Address *</label
-							>
-							<input
-								type="text"
-								id="address"
-								bind:value={registrationState.form.address}
-								required
-								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
+								onkeydown={handleKeyDown}
 							/>
 						</div>
 
@@ -396,7 +409,11 @@
 								id="city"
 								bind:value={registrationState.form.city}
 								required
+								aria-invalid={!!step2Error}
+								aria-describedby={step2Error ? 'step2-error' : undefined}
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson transition-colors"
+								oninput={() => (step2Error = '')}
+								onkeydown={handleKeyDown}
 							/>
 						</div>
 
@@ -408,6 +425,7 @@
 								type="tel"
 								id="phone"
 								bind:value={registrationState.form.phone}
+								onkeydown={handleKeyDown}
 								class="w-full bg-charcoal border border-white/20 text-bone px-4 py-2 rounded-md focus:outline-none focus:border-crimson focus-visible:ring-2 focus-visible:ring-crimson/50 transition-colors"
 							/>
 						</div>
@@ -480,31 +498,36 @@
 							</div>
 						</div>
 					</div>
+				</div>
 
-					<div class="flex justify-between">
-						<button
-							type="button"
-							onclick={() => registrationState.prevStep()}
-							class="bg-white/10 hover:bg-white/20 text-bone font-bold py-2 px-6 rounded-md uppercase tracking-wide transition-colors focus-visible:ring-2 focus-visible:ring-crimson/50 outline-none"
-						>
-							Back
-						</button>
-						<button
-							type="submit"
-							disabled={isSubmitting}
-							class="w-1/2 bg-crimson hover:bg-ember text-bone font-bold py-2 rounded-md uppercase tracking-wide transition-colors shadow-lg hover:shadow-crimson/30 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 focus-visible:ring-2 focus-visible:ring-crimson/50 outline-none"
-						>
-							{#if isSubmitting}
-								<div
-									class="w-5 h-5 border-2 border-t-transparent border-white rounded-full animate-spin"
-									aria-hidden="true"
-								></div>
-								<span>Sending...</span>
-							{:else}
-								Submit
-							{/if}
-						</button>
-					</div>
+				{#if error}
+					<p role="alert" class="text-ember text-sm text-center mt-4">{error}</p>
+				{/if}
+
+				<div class="flex justify-between mt-4">
+					<button
+						type="button"
+						onclick={() => registrationState.prevStep()}
+						class="bg-white/10 hover:bg-white/20 text-bone font-bold py-2 px-6 rounded-md uppercase tracking-wide transition-colors focus-visible:ring-2 focus-visible:ring-crimson/50 outline-none"
+					>
+						Back
+					</button>
+					<button
+					type="submit"
+					disabled={isSubmitting}
+					onclick={() => console.log('Submit button clicked!')}
+					class="w-1/2 bg-crimson hover:bg-ember text-bone font-bold py-2 rounded-md uppercase tracking-wide transition-colors shadow-lg hover:shadow-crimson/30 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 focus-visible:ring-2 focus-visible:ring-crimson/50 outline-none"
+				>
+					{#if isSubmitting}
+						<div
+							class="w-5 h-5 border-2 border-t-transparent border-white rounded-full animate-spin"
+							aria-hidden="true"
+						></div>
+						<span>Sending...</span>
+					{:else}
+						Submit
+					{/if}
+				</button>
 				</div>
 			{/if}
 		</form>

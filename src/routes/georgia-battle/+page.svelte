@@ -19,28 +19,54 @@
 		showModal = true;
 	}
 
-	// Line mappings for each section (approximate line numbers in the bill text)
-	const sectionLines = [
-		0,   // Intro
-		15,  // Preamble
-		45,  // Personhood
-		80,  // Equal Protection
-		110  // Interposition
-	];
+	// Line ranges are commented out for now - highlighting needs refinement
+	// const sectionRanges = [
+	// 	{ start: 9, end: 14 },  // Introduction: Bill title and purpose
+	// 	{ start: 24, end: 28 }, // Legislative Findings: Constitutional provisions
+	// 	{ start: 54, end: 60 }, // Equal Protection: Definition of human being
+	// 	{ start: 70, end: 72 }   // Interposition: Supremacy clause
+	// ];
+
+	// Parse bill text into lines for potential future highlighting
+	const billLines = data.billText.split('\n');
 
 	function scrollBillToLine(sectionIndex: number) {
 		if (!billTextContainer || sectionIndex < 0) return;
-		
+
 		const pre = billTextContainer.querySelector('pre');
 		if (!pre) return;
 
-		// Calculate approximate scroll position based on line number
-		// Assuming ~24px per line
-		const lineHeight = 24;
-		const targetScroll = sectionLines[sectionIndex] * lineHeight;
-		
+		// Get all text nodes in the pre element
+		const textContent = pre.textContent || '';
+		const lines = textContent.split('\n');
+
+		// Find the target line content
+		const targetLineIndex = sectionLines[sectionIndex];
+		if (targetLineIndex >= lines.length) return;
+
+		// Calculate position by measuring from start to target line
+		const tempDiv = document.createElement('div');
+		tempDiv.style.cssText = window.getComputedStyle(pre).cssText;
+		tempDiv.style.position = 'absolute';
+		tempDiv.style.visibility = 'hidden';
+		tempDiv.style.whiteSpace = 'pre-wrap';
+		tempDiv.style.wordWrap = 'break-word';
+		tempDiv.style.width = pre.clientWidth + 'px';
+		document.body.appendChild(tempDiv);
+
+		// Measure cumulative height up to target line
+		let cumulativeHeight = 0;
+		for (let i = 0; i < targetLineIndex; i++) {
+			tempDiv.textContent = lines.slice(0, i + 1).join('\n');
+			cumulativeHeight = tempDiv.clientHeight;
+		}
+
+		document.body.removeChild(tempDiv);
+
+		// Scroll to position with some offset from top
+		const offsetTop = Math.max(0, cumulativeHeight - 100);
 		billTextContainer.scrollTo({
-			top: targetScroll,
+			top: offsetTop,
 			behavior: 'smooth'
 		});
 	}
@@ -172,11 +198,14 @@
 							>
 								Track Bill
 							</a>
-							<div class="ml-auto text-xs font-mono text-parchment-muted">Ln {sectionLines[Math.max(0, activeSection)] || 1}, Col 1</div>
+							<div class="ml-auto text-xs font-mono text-parchment-muted">Ln 1, Col 1</div>
 						</div>
 						<div bind:this={billTextContainer} class="flex-1 overflow-y-auto terminal-scroll p-6 lg:p-8 font-mono text-sm leading-loose bg-void scroll-smooth relative text-parchment/80">
-							<pre class="whitespace-pre-wrap">{data.billText}</pre>
-							<div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to bottom, rgba(10, 9, 8, 0) 20%, rgba(10, 9, 8, 0.8) 80%, rgba(10, 9, 8, 1) 100%);"></div>
+							<div class="whitespace-pre-wrap">
+								{#each billLines as line}
+									<div>{line}</div>
+								{/each}
+							</div>
 						</div>
 					</div>
 				</div>
@@ -193,7 +222,7 @@
 					Expand Text
 				</button>
 			{/if}
-			
+
 			<div class="relative z-10 max-w-3xl mx-auto px-8 py-12 lg:py-24 space-y-32">
 				<div use:observeSection={0} class="min-h-[60vh] flex flex-col justify-center transition-all duration-700 {activeSection === 0 || activeSection === -1 ? 'opacity-100 translate-y-0' : 'opacity-30 translate-y-4'}">
 					<div class="flex items-center gap-4 mb-8">

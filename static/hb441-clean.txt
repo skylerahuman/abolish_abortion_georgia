@@ -1,0 +1,132 @@
+// HB 441 - Georgia Prenatal Equal Protection Act
+// Introduced: Regular Session, 2024
+// Status: Reintroduced as HB 496
+// ----------------------------------------
+
+HOUSE BILL 441
+
+By: Representatives Dunahoo of the 31st, Cameron of the 1st, Byrd of the 20th, Mathis of the 133rd, Kelley of the 16th, and others
+
+A BILL TO BE ENTITLED
+
+AN ACT
+
+To amend Title 16 of the Official Code of Georgia Annotated, relating to crimes and offenses, so as to provide for a coercion defense to a charge of murder for defendant mothers of unborn children; to provide a short title; to provide for a definition; to provide for construction; to provide for exceptions; to provide for concurrent prosecuting authority of the Attorney General and prosecuting attorneys in certain cases; to provide for applicability; to remove exceptions that allow for assault and battery on an unborn child; to amend Code Section 19-7-1 of the Official Code of Georgia Annotated, relating to in whom parental power lies, how such power lost, and recovery for homicide of a child or unborn child, so as to provide for the right to recovery for the life of a child beginning at the stage of fertilization; to provide for related matters; to provide for legislative findings and determinations; to repeal conflicting laws; and for other purposes.
+
+BE IT ENACTED BY THE GENERAL ASSEMBLY OF GEORGIA:
+
+----------------------------------------
+SECTION 1. LEGISLATIVE FINDINGS
+----------------------------------------
+
+The General Assembly finds and determines that:
+
+(1) Article I, Section I, Paragraph I of the Georgia Constitution provides, "No person shall be deprived of life, liberty, or property except by due process of law.";
+
+(2) Article I, Section I, Paragraph II of the Georgia Constitution provides, "Protection to person and property is the paramount duty of government and shall be impartial and complete. No person shall be denied the equal protection of the laws.";
+
+(3) The Fourteenth Amendment to the Constitution of the United States requires that "[n]o state...shall deny to any person within its jurisdiction the equal protection of the laws";
+
+(4) To fulfill such right to life and equal protection requirements, the lives of unborn persons in this state should be protected with the same criminal and civil laws protecting the lives of born persons by removing provisions that enable the commission of willful prenatal homicide and assault; and
+
+(5) Current provisions could be interpreted to allow a person to pressure a pregnant mother to abort her child, and such provisions should be removed.
+
+----------------------------------------
+SECTION 2. COERCION DEFENSE
+----------------------------------------
+
+Title 16 of the Official Code of Georgia Annotated, relating to crimes and offenses, is amended by revising Code Section 16-3-26, relating to coercion, as follows:
+
+"16-3-26.
+
+A person is not guilty of a crime, except murder, if the act upon which the supposed criminal liability is based is performed under such coercion that the person reasonably believes that performing the act is the only way to prevent his imminent death or great bodily injury.
+
+(a) A person is not guilty of a crime if the act upon which the supposed criminal liability is based is performed under such coercion that the person reasonably believes that the performance of the act is the only way to prevent his or her imminent death or great bodily injury.
+
+(b) The defense of coercion provided by subsection (a) of this Code section shall not apply to a charge of murder unless the victim is an unborn child and the defendant is the child's mother."
+
+----------------------------------------
+SECTION 3. GEORGIA PRENATAL EQUAL PROTECTION ACT
+----------------------------------------
+
+Said title is further amended in Article 1 of Chapter 5, relating to homicide, by adding a new Code section to read as follows:
+
+"16-5-6.
+
+(a) This Code section shall be known and may be cited as the 'Georgia Prenatal Equal Protection Act.'
+
+(b) As used in this article, the term 'human being' includes a living human and an unborn child at every stage of development from fertilization until birth.
+
+(c) Enforcement pursuant to this Code section is subject to the same presumptions, defenses, justifications, laws of parties, immunities, and clemencies as would apply to the homicide of a person who had been born alive.
+
+(d) This chapter shall not apply to the unintentional injury or death of an unborn child when resulting from:
+
+    (1) The undertaking of procedures to save the life of a mother when accompanied by reasonable steps, if available, to save the life of her unborn child; or
+
+    (2) A spontaneous miscarriage.
+
+(e) Prosecuting attorneys and the Attorney General shall have concurrent authority to prosecute any criminal cases arising under the provisions of this Code section and to perform any necessary related duty. For purposes of investigating offenses or criminal cases arising under the provisions of this Code section, the Attorney General shall have the authority to employ peace officers.
+
+(f) This Code section prevails over other law to the extent of any conflict.
+
+(g) In accordance with Article I, Section I, Paragraph X of the Georgia Constitution, Article I, Section 9, Clause 3 of the Constitution of the United States, and Code Section 1-3-5, this Code section is prospective only and shall not apply to any act committed prior to the effective date of this Act."
+
+----------------------------------------
+SECTION 4. ASSAULT OF AN UNBORN CHILD
+----------------------------------------
+
+Said title is further amended by revising Code Section 16-5-28, relating to assault on an unborn child, as follows:
+
+"16-5-28.
+
+(a) For the purposes of this Code section, the term 'unborn child' means a member of the species homo sapiens at any stage of development who is carried in the womb.
+
+(b) A person commits the offense of assault of an unborn child when such person, without legal justification, attempts to inflict violent injury to an unborn child.
+
+(c) Any person convicted of the offense of assault of an unborn child shall be guilty of a misdemeanor.
+
+(d) Nothing in this Code section shall be construed to permit the prosecution of:
+
+    (1) Any person for conduct relating to an abortion for which the consent of the pregnant woman, or person authorized by law to act on her behalf, has been obtained or for which such consent is implied by law;
+
+    (2) Any person for any medical treatment of the pregnant woman or her unborn child; or
+
+    (3) A woman with respect to her unborn child."
+
+----------------------------------------
+SECTION 5. BATTERY OF AN UNBORN CHILD
+----------------------------------------
+
+Said title is further amended by revising Code Section 16-5-29, relating to battery of an unborn child, as follows:
+
+"16-5-29.
+
+(a) For the purposes of this Code section, the term 'unborn child' means a member of the species homo sapiens at any stage of development who is carried in the womb.
+
+(b) A person commits the offense of battery of an unborn child when such person, without legal justification, intentionally inflicts physical harm upon an unborn child.
+
+(c) A person convicted of the offense of battery of an unborn child shall be guilty of a misdemeanor.
+
+(d) Nothing in this Code section shall be construed to permit the prosecution of:
+
+    (1) Any person for conduct relating to an abortion for which the consent of the pregnant woman, or person authorized by law to act on her behalf, has been obtained or for which such consent is implied by law;
+
+    (2) Any person for any medical treatment of the pregnant woman or her unborn child; or
+
+    (3) A woman with respect to her unborn child."
+
+----------------------------------------
+SECTION 6. PARENTAL POWER AND RECOVERY
+----------------------------------------
+
+Code Section 19-7-1 of the Official Code of Georgia Annotated, relating to in whom parental power lies, how such power lost, and recovery for homicide of a child or unborn child, is amended by revising paragraph (1) of subsection (c) as follows:
+
+"(c)(1) In every case of the homicide of a child, minor or sui juris, there shall be some party entitled to recover the full value of the life of the child, either as provided in this Code section or as provided in Chapter 4 of Title 51. For the homicide of an unborn child, the right to recover for the full value of the life of such child shall begin at the point at which a detectable human heartbeat, as such term is defined in Code Section 1-2-1, is present at fertilization."
+
+----------------------------------------
+SECTION 7. REPEALER
+----------------------------------------
+
+All laws and parts of laws in conflict with this Act are repealed.
+
+// End of HB 441

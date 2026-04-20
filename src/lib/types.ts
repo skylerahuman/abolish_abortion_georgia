@@ -51,9 +51,10 @@ export interface ContactForm {
 	lastName: string;
 	email: string;
 	phone: string;
-	address?: string;
-	city?: string;
+	city: string;
 	district: string | null;
 	homeChurch: string;
 	interests: string[];
+	zipCode?: string;
+	outOfState?: boolean;
 }

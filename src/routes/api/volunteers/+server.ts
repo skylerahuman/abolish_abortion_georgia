@@ -1,9 +1,7 @@
 import { neon } from '@neondatabase/serverless';
 import { json } from '@sveltejs/kit';
-import { DATABASE_URL } from '$env/static/private';
+import { env } from '$env/dynamic/private';
 import type { RequestHandler } from './$types';
-
-const sql = neon(DATABASE_URL);
 
 // Validate email format
 function isValidEmail(email: string): boolean {
@@ -22,6 +20,10 @@ function sanitizeArray(arr: string[]): string[] {
 }
 
 export const POST: RequestHandler = async ({ request }) => {
+	if (!env.DATABASE_URL) {
+		return json({ error: 'Volunteer registration is not available yet.' }, { status: 503 });
+	}
+	const sql = neon(env.DATABASE_URL);
 	try {
 		const body = await request.json();
 

@@ -1,0 +1,81 @@
+# Local development and deployment
+
+Repository: `skylerahuman/abolish_abortion_georgia` (underscores).
+
+```sh
+npm ci
+npm run dev -- --host 127.0.0.1
+npm run build
+```
+
+Node 22 is used locally and in CI. No secrets are needed to build. Optionally set
+`DATABASE_URL` in a local `.env` for volunteer registration; without it that API
+returns 503 and does not store submissions. No production database is configured.
+
+## Branches
+
+- `dev`: the full existing SvelteKit application at https://dev.endabortionga.org.
+- `prd`: production, initially only `deploy/holding/` at https://endabortionga.org.
+- `main`: preserved historical branch; `prd` is the default branch.
+
+Push work to dev or open a feature PR into dev. Promote by opening a PR **from dev
+into prd**. Only skylerahuman is permitted to update prd; PRs and the `build` check
+are required, including for the owner. Force pushes and branch deletion are blocked.
+No automation merges production PRs. Initial branch bootstrap precedes protection.
+
+## Build and deployment
+
+GitHub-hosted runners build on dev/prd pushes and PRs. The required `build` job
+checks the production PR source, builds SvelteKit and smoke-tests its HTTP server
+and the unavailable database response. The old unit suite runs non-blocking:
+at bootstrap 6 tests fail (stale navigation expectations and missing browser
+IntersectionObserver mock). `npm run check` also has an existing undefined
+`sectionLines` error in georgia-battle. These are not silently considered passing;
+repair them and make those checks blocking before the full public-site launch.
+Existing third-party dependency audit findings also need a separate review.
+
+Push builds upload `site-dev` / `site-prd` artifacts. Production artifacts contain
+only the holding page, never the full application. Changing production to the
+full site requires an explicit change to the package step, host routing and
+reviewed production service configuration, promoted through a dev-to-prd PR.
+
+The VM polls once per minute, selects a successful run of `tests.yml` from this
+repository and the exact current branch HEAD, checks the artifact SHA-256 digest,
+and safely extracts only regular files/directories. It does not execute package
+scripts or artifact deployment scripts. Releases are root-owned and switched by
+atomic symlink. Dev runs as the unprivileged eag-preview user with a health check
+and automatic rollback on failure. PR builds never deploy.
+
+The PAT is held only in a root-only systemd credential source, never in GitHub
+Actions, git, logs or command arguments. The runner never receives VM credentials.
+The host puller is installed independently at `/opt/eag-deploy/pull-release.py`;
+repository changes do not auto-update it. Host configuration is in
+`/home/sky/oci-dev-nixos/eag-cicd.nix` (a snapshot is in `deploy/eag-cicd.nix`).
+
+```sh
+sudo systemctl start eag-deploy.service
+sudo journalctl -u eag-deploy.service -u eag-preview.service -n 50
+sudo systemctl list-timers eag-deploy.timer
+```
+
+Current and previous releases are under `/var/lib/eag-releases/{dev,prd}/`.
+To roll back manually, stop the deploy timer, atomically point `current` at the
+`previous` release, and restart eag-preview for dev. Revert the offending commit
+through the normal branch workflow before restarting the timer. Old releases are
+retained; monitor disk usage and remove only unreferenced release directories.
+
+## DNS and TLS
+
+Point the apex `A` record to this VM; remove stale `AAAA` records unless IPv6 also
+reaches this VM. Ports 80 and 443 must remain reachable. Caddy obtains and renews
+TLS certificates automatically once DNS resolves correctly. Cloudflare DNS-only
+mode is simplest for initial issuance; use Full (strict) if enabling its proxy.
+The existing why.endabortionga.org backend and private admin/data remain untouched.
+The dev host now serves this repository instead of the old EAG frontend.
+
+## Credential rotation
+
+Replace `/var/lib/eag-deploy-secrets/github-token` as root (mode 0600), then restart
+the deploy service. The token needs repository Contents: read and Actions: read
+for polling. Administrative API permissions used during bootstrap are not needed
+by the running puller; replace it with a least-privilege token when convenient.

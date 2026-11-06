@@ -16,12 +16,31 @@ returns 503 and does not store submissions. No production database is configured
 
 - `dev`: the full existing SvelteKit application at https://dev.endabortionga.org.
 - `prd`: production, initially only `deploy/holding/` at https://endabortionga.org.
-- `main`: preserved historical branch; `prd` is the default branch.
+- `main`: preserved historical branch; currently still the GitHub default branch.
 
-Push work to dev or open a feature PR into dev. Promote by opening a PR **from dev
-into prd**. Only skylerahuman is permitted to update prd; PRs and the `build` check
-are required, including for the owner. Force pushes and branch deletion are blocked.
-No automation merges production PRs. Initial branch bootstrap precedes protection.
+**Bootstrap blocker:** the PAT lacks Administration: write. GitHub returned 403
+for protections, rulesets and changing the default branch. Neither branch is
+protected yet. Automatic production promotion is therefore disabled on the VM;
+production serves a locally seeded copy of the reviewed holding page.
+
+Grant the PAT repository Administration: write, then run:
+
+```sh
+node deploy/configure-github.mjs
+# Only after that command succeeds:
+sudo touch /var/lib/eag-deploy-secrets/production-enabled
+sudo systemctl start eag-deploy.service
+```
+
+That command makes `prd` the default and applies two independent policies: PRs
+and the `build` check are mandatory even for administrators, while only the
+repository administrator (currently skylerahuman alone) bypasses the restriction
+on updating prd. Do not grant other people administrator access. Force pushes and
+branch deletion are blocked. No automation merges production PRs. Initial branch
+bootstrap precedes protection.
+
+After protections are configured, push work to dev or open a feature PR into dev.
+Promote by opening a PR **from dev into prd**.
 
 ## Build and deployment
 
@@ -77,5 +96,6 @@ The dev host now serves this repository instead of the old EAG frontend.
 
 Replace `/var/lib/eag-deploy-secrets/github-token` as root (mode 0600), then restart
 the deploy service. The token needs repository Contents: read and Actions: read
-for polling. Administrative API permissions used during bootstrap are not needed
-by the running puller; replace it with a least-privilege token when convenient.
+for polling. Administrative API permissions needed to finish bootstrap are not needed
+by the running puller; replace its credential with a least-privilege token when
+convenient. Keep the production-enabled marker absent until protections succeed.

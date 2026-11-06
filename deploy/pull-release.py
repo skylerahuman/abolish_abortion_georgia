@@ -58,6 +58,9 @@ def select(link, target):
 
 
 def deploy(branch):
+    if branch == 'prd' and not Path('/var/lib/eag-deploy-secrets/production-enabled').is_file():
+        print('prd: automatic promotion disabled pending GitHub branch protections', flush=True)
+        return
     directory = BASE / branch
     directory.mkdir(parents=True, exist_ok=True)
     head = api('branches/' + branch)['commit']['sha']
